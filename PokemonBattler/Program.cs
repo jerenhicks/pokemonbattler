@@ -29,9 +29,7 @@ public class Program
             evSpeed: 0
         );
 
-        magikarp.CalculateStats();
-        magikarp.Level = 50;
-        magikarp.CalculateStats();
+        magikarp.LevelUp(100);
 
         // Display the status of Magikarp
         //magikarp.DisplayStatus();
