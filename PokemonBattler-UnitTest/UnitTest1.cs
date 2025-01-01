@@ -6,6 +6,13 @@ namespace PokemonBattler_UnitTest
 {
     public class UnitTest1
     {
+
+        public UnitTest1()
+        {
+            // Load natures from CSV file
+            NatureRepository.LoadNaturesFromFile("../../../../PokemonBattler/data/natures.csv");
+        }
+
         [Fact]
         public void TestCalculateStats_MaxIVsMaxEVsLevel50()
         {
@@ -14,6 +21,7 @@ namespace PokemonBattler_UnitTest
                 name: "Magikarp",
                 typeOne: "Normal",
                 typeTwo: null,
+                nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
                 baseAtk: 10,
                 baseDef: 55,
@@ -38,9 +46,9 @@ namespace PokemonBattler_UnitTest
 
             // Assert
             Assert.Equal(127, pokemon.HP);
-            Assert.Equal(62, pokemon.Atk);
+            Assert.Equal(68, pokemon.Atk);
             Assert.Equal(75, pokemon.Def);
-            Assert.Equal(35, pokemon.SpAtk);
+            Assert.Equal(31, pokemon.SpAtk);
             Assert.Equal(40, pokemon.SpDef);
             Assert.Equal(100, pokemon.Speed);
         }
@@ -53,6 +61,7 @@ namespace PokemonBattler_UnitTest
                 name: "Magikarp",
                 typeOne: "Normal",
                 typeTwo: null,
+                nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
                 baseAtk: 10,
                 baseDef: 55,
@@ -77,9 +86,9 @@ namespace PokemonBattler_UnitTest
 
             // Assert
             Assert.Equal(244, pokemon.HP);
-            Assert.Equal(119, pokemon.Atk);
+            Assert.Equal(130, pokemon.Atk);
             Assert.Equal(146, pokemon.Def);
-            Assert.Equal(66, pokemon.SpAtk);
+            Assert.Equal(59, pokemon.SpAtk);
             Assert.Equal(76, pokemon.SpDef);
             Assert.Equal(196, pokemon.Speed);
         }
@@ -92,6 +101,7 @@ namespace PokemonBattler_UnitTest
                 name: "Magikarp",
                 typeOne: "Normal",
                 typeTwo: null,
+                nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
                 baseAtk: 10,
                 baseDef: 55,
@@ -116,9 +126,9 @@ namespace PokemonBattler_UnitTest
 
             // Assert
             Assert.Equal(80, pokemon.HP);
-            Assert.Equal(15, pokemon.Atk);
+            Assert.Equal(16, pokemon.Atk);
             Assert.Equal(60, pokemon.Def);
-            Assert.Equal(20, pokemon.SpAtk);
+            Assert.Equal(18, pokemon.SpAtk);
             Assert.Equal(25, pokemon.SpDef);
             Assert.Equal(85, pokemon.Speed);
         }
@@ -131,6 +141,7 @@ namespace PokemonBattler_UnitTest
                 name: "Magikarp",
                 typeOne: "Normal",
                 typeTwo: null,
+                nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
                 baseAtk: 10,
                 baseDef: 55,
@@ -155,9 +166,9 @@ namespace PokemonBattler_UnitTest
 
             // Assert
             Assert.Equal(150, pokemon.HP);
-            Assert.Equal(25, pokemon.Atk);
+            Assert.Equal(27, pokemon.Atk);
             Assert.Equal(115, pokemon.Def);
-            Assert.Equal(35, pokemon.SpAtk);
+            Assert.Equal(31, pokemon.SpAtk);
             Assert.Equal(45, pokemon.SpDef);
             Assert.Equal(165, pokemon.Speed);
         }

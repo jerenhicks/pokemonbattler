@@ -5,6 +5,7 @@ public class Pokemon
     public string Name { get; private set; }
     public string TypeOne { get; private set; }
     public string TypeTwo { get; private set; }
+    public Nature Nature { get; private set; }
 
     public int BaseHP { get; private set; }
     public int BaseAtk { get; private set; }
@@ -36,7 +37,7 @@ public class Pokemon
     public int SpDef { get; private set; }
     public int Speed { get; private set; }
 
-    public Pokemon(string name, string typeOne, string typeTwo, int baseHP, int baseAtk, int baseDef, int baseSpAtk, int baseSpDef, int baseSpeed, int ivHP, int ivAtk, int ivDef, int ivSpAtk, int ivSpDef, int ivSpeed, int evHP, int evAtk, int evDef, int evSpAtk, int evSpDef, int evSpeed)
+    public Pokemon(string name, string typeOne, string typeTwo, Nature nature, int baseHP, int baseAtk, int baseDef, int baseSpAtk, int baseSpDef, int baseSpeed, int ivHP, int ivAtk, int ivDef, int ivSpAtk, int ivSpDef, int ivSpeed, int evHP, int evAtk, int evDef, int evSpAtk, int evSpDef, int evSpeed)
     {
         // Check IVs
         if (ivHP < 0 || ivHP > 31 || ivAtk < 0 || ivAtk > 31 || ivDef < 0 || ivDef > 31 || ivSpAtk < 0 || ivSpAtk > 31 || ivSpDef < 0 || ivSpDef > 31 || ivSpeed < 0 || ivSpeed > 31)
@@ -60,6 +61,7 @@ public class Pokemon
         Name = name;
         TypeOne = typeOne;
         TypeTwo = typeTwo;
+        Nature = nature;
         BaseHP = baseHP;
         BaseAtk = baseAtk;
         BaseDef = baseDef;
@@ -97,11 +99,11 @@ public class Pokemon
     private void CalculateStats()
     {
         HP = (2 * BaseHP + IVHP + EVHP / 4) * Level / 100 + Level + 10;
-        Atk = (int)Math.Floor(Math.Floor((2 * BaseAtk + IVAtk + EVAtk / 4) * Level / 100.0 + 5) * 1);
-        Def = (int)Math.Floor(Math.Floor((2 * BaseDef + IVDef + EVDef / 4) * Level / 100.0 + 5) * 1);
-        SpAtk = (int)Math.Floor(Math.Floor((2 * BaseSpAtk + IVSpAtk + EVSpAtk / 4) * Level / 100.0 + 5) * 1);
-        SpDef = (int)Math.Floor(Math.Floor((2 * BaseSpDef + IVSpDef + EVSpDef / 4) * Level / 100.0 + 5) * 1);
-        Speed = (int)Math.Floor(Math.Floor((2 * BaseSpeed + IVSpeed + EVSpeed / 4) * Level / 100.0 + 5) * 1);
+        Atk = (int)Math.Floor(Math.Floor((2 * BaseAtk + IVAtk + EVAtk / 4) * Level / 100.0 + 5) * Nature.AttackModifier);
+        Def = (int)Math.Floor(Math.Floor((2 * BaseDef + IVDef + EVDef / 4) * Level / 100.0 + 5) * Nature.DefenseModifier);
+        SpAtk = (int)Math.Floor(Math.Floor((2 * BaseSpAtk + IVSpAtk + EVSpAtk / 4) * Level / 100.0 + 5) * Nature.SpecialAttackModifier);
+        SpDef = (int)Math.Floor(Math.Floor((2 * BaseSpDef + IVSpDef + EVSpDef / 4) * Level / 100.0 + 5) * Nature.SpecialDefenseModifier);
+        Speed = (int)Math.Floor(Math.Floor((2 * BaseSpeed + IVSpeed + EVSpeed / 4) * Level / 100.0 + 5) * Nature.SpeedModifier);
     }
 
 

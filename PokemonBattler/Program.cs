@@ -4,11 +4,15 @@ public class Program
 {
     public static void Main()
     {
+        // Load natures from CSV file
+        NatureRepository.LoadNaturesFromFile("data/natures.csv");
+
         // Create a Magikarp Pokemon with level 1 and specified base stats
         Pokemon magikarp = new Pokemon(
             name: "Magikarp",
             typeOne: "Water",
             typeTwo: null,
+            nature: NatureRepository.GetNature("Adamant"),
             baseHP: 20,
             baseAtk: 10,
             baseDef: 55,
