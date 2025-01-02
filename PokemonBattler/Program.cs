@@ -5,7 +5,8 @@ public class Program
     public static void Main()
     {
         // Load natures from CSV file
-        NatureRepository.LoadNaturesFromFile("data/natures.csv");
+        NatureRepository.LoadNaturesFromFile("PokemonBattler/data/natures.csv");
+        TypeRepository.LoadTypesFromFile("PokemonBattler/data/types.csv");
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
         Pokemon magikarp = new Pokemon(
@@ -34,6 +35,25 @@ public class Program
         );
 
         magikarp.LevelUp(100);
+
+        // Example usage
+        var fireType = TypeRepository.GetType("fire");
+        Console.WriteLine($"Type: {fireType.Name}");
+        Console.WriteLine("Super Effective Against:");
+        foreach (var type in fireType.SuperEffectiveAgainst)
+        {
+            Console.WriteLine($"- {type.Name}");
+        }
+        Console.WriteLine("Not Effective Against:");
+        foreach (var type in fireType.NotEffectiveAgainst)
+        {
+            Console.WriteLine($"- {type.Name}");
+        }
+        Console.WriteLine("No Effect Against:");
+        foreach (var type in fireType.NoEffectAgainst)
+        {
+            Console.WriteLine($"- {type.Name}");
+        }
 
         // Display the status of Magikarp
         //magikarp.DisplayStatus();
