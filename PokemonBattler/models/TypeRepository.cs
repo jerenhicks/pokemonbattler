@@ -15,7 +15,7 @@ public static class TypeRepository
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
-                var typeName = values[0];
+                var typeName = values[0].ToLower();
                 if (!Types.ContainsKey(typeName))
                 {
                     Types[typeName] = new Type(typeName);
@@ -62,6 +62,6 @@ public static class TypeRepository
 
     public static Type GetType(string name)
     {
-        return Types[name];
+        return Types[name.ToLower()];
     }
 }

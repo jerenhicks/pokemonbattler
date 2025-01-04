@@ -7,34 +7,14 @@ public class Program
         // Load natures from CSV file
         NatureRepository.LoadNaturesFromFile("PokemonBattler/data/natures.csv");
         TypeRepository.LoadTypesFromFile("PokemonBattler/data/types.csv");
+        PokedexRepository.LoadPokedexFromFile("PokemonBattler/data/pokedex.csv");
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
-        Pokemon magikarp = new Pokemon(
-            name: "Magikarp",
-            typeOne: "Water",
-            typeTwo: null,
-            nature: NatureRepository.GetNature("Adamant"),
-            baseHP: 20,
-            baseAtk: 10,
-            baseDef: 55,
-            baseSpAtk: 15,
-            baseSpDef: 20,
-            baseSpeed: 80,
-            ivHP: 0,
-            ivAtk: 0,
-            ivDef: 0,
-            ivSpAtk: 0,
-            ivSpDef: 0,
-            ivSpeed: 0,
-            evHP: 0,
-            evAtk: 0,
-            evDef: 0,
-            evSpAtk: 0,
-            evSpDef: 0,
-            evSpeed: 0
-        );
+        Pokemon magikarp = PokedexRepository.GetPokemon(129);
 
         magikarp.LevelUp(100);
+
+        magikarp.DisplayStatus();
 
         // Example usage
         var fireType = TypeRepository.GetType("fire");

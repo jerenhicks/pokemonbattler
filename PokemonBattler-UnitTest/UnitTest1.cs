@@ -19,7 +19,8 @@ namespace PokemonBattler_UnitTest
             // Arrange
             var pokemon = new Pokemon(
                 name: "Magikarp",
-                typeOne: "Normal",
+                pokedexNumber: 129,
+                typeOne: TypeRepository.GetType("Water"),
                 typeTwo: null,
                 nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
@@ -59,7 +60,8 @@ namespace PokemonBattler_UnitTest
             // Arrange
             var pokemon = new Pokemon(
                 name: "Magikarp",
-                typeOne: "Normal",
+                pokedexNumber: 129,
+                typeOne: TypeRepository.GetType("Water"),
                 typeTwo: null,
                 nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
@@ -99,7 +101,8 @@ namespace PokemonBattler_UnitTest
             // Arrange
             var pokemon = new Pokemon(
                 name: "Magikarp",
-                typeOne: "Normal",
+                pokedexNumber: 129,
+                typeOne: TypeRepository.GetType("Water"),
                 typeTwo: null,
                 nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,
@@ -139,7 +142,8 @@ namespace PokemonBattler_UnitTest
             // Arrange
             var pokemon = new Pokemon(
                 name: "Magikarp",
-                typeOne: "Normal",
+                pokedexNumber: 129,
+                typeOne: TypeRepository.GetType("Water"),
                 typeTwo: null,
                 nature: NatureRepository.GetNature("Adamant"),
                 baseHP: 20,

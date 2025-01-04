@@ -7,12 +7,12 @@ public static class NatureRepository
 
     public static void AddNature(Nature nature)
     {
-        Natures.Add(nature.Name, nature);
+        Natures.Add(nature.Name.ToLower(), nature);
     }
 
     public static Nature GetNature(string name)
     {
-        return Natures[name];
+        return Natures[name.ToLower()];
     }
 
     public static void LoadNaturesFromFile(string filePath)
@@ -33,7 +33,7 @@ public static class NatureRepository
                 );
                 if (!Natures.ContainsKey(nature.Name))
                 {
-                    Natures.Add(nature.Name, nature);
+                    Natures.Add(nature.Name.ToLower(), nature);
                 }
             }
         }
