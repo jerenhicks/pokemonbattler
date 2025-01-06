@@ -7,6 +7,7 @@ public class Program
         // Load natures from CSV file
         NatureRepository.LoadNaturesFromFile("PokemonBattler/data/natures.csv");
         TypeRepository.LoadTypesFromFile("PokemonBattler/data/types.csv");
+        MoveRepository.LoadMovesFromFile("PokemonBattler/data/moves.csv");
         PokedexRepository.LoadPokedexFromFile("PokemonBattler/data/pokedex.csv");
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
