@@ -1,1 +1,2 @@
 * do something about the secondary types. Either make it none or have it blank. Using null right now. 
+* implement range in the move. 

@@ -26,10 +26,10 @@ public static class MoveRepository
                 var move = new Move(
                     name: values[0],
                     type: TypeRepository.GetType(values[1]),
-                    category: values[2],
+                    category: Enum.Parse<MoveCategory>(values[2], true),
                     pp: int.Parse(values[3]),
                     power: int.Parse(values[4]),
-                    accuracy: decimal.Parse(values[5])
+                    accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5])
                 );
                 if (!Moves.ContainsKey(move.Name))
                 {

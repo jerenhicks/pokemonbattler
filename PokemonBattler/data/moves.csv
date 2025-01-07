@@ -2,3 +2,4 @@
 Tackle,Normal,Physical,35,40,1
 Ice Punch,Ice,Physical,15,75,1
 Slam,Normal,Physical,20,80,0.75
+Struggle,Normal,Physical,1,50,null
