@@ -136,4 +136,14 @@ public class Pokemon
         Level = levelToLevelTo;
         CalculateStats();
     }
+
+    public void BattleReady()
+    {
+        CurrentHP = HP;
+        CurrentAtk = Atk;
+        CurrentDef = Def;
+        CurrentSpAtk = SpAtk;
+        CurrentSpDef = SpDef;
+        CurrentSpeed = Speed;
+    }
 }

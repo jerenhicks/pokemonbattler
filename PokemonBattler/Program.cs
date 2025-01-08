@@ -36,6 +36,13 @@ public class Program
             Console.WriteLine($"- {type.Name}");
         }
 
+        Battle battle = new Battle(magikarp, magikarp);
+        battle.CommenceBattle();
+        foreach (var logEntry in battle.GetBattleLog()) // Updated line
+        {
+            Console.WriteLine(logEntry); // Output each log entry to the console
+        }
+
         // Display the status of Magikarp
         //magikarp.DisplayStatus();
     }

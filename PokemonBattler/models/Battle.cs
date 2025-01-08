@@ -19,19 +19,26 @@ public class Battle
 
     public void CommenceBattle()
     {
+        Pokemon1.BattleReady();
+        Pokemon2.BattleReady();
+
         startTime = DateTime.Now;
         var turn = 0;
         do
         {
             turn++;
             battleLog.Add($"Turn {turn}:");
-            if (Pokemon1.CurrentSpeed >= Pokemon2.CurrentSpeed)
+            if (Pokemon1.CurrentSpeed > Pokemon2.CurrentSpeed)
             {
                 // Pokemon1 attacks first
+                PokemonTurn(Pokemon1, Pokemon2);
+                PokemonTurn(Pokemon2, Pokemon1);
             }
             else if (Pokemon1.CurrentSpeed < Pokemon2.CurrentSpeed)
             {
                 // Pokemon2 attacks first
+                PokemonTurn(Pokemon2, Pokemon1);
+                PokemonTurn(Pokemon1, Pokemon2);
             }
             else
             {
@@ -41,16 +48,20 @@ public class Battle
                 if (randomValue == 0)
                 {
                     // Pokemon1 attacks first
+                    PokemonTurn(Pokemon1, Pokemon2);
+                    PokemonTurn(Pokemon2, Pokemon1);
                 }
                 else
                 {
                     // Pokemon2 attacks first
+                    PokemonTurn(Pokemon2, Pokemon1);
+                    PokemonTurn(Pokemon1, Pokemon2);
                 }
             }
             // Battle logic will be implemented here
             // For now, we will just display the status of both Pokemon
-            Pokemon1.DisplayStatus();
-            Pokemon2.DisplayStatus();
+            //Pokemon1.DisplayStatus();
+            //Pokemon2.DisplayStatus();
 
         } while (turn <= TurnLimit && Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0);
 
@@ -61,20 +72,47 @@ public class Battle
 
     private void PokemonTurn(Pokemon attackingPokemon, Pokemon defendingPokemon)
     {
+        //if the attacking pokemon has no HP left, they can't attack
+        if (attackingPokemon.CurrentHP <= 0)
+        {
+            return;
+        }
+
         //decide what move to pick
+        Move moveToUse;
         //if the pokemon has no moves left, struggle. Or if the pokemon has no PP left for any moves, struggle
         if (attackingPokemon.Moves.Count == 0 || attackingPokemon.Moves.TrueForAll(move => move.PP == 0))
         {
             //struggle
-            Move struggle = MoveRepository.GetMove("struggle");
+            moveToUse = MoveRepository.GetMove("struggle");
 
             //var damage = attackingPokemon.Attack(defendingPokemon);
             //battleLog.Add($"{attackingPokemon.Name} attacks {defendingPokemon.Name} for {damage} damage");
-            return;
         }
         else
         {
-            //for now, do nothing else and just return. We will implement this later
+            //for now, just randomly pick one of the moves listed there. We will implement this later
+            Random random = new Random();
+            int moveIndex = random.Next(attackingPokemon.Moves.Count);
+            moveToUse = attackingPokemon.Moves[moveIndex];
+        }
+        battleLog.Add($"{attackingPokemon.Name} used {moveToUse.Name}");
+
+        var canHit = CanHit(attackingPokemon, defendingPokemon, moveToUse);
+        if (canHit)
+        {
+            //FIXME: obviously come up with the right calculation for damage
+            var damage = 10;
+            defendingPokemon.CurrentHP -= damage;
+            battleLog.Add($"{attackingPokemon.Name} attacks {defendingPokemon.Name} for {damage} damage");
+            if (defendingPokemon.CurrentHP <= 0)
+            {
+                battleLog.Add($"{defendingPokemon.Name} fainted");
+            }
+        }
+        else
+        {
+            battleLog.Add($"{attackingPokemon.Name} missed {defendingPokemon.Name}");
         }
     }
 
