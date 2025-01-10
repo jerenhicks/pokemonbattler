@@ -4,7 +4,7 @@ using System.IO;
 
 public class PokedexRepository
 {
-    private static Dictionary<int, Pokemon> Pokedexes = new Dictionary<int, Pokemon>();
+    private static Dictionary<int, PokemonTemplate> Pokedexes = new Dictionary<int, PokemonTemplate>();
 
     public static void LoadPokedexFromFile(string filePath)
     {
@@ -14,7 +14,7 @@ public class PokedexRepository
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
-                var pokemon = new Pokemon(
+                var template = new PokemonTemplate(
                     name: values[0],
                     pokedexNumber: int.Parse(values[1]),
                     typeOne: values[2].ToLower() == "null" ? null : TypeRepository.GetType(values[2]),
@@ -39,13 +39,13 @@ public class PokedexRepository
                     evSpDef: int.Parse(values[21]),
                     evSpeed: int.Parse(values[22])
                 );
-                Pokedexes[pokemon.PokedexNumber] = pokemon;
+                Pokedexes[template.PokedexNumber] = template;
             }
         }
     }
 
-    public static Pokemon GetPokemon(int pokedexNumber)
+    public static Pokemon CreatePokemon(int pokedexNumber)
     {
-        return Pokedexes.ContainsKey(pokedexNumber) ? Pokedexes[pokedexNumber] : null;
+        return Pokedexes.ContainsKey(pokedexNumber) ? new Pokemon(Pokedexes[pokedexNumber]) : null;
     }
 }

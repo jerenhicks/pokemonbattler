@@ -11,11 +11,12 @@ public class Program
         PokedexRepository.LoadPokedexFromFile("PokemonBattler/data/pokedex.csv");
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
-        Pokemon magikarp = PokedexRepository.GetPokemon(129);
+        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129);
+        Pokemon magikarp2 = PokedexRepository.CreatePokemon(129);
 
-        magikarp.LevelUp(100);
+        magikarp1.LevelUp(100);
 
-        magikarp.DisplayStatus();
+        magikarp1.DisplayStatus();
 
         // Example usage
         var fireType = TypeRepository.GetType("fire");
@@ -36,7 +37,7 @@ public class Program
             Console.WriteLine($"- {type.Name}");
         }
 
-        Battle battle = new Battle(magikarp, magikarp);
+        Battle battle = new Battle(magikarp1, magikarp2);
         battle.CommenceBattle();
         foreach (var logEntry in battle.GetBattleLog()) // Updated line
         {

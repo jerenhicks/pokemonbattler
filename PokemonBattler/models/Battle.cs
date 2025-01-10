@@ -96,15 +96,15 @@ public class Battle
             int moveIndex = random.Next(attackingPokemon.Moves.Count);
             moveToUse = attackingPokemon.Moves[moveIndex];
         }
-        battleLog.Add($"{attackingPokemon.Name} used {moveToUse.Name}");
+        battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {moveToUse.Name}");
 
         var canHit = CanHit(attackingPokemon, defendingPokemon, moveToUse);
         if (canHit)
         {
             //FIXME: obviously come up with the right calculation for damage
-            var damage = 10;
+            var damage = CalculateDamage(attackingPokemon, defendingPokemon, moveToUse);
             defendingPokemon.CurrentHP -= damage;
-            battleLog.Add($"{attackingPokemon.Name} attacks {defendingPokemon.Name} for {damage} damage");
+            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage} damage");
             if (defendingPokemon.CurrentHP <= 0)
             {
                 battleLog.Add($"{defendingPokemon.Name} fainted");
@@ -112,7 +112,7 @@ public class Battle
         }
         else
         {
-            battleLog.Add($"{attackingPokemon.Name} missed {defendingPokemon.Name}");
+            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) missed {defendingPokemon.Name}({defendingPokemon.ID})");
         }
     }
 
@@ -163,5 +163,63 @@ public class Battle
     public int GetAffection(Pokemon attack, Pokemon defender, Move move)
     {
         return 0;
+    }
+
+    public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    {
+        var categoryDamage = 0;
+        var BurnStatus = 1;
+
+        var TargetsStatus = 1;
+        var WeatherStatus = 1;
+
+        var CriticalHitStatus = 1;
+
+        var PBStatus = 1;
+        var GlaiveRushStatus = 1;
+        var OtherStatus = 1;
+        var ZMoveStatus = 1;
+        var TeraShieldStatus = 1;
+
+        Random random = new Random();
+        var RandomStatus = random.Next(85, 101) / 100.0;
+
+        var STABStatus = 1.0;
+        if (move.Name != "Struggle")
+        {
+            if (attacker.TypeOne == move.Type || attacker.TypeTwo == move.Type)
+            {
+                STABStatus = 1.5;
+            }
+
+        }
+
+        var Type1Status = 1;
+        if (move.Name != "Struggle")
+        {
+            var effectivenessType1 = move.Type.GetEffectiveness(defender.TypeOne, defender.TypeTwo);
+            //var effectivenessType2 = move.Type.GetEffectiveness(defender.TypeTwo);
+            //FIXME: obviously come up with the right calculation for damage
+        }
+
+        if (move.Category == MoveCategory.Physical)
+        {
+            categoryDamage = (attacker.Atk / defender.Def);
+        }
+        else if (move.Category == MoveCategory.Special)
+        {
+            categoryDamage = (attacker.SpAtk / defender.SpDef);
+        }
+
+        var initialDamage = (((2 * attacker.Level / 5 + 2) * move.Power * categoryDamage) / 50) + 2;
+        var secondEffects = initialDamage * TargetsStatus * PBStatus * WeatherStatus * GlaiveRushStatus * CriticalHitStatus * RandomStatus * STABStatus * Type1Status * BurnStatus * OtherStatus * ZMoveStatus * TeraShieldStatus;
+
+
+        if (secondEffects == 0)
+        {
+            secondEffects = 1;
+        }
+        //FIXME: THIS IS PROBABLY NOT RIGHT
+        return (int)secondEffects;
     }
 }

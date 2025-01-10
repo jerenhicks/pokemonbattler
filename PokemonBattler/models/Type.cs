@@ -14,4 +14,12 @@ public class Type
         NotEffectiveAgainst = new List<Type>();
         NoEffectAgainst = new List<Type>();
     }
+
+    public int GetEffectiveness(Type type1, Type type2)
+    {
+        var effectivenessStage = 0;
+
+
+        return 1;
+    }
 }
