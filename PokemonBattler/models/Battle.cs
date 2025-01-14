@@ -27,7 +27,7 @@ public class Battle
         do
         {
             turn++;
-            battleLog.Add($"Turn {turn}:");
+            battleLog.Add($"Turn {turn}: Pokemon1: {Pokemon1.Name} HP: {Pokemon1.CurrentHP}/{Pokemon1.HP} Pokemon2: {Pokemon2.Name} HP: {Pokemon2.CurrentHP}/{Pokemon2.HP}");
             if (Pokemon1.CurrentSpeed > Pokemon2.CurrentSpeed)
             {
                 // Pokemon1 attacks first
@@ -103,8 +103,12 @@ public class Battle
         {
             //FIXME: obviously come up with the right calculation for damage
             var damage = CalculateDamage(attackingPokemon, defendingPokemon, moveToUse);
-            defendingPokemon.CurrentHP -= damage;
-            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage} damage");
+            defendingPokemon.CurrentHP -= damage.Item1;
+            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
+            if (damage.Item2)
+            {
+                battleLog.Add("A Critical Hit!");
+            }
             if (defendingPokemon.CurrentHP <= 0)
             {
                 battleLog.Add($"{defendingPokemon.Name} fainted");
@@ -165,7 +169,7 @@ public class Battle
         return 0;
     }
 
-    public int CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
         var categoryDamage = 0;
         var BurnStatus = 1;
@@ -175,6 +179,7 @@ public class Battle
 
         var CriticalHitStatus = 1;
 
+
         var PBStatus = 1;
         var GlaiveRushStatus = 1;
         var OtherStatus = 1;
@@ -183,6 +188,30 @@ public class Battle
 
         Random random = new Random();
         var RandomStatus = random.Next(85, 101) / 100.0;
+
+        var criticalStage = 0;
+        var randomNumber = 0;
+        if (criticalStage == 0)
+        {
+            randomNumber = random.Next(1, 25);
+        }
+        else if (criticalStage == 1)
+        {
+            randomNumber = random.Next(1, 9);
+        }
+        else if (criticalStage == 2)
+        {
+            randomNumber = random.Next(1, 3);
+        }
+        else if (criticalStage >= 3)
+        {
+            randomNumber = random.Next(1, 1);
+        }
+
+        if (randomNumber == 1) // 1/24 chance
+        {
+            CriticalHitStatus = 2; // Critical hit doubles the damage
+        }
 
         var STABStatus = 1.0;
         if (move.Name != "Struggle")
@@ -220,6 +249,6 @@ public class Battle
             secondEffects = 1;
         }
         //FIXME: THIS IS PROBABLY NOT RIGHT
-        return (int)secondEffects;
+        return ((int)secondEffects, CriticalHitStatus == 2);
     }
 }

@@ -15,8 +15,9 @@ public class Program
         Pokemon magikarp2 = PokedexRepository.CreatePokemon(129);
 
         magikarp1.LevelUp(100);
+        magikarp2.LevelUp(100);
 
-        magikarp1.DisplayStatus();
+        //magikarp1.DisplayStatus();
 
         // Example usage
         var fireType = TypeRepository.GetType("fire");
