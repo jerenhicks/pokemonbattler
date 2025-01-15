@@ -135,11 +135,13 @@ public class Battle
         //check if the move hits
         //for now, we will just return true
         var accuracyModified = move.Accuracy * GetAccuracyModifiers(attacker, defender, move) * GetAdjustedStages(attacker, defender, move) * GetMiracleBerry(attacker, defender, move) - GetAffection(attacker, defender, move);
+        //FIXME: PROBABLY NOT RIGHT HERE, but maybe????
+        var accuracy = accuracyModified * 100;
         //need a number between 1 and 100
         Random random = new Random();
         int randomNumber = random.Next(1, 101);
 
-        if (randomNumber <= accuracyModified)
+        if (randomNumber <= accuracy)
         {
             return true;
         }
@@ -171,7 +173,7 @@ public class Battle
 
     public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
     {
-        var categoryDamage = 0;
+        double categoryDamage = 0;
         var BurnStatus = 1;
 
         var TargetsStatus = 1;
@@ -233,14 +235,16 @@ public class Battle
 
         if (move.Category == MoveCategory.Physical)
         {
-            categoryDamage = (attacker.Atk / defender.Def);
+            //FIXME: THIS IS WRONG, THIS WILL BE 0 SINCE IT'S DOING INT DIVISION.
+            categoryDamage = (double)attacker.CurrentAtk / defender.CurrentDef;
         }
         else if (move.Category == MoveCategory.Special)
         {
-            categoryDamage = (attacker.SpAtk / defender.SpDef);
+            //FIXME: THIS IS WRONG, THIS WILL BE 0 SINCE IT'S DOING INT DIVISION.
+            categoryDamage = (double)attacker.CurrentSpAtk / defender.CurrentSpDef;
         }
 
-        var initialDamage = (((2 * attacker.Level / 5 + 2) * move.Power * categoryDamage) / 50) + 2;
+        double initialDamage = (((2 * attacker.Level / 5 + 2) * move.Power * categoryDamage) / 50) + 2;
         var secondEffects = initialDamage * TargetsStatus * PBStatus * WeatherStatus * GlaiveRushStatus * CriticalHitStatus * RandomStatus * STABStatus * Type1Status * BurnStatus * OtherStatus * ZMoveStatus * TeraShieldStatus;
 
 

@@ -12,10 +12,18 @@ public class Program
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
         Pokemon magikarp1 = PokedexRepository.CreatePokemon(129);
-        Pokemon magikarp2 = PokedexRepository.CreatePokemon(129);
+        Pokemon galvantula = PokedexRepository.CreatePokemon(596);
 
         magikarp1.LevelUp(100);
-        magikarp2.LevelUp(100);
+        magikarp1.AddMove(MoveRepository.GetMove("pound"));
+        magikarp1.AddMove(MoveRepository.GetMove("tackle"));
+        magikarp1.AddMove(MoveRepository.GetMove("Slam"));
+        magikarp1.AddMove(MoveRepository.GetMove("Ice Punch"));
+        galvantula.LevelUp(100);
+        galvantula.AddMove(MoveRepository.GetMove("pound"));
+        galvantula.AddMove(MoveRepository.GetMove("tackle"));
+        galvantula.AddMove(MoveRepository.GetMove("Slam"));
+        galvantula.AddMove(MoveRepository.GetMove("Ice Punch"));
 
         //magikarp1.DisplayStatus();
 
@@ -38,7 +46,7 @@ public class Program
             Console.WriteLine($"- {type.Name}");
         }
 
-        Battle battle = new Battle(magikarp1, magikarp2);
+        Battle battle = new Battle(magikarp1, galvantula);
         battle.CommenceBattle();
         foreach (var logEntry in battle.GetBattleLog()) // Updated line
         {

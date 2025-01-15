@@ -128,4 +128,13 @@ public class Pokemon
         CurrentSpDef = SpDef;
         CurrentSpeed = Speed;
     }
+
+    //FIXME: should maybe error catch to prevent more than 4? Tell someone it didn't work. Throw an exception?
+    public void AddMove(Move move)
+    {
+        if (Moves.Count < 4)
+        {
+            Moves.Add(move);
+        }
+    }
 }
