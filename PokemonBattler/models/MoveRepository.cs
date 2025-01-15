@@ -31,7 +31,7 @@ public static class MoveRepository
                     power: int.Parse(values[4]),
                     accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5])
                 );
-                if (!Moves.ContainsKey(move.Name))
+                if (!Moves.ContainsKey(move.Name.ToLower()))
                 {
                     Moves.Add(move.Name.ToLower(), move);
                 }

@@ -12,7 +12,7 @@ water,2:ground/rock/fire,.5:water/grass/dragon
 grass,2:ground/rock/water,.5:flying/poison/bug/steel/fire/grass/dragon
 electric,2:flying/water,.5:grass/electric/dragon,0:ground
 psychic,2:fighting/poison,.5:steel/psychic,0:dark
-ice,2:flying/rock/grass/dragon,.5:steel/fire/water/ice
+ice,2:flying/ground/grass/dragon,.5:steel/fire/water/ice
 dragon,2:ice,.5:steel,0:fairy
 dark,2:ghost/psychic,.5:fighting/dark/fairy
 fairy,2:fighting/dragon/dark,.5:poison/steel/fire

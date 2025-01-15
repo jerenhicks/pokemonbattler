@@ -31,7 +31,7 @@ public static class NatureRepository
                     specialDefenseModifier: double.Parse(values[4]),
                     speedModifier: double.Parse(values[5])
                 );
-                if (!Natures.ContainsKey(nature.Name))
+                if (!Natures.ContainsKey(nature.Name.ToLower()))
                 {
                     Natures.Add(nature.Name.ToLower(), nature);
                 }

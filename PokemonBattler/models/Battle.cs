@@ -171,7 +171,7 @@ public class Battle
         return 0;
     }
 
-    public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move)
+    public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
     {
         double categoryDamage = 0;
         var BurnStatus = 1;
@@ -210,7 +210,7 @@ public class Battle
             randomNumber = random.Next(1, 1);
         }
 
-        if (randomNumber == 1) // 1/24 chance
+        if (randomNumber == 1 && criticalOverride == 0) // 1/24 chance
         {
             CriticalHitStatus = 2; // Critical hit doubles the damage
         }
@@ -225,22 +225,18 @@ public class Battle
 
         }
 
-        var Type1Status = 1;
+        var Type1Status = 1.0;
         if (move.Name != "Struggle")
         {
-            var effectivenessType1 = move.Type.GetEffectiveness(defender.TypeOne, defender.TypeTwo);
-            //var effectivenessType2 = move.Type.GetEffectiveness(defender.TypeTwo);
-            //FIXME: obviously come up with the right calculation for damage
+            Type1Status = move.Type.GetEffectiveness(defender.TypeOne, defender.TypeTwo);
         }
 
         if (move.Category == MoveCategory.Physical)
         {
-            //FIXME: THIS IS WRONG, THIS WILL BE 0 SINCE IT'S DOING INT DIVISION.
             categoryDamage = (double)attacker.CurrentAtk / defender.CurrentDef;
         }
         else if (move.Category == MoveCategory.Special)
         {
-            //FIXME: THIS IS WRONG, THIS WILL BE 0 SINCE IT'S DOING INT DIVISION.
             categoryDamage = (double)attacker.CurrentSpAtk / defender.CurrentSpDef;
         }
 
