@@ -159,4 +159,30 @@ public class PokemonTest : IClassFixture<TestFixture>
             PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), 0, 0, 0, 0, 0, 0, 100, 100, 100, 100, 100, 11);
         });
     }
+
+    [Fact]
+    public void TestAddMovesToMagikarp()
+    {
+        // Create two Magikarps and set their levels to 100
+        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
+        Pokemon magikarp2 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
+
+        magikarp1.LevelUp(100);
+        magikarp2.LevelUp(100);
+
+        // Add 4 moves to Magikarp 2
+        magikarp2.AddMove(MoveRepository.GetMove("pound"));
+        magikarp2.AddMove(MoveRepository.GetMove("tackle"));
+        magikarp2.AddMove(MoveRepository.GetMove("slam"));
+        magikarp2.AddMove(MoveRepository.GetMove("ice punch"));
+
+        // Check that Magikarp 1 has 0 moves and Magikarp 2 has 4 moves
+        Assert.Equal(0, magikarp1.Moves.Count);
+        Assert.Equal(4, magikarp2.Moves.Count);
+
+        magikarp1.AddMove(MoveRepository.GetMove("pound"));
+
+        Assert.Equal(1, magikarp1.Moves.Count);
+        Assert.Equal(4, magikarp2.Moves.Count);
+    }
 }

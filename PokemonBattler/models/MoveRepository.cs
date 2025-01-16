@@ -12,7 +12,7 @@ public static class MoveRepository
 
     public static Move GetMove(string name)
     {
-        return Moves[name.ToLower()];
+        return Moves[name.ToLower()].Clone();
     }
 
     public static void LoadMovesFromFile(string filePath)

@@ -16,4 +16,14 @@ public class Move
         Power = power;
         Accuracy = accuracy;
     }
+
+    public Move Clone()
+    {
+        return new Move(Name, Type, Category, PP, Power, Accuracy);
+    }
+
+    public void MoveUsed()
+    {
+        PP--;
+    }
 }
