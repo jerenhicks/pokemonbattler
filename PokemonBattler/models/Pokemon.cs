@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 public class Pokemon
 {
@@ -48,13 +49,13 @@ public class Pokemon
 
     public List<Move> Moves { get; set; } = new List<Move>();
 
-    public Pokemon(PokemonTemplate template)
+    public Pokemon(PokemonTemplate template, Nature nature, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0)
     {
         Name = template.Name;
         PokedexNumber = template.PokedexNumber;
         TypeOne = template.TypeOne;
         TypeTwo = template.TypeTwo;
-        Nature = template.Nature;
+        Nature = nature;
         BaseHP = template.BaseHP;
         BaseAtk = template.BaseAtk;
         BaseDef = template.BaseDef;
@@ -62,22 +63,39 @@ public class Pokemon
         BaseSpDef = template.BaseSpDef;
         BaseSpeed = template.BaseSpeed;
         Level = 1;
-        IVHP = template.IVHP;
-        IVAtk = template.IVAtk;
-        IVDef = template.IVDef;
-        IVSpAtk = template.IVSpAtk;
-        IVSpDef = template.IVSpDef;
-        IVSpeed = template.IVSpeed;
-        EVHP = template.EVHP;
-        EVAtk = template.EVAtk;
-        EVDef = template.EVDef;
-        EVSpAtk = template.EVSpAtk;
-        EVSpDef = template.EVSpDef;
-        EVSpeed = template.EVSpeed;
-        if (template.Moves != null)
+
+        // Check IVs
+        if (ivhp < 0 || ivhp > 31 || ivAtk < 0 || ivAtk > 31 || ivDef < 0 || ivDef > 31 || ivSpAtk < 0 || ivSpAtk > 31 || ivSpDef < 0 || ivSpDef > 31 || ivSpeed < 0 || ivSpeed > 31)
         {
-            Moves = template.Moves;
+            throw new ArgumentException("IV stats must be between 0 and 31.");
         }
+
+        // Check EVs
+        if (evHP < 0 || evHP > 252 || evAtk < 0 || evAtk > 252 || evDef < 0 || evDef > 252 || evSpAtk < 0 || evSpAtk > 252 || evSpDef < 0 || evSpDef > 252 || evSpeed < 0 || evSpeed > 252)
+        {
+            throw new ArgumentException("EV stats must be between 0 and 252.");
+        }
+
+        // Check total EVs
+        int totalEVs = evHP + evAtk + evDef + evSpAtk + evSpDef + evSpeed;
+        if (totalEVs > 510)
+        {
+            throw new ArgumentException("Total EV stats must not exceed 510.");
+        }
+
+        IVHP = ivhp;
+        IVAtk = ivAtk;
+        IVDef = ivDef;
+        IVSpAtk = ivSpAtk;
+        IVSpDef = ivSpDef;
+        IVSpeed = ivSpeed;
+
+        EVHP = evHP;
+        EVAtk = evAtk;
+        EVDef = evDef;
+        EVSpAtk = evSpAtk;
+        EVSpDef = evSpDef;
+        EVSpeed = evSpeed;
 
         CalculateStats();
     }

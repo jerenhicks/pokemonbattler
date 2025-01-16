@@ -11,8 +11,8 @@ public class Program
         PokedexRepository.LoadPokedexFromFile("PokemonBattler/data/pokedex.csv");
 
         // Create a Magikarp Pokemon with level 1 and specified base stats
-        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129);
-        Pokemon galvantula = PokedexRepository.CreatePokemon(596);
+        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
+        Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"));
 
         magikarp1.LevelUp(100);
         magikarp1.AddMove(MoveRepository.GetMove("pound"));
