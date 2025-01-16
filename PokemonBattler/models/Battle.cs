@@ -40,13 +40,29 @@ public class Battle
 
             if (whoGoesFirst == 1)
             {
-                PokemonTurn(Pokemon1, move1, Pokemon2);
-                PokemonTurn(Pokemon2, move2, Pokemon1);
+                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                {
+                    PokemonTurn(Pokemon1, move1, Pokemon2);
+                    CheckFainted(Pokemon1, Pokemon2);
+                }
+                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                {
+                    PokemonTurn(Pokemon2, move2, Pokemon1);
+                    CheckFainted(Pokemon1, Pokemon2);
+                }
             }
             else
             {
-                PokemonTurn(Pokemon2, move2, Pokemon1);
-                PokemonTurn(Pokemon1, move1, Pokemon2);
+                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                {
+                    PokemonTurn(Pokemon2, move2, Pokemon1);
+                    CheckFainted(Pokemon1, Pokemon2);
+                }
+                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                {
+                    PokemonTurn(Pokemon1, move1, Pokemon2);
+                    CheckFainted(Pokemon1, Pokemon2);
+                }
             }
 
 
@@ -59,44 +75,42 @@ public class Battle
 
     private void PokemonTurn(Pokemon attackingPokemon, Move attackerMove, Pokemon defendingPokemon)
     {
-        //FIXME: we need this?
-        //if the attacking pokemon has no HP left, they can't attack
-        if (attackingPokemon.CurrentHP <= 0)
-        {
-            return;
-        }
+        battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
 
-        //decide what move to pick
-        Move moveToUse = attackerMove;
-
-        battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {moveToUse.Name}");
-
-        var canHit = CanHit(attackingPokemon, defendingPokemon, moveToUse);
+        var canHit = CanHit(attackingPokemon, defendingPokemon, attackerMove);
         if (canHit)
         {
-            //FIXME: obviously come up with the right calculation for damage
-            var damage = CalculateDamage(attackingPokemon, defendingPokemon, moveToUse);
+            var damage = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
             defendingPokemon.CurrentHP -= damage.Item1;
             battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
             if (damage.Item2)
             {
                 battleLog.Add("A Critical Hit!");
             }
-            if (defendingPokemon.CurrentHP <= 0)
-            {
-                battleLog.Add($"{defendingPokemon.Name} fainted");
-            }
+
         }
         else
         {
             battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) missed {defendingPokemon.Name}({defendingPokemon.ID})");
+        }
+        attackerMove.MoveUsed();
+    }
+
+    public void CheckFainted(Pokemon pokemon1, Pokemon pokemon2)
+    {
+        if (pokemon1.CurrentHP <= 0)
+        {
+            battleLog.Add($"{pokemon1.Name} fainted!");
+        }
+        if (pokemon2.CurrentHP <= 0)
+        {
+            battleLog.Add($"{pokemon2.Name} fainted!");
         }
     }
 
     public Move PokemonDecideMove(Pokemon pokemon)
     {
         var moveToUse = MoveRepository.GetMove("struggle");
-
 
         if (pokemon.Moves.Count != 0 && pokemon.Moves.TrueForAll(move => move.PP != 0))
         {

@@ -194,4 +194,68 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.True(result == 1 || result == 2); // Random decision
     }
 
+    [Fact]
+    public void TestGetAccuracyModifiers()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(attacker, defender);
+        var move = MoveRepository.GetMove("tackle");
+
+        // Act
+        var result = battle.GetAccuracyModifiers(attacker, defender, move);
+
+        // Assert
+        Assert.Equal(1, result); // Assuming the default implementation returns 1
+    }
+
+    [Fact]
+    public void TestGetAdjustedStages()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(attacker, defender);
+        var move = MoveRepository.GetMove("tackle");
+
+        // Act
+        var result = battle.GetAdjustedStages(attacker, defender, move);
+
+        // Assert
+        Assert.Equal(1, result); // Assuming the default implementation returns 1
+    }
+
+    [Fact]
+    public void TestGetMiracleBerry()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(attacker, defender);
+        var move = MoveRepository.GetMove("tackle");
+
+        // Act
+        var result = battle.GetMiracleBerry(attacker, defender, move);
+
+        // Assert
+        Assert.Equal(1, result); // Assuming the default implementation returns 1
+    }
+
+    [Fact]
+    public void TestGetAffection()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(attacker, defender);
+        var move = MoveRepository.GetMove("tackle");
+
+        // Act
+        var result = battle.GetAffection(attacker, defender, move);
+
+        // Assert
+        Assert.Equal(0, result); // Assuming the default implementation returns 0
+    }
+
 }

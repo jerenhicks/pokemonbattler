@@ -1,14 +1,13 @@
 using Xunit;
 
-public class MoveTest
+public class MoveTest : IClassFixture<TestFixture>
 {
-    public MoveTest()
+
+    private readonly TestFixture _fixture;
+
+    public MoveTest(TestFixture fixture)
     {
-        // Load necessary data from CSV files
-        NatureRepository.LoadNaturesFromFile("../../../../PokemonBattler/data/natures.csv");
-        TypeRepository.LoadTypesFromFile("../../../../PokemonBattler/data/types.csv");
-        MoveRepository.LoadMovesFromFile("../../../../PokemonBattler/data/moves.csv");
-        PokedexRepository.LoadPokedexFromFile("../../../../PokemonBattler/data/pokedex.csv");
+        _fixture = fixture;
     }
 
     [Fact]
