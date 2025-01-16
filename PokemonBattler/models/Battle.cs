@@ -236,7 +236,11 @@ public class Battle
     public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
     {
         double categoryDamage = 0;
-        var BurnStatus = 1;
+        var BurnStatus = 1.0;
+        if (attacker.NonVolatileStatus == NonVolatileStatus.Burn && move.Category == MoveCategory.Physical)
+        {
+            BurnStatus = 0.5;
+        }
 
         var TargetsStatus = 1;
         var WeatherStatus = 1;

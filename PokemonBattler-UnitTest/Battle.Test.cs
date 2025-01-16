@@ -13,7 +13,7 @@ public class BattleTest : IClassFixture<TestFixture>
     }
 
     [Fact]
-    public void TestDamage()
+    public void TestDamagePhysicalAttack()
     {
         Pokemon glaceon = PokedexRepository.CreatePokemon(471, NatureRepository.GetNature("adamant"));
         Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
@@ -30,6 +30,70 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.False(result.Item2);
         //now let's make sure the damage is within the expected range
         Assert.InRange(result.Item1, 205, 242);
+    }
+
+    [Fact]
+    public void TestDamageSpecialAttack()
+    {
+        // Pokemon glaceon = PokedexRepository.CreatePokemon(471, NatureRepository.GetNature("adamant"));
+        // Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
+
+        // glaceon.LevelUp(100);
+        // garchomp.LevelUp(100);
+
+        // glaceon.AddMove(MoveRepository.GetMove("ice fang"));
+
+        // Battle battle = new Battle(glaceon, garchomp);
+        // var result = battle.CalculateDamage(glaceon, garchomp, glaceon.Moves[0], 1);
+
+        // //first let's make sure a critical didn't happen, we turned those off.
+        // Assert.False(result.Item2);
+        // //now let's make sure the damage is within the expected range
+        // Assert.InRange(result.Item1, 205, 242);
+    }
+
+    [Fact]
+    public void TestDamageWithBurnAndPhysicalAttack()
+    {
+        Pokemon glaceon = PokedexRepository.CreatePokemon(471, NatureRepository.GetNature("adamant"));
+        Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
+
+        glaceon.LevelUp(100);
+        garchomp.LevelUp(100);
+
+        glaceon.AddMove(MoveRepository.GetMove("ice fang"));
+        glaceon.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+        Battle battle = new Battle(glaceon, garchomp);
+        var result = battle.CalculateDamage(glaceon, garchomp, glaceon.Moves[0], 1);
+
+        //first let's make sure a critical didn't happen, we turned those off.
+        Assert.False(result.Item2);
+        //now let's make sure the damage is within the expected range
+        Assert.InRange(result.Item1, 102, 121);
+    }
+
+    [Fact]
+    public void TestDamageWithBurnAndSpecialAttack()
+    {
+        // Pokemon glaceon = PokedexRepository.CreatePokemon(471, NatureRepository.GetNature("adamant"));
+        // Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
+
+        // glaceon.LevelUp(100);
+        // garchomp.LevelUp(100);
+
+        // glaceon.AddMove(MoveRepository.GetMove("ice fang"));
+        // glaceon.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+        // Battle battle = new Battle(glaceon, garchomp);
+        // var result = battle.CalculateDamage(glaceon, garchomp, glaceon.Moves[0], 1);
+
+        // //first let's make sure a critical didn't happen, we turned those off.
+        // Assert.False(result.Item2);
+        // //now let's make sure the damage is within the expected range
+        // Assert.InRange(result.Item1, 102, 121);
+
+        //FIXME: run calculations here, build a special move, and reactivate this.
     }
 
     [Fact]
