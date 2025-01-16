@@ -1,6 +1,7 @@
-﻿Pound,Normal,Physical,35,40,1
-Tackle,Normal,Physical,35,40,1
-Ice Punch,Ice,Physical,15,75,1
-Slam,Normal,Physical,20,80,0.75
-Struggle,Normal,Physical,1,50,null
-Ice Fang,Ice,Physical,15,65,0.95
+﻿Pound,Normal,Physical,35,40,1,0,true,true,false,false,true,true
+Tackle,Normal,Physical,35,40,1,0,true,true,false,false,true,true
+Ice Punch,Ice,Physical,15,75,1,0,true,true,false,false,true,true
+Slam,Normal,Physical,20,80,0.75,0,true,true,false,false,true,true
+Struggle,Normal,Physical,1,50,null,0,true,true,false,false,false,true
+Ice Fang,Ice,Physical,15,65,0.95,0,true,true,false,false,true,false
+Quick Attack,Normal,Physical,30,40,1,1,true,true,false,false,true,true

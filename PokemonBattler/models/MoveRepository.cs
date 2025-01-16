@@ -29,7 +29,14 @@ public static class MoveRepository
                     category: Enum.Parse<MoveCategory>(values[2], true),
                     pp: int.Parse(values[3]),
                     power: int.Parse(values[4]),
-                    accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5])
+                    accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5]),
+                    priority: int.Parse(values[6]),
+                    makesContact: bool.Parse(values[7]),
+                    affectedByProtect: bool.Parse(values[8]),
+                    affectedByMagicCoat: bool.Parse(values[9]),
+                    affectedBySnatch: bool.Parse(values[10]),
+                    affectedByMirrorMove: bool.Parse(values[11]),
+                    affectedByKingsRock: bool.Parse(values[12])
                 );
                 if (!Moves.ContainsKey(move.Name.ToLower()))
                 {

@@ -17,7 +17,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MaxIVsMaxEVsLevel50()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), 31, 31, 31, 31, 31, 31, 255, 255, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
 
         pokemon.LevelUp(50);
 
@@ -32,7 +32,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MaxIVsMaxEVsLevel100()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), 31, 31, 31, 31, 31, 31, 255, 255, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
 
         pokemon.LevelUp(100);
 

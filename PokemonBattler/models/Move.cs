@@ -6,8 +6,15 @@ public class Move
     public int PP { get; private set; }
     public int Power { get; private set; }
     public decimal? Accuracy { get; private set; }
+    public int Priority { get; private set; }
+    public bool MakesContact { get; private set; }
+    public bool AffectedByProtect { get; private set; }
+    public bool AffectedByMagicCoat { get; private set; }
+    public bool AffectedBySnatch { get; private set; }
+    public bool AffectedByMirrorMove { get; private set; }
+    public bool AffectedByKingsRock { get; private set; }
 
-    public Move(string name, Type type, MoveCategory category, int pp, int power, decimal? accuracy)
+    public Move(string name, Type type, MoveCategory category, int pp, int power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool affectedByMagicCoat, bool affectedBySnatch, bool affectedByMirrorMove, bool affectedByKingsRock)
     {
         Name = name;
         Type = type;
@@ -15,11 +22,19 @@ public class Move
         PP = pp;
         Power = power;
         Accuracy = accuracy;
+        Priority = priority;
+        MakesContact = MakesContact;
+        AffectedByProtect = affectedByProtect;
+        AffectedByMagicCoat = affectedByMagicCoat;
+        AffectedBySnatch = affectedBySnatch;
+        AffectedByMirrorMove = affectedByMirrorMove;
+        AffectedByKingsRock = affectedByKingsRock;
     }
+
 
     public Move Clone()
     {
-        return new Move(Name, Type, Category, PP, Power, Accuracy);
+        return new Move(Name, Type, Category, PP, Power, Accuracy, Priority, MakesContact, AffectedByProtect, AffectedByMagicCoat, AffectedBySnatch, AffectedByMirrorMove, AffectedByKingsRock);
     }
 
     public void MoveUsed()

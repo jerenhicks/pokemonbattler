@@ -21,10 +21,7 @@ public class Program
         //magikarp2.LevelUp(80);
 
 
-        magikarp1.AddMove(MoveRepository.GetMove("pound"));
-        magikarp1.AddMove(MoveRepository.GetMove("tackle"));
-        magikarp1.AddMove(MoveRepository.GetMove("Slam"));
-        magikarp1.AddMove(MoveRepository.GetMove("Ice Punch"));
+        magikarp1.AddMove(MoveRepository.GetMove("quick attack"));
         galvantula.LevelUp(100);
         galvantula.AddMove(MoveRepository.GetMove("pound"));
         galvantula.AddMove(MoveRepository.GetMove("tackle"));

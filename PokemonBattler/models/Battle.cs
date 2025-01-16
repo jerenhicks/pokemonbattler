@@ -28,40 +28,27 @@ public class Battle
         {
             turn++;
             battleLog.Add($"Turn {turn}: Pokemon1: {Pokemon1.Name} HP: {Pokemon1.CurrentHP}/{Pokemon1.HP} Pokemon2: {Pokemon2.Name} HP: {Pokemon2.CurrentHP}/{Pokemon2.HP}");
-            if (Pokemon1.CurrentSpeed > Pokemon2.CurrentSpeed)
+
+
+
+            //have both pokemon pick their attacks
+            var move1 = PokemonDecideMove(Pokemon1);
+            var move2 = PokemonDecideMove(Pokemon2);
+
+            //decide who goes first
+            var whoGoesFirst = DecideWhoGoesFirst(Pokemon1, Pokemon2, move1, move2);
+
+            if (whoGoesFirst == 1)
             {
-                // Pokemon1 attacks first
-                PokemonTurn(Pokemon1, Pokemon2);
-                PokemonTurn(Pokemon2, Pokemon1);
-            }
-            else if (Pokemon1.CurrentSpeed < Pokemon2.CurrentSpeed)
-            {
-                // Pokemon2 attacks first
-                PokemonTurn(Pokemon2, Pokemon1);
-                PokemonTurn(Pokemon1, Pokemon2);
+                PokemonTurn(Pokemon1, move1, Pokemon2);
+                PokemonTurn(Pokemon2, move2, Pokemon1);
             }
             else
             {
-                // If both Pokemon have the same speed, we will randomly decide who attacks first
-                var random = new Random();
-                var randomValue = random.Next(0, 2);
-                if (randomValue == 0)
-                {
-                    // Pokemon1 attacks first
-                    PokemonTurn(Pokemon1, Pokemon2);
-                    PokemonTurn(Pokemon2, Pokemon1);
-                }
-                else
-                {
-                    // Pokemon2 attacks first
-                    PokemonTurn(Pokemon2, Pokemon1);
-                    PokemonTurn(Pokemon1, Pokemon2);
-                }
+                PokemonTurn(Pokemon2, move2, Pokemon1);
+                PokemonTurn(Pokemon1, move1, Pokemon2);
             }
-            // Battle logic will be implemented here
-            // For now, we will just display the status of both Pokemon
-            //Pokemon1.DisplayStatus();
-            //Pokemon2.DisplayStatus();
+
 
         } while (turn <= TurnLimit && Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0);
 
@@ -70,8 +57,9 @@ public class Battle
         battleLog.Add($"Battle Duration: {duration} milliseconds");
     }
 
-    private void PokemonTurn(Pokemon attackingPokemon, Pokemon defendingPokemon)
+    private void PokemonTurn(Pokemon attackingPokemon, Move attackerMove, Pokemon defendingPokemon)
     {
+        //FIXME: we need this?
         //if the attacking pokemon has no HP left, they can't attack
         if (attackingPokemon.CurrentHP <= 0)
         {
@@ -79,23 +67,8 @@ public class Battle
         }
 
         //decide what move to pick
-        Move moveToUse;
-        //if the pokemon has no moves left, struggle. Or if the pokemon has no PP left for any moves, struggle
-        if (attackingPokemon.Moves.Count == 0 || attackingPokemon.Moves.TrueForAll(move => move.PP == 0))
-        {
-            //struggle
-            moveToUse = MoveRepository.GetMove("struggle");
+        Move moveToUse = attackerMove;
 
-            //var damage = attackingPokemon.Attack(defendingPokemon);
-            //battleLog.Add($"{attackingPokemon.Name} attacks {defendingPokemon.Name} for {damage} damage");
-        }
-        else
-        {
-            //for now, just randomly pick one of the moves listed there. We will implement this later
-            Random random = new Random();
-            int moveIndex = random.Next(attackingPokemon.Moves.Count);
-            moveToUse = attackingPokemon.Moves[moveIndex];
-        }
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {moveToUse.Name}");
 
         var canHit = CanHit(attackingPokemon, defendingPokemon, moveToUse);
@@ -117,6 +90,63 @@ public class Battle
         else
         {
             battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) missed {defendingPokemon.Name}({defendingPokemon.ID})");
+        }
+    }
+
+    public Move PokemonDecideMove(Pokemon pokemon)
+    {
+        var moveToUse = MoveRepository.GetMove("struggle");
+
+
+        if (pokemon.Moves.Count != 0 && pokemon.Moves.TrueForAll(move => move.PP != 0))
+        {
+            //for now, just randomly pick one of the moves listed there. We will implement this later
+            //get a list of all the moves that have PP left
+            List<Move> movesWithPP = pokemon.Moves.FindAll(move => move.PP > 0);
+            Random random = new Random();
+            int moveIndex = random.Next(movesWithPP.Count);
+            moveToUse = movesWithPP[moveIndex];
+        }
+
+        return moveToUse;
+    }
+
+    public int DecideWhoGoesFirst(Pokemon pokemon1, Pokemon pokemon2, Move move1, Move move2)
+    {
+        //first thing is to check the priority of the moves. Highest priority goes first.
+        if (move1.Priority > move2.Priority)
+        {
+            return 1;
+        }
+        else if (move1.Priority < move2.Priority)
+        {
+            return 2;
+        }
+        else
+        {
+            //if the moves have the same priority, then we check the speed of the pokemon
+            if (pokemon1.CurrentSpeed > pokemon2.CurrentSpeed)
+            {
+                return 1;
+            }
+            else if (pokemon1.CurrentSpeed < pokemon2.CurrentSpeed)
+            {
+                return 2;
+            }
+            else
+            {
+                //if the pokemon have the same speed, then we randomly decide who goes first
+                Random random = new Random();
+                int randomValue = random.Next(0, 2);
+                if (randomValue == 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
         }
     }
 
