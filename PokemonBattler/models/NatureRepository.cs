@@ -24,7 +24,7 @@ public static class NatureRepository
             {
                 var values = line.Split(',');
                 var nature = new Nature(
-                    name: values[0],
+                    name: values[0].Trim(),
                     attackModifier: double.Parse(values[1]),
                     defenseModifier: double.Parse(values[2]),
                     specialAttackModifier: double.Parse(values[3]),

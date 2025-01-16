@@ -24,7 +24,7 @@ public static class MoveRepository
             {
                 var values = line.Split(',');
                 var move = new Move(
-                    name: values[0],
+                    name: values[0].Trim(),
                     type: TypeRepository.GetType(values[1]),
                     category: Enum.Parse<MoveCategory>(values[2], true),
                     pp: int.Parse(values[3]),

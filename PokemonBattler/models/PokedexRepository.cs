@@ -13,9 +13,9 @@ public class PokedexRepository
             string line;
             while ((line = reader.ReadLine()) != null)
             {
-                var values = line.Split(',');
+                var values = line.Trim().Split(',');
                 var template = new PokemonTemplate(
-                    name: values[0],
+                    name: values[0].Trim(),
                     pokedexNumber: int.Parse(values[1]),
                     typeOne: values[2].ToLower() == "null" ? null : TypeRepository.GetType(values[2]),
                     typeTwo: values[3].ToLower() == "null" ? null : TypeRepository.GetType(values[3]),
