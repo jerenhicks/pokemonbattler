@@ -258,4 +258,31 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.Equal(0, result); // Assuming the default implementation returns 0
     }
 
+    [Fact]
+    public void TestBurnCondition()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon1, pokemon2);
+        pokemon1.LevelUp(100);
+        pokemon2.LevelUp(100);
+
+        // Apply burn condition to pokemon1
+        pokemon1.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+        // Record initial HP
+        var initialHP = pokemon1.CurrentHP;
+
+        // Act
+        battle.CheckBurn(pokemon1);
+
+        // Calculate expected HP loss (1/16 of max HP)
+        var expectedHPLoss = pokemon1.HP / 16;
+
+        // Assert
+        Assert.Equal(initialHP - expectedHPLoss, pokemon1.CurrentHP); // Burn should reduce HP by 1/16 of max HP
+        Assert.Contains("burn", battle.GetBattleLog().Last().ToLower()); // Check if burn is logged
+    }
+
 }

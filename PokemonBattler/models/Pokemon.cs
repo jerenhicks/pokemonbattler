@@ -48,6 +48,7 @@ public class Pokemon
     public int CurrentSpeed { get; set; }
 
     public List<Move> Moves { get; set; } = new List<Move>();
+    public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;
 
     public Pokemon(PokemonTemplate template, Nature nature, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0)
     {
@@ -154,5 +155,16 @@ public class Pokemon
         {
             Moves.Add(move);
         }
+    }
+
+    public bool AddNonVolatileStatus(NonVolatileStatus status)
+    {
+        bool wasAdded = false;
+        if (NonVolatileStatus == NonVolatileStatus.None)
+        {
+            NonVolatileStatus = status;
+            wasAdded = true;
+        }
+        return wasAdded;
     }
 }

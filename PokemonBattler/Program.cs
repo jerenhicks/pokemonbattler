@@ -20,13 +20,17 @@ public class Program
         magikarp1.LevelUp(100);
         //magikarp2.LevelUp(80);
 
+        // magikarp1.AddMove(MoveRepository.GetMove("pound"));
+        // magikarp1.AddMove(MoveRepository.GetMove("tackle"));
+        // magikarp1.AddMove(MoveRepository.GetMove("Slam"));
+        // magikarp1.AddMove(MoveRepository.GetMove("quick attack"));
 
-        magikarp1.AddMove(MoveRepository.GetMove("quick attack"));
         galvantula.LevelUp(100);
-        galvantula.AddMove(MoveRepository.GetMove("pound"));
-        galvantula.AddMove(MoveRepository.GetMove("tackle"));
-        galvantula.AddMove(MoveRepository.GetMove("Slam"));
-        galvantula.AddMove(MoveRepository.GetMove("Ice Punch"));
+        // galvantula.AddMove(MoveRepository.GetMove("pound"));
+        // galvantula.AddMove(MoveRepository.GetMove("tackle"));
+        // galvantula.AddMove(MoveRepository.GetMove("Slam"));
+        // galvantula.AddMove(MoveRepository.GetMove("Ice Punch"));
+        galvantula.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
         //magikarp1.DisplayStatus();
 

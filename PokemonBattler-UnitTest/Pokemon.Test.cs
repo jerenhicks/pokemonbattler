@@ -185,4 +185,65 @@ public class PokemonTest : IClassFixture<TestFixture>
         Assert.Equal(1, magikarp1.Moves.Count);
         Assert.Equal(4, magikarp2.Moves.Count);
     }
+
+    [Fact]
+    public void TestAddNonVolatileStatus_WhenNone_ShouldAddStatus()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var status = NonVolatileStatus.Burn;
+
+        // Act
+        var result = pokemon.AddNonVolatileStatus(status);
+
+        // Assert
+        Assert.True(result);
+        Assert.Equal(status, pokemon.NonVolatileStatus);
+    }
+
+    [Fact]
+    public void TestAddNonVolatileStatus_WhenAlreadyHasStatus_ShouldNotAddStatus()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Burn);
+        var newStatus = NonVolatileStatus.Paralysis;
+
+        // Act
+        var result = pokemon.AddNonVolatileStatus(newStatus);
+
+        // Assert
+        Assert.False(result);
+        Assert.Equal(NonVolatileStatus.Burn, pokemon.NonVolatileStatus);
+    }
+
+    [Fact]
+    public void TestAddNonVolatileStatus_WhenAlreadyHasSameStatus_ShouldNotChangeStatus()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+        // Act
+        var result = pokemon.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+        // Assert
+        Assert.False(result);
+        Assert.Equal(NonVolatileStatus.Burn, pokemon.NonVolatileStatus);
+    }
+
+    [Fact]
+    public void TestAddNonVolatileStatus_WhenNone_ShouldAddDifferentStatus()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var status = NonVolatileStatus.Paralysis;
+
+        // Act
+        var result = pokemon.AddNonVolatileStatus(status);
+
+        // Assert
+        Assert.True(result);
+        Assert.Equal(status, pokemon.NonVolatileStatus);
+    }
 }

@@ -65,6 +65,15 @@ public class Battle
                 }
             }
 
+            //if both pokemon are still alive, check burn condition
+            if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+            {
+                CheckBurn(Pokemon1);
+                CheckBurn(Pokemon2);
+                //only check for faints after both pokemon have taken their burn damage
+                CheckFainted(Pokemon1, Pokemon2);
+            }
+
 
         } while (turn <= TurnLimit && Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0);
 
@@ -94,6 +103,15 @@ public class Battle
             battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) missed {defendingPokemon.Name}({defendingPokemon.ID})");
         }
         attackerMove.MoveUsed();
+    }
+
+    public void CheckBurn(Pokemon pokemon)
+    {
+        if (pokemon.NonVolatileStatus == NonVolatileStatus.Burn)
+        {
+            pokemon.CurrentHP -= (int)Math.Floor(pokemon.HP * 0.0625);
+            battleLog.Add($"{pokemon.Name} is hurt by burn!");
+        }
     }
 
     public void CheckFainted(Pokemon pokemon1, Pokemon pokemon2)
