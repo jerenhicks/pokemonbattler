@@ -27,8 +27,8 @@ namespace PokemonBattler
 
         // TODO: if it's decided that the format of this battle console
         //      is desirable for the long-term, it may be worth creating
-        //      a wrapper so that it can be injected as a depenency to
-        //      the BattleConsole constructor
+        //      a wrapper so that the repositories can be injected as
+        //      depenencies to the BattleConsole constructor
         private void BattleAllMonsters()
         {
             var path = Directory.GetCurrentDirectory();
