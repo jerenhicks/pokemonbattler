@@ -349,4 +349,32 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.Contains("burn", battle.GetBattleLog().Last().ToLower()); // Check if burn is logged
     }
 
+
+    [Fact]
+    public void TestPoisonCondition()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon1, pokemon2);
+        pokemon1.LevelUp(100);
+        pokemon2.LevelUp(100);
+
+        // Apply burn condition to pokemon1
+        pokemon1.AddNonVolatileStatus(NonVolatileStatus.Poison);
+
+        // Record initial HP
+        var initialHP = pokemon1.CurrentHP;
+
+        // Act
+        battle.CheckPoison(pokemon1);
+
+        // Calculate expected HP loss (1/8 of max HP)
+        var expectedHPLoss = pokemon1.HP / 8;
+
+        // Assert
+        Assert.Equal(initialHP - expectedHPLoss, pokemon1.CurrentHP); // Burn should reduce HP by 1/8 of max HP
+        Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
+    }
+
 }

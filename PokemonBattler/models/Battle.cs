@@ -114,6 +114,15 @@ public class Battle
         }
     }
 
+    public void CheckPoison(Pokemon pokemon)
+    {
+        if (pokemon.NonVolatileStatus == NonVolatileStatus.Poison)
+        {
+            pokemon.CurrentHP -= (int)Math.Floor(pokemon.HP * 0.125);
+            battleLog.Add($"{pokemon.Name} is hurt by poison!");
+        }
+    }
+
     public void CheckFainted(Pokemon pokemon1, Pokemon pokemon2)
     {
         if (pokemon1.CurrentHP <= 0)
