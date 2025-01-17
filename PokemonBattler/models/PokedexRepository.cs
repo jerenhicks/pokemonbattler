@@ -4,7 +4,7 @@ using System.IO;
 
 public class PokedexRepository
 {
-    private static Dictionary<int, PokemonTemplate> Pokedexes = new Dictionary<int, PokemonTemplate>();
+    private static Dictionary<int, PokemonTemplate> Pokedex = new Dictionary<int, PokemonTemplate>();
 
     public static void LoadPokedexFromFile(string filePath)
     {
@@ -26,13 +26,18 @@ public class PokedexRepository
                     baseSpDef: int.Parse(values[8]),
                     baseSpeed: int.Parse(values[9])
                 );
-                Pokedexes[template.PokedexNumber] = template;
+                Pokedex[template.PokedexNumber] = template;
             }
         }
     }
 
+    public static bool PokemonExists(int pokedexNumber)
+    {
+        return Pokedex.ContainsKey(pokedexNumber);
+    }
+
     public static Pokemon CreatePokemon(int pokedexNumber, Nature nature, int ivHp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHp = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0)
     {
-        return Pokedexes.ContainsKey(pokedexNumber) ? new Pokemon(Pokedexes[pokedexNumber], nature, ivHp, ivAtk, ivDef, ivSpAtk, ivSpDef, ivSpeed, evHp, evAtk, evDef, evSpAtk, evSpDef, evSpeed) : null;
+        return PokemonExists(pokedexNumber) ? new Pokemon(Pokedex[pokedexNumber], nature, ivHp, ivAtk, ivDef, ivSpAtk, ivSpDef, ivSpeed, evHp, evAtk, evDef, evSpAtk, evSpDef, evSpeed) : null;
     }
 }
