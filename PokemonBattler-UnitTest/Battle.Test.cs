@@ -377,4 +377,92 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
     }
 
+    [Fact]
+    public void TestCheckBadlyPoison_FirstTurn()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon, pokemon2);
+
+        // Apply badly poisoned condition to pokemon
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
+
+        // Record initial HP
+        var initialHP = pokemon.CurrentHP;
+
+        // Act
+        battle.CheckBadlyPoison(pokemon);
+
+        // Calculate expected HP loss (1/16 of max HP)
+        var expectedHPLoss = pokemon.HP / 16;
+
+        // Assert
+        Assert.Equal(initialHP - expectedHPLoss, pokemon.CurrentHP); // Badly poisoned should reduce HP by 1/16 of max HP
+        Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
+    }
+
+    [Fact]
+    public void TestCheckBadlyPoison_SubsequentTurns()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon, pokemon2);
+
+        // Apply badly poisoned condition to pokemon
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
+
+        // Simulate multiple turns
+        for (int turn = 1; turn <= 3; turn++)
+        {
+            // Record initial HP
+            var initialHP = pokemon.CurrentHP;
+
+            // Act
+            battle.CheckBadlyPoison(pokemon);
+
+            // Calculate expected HP loss (1/16 * turn of max HP)
+            var expectedHPLoss = (int)Math.Floor(pokemon.HP * (0.0625 * turn));
+
+            // Assert
+            Assert.Equal(initialHP - expectedHPLoss, pokemon.CurrentHP); // Badly poisoned should reduce HP by increasing amounts
+            Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
+        }
+    }
+
+    [Fact]
+    public void TestCheckBadlyPoison_AlreadyPoisoned()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon, pokemon2);
+
+        // Apply badly poisoned condition to pokemon
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
+
+        // Simulate first turn
+        battle.CheckBadlyPoison(pokemon);
+
+        // Record initial HP after first turn
+        var initialHP = pokemon.CurrentHP;
+
+        // Act
+        battle.CheckBadlyPoison(pokemon);
+
+        // Calculate expected HP loss (1/16 * 2 of max HP)
+        var expectedHPLoss = (int)Math.Floor(pokemon.HP * (0.0625 * 2));
+
+        // Assert
+        Assert.Equal(initialHP - expectedHPLoss, pokemon.CurrentHP); // Badly poisoned should reduce HP by increasing amounts
+        Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
+    }
+
 }

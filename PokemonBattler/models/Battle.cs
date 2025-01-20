@@ -10,6 +10,8 @@ public class Battle
     private DateTime startTime;
     private DateTime endTime;
 
+    private Dictionary<Pokemon, int> badlyPoisonedTracker = new Dictionary<Pokemon, int>();
+
     public Battle(Pokemon pokemon1, Pokemon pokemon2, int turnLimit = 100)
     {
         Pokemon1 = pokemon1;
@@ -68,6 +70,8 @@ public class Battle
             //if both pokemon are still alive, check burn condition
             if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
             {
+                CheckPoison(Pokemon1);
+                CheckPoison(Pokemon2);
                 CheckBurn(Pokemon1);
                 CheckBurn(Pokemon2);
                 //only check for faints after both pokemon have taken their burn damage
@@ -119,6 +123,23 @@ public class Battle
         if (pokemon.NonVolatileStatus == NonVolatileStatus.Poison)
         {
             pokemon.CurrentHP -= (int)Math.Floor(pokemon.HP * 0.125);
+            battleLog.Add($"{pokemon.Name} is hurt by poison!");
+        }
+    }
+
+    public void CheckBadlyPoison(Pokemon pokemon)
+    {
+        if (pokemon.NonVolatileStatus == NonVolatileStatus.Badly_Poisoned)
+        {
+            if (!badlyPoisonedTracker.ContainsKey(pokemon))
+            {
+                badlyPoisonedTracker.Add(pokemon, 1);
+            }
+            else
+            {
+                badlyPoisonedTracker[pokemon]++;
+            }
+            pokemon.CurrentHP -= (int)Math.Floor(pokemon.HP * (0.0625 * badlyPoisonedTracker[pokemon]));
             battleLog.Add($"{pokemon.Name} is hurt by poison!");
         }
     }
