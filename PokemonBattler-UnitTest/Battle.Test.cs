@@ -504,4 +504,73 @@ public class BattleTest : IClassFixture<TestFixture>
         defender.StatModifiers.ResetAll();
     }
 
+    [Fact]
+    public void TestCheckFainted()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon1.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon1, pokemon2);
+
+        // Set HP values
+        pokemon1.CurrentHP = 0; // Magikarp is fainted
+        pokemon2.CurrentHP = 50; // Galvantula is not fainted
+
+        // Act
+        battle.CheckFainted(pokemon1, pokemon2);
+
+        // Assert
+        var battleLog = battle.GetBattleLog();
+        Assert.Contains($"{pokemon1.Name} fainted!", battleLog);
+        Assert.DoesNotContain($"{pokemon2.Name} fainted!", battleLog);
+    }
+
+    [Fact]
+    public void TestCheckFainted_BothFainted()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon1.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon1, pokemon2);
+
+        // Set HP values
+        pokemon1.CurrentHP = 0; // Magikarp is fainted
+        pokemon2.CurrentHP = 0; // Galvantula is fainted
+
+        // Act
+        battle.CheckFainted(pokemon1, pokemon2);
+
+        // Assert
+        var battleLog = battle.GetBattleLog();
+        Assert.Contains($"{pokemon1.Name} fainted!", battleLog);
+        Assert.Contains($"{pokemon2.Name} fainted!", battleLog);
+    }
+
+    [Fact]
+    public void TestCheckFainted_NoneFainted()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        pokemon1.LevelUp(100);
+        pokemon2.LevelUp(100);
+        var battle = new Battle(pokemon1, pokemon2);
+
+        // Set HP values
+        pokemon1.CurrentHP = 50; // Magikarp is not fainted
+        pokemon2.CurrentHP = 50; // Galvantula is not fainted
+
+        // Act
+        battle.CheckFainted(pokemon1, pokemon2);
+
+        // Assert
+        var battleLog = battle.GetBattleLog();
+        Assert.DoesNotContain($"{pokemon1.Name} fainted!", battleLog);
+        Assert.DoesNotContain($"{pokemon2.Name} fainted!", battleLog);
+    }
+
 }
