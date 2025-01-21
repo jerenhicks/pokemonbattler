@@ -5,5 +5,5 @@ using System.Threading.Tasks;
 
 public abstract class BaseEffect
 {
-    public abstract void DoEffect(Pokemon attacker, Pokemon defender, Move move);
+    public abstract List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move);
 }

@@ -14,6 +14,7 @@ public class Move
     public bool AffectedByMirrorMove { get; private set; }
     public bool AffectedByKingsRock { get; private set; }
     public BaseEffect Effect { get; private set; }
+    public bool IsNonDamage => Power == null;
 
     public Move(string name, Type type, MoveCategory category, int pp, int? power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool affectedByMagicCoat, bool affectedBySnatch, bool affectedByMirrorMove, bool affectedByKingsRock, BaseEffect effect)
     {
@@ -43,4 +44,5 @@ public class Move
     {
         PP--;
     }
+
 }

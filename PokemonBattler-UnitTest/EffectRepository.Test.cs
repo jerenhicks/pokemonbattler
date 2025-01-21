@@ -51,8 +51,9 @@ public class EffectRepositoryTest : IClassFixture<TestFixture>
 // Example of a custom effect class for testing
 public class CustomEffect : BaseEffect
 {
-    public override void DoEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         // Implement custom effect logic here
+        return new List<String>();
     }
 }

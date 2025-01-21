@@ -50,7 +50,7 @@ namespace PokemonBattler
 
             magikarp1.LevelUp(100);
 
-            magikarp1.AddMove(MoveRepository.GetMove("pound"));
+            magikarp1.AddMove(MoveRepository.GetMove("growl"));
 
             galvantula.LevelUp(100);
             galvantula.AddNonVolatileStatus(NonVolatileStatus.Burn);

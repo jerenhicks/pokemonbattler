@@ -53,4 +53,60 @@ public class MoveTest : IClassFixture<TestFixture>
         clonedMove.MoveUsed();
         Assert.Equal(pp - 1, clonedMove.PP);
     }
+
+    [Fact]
+    public void TestIsNonDamage_True()
+    {
+        // Arrange
+        var move = new Move(
+            name: "Growl",
+            type: TypeRepository.GetType("Normal"),
+            category: MoveCategory.Status,
+            pp: 40,
+            power: null,
+            accuracy: 1.0m,
+            priority: 0,
+            makesContact: false,
+            affectedByProtect: true,
+            affectedByMagicCoat: true,
+            affectedBySnatch: false,
+            affectedByMirrorMove: true,
+            affectedByKingsRock: false,
+            effect: new GrowlEffect()
+        );
+
+        // Act
+        var isNonDamage = move.IsNonDamage;
+
+        // Assert
+        Assert.True(isNonDamage);
+    }
+
+    [Fact]
+    public void TestIsNonDamage_False()
+    {
+        // Arrange
+        var move = new Move(
+            name: "Tackle",
+            type: TypeRepository.GetType("Normal"),
+            category: MoveCategory.Physical,
+            pp: 35,
+            power: 40,
+            accuracy: 1.0m,
+            priority: 0,
+            makesContact: true,
+            affectedByProtect: true,
+            affectedByMagicCoat: false,
+            affectedBySnatch: false,
+            affectedByMirrorMove: true,
+            affectedByKingsRock: true,
+            effect: null
+        );
+
+        // Act
+        var isNonDamage = move.IsNonDamage;
+
+        // Assert
+        Assert.False(isNonDamage);
+    }
 }

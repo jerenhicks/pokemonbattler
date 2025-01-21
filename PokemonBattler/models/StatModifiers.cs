@@ -55,17 +55,20 @@ public class StatModifiers
         accEvaStageMultipliers.Add(6, 9.0 / 3.0);
     }
 
-    public void ChangeAtkStage(int amount)
+    public bool ChangeAtkStage(int amount)
     {
         AtkStage += amount;
         if (AtkStage > 6)
         {
             AtkStage = 6;
+            return false;
         }
         else if (AtkStage < -6)
         {
             AtkStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetAtkModifier()
@@ -73,17 +76,20 @@ public class StatModifiers
         return statStageMultipliers[AtkStage];
     }
 
-    public void ChangeDefStage(int amount)
+    public bool ChangeDefStage(int amount)
     {
         DefStage += amount;
         if (DefStage > 6)
         {
             DefStage = 6;
+            return false;
         }
         else if (DefStage < -6)
         {
             DefStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetDefModifier()
@@ -91,17 +97,20 @@ public class StatModifiers
         return statStageMultipliers[DefStage];
     }
 
-    public void ChangeSpAtkStage(int amount)
+    public bool ChangeSpAtkStage(int amount)
     {
         SpAtkStage += amount;
         if (SpAtkStage > 6)
         {
             SpAtkStage = 6;
+            return false;
         }
         else if (SpAtkStage < -6)
         {
             SpAtkStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetSpAtkModifier()
@@ -109,17 +118,20 @@ public class StatModifiers
         return statStageMultipliers[SpAtkStage];
     }
 
-    public void ChangeSpDefStage(int amount)
+    public bool ChangeSpDefStage(int amount)
     {
         SpDefStage += amount;
         if (SpDefStage > 6)
         {
             SpDefStage = 6;
+            return false;
         }
         else if (SpDefStage < -6)
         {
             SpDefStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetSpDefModifier()
@@ -127,17 +139,20 @@ public class StatModifiers
         return statStageMultipliers[SpDefStage];
     }
 
-    public void ChangeSpeedStage(int amount)
+    public bool ChangeSpeedStage(int amount)
     {
         SpeedStage += amount;
         if (SpeedStage > 6)
         {
             SpeedStage = 6;
+            return false;
         }
         else if (SpeedStage < -6)
         {
             SpeedStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetSpeedModifier()
@@ -145,17 +160,20 @@ public class StatModifiers
         return statStageMultipliers[SpeedStage];
     }
 
-    public void ChangeAccuracyStage(int amount)
+    public bool ChangeAccuracyStage(int amount)
     {
         AccuracyStage += amount;
         if (AccuracyStage > 6)
         {
             AccuracyStage = 6;
+            return false;
         }
         else if (AccuracyStage < -6)
         {
             AccuracyStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetAccuracyModifier()
@@ -163,17 +181,20 @@ public class StatModifiers
         return accEvaStageMultipliers[AccuracyStage];
     }
 
-    public void ChangeEvasionStage(int amount)
+    public bool ChangeEvasionStage(int amount)
     {
         EvasionStage += amount;
         if (EvasionStage > 6)
         {
             EvasionStage = 6;
+            return false;
         }
         else if (EvasionStage < -6)
         {
             EvasionStage = -6;
+            return false;
         }
+        return true;
     }
 
     public double GetEvasionModifier()

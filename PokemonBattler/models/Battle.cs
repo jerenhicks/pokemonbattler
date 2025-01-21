@@ -93,14 +93,30 @@ public class Battle
         var canHit = CanHit(attackingPokemon, defendingPokemon, attackerMove);
         if (canHit)
         {
-            var damage = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
-            defendingPokemon.CurrentHP -= damage.Item1;
-            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
-            if (damage.Item2)
+            if (attackerMove.IsNonDamage)
             {
-                battleLog.Add("A Critical Hit!");
+                //maybe there is something else we need to do here? for now just kick it out. 
+                battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
+            }
+            else
+            {
+                var damage = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
+                defendingPokemon.CurrentHP -= damage.Item1;
+                battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
+                if (damage.Item2)
+                {
+                    battleLog.Add("A Critical Hit!");
+                }
             }
 
+            if (attackerMove.Effect != null)
+            {
+                var effects = attackerMove.Effect.DoEffect(attackingPokemon, defendingPokemon, attackerMove);
+                foreach (var effect in effects)
+                {
+                    battleLog.Add(effect);
+                }
+            }
         }
         else
         {
@@ -402,4 +418,6 @@ public class Battle
         //FIXME: THIS IS PROBABLY NOT RIGHT
         return ((int)secondEffects, CriticalHitStatus == 2);
     }
+
+
 }

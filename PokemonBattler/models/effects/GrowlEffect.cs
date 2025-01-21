@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 public class GrowlEffect : BaseEffect
 {
-    public override void DoEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
+        List<String> messages = new List<String>();
         // Implement the effect logic here
-        defender.StatModifiers.ChangeAtkStage(-1);
+        var succeed = defender.StatModifiers.ChangeAtkStage(-1);
+        if (succeed)
+        {
+            messages.Add($"{defender.Name}'s attack fell!");
+        }
+        else
+        {
+            messages.Add($"{defender.Name}'s attack can't go any lower!");
+        }
+        return messages;
     }
 }
