@@ -246,4 +246,67 @@ public class PokemonTest : IClassFixture<TestFixture>
         Assert.True(result);
         Assert.Equal(status, pokemon.NonVolatileStatus);
     }
+
+    [Fact]
+    public void TestCurrentStatsWithModifiers()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        pokemon.LevelUp(50);
+        pokemon.BattleReady();
+
+        // Act
+        pokemon.StatModifiers.ChangeAtkStage(2);
+        pokemon.StatModifiers.ChangeDefStage(-1);
+        pokemon.StatModifiers.ChangeSpAtkStage(3);
+        pokemon.StatModifiers.ChangeSpDefStage(-2);
+        pokemon.StatModifiers.ChangeSpeedStage(1);
+
+        // Assert
+        Assert.Equal((int)(pokemon.Atk * pokemon.StatModifiers.GetAtkModifier()), pokemon.CurrentAtk);
+        Assert.Equal((int)(pokemon.Def * pokemon.StatModifiers.GetDefModifier()), pokemon.CurrentDef);
+        Assert.Equal((int)(pokemon.SpAtk * pokemon.StatModifiers.GetSpAtkModifier()), pokemon.CurrentSpAtk);
+        Assert.Equal((int)(pokemon.SpDef * pokemon.StatModifiers.GetSpDefModifier()), pokemon.CurrentSpDef);
+        Assert.Equal((int)(pokemon.Speed * pokemon.StatModifiers.GetSpeedModifier()), pokemon.CurrentSpeed);
+    }
+
+    [Fact]
+    public void TestCurrentStatsWithoutModifiers()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        pokemon.LevelUp(50);
+        pokemon.BattleReady();
+
+        // Assert
+        Assert.Equal(pokemon.Atk, pokemon.CurrentAtk);
+        Assert.Equal(pokemon.Def, pokemon.CurrentDef);
+        Assert.Equal(pokemon.SpAtk, pokemon.CurrentSpAtk);
+        Assert.Equal(pokemon.SpDef, pokemon.CurrentSpDef);
+        Assert.Equal(pokemon.Speed, pokemon.CurrentSpeed);
+    }
+
+    [Fact]
+    public void TestResetModifiers()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        pokemon.LevelUp(50);
+        pokemon.BattleReady();
+
+        // Act
+        pokemon.StatModifiers.ChangeAtkStage(2);
+        pokemon.StatModifiers.ChangeDefStage(-1);
+        pokemon.StatModifiers.ChangeSpAtkStage(3);
+        pokemon.StatModifiers.ChangeSpDefStage(-2);
+        pokemon.StatModifiers.ChangeSpeedStage(1);
+        pokemon.BattleReady(); // Reset modifiers
+
+        // Assert
+        Assert.Equal(pokemon.Atk, pokemon.CurrentAtk);
+        Assert.Equal(pokemon.Def, pokemon.CurrentDef);
+        Assert.Equal(pokemon.SpAtk, pokemon.CurrentSpAtk);
+        Assert.Equal(pokemon.SpDef, pokemon.CurrentSpDef);
+        Assert.Equal(pokemon.Speed, pokemon.CurrentSpeed);
+    }
 }

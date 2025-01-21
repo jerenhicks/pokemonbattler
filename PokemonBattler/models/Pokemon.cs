@@ -9,6 +9,7 @@ public class Pokemon
     public Type TypeOne { get; private set; }
     public Type TypeTwo { get; private set; }
     public Nature Nature { get; private set; }
+    public StatModifiers StatModifiers { get; private set; } = new StatModifiers();
 
     public int BaseHP { get; private set; }
     public int BaseAtk { get; private set; }
@@ -41,11 +42,11 @@ public class Pokemon
     public int Speed { get; private set; }
 
     public int CurrentHP { get; set; }
-    public int CurrentAtk { get; set; }
-    public int CurrentDef { get; set; }
-    public int CurrentSpAtk { get; set; }
-    public int CurrentSpDef { get; set; }
-    public int CurrentSpeed { get; set; }
+    public int CurrentAtk => (int)(Atk * StatModifiers.GetAtkModifier());
+    public int CurrentDef => (int)(Def * StatModifiers.GetDefModifier());
+    public int CurrentSpAtk => (int)(SpAtk * StatModifiers.GetSpAtkModifier());
+    public int CurrentSpDef => (int)(SpDef * StatModifiers.GetSpDefModifier());
+    public int CurrentSpeed => (int)(Speed * StatModifiers.GetSpeedModifier());
 
     public List<Move> Moves { get; set; } = new List<Move>();
     public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;
@@ -124,11 +125,11 @@ public class Pokemon
         Speed = (int)Math.Floor(Math.Floor((2 * BaseSpeed + IVSpeed + EVSpeed / 4) * Level / 100.0 + 5) * Nature.SpeedModifier);
 
         CurrentHP = HP;
-        CurrentAtk = Atk;
-        CurrentDef = Def;
-        CurrentSpAtk = SpAtk;
-        CurrentSpDef = SpDef;
-        CurrentSpeed = Speed;
+        // CurrentAtk = Atk;
+        // CurrentDef = Def;
+        // CurrentSpAtk = SpAtk;
+        // CurrentSpDef = SpDef;
+        // CurrentSpeed = Speed;
     }
 
 
@@ -141,11 +142,12 @@ public class Pokemon
     public void BattleReady()
     {
         CurrentHP = HP;
-        CurrentAtk = Atk;
-        CurrentDef = Def;
-        CurrentSpAtk = SpAtk;
-        CurrentSpDef = SpDef;
-        CurrentSpeed = Speed;
+        StatModifiers.ResetAll();
+        // CurrentAtk = Atk;
+        // CurrentDef = Def;
+        // CurrentSpAtk = SpAtk;
+        // CurrentSpDef = SpDef;
+        // CurrentSpeed = Speed;
     }
 
     //FIXME: should maybe error catch to prevent more than 4? Tell someone it didn't work. Throw an exception?

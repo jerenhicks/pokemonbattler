@@ -275,22 +275,6 @@ public class BattleTest : IClassFixture<TestFixture>
     }
 
     [Fact]
-    public void TestGetAdjustedStages()
-    {
-        // Arrange
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(attacker, defender);
-        var move = MoveRepository.GetMove("tackle");
-
-        // Act
-        var result = battle.GetAdjustedStages(attacker, defender, move);
-
-        // Assert
-        Assert.Equal(1, result); // Assuming the default implementation returns 1
-    }
-
-    [Fact]
     public void TestGetMiracleBerry()
     {
         // Arrange
@@ -463,6 +447,46 @@ public class BattleTest : IClassFixture<TestFixture>
         // Assert
         Assert.Equal(initialHP - expectedHPLoss, pokemon.CurrentHP); // Badly poisoned should reduce HP by increasing amounts
         Assert.Contains("poison", battle.GetBattleLog().Last().ToLower()); // Check if poison is logged
+    }
+
+    [Fact]
+    public void TestGetAdjustedStages()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var move = MoveRepository.GetMove("tackle");
+        var battle = new Battle(attacker, defender);
+
+        // Test case 1: Both accuracy and evasion stages are 0
+        attacker.StatModifiers.ChangeAccuracyStage(0);
+        defender.StatModifiers.ChangeEvasionStage(0);
+        var result = battle.GetAdjustedStages(attacker, defender, move);
+        Assert.Equal(1, result);
+
+        // Test case 2: Attacker's accuracy stage is 2, defender's evasion stage is 0
+        attacker.StatModifiers.ChangeAccuracyStage(2);
+        defender.StatModifiers.ChangeEvasionStage(0);
+        result = battle.GetAdjustedStages(attacker, defender, move);
+        Assert.Equal(3 / 2, result);
+
+        // Test case 3: Attacker's accuracy stage is 0, defender's evasion stage is -2
+        attacker.StatModifiers.ChangeAccuracyStage(0);
+        defender.StatModifiers.ChangeEvasionStage(-2);
+        result = battle.GetAdjustedStages(attacker, defender, move);
+        Assert.Equal(3 / 4, result);
+
+        // Test case 4: Attacker's accuracy stage is -3, defender's evasion stage is 3
+        attacker.StatModifiers.ChangeAccuracyStage(-3);
+        defender.StatModifiers.ChangeEvasionStage(3);
+        result = battle.GetAdjustedStages(attacker, defender, move);
+        Assert.Equal(3 / 6, result);
+
+        // Test case 5: Attacker's accuracy stage is -6, defender's evasion stage is 6
+        attacker.StatModifiers.ChangeAccuracyStage(-6);
+        defender.StatModifiers.ChangeEvasionStage(6);
+        result = battle.GetAdjustedStages(attacker, defender, move);
+        Assert.Equal(3 / 9, result);
     }
 
 }

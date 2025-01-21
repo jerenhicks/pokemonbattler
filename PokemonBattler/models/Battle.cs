@@ -250,7 +250,62 @@ public class Battle
 
     public int GetAdjustedStages(Pokemon attack, Pokemon defender, Move move)
     {
-        return 1;
+        //take the stage of the attacker and the stage of the defender and adjust the accuracy accordingly
+        var adjustedStage = attack.StatModifiers.AccuracyStage - defender.StatModifiers.EvasionStage;
+
+        if (adjustedStage <= -6)
+        {
+            return 3 / 9;
+        }
+        else if (adjustedStage == -5)
+        {
+            return 3 / 8;
+        }
+        else if (adjustedStage == -4)
+        {
+            return 3 / 7;
+        }
+        else if (adjustedStage == -3)
+        {
+            return 3 / 6;
+        }
+        else if (adjustedStage == -2)
+        {
+            return 3 / 5;
+        }
+        else if (adjustedStage == -1)
+        {
+            return 3 / 4;
+        }
+        else if (adjustedStage == 1)
+        {
+            return 4 / 3;
+        }
+        else if (adjustedStage == 2)
+        {
+            return 5 / 3;
+        }
+        else if (adjustedStage == 3)
+        {
+            return 6 / 3;
+        }
+        else if (adjustedStage == 4)
+        {
+            return 7 / 3;
+        }
+        else if (adjustedStage == 5)
+        {
+            return 8 / 3;
+        }
+        else if (adjustedStage >= 6)
+        {
+            return 9 / 3;
+        }
+        else
+        {
+            return 3 / 3;
+        }
+
     }
 
     public int GetMiracleBerry(Pokemon attack, Pokemon defender, Move move)
