@@ -28,7 +28,7 @@ public static class MoveRepository
                     type: TypeRepository.GetType(values[1]),
                     category: Enum.Parse<MoveCategory>(values[2], true),
                     pp: int.Parse(values[3]),
-                    power: int.Parse(values[4]),
+                    power: values[4] == "null" ? (int?)null : int.Parse(values[4]),
                     accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5]),
                     priority: int.Parse(values[6]),
                     makesContact: bool.Parse(values[7]),
@@ -36,7 +36,8 @@ public static class MoveRepository
                     affectedByMagicCoat: bool.Parse(values[9]),
                     affectedBySnatch: bool.Parse(values[10]),
                     affectedByMirrorMove: bool.Parse(values[11]),
-                    affectedByKingsRock: bool.Parse(values[12])
+                    affectedByKingsRock: bool.Parse(values[12]),
+                    effect: values[13] == "null" ? null : EffectRepository.GetEffect(values[13])
                 );
                 if (!Moves.ContainsKey(move.Name.ToLower()))
                 {

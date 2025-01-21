@@ -28,7 +28,8 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedByMagicCoat: false,
             affectedBySnatch: false,
             affectedByMirrorMove: true,
-            affectedByKingsRock: true
+            affectedByKingsRock: true,
+            null
         );
 
         // Act

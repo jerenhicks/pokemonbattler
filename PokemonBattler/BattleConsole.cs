@@ -32,7 +32,8 @@ namespace PokemonBattler
         private void BattleAllMonsters()
         {
             var path = Directory.GetCurrentDirectory();
-            // Load natures from CSV file
+            EffectRepository.LoadEffectsFromFolder("effects");
+            Console.WriteLine("Effects loaded!");
             NatureRepository.LoadNaturesFromFile(path + "/PokemonBattler/data/natures.csv");
             Console.WriteLine("Natures loaded!");
             TypeRepository.LoadTypesFromFile(path + "/PokemonBattler/data/types.csv");
@@ -148,7 +149,8 @@ namespace PokemonBattler
             else if (battleMode == 2)
             {
                 ChooseYourPokemon();
-            } else
+            }
+            else
             {
                 Console.WriteLine("Invalid battle mode selected!!!");
             }

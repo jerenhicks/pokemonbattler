@@ -462,31 +462,46 @@ public class BattleTest : IClassFixture<TestFixture>
         attacker.StatModifiers.ChangeAccuracyStage(0);
         defender.StatModifiers.ChangeEvasionStage(0);
         var result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal(1, result);
+        Assert.Equal((decimal)1, result);
+
+        attacker.StatModifiers.ResetAll();
+        defender.StatModifiers.ResetAll();
 
         // Test case 2: Attacker's accuracy stage is 2, defender's evasion stage is 0
         attacker.StatModifiers.ChangeAccuracyStage(2);
         defender.StatModifiers.ChangeEvasionStage(0);
         result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal(3 / 2, result);
+        Assert.Equal((decimal)5 / 3, result);
+
+        attacker.StatModifiers.ResetAll();
+        defender.StatModifiers.ResetAll();
 
         // Test case 3: Attacker's accuracy stage is 0, defender's evasion stage is -2
         attacker.StatModifiers.ChangeAccuracyStage(0);
         defender.StatModifiers.ChangeEvasionStage(-2);
         result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal(3 / 4, result);
+        Assert.Equal((decimal)5 / 3, result);
+
+        attacker.StatModifiers.ResetAll();
+        defender.StatModifiers.ResetAll();
 
         // Test case 4: Attacker's accuracy stage is -3, defender's evasion stage is 3
         attacker.StatModifiers.ChangeAccuracyStage(-3);
         defender.StatModifiers.ChangeEvasionStage(3);
         result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal(3 / 6, result);
+        Assert.Equal((decimal)3 / 9, result);
+
+        attacker.StatModifiers.ResetAll();
+        defender.StatModifiers.ResetAll();
 
         // Test case 5: Attacker's accuracy stage is -6, defender's evasion stage is 6
         attacker.StatModifiers.ChangeAccuracyStage(-6);
         defender.StatModifiers.ChangeEvasionStage(6);
         result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal(3 / 9, result);
+        Assert.Equal((decimal)3 / 9, result);
+
+        attacker.StatModifiers.ResetAll();
+        defender.StatModifiers.ResetAll();
     }
 
 }

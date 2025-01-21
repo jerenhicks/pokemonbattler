@@ -248,62 +248,62 @@ public class Battle
         return finalValue;
     }
 
-    public int GetAdjustedStages(Pokemon attack, Pokemon defender, Move move)
+    public decimal GetAdjustedStages(Pokemon attack, Pokemon defender, Move move)
     {
         //take the stage of the attacker and the stage of the defender and adjust the accuracy accordingly
         var adjustedStage = attack.StatModifiers.AccuracyStage - defender.StatModifiers.EvasionStage;
 
         if (adjustedStage <= -6)
         {
-            return 3 / 9;
+            return (decimal)3 / 9;
         }
         else if (adjustedStage == -5)
         {
-            return 3 / 8;
+            return (decimal)3 / 8;
         }
         else if (adjustedStage == -4)
         {
-            return 3 / 7;
+            return (decimal)3 / 7;
         }
         else if (adjustedStage == -3)
         {
-            return 3 / 6;
+            return (decimal)3 / 6;
         }
         else if (adjustedStage == -2)
         {
-            return 3 / 5;
+            return (decimal)3 / 5;
         }
         else if (adjustedStage == -1)
         {
-            return 3 / 4;
+            return (decimal)3 / 4;
         }
         else if (adjustedStage == 1)
         {
-            return 4 / 3;
+            return (decimal)4 / 3;
         }
         else if (adjustedStage == 2)
         {
-            return 5 / 3;
+            return (decimal)5 / 3;
         }
         else if (adjustedStage == 3)
         {
-            return 6 / 3;
+            return (decimal)6 / 3;
         }
         else if (adjustedStage == 4)
         {
-            return 7 / 3;
+            return (decimal)7 / 3;
         }
         else if (adjustedStage == 5)
         {
-            return 8 / 3;
+            return (decimal)8 / 3;
         }
         else if (adjustedStage >= 6)
         {
-            return 9 / 3;
+            return (decimal)9 / 3;
         }
         else
         {
-            return 3 / 3;
+            return (decimal)3 / 3;
         }
 
     }
@@ -391,7 +391,7 @@ public class Battle
             categoryDamage = (double)attacker.CurrentSpAtk / defender.CurrentSpDef;
         }
 
-        double initialDamage = (((2 * attacker.Level / 5 + 2) * move.Power * categoryDamage) / 50) + 2;
+        double initialDamage = (((2 * attacker.Level / 5 + 2) * (move.Power ?? 0) * categoryDamage) / 50) + 2;
         var secondEffects = initialDamage * TargetsStatus * PBStatus * WeatherStatus * GlaiveRushStatus * CriticalHitStatus * RandomStatus * STABStatus * Type1Status * BurnStatus * OtherStatus * ZMoveStatus * TeraShieldStatus;
 
 
