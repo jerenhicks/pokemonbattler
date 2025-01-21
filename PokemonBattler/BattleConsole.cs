@@ -31,17 +31,7 @@ namespace PokemonBattler
         //      depenencies to the BattleConsole constructor
         private void BattleAllMonsters()
         {
-            var path = Directory.GetCurrentDirectory();
-            EffectRepository.LoadEffectsFromFolder("effects");
-            Console.WriteLine("Effects loaded!");
-            NatureRepository.LoadNaturesFromFile(path + "/PokemonBattler/data/natures.csv");
-            Console.WriteLine("Natures loaded!");
-            TypeRepository.LoadTypesFromFile(path + "/PokemonBattler/data/types.csv");
-            Console.WriteLine("Types loaded!");
-            MoveRepository.LoadMovesFromFile(path + "/PokemonBattler/data/moves.csv");
-            Console.WriteLine("Moves loaded!");
-            PokedexRepository.LoadPokedexFromFile(path + "/PokemonBattler/data/pokedex.csv");
-            Console.WriteLine("Pokedex loaded!");
+            LoadData();
 
             BattleCountdown();
 
@@ -71,16 +61,7 @@ namespace PokemonBattler
         //      need to actually do something with the user input
         private void ChooseYourPokemon()
         {
-            var path = Directory.GetCurrentDirectory();
-            // Load natures from CSV file
-            NatureRepository.LoadNaturesFromFile(path + "/PokemonBattler/data/natures.csv");
-            Console.WriteLine("Natures loaded!");
-            TypeRepository.LoadTypesFromFile(path + "/PokemonBattler/data/types.csv");
-            Console.WriteLine("Types loaded!");
-            MoveRepository.LoadMovesFromFile(path + "/PokemonBattler/data/moves.csv");
-            Console.WriteLine("Moves loaded!");
-            PokedexRepository.LoadPokedexFromFile(path + "/PokemonBattler/data/pokedex.csv");
-            Console.WriteLine("Pokedex loaded!");
+            LoadData();
 
             string pokemon1Name = "";
             string pokemon2Name = "";
@@ -154,6 +135,21 @@ namespace PokemonBattler
             {
                 Console.WriteLine("Invalid battle mode selected!!!");
             }
+        }
+
+        public void LoadData()
+        {
+            var path = Directory.GetCurrentDirectory();
+            EffectRepository.LoadEffectsFromFolder("effects");
+            Console.WriteLine("Effects loaded!");
+            NatureRepository.LoadNaturesFromFile(path + "/PokemonBattler/data/natures.csv");
+            Console.WriteLine("Natures loaded!");
+            TypeRepository.LoadTypesFromFile(path + "/PokemonBattler/data/types.csv");
+            Console.WriteLine("Types loaded!");
+            MoveRepository.LoadMovesFromFile(path + "/PokemonBattler/data/moves.csv");
+            Console.WriteLine("Moves loaded!");
+            PokedexRepository.LoadPokedexFromFile(path + "/PokemonBattler/data/pokedex.csv");
+            Console.WriteLine("Pokedex loaded!");
         }
     }
 }
