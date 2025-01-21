@@ -137,6 +137,12 @@ public class Pokemon
         // CurrentSpeed = Speed;
     }
 
+    public void Reset()
+    {
+        CalculateStats();
+        NonVolatileStatus = NonVolatileStatus.None;
+    }
+
     //FIXME: should maybe error catch to prevent more than 4? Tell someone it didn't work. Throw an exception?
     public void AddMove(Move move)
     {
