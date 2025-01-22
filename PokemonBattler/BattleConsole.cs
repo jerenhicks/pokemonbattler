@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 public class BattleConsole
 {
     int battleMode;
@@ -34,22 +33,40 @@ public class BattleConsole
 
         BattleCountdown();
 
-        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
-        Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"));
+        var pokedexIds = PokedexRepository.PokemonIds();
+        DateTime startTime;
+        DateTime endTime;
+        double totalTime = 0;
 
-        magikarp1.LevelUp(100);
-
-        magikarp1.AddMove(MoveRepository.GetMove("growl"));
-
-        galvantula.LevelUp(100);
-        galvantula.AddNonVolatileStatus(NonVolatileStatus.Burn);
-
-        Battle battle = new Battle(magikarp1, galvantula);
-        battle.CommenceBattle();
-        foreach (var logEntry in battle.GetBattleLog()) // Updated line
+        for (int id1 = 0; id1 < pokedexIds.Count; id1++)
         {
-            Console.WriteLine(logEntry); // Output each log entry to the console
+            Pokemon monster1 = PokedexRepository.CreatePokemon(pokedexIds[id1], NatureRepository.GetNature("adamant"), level: 100);
+            monster1.AddMove(MoveRepository.GetMove("pound"));
+            startTime = DateTime.Now;
+            for (int id2 = id1; id2 < pokedexIds.Count; id2++)
+            {
+                Pokemon monster2 = PokedexRepository.CreatePokemon(pokedexIds[id2], NatureRepository.GetNature("adamant"), level: 100);
+                monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
+
+                Battle battle = new Battle(monster1, monster2);
+                battle.CommenceBattle();
+
+                foreach (var logEntry in battle.GetBattleLog())
+                {
+                    Console.WriteLine(logEntry);
+                }
+
+                monster1.ResetCurrentStats();
+                monster1.ResetNonVolatileStatuses();
+            }
+
+            endTime = DateTime.Now;
+            var duration = (endTime - startTime).TotalMilliseconds;
+            totalTime += duration;
+            Console.WriteLine($"{monster1.Name}'s battles have completed in {duration} milliseconds.");
         }
+        double totalSeconds = totalTime / 1000;
+        Console.WriteLine($"Total time to run Battle Simulator: {(int)(totalSeconds / 60)} minutes and {(int)(totalSeconds % 60)} seconds.");
     }
 
     // TODO: basic structure/loop logic in place for Choose Your Pokemon mode;
@@ -80,14 +97,11 @@ public class BattleConsole
             BattleCountdown();
 
             // Create a Magikarp Pokemon with level 1 and specified base stats
-            Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
-            Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"));
-
-            magikarp1.LevelUp(100);
+            Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"), level: 100);
 
             magikarp1.AddMove(MoveRepository.GetMove("pound"));
 
-            galvantula.LevelUp(100);
             galvantula.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
             Battle battle = new Battle(magikarp1, galvantula);

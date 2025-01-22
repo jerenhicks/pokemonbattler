@@ -21,8 +21,8 @@ public class Battle
 
     public void CommenceBattle()
     {
-        Pokemon1.BattleReady();
-        Pokemon2.BattleReady();
+        Pokemon1.ResetCurrentStats();
+        Pokemon2.ResetCurrentStats();
 
         startTime = DateTime.Now;
         var turn = 0;

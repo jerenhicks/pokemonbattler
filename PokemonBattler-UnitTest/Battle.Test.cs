@@ -19,7 +19,9 @@ public class BattleTest : IClassFixture<TestFixture>
         Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
 
         glaceon.LevelUp(100);
+        glaceon.ResetCurrentStats();
         garchomp.LevelUp(100);
+        garchomp.ResetCurrentStats();
 
         glaceon.AddMove(MoveRepository.GetMove("ice fang"));
 
@@ -59,7 +61,9 @@ public class BattleTest : IClassFixture<TestFixture>
         Pokemon garchomp = PokedexRepository.CreatePokemon(445, NatureRepository.GetNature("adamant"));
 
         glaceon.LevelUp(100);
+        glaceon.ResetCurrentStats();
         garchomp.LevelUp(100);
+        garchomp.ResetCurrentStats();
 
         glaceon.AddMove(MoveRepository.GetMove("ice fang"));
         glaceon.AddNonVolatileStatus(NonVolatileStatus.Burn);

@@ -51,7 +51,7 @@ public class Pokemon
     public List<Move> Moves { get; set; } = new List<Move>();
     public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;
 
-    public Pokemon(PokemonTemplate template, Nature nature, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0)
+    public Pokemon(PokemonTemplate template, Nature nature, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
     {
         Name = template.Name;
         PokedexNumber = template.PokedexNumber;
@@ -64,7 +64,7 @@ public class Pokemon
         BaseSpAtk = template.BaseSpAtk;
         BaseSpDef = template.BaseSpDef;
         BaseSpeed = template.BaseSpeed;
-        Level = 1;
+        Level = level;
 
         // Check IVs
         if (ivhp < 0 || ivhp > 31 || ivAtk < 0 || ivAtk > 31 || ivDef < 0 || ivDef > 31 || ivSpAtk < 0 || ivSpAtk > 31 || ivSpDef < 0 || ivSpDef > 31 || ivSpeed < 0 || ivSpeed > 31)
@@ -100,6 +100,7 @@ public class Pokemon
         EVSpeed = evSpeed;
 
         CalculateStats();
+        ResetCurrentStats();
     }
 
     private void CalculateStats()
@@ -110,13 +111,6 @@ public class Pokemon
         SpAtk = (int)Math.Floor(Math.Floor((2 * BaseSpAtk + IVSpAtk + EVSpAtk / 4) * Level / 100.0 + 5) * Nature.SpecialAttackModifier);
         SpDef = (int)Math.Floor(Math.Floor((2 * BaseSpDef + IVSpDef + EVSpDef / 4) * Level / 100.0 + 5) * Nature.SpecialDefenseModifier);
         Speed = (int)Math.Floor(Math.Floor((2 * BaseSpeed + IVSpeed + EVSpeed / 4) * Level / 100.0 + 5) * Nature.SpeedModifier);
-
-        CurrentHP = HP;
-        // CurrentAtk = Atk;
-        // CurrentDef = Def;
-        // CurrentSpAtk = SpAtk;
-        // CurrentSpDef = SpDef;
-        // CurrentSpeed = Speed;
     }
 
 
@@ -126,20 +120,14 @@ public class Pokemon
         CalculateStats();
     }
 
-    public void BattleReady()
+    public void ResetCurrentStats()
     {
         CurrentHP = HP;
         StatModifiers.ResetAll();
-        // CurrentAtk = Atk;
-        // CurrentDef = Def;
-        // CurrentSpAtk = SpAtk;
-        // CurrentSpDef = SpDef;
-        // CurrentSpeed = Speed;
     }
 
-    public void Reset()
+    public void ResetNonVolatileStatuses()
     {
-        CalculateStats();
         NonVolatileStatus = NonVolatileStatus.None;
     }
 
