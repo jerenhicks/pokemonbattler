@@ -10,6 +10,8 @@ public class Battle
     private DateTime startTime;
     private DateTime endTime;
 
+    private Random random = new Random();
+
     private Dictionary<Pokemon, int> badlyPoisonedTracker = new Dictionary<Pokemon, int>();
 
     public Battle(Pokemon pokemon1, Pokemon pokemon2, int turnLimit = 100)
@@ -88,6 +90,12 @@ public class Battle
 
     public void PokemonTurn(Pokemon attackingPokemon, Move attackerMove, Pokemon defendingPokemon)
     {
+        //check if frozen
+        if (CheckFrozen(attackingPokemon))
+        {
+            return;
+        }
+
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
 
         var canHit = CanHit(attackingPokemon, defendingPokemon, attackerMove);
@@ -131,6 +139,29 @@ public class Battle
         {
             pokemon.CurrentHP -= (int)Math.Floor(pokemon.HP * 0.0625);
             battleLog.Add($"{pokemon.Name} is hurt by burn!");
+        }
+    }
+
+    public bool CheckFrozen(Pokemon pokemon)
+    {
+        if (pokemon.NonVolatileStatus == NonVolatileStatus.Freeze)
+        {
+            int randomNumber = random.Next(1, 101);
+            if (randomNumber <= 20)
+            {
+                pokemon.ResetNonVolatileStatuses();
+                battleLog.Add($"{pokemon.Name} thawed out!");
+                return false;
+            }
+            else
+            {
+                battleLog.Add($"{pokemon.Name} is frozen solid!");
+                return true;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -181,7 +212,6 @@ public class Battle
             //for now, just randomly pick one of the moves listed there. We will implement this later
             //get a list of all the moves that have PP left
             List<Move> movesWithPP = pokemon.Moves.FindAll(move => move.PP > 0);
-            Random random = new Random();
             int moveIndex = random.Next(movesWithPP.Count);
             moveToUse = movesWithPP[moveIndex];
         }
@@ -214,7 +244,6 @@ public class Battle
             else
             {
                 //if the pokemon have the same speed, then we randomly decide who goes first
-                Random random = new Random();
                 int randomValue = random.Next(0, 2);
                 if (randomValue == 0)
                 {
@@ -246,7 +275,6 @@ public class Battle
         //FIXME: PROBABLY NOT RIGHT HERE, but maybe????
         var accuracy = accuracyModified * 100;
         //need a number between 1 and 100
-        Random random = new Random();
         int randomNumber = random.Next(1, 101);
 
         if (randomNumber <= accuracy)
@@ -355,7 +383,6 @@ public class Battle
         var ZMoveStatus = 1;
         var TeraShieldStatus = 1;
 
-        Random random = new Random();
         var RandomStatus = random.Next(85, 101) / 100.0;
 
         var criticalStage = 0;
@@ -419,5 +446,8 @@ public class Battle
         return ((int)secondEffects, CriticalHitStatus == 2);
     }
 
-
+    public void SetRandom(Random random)
+    {
+        this.random = random;
+    }
 }

@@ -680,4 +680,68 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.True(result);
     }
 
+    [Fact]
+    public void TestCheckFrozen_ThawedOut()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Freeze);
+
+        var random = new RandomMock(10);
+        battle.SetRandom(random);
+
+        // Act
+        var wasFrozen = battle.CheckFrozen(pokemon);
+
+        // Assert
+        Assert.False(wasFrozen); // Pokémon should be thawed out
+        var battleLog = battle.GetBattleLog();
+        Assert.Contains($"{pokemon.Name} thawed out!", battleLog);
+    }
+
+    [Fact]
+    public void TestCheckFrozen_StillFrozen()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Freeze);
+
+        // Mock the random number generator to always return a value greater than 20
+        var random = new RandomMock(21);
+        battle.SetRandom(random);
+
+        // Act
+        var wasFrozen = battle.CheckFrozen(pokemon);
+
+        // Assert
+        Assert.True(wasFrozen); // Pokémon should still be frozen
+        var battleLog = battle.GetBattleLog();
+        Assert.Contains($"{pokemon.Name} is frozen solid!", battleLog);
+    }
+
+    [Fact]
+    public void TestCheckFrozen_NotFrozen()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+
+        // Act
+        var wasFrozen = battle.CheckFrozen(pokemon);
+
+        // Assert
+        Assert.False(wasFrozen); // Pokémon should not be frozen
+        var battleLog = battle.GetBattleLog();
+        Assert.DoesNotContain($"{pokemon.Name} is frozen solid!", battleLog);
+        Assert.DoesNotContain($"{pokemon.Name} thawed out!", battleLog);
+    }
+
 }
