@@ -46,15 +46,16 @@ public class BattleConsole
             for (int id2 = id1; id2 < pokedexIds.Count; id2++)
             {
                 Pokemon monster2 = PokedexRepository.CreatePokemon(pokedexIds[id2], NatureRepository.GetNature("adamant"), level: 100);
-                monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
+                monster2.AddMove(MoveRepository.GetMove("pound"));
+                //monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
                 Battle battle = new Battle(monster1, monster2);
                 battle.CommenceBattle();
 
-                foreach (var logEntry in battle.GetBattleLog())
-                {
-                    Console.WriteLine(logEntry);
-                }
+                // foreach (var logEntry in battle.GetBattleLog())
+                // {
+                //     Console.WriteLine(logEntry);
+                // }
 
                 monster1.ResetCurrentStats();
                 monster1.ResetNonVolatileStatuses();

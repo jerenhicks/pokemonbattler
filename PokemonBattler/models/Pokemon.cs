@@ -4,7 +4,7 @@ using System.Collections;
 public class Pokemon
 {
     public string Name { get; private set; }
-    public string ID { get; private set; } = IDGenerator.GenerateID();
+    public Guid ID { get; private set; } = Guid.NewGuid();
     public int PokedexNumber { get; private set; }
     public Type TypeOne { get; private set; }
     public Type TypeTwo { get; private set; }
