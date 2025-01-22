@@ -86,7 +86,7 @@ public class Battle
         battleLog.Add($"Battle Duration: {duration} milliseconds");
     }
 
-    private void PokemonTurn(Pokemon attackingPokemon, Move attackerMove, Pokemon defendingPokemon)
+    public void PokemonTurn(Pokemon attackingPokemon, Move attackerMove, Pokemon defendingPokemon)
     {
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
 

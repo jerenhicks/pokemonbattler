@@ -1,5 +1,4 @@
-﻿using PokemonBattler;
-using System;
+﻿using System;
 
 public class Program
 {
@@ -15,21 +14,24 @@ public class Program
             var input = Console.ReadLine();
             if (int.TryParse(input, out int mode))
             {
-                if (mode == 1 || mode == 2) {
+                if (mode == 1 || mode == 2)
+                {
                     battleMode = mode;
                     selectingBattleMode = false;
-                } else
+                }
+                else
                 {
                     Console.WriteLine("Sorry, that was an invalid mode. Please select mode 1 or 2:");
                 }
-            } else
+            }
+            else
             {
                 Console.WriteLine("Sorry, that was an invalid mode. Please select mode 1 or 2:");
             }
         } while (selectingBattleMode);
 
         Console.WriteLine("Starting battle mode {0}!", battleMode == 1 ? "Battle All Monsters" : "Choose Your Monsters");
-        
+
         var battleConsole = new BattleConsole(battleMode);
 
         battleConsole.Run();

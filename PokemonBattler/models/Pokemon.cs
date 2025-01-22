@@ -102,19 +102,6 @@ public class Pokemon
         CalculateStats();
     }
 
-    public void DisplayStatus()
-    {
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine($"Level: {Level}");
-        Console.WriteLine($"Type: {TypeOne} {TypeTwo}");
-        Console.WriteLine($"HP: {HP}");
-        Console.WriteLine($"Atk: {Atk}");
-        Console.WriteLine($"Def: {Def}");
-        Console.WriteLine($"SpAtk: {SpAtk}");
-        Console.WriteLine($"SpDef: {SpDef}");
-        Console.WriteLine($"Speed: {Speed}");
-    }
-
     private void CalculateStats()
     {
         HP = (2 * BaseHP + IVHP + EVHP / 4) * Level / 100 + Level + 10;

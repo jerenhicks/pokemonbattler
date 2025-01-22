@@ -64,4 +64,9 @@ public static class TypeRepository
     {
         return Types[name.ToLower()];
     }
+
+    public static IEnumerable<Type> GetAllTypes()
+    {
+        return Types.Values;
+    }
 }

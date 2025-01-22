@@ -10,6 +10,11 @@ public static class NatureRepository
         Natures.Add(nature.Name.ToLower(), nature);
     }
 
+    public static IEnumerable<Nature> GetAllNatures()
+    {
+        return Natures.Values;
+    }
+
     public static Nature GetNature(string name)
     {
         return Natures[name.ToLower()];

@@ -40,4 +40,9 @@ public class PokedexRepository
     {
         return PokemonExists(pokedexNumber) ? new Pokemon(Pokedex[pokedexNumber], nature, ivHp, ivAtk, ivDef, ivSpAtk, ivSpDef, ivSpeed, evHp, evAtk, evDef, evSpAtk, evSpDef, evSpeed) : null;
     }
+
+    public static IEnumerable<PokemonTemplate> GetAllPokemonTemplates()
+    {
+        return Pokedex.Values;
+    }
 }

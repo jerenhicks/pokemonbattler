@@ -46,4 +46,9 @@ public static class MoveRepository
             }
         }
     }
+
+    public static IEnumerable<Move> GetAllMoves()
+    {
+        return Moves.Values;
+    }
 }

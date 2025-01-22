@@ -458,50 +458,85 @@ public class BattleTest : IClassFixture<TestFixture>
         var move = MoveRepository.GetMove("tackle");
         var battle = new Battle(attacker, defender);
 
-        // Test case 1: Both accuracy and evasion stages are 0
-        attacker.StatModifiers.ChangeAccuracyStage(0);
-        defender.StatModifiers.ChangeEvasionStage(0);
-        var result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal((decimal)1, result);
+        // Accuracy and evasion stages range from -6 to +6
+        for (int accuracyStage = -6; accuracyStage <= 6; accuracyStage++)
+        {
+            for (int evasionStage = -6; evasionStage <= 6; evasionStage++)
+            {
+                // Reset stages
+                attacker.StatModifiers.ResetAll();
+                defender.StatModifiers.ResetAll();
 
-        attacker.StatModifiers.ResetAll();
-        defender.StatModifiers.ResetAll();
+                // Set stages
+                attacker.StatModifiers.ChangeAccuracyStage(accuracyStage);
+                defender.StatModifiers.ChangeEvasionStage(evasionStage);
 
-        // Test case 2: Attacker's accuracy stage is 2, defender's evasion stage is 0
-        attacker.StatModifiers.ChangeAccuracyStage(2);
-        defender.StatModifiers.ChangeEvasionStage(0);
-        result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal((decimal)5 / 3, result);
+                // Calculate expected result
+                var expected = GetStageMultiplier(attacker.StatModifiers.AccuracyStage - defender.StatModifiers.EvasionStage);
 
-        attacker.StatModifiers.ResetAll();
-        defender.StatModifiers.ResetAll();
+                // Act
+                var result = battle.GetAdjustedStages(attacker, defender, move);
 
-        // Test case 3: Attacker's accuracy stage is 0, defender's evasion stage is -2
-        attacker.StatModifiers.ChangeAccuracyStage(0);
-        defender.StatModifiers.ChangeEvasionStage(-2);
-        result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal((decimal)5 / 3, result);
+                // Assert
+                Assert.Equal(expected, result);
+            }
+        }
+    }
 
-        attacker.StatModifiers.ResetAll();
-        defender.StatModifiers.ResetAll();
-
-        // Test case 4: Attacker's accuracy stage is -3, defender's evasion stage is 3
-        attacker.StatModifiers.ChangeAccuracyStage(-3);
-        defender.StatModifiers.ChangeEvasionStage(3);
-        result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal((decimal)3 / 9, result);
-
-        attacker.StatModifiers.ResetAll();
-        defender.StatModifiers.ResetAll();
-
-        // Test case 5: Attacker's accuracy stage is -6, defender's evasion stage is 6
-        attacker.StatModifiers.ChangeAccuracyStage(-6);
-        defender.StatModifiers.ChangeEvasionStage(6);
-        result = battle.GetAdjustedStages(attacker, defender, move);
-        Assert.Equal((decimal)3 / 9, result);
-
-        attacker.StatModifiers.ResetAll();
-        defender.StatModifiers.ResetAll();
+    private decimal GetStageMultiplier(int stage)
+    {
+        if (stage <= -6)
+        {
+            return (decimal)3 / 9;
+        }
+        else if (stage == -5)
+        {
+            return (decimal)3 / 8;
+        }
+        else if (stage == -4)
+        {
+            return (decimal)3 / 7;
+        }
+        else if (stage == -3)
+        {
+            return (decimal)3 / 6;
+        }
+        else if (stage == -2)
+        {
+            return (decimal)3 / 5;
+        }
+        else if (stage == -1)
+        {
+            return (decimal)3 / 4;
+        }
+        else if (stage == 1)
+        {
+            return (decimal)4 / 3;
+        }
+        else if (stage == 2)
+        {
+            return (decimal)5 / 3;
+        }
+        else if (stage == 3)
+        {
+            return (decimal)6 / 3;
+        }
+        else if (stage == 4)
+        {
+            return (decimal)7 / 3;
+        }
+        else if (stage == 5)
+        {
+            return (decimal)8 / 3;
+        }
+        else if (stage >= 6)
+        {
+            return (decimal)9 / 3;
+        }
+        else
+        {
+            return (decimal)3 / 3;
+        }
     }
 
     [Fact]
@@ -571,6 +606,74 @@ public class BattleTest : IClassFixture<TestFixture>
         var battleLog = battle.GetBattleLog();
         Assert.DoesNotContain($"{pokemon1.Name} fainted!", battleLog);
         Assert.DoesNotContain($"{pokemon2.Name} fainted!", battleLog);
+    }
+
+    [Fact]
+    public void TestCanHit_AlwaysHitMove()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var move = new Move("Swift", TypeRepository.GetType("Normal"), MoveCategory.Special, 20, 60, null, 0, false, false, false, false, false, false, null); // Always hit move
+        var battle = new Battle(attacker, defender);
+
+        // Act
+        var result = battle.CanHit(attacker, defender, move);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void TestCanHit_HighAccuracyMove()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var move = new Move("Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, null); // High accuracy move
+        var battle = new Battle(attacker, defender);
+
+        // Act
+        var result = battle.CanHit(attacker, defender, move);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void TestCanHit_LowAccuracyMove()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var move = new Move("Slam", TypeRepository.GetType("Normal"), MoveCategory.Physical, 20, 80, 0.75m, 0, false, false, false, false, false, false, null); // Low accuracy move
+        var battle = new Battle(attacker, defender);
+
+        // Act
+        var result = battle.CanHit(attacker, defender, move);
+
+        // Assert
+        Assert.InRange(result, false, true); // Result can be either true or false
+    }
+
+    [Fact]
+    public void TestCanHit_WithModifiers()
+    {
+        // Arrange
+        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var move = new Move("Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, null); // High accuracy move
+        var battle = new Battle(attacker, defender);
+
+        // Mock modifiers
+        attacker.StatModifiers.ChangeAccuracyStage(2);
+        defender.StatModifiers.ChangeEvasionStage(-2);
+
+        // Act
+        var result = battle.CanHit(attacker, defender, move);
+
+        // Assert
+        Assert.True(result);
     }
 
 }

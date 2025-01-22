@@ -38,4 +38,9 @@ public static class EffectRepository
             }
         }
     }
+
+    public static IEnumerable<BaseEffect> GetAllEffects()
+    {
+        return Effects.Values;
+    }
 }

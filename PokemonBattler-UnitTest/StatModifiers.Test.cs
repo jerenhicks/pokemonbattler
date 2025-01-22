@@ -28,7 +28,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.AtkStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeAtkStage(-12);
+        statModifiers.ChangeAtkStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.AtkStage); // Should be capped at -6
@@ -53,7 +53,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.DefStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeDefStage(-12);
+        statModifiers.ChangeDefStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.DefStage); // Should be capped at -6
@@ -78,7 +78,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.SpAtkStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeSpAtkStage(-12);
+        statModifiers.ChangeSpAtkStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.SpAtkStage); // Should be capped at -6
@@ -103,7 +103,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.SpDefStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeSpDefStage(-12);
+        statModifiers.ChangeSpDefStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.SpDefStage); // Should be capped at -6
@@ -128,7 +128,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.SpeedStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeSpeedStage(-12);
+        statModifiers.ChangeSpeedStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.SpeedStage); // Should be capped at -6
@@ -153,7 +153,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.AccuracyStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeAccuracyStage(-12);
+        statModifiers.ChangeAccuracyStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.AccuracyStage); // Should be capped at -6
@@ -178,7 +178,7 @@ public class StatModifiersTest : IClassFixture<TestFixture>
         Assert.Equal(6, statModifiers.EvasionStage); // Should be capped at 6
 
         // Act
-        statModifiers.ChangeEvasionStage(-12);
+        statModifiers.ChangeEvasionStage(-100);
 
         // Assert
         Assert.Equal(-6, statModifiers.EvasionStage); // Should be capped at -6
