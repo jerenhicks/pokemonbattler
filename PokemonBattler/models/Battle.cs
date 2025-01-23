@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Battle
 {
-    private Pokemon Pokemon1 { get; }
-    private Pokemon Pokemon2 { get; }
+    public Pokemon Pokemon1 { get; }
+    public Pokemon Pokemon2 { get; }
     private int TurnLimit { get; }
     private List<string> battleLog = new List<string>();
     private DateTime startTime;
@@ -450,4 +450,5 @@ public class Battle
     {
         this.random = random;
     }
+
 }

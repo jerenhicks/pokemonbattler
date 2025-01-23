@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public class BattleConsole
 {
     int battleMode;
+    private bool outputBattleLogs = false;
     public BattleConsole(int battleMode)
     {
         this.battleMode = battleMode;
@@ -30,6 +31,7 @@ public class BattleConsole
     private void BattleAllMonsters()
     {
         LoadData();
+        ClearOutputFile();
 
         BattleCountdown();
 
@@ -37,6 +39,7 @@ public class BattleConsole
         DateTime startTime;
         DateTime endTime;
         double totalTime = 0;
+        PokeMetrics pokeMetrics = new PokeMetrics();
 
         for (int id1 = 0; id1 < pokedexIds.Count; id1++)
         {
@@ -52,10 +55,11 @@ public class BattleConsole
                 Battle battle = new Battle(monster1, monster2);
                 battle.CommenceBattle();
 
-                // foreach (var logEntry in battle.GetBattleLog())
-                // {
-                //     Console.WriteLine(logEntry);
-                // }
+                pokeMetrics.AddMetrics(battle);
+                if (outputBattleLogs)
+                {
+                    OutputBattleLog(battle);
+                }
 
                 monster1.ResetCurrentStats();
                 monster1.ResetNonVolatileStatuses();
@@ -67,6 +71,7 @@ public class BattleConsole
             Console.WriteLine($"{monster1.Name}'s battles have completed in {duration} milliseconds.");
         }
         double totalSeconds = totalTime / 1000;
+        pokeMetrics.OutputResultsToFile(Directory.GetCurrentDirectory() + "/PokemonBattler/output/metrics.txt");
         Console.WriteLine($"Total time to run Battle Simulator: {(int)(totalSeconds / 60)} minutes and {(int)(totalSeconds % 60)} seconds.");
     }
 
@@ -169,6 +174,18 @@ public class BattleConsole
         Console.WriteLine("Moves loaded!");
         PokedexRepository.LoadPokedexFromFile(path + "/PokemonBattler/data/pokedex.csv");
         Console.WriteLine("Pokedex loaded!");
+    }
+
+    public void ClearOutputFile()
+    {
+        File.WriteAllText(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", string.Empty);
+    }
+
+    public void OutputBattleLog(Battle battle)
+    {
+        //add a blank line before adding new battle log
+        File.AppendAllText(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", "\n");
+        File.AppendAllLines(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", battle.GetBattleLog());
     }
 }
 
