@@ -26,13 +26,18 @@ jobs:
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
-      - name: Publish
-        run: dotnet publish --output ./publish --runtime win-x64 --configuration Release  -p:PublishSingleFile=true -p:PublishTrimmed=true -p:UseAppHost=true --self-contained true
-      - name: Create zip file
-        run: zip -r pokemonbattler.zip ./publish
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - name: Publish Windows x64
+        run: dotnet publish --output ./publish-win -c Release -p:PublishSingleFile=true -p:PublishTrimmed=true -p:IncludeNativeLibrariesForSelfExtract=true -p:CopyOutputSymbolsToPublishDirectory=false -r win-x64 --self-contained=true
+      - name: Publish osx-x64
+        run: dotnet publish --output ./publish-mac -c Release -p:PublishSingleFile=true -p:PublishTrimmed=true -p:IncludeNativeLibrariesForSelfExtract=true -p:CopyOutputSymbolsToPublishDirectory=false -r osx-x64 --self-contained=true
+      - name: Publish linux-x64
+        run: dotnet publish --output ./publish-linux -c Release -p:PublishSingleFile=true -p:PublishTrimmed=true -p:IncludeNativeLibrariesForSelfExtract=true -p:CopyOutputSymbolsToPublishDirectory=false -r linux-x64 --self-contained=true
+      - name: Create win zip file
+        run: zip -r pokemonbattler-winx64.zip ./publish-win
+      - name: Create mac zip file
+        run: zip -r pokemonbattler-macx64.zip ./publish-mac
+      - name: Create linux zip file
+        run: zip -r pokemonbattler-linuxx64.zip ./publish-linux
       - name: Create Release
         id: create_release
         uses: comnoco/create-release-action@v2.0.5
@@ -47,12 +52,30 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
-      - name: Upload Release Asset
+      - name: Upload Release Asset - Windows
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: ./pokemonbattler.zip
-          asset_name: pokemonbattler-v${{github.run_number}}.zip
+          asset_path: ./pokemonbattler-winx64.zip
+          asset_name: pokemonbattler-winx64-v${{github.run_number}}.zip
+          asset_content_type: application/zip
+      - name: Upload Release Asset - Mac
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: ./pokemonbattler-macx64.zip
+          asset_name: pokemonbattler-macx64-v${{github.run_number}}.zip
+          asset_content_type: application/zip
+      - name: Upload Release Asset - Linux
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: ./pokemonbattler-linuxx64.zip
+          asset_name: pokemonbattler-linuxx64-v${{github.run_number}}.zip
           asset_content_type: application/zip
