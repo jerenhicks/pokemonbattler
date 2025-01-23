@@ -119,6 +119,8 @@ public class Battle
                 {
                     battleLog.Add("A Critical Hit!");
                 }
+                CheckTypeEffectiveness(damage.Item3);
+
             }
 
             if (attackerMove.Effect != null)
@@ -135,6 +137,23 @@ public class Battle
             battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) missed {defendingPokemon.Name}({defendingPokemon.ID})");
         }
         attackerMove.MoveUsed();
+    }
+
+    public void CheckTypeEffectiveness(double effectiveness)
+    {
+
+        if (effectiveness == 2 || effectiveness == 4)
+        {
+            battleLog.Add("It's super effective!");
+        }
+        else if (effectiveness == 0.25 || effectiveness == .5)
+        {
+            battleLog.Add("It's not very effective...");
+        }
+        else if (effectiveness == 0)
+        {
+            battleLog.Add("It has no effect!");
+        }
     }
 
     public void CheckBurn(Pokemon pokemon)
@@ -366,7 +385,7 @@ public class Battle
         return 0;
     }
 
-    public (int, Boolean) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
+    public (int, Boolean, double) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
     {
         double categoryDamage = 0;
         var BurnStatus = 1.0;
@@ -442,12 +461,12 @@ public class Battle
         var secondEffects = initialDamage * TargetsStatus * PBStatus * WeatherStatus * GlaiveRushStatus * CriticalHitStatus * RandomStatus * STABStatus * Type1Status * BurnStatus * OtherStatus * ZMoveStatus * TeraShieldStatus;
 
 
-        if (secondEffects == 0)
+        if (secondEffects == 0 && Type1Status != 0)
         {
             secondEffects = 1;
         }
         //FIXME: THIS IS PROBABLY NOT RIGHT
-        return ((int)secondEffects, CriticalHitStatus == 2);
+        return ((int)secondEffects, CriticalHitStatus == 2, Type1Status);
     }
 
     public void SetRandom(Random random)

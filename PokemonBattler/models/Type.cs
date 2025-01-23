@@ -17,34 +17,36 @@ public class Type
 
     public double GetEffectiveness(Type type1, Type type2)
     {
-        var effectivenessStage = 0;
-        effectivenessStage += CheckEffectivessCategory(type1);
-        effectivenessStage += CheckEffectivessCategory(type2);
 
-        if (effectivenessStage == 0)
-        {
-            return 1;
-        }
-        else if (effectivenessStage == 1)
-        {
-            return 2;
-        }
-        else if (effectivenessStage == 2)
-        {
-            return 4;
-        }
-        else if (effectivenessStage == -1)
-        {
-            return 0.5;
-        }
-        else if (effectivenessStage == -2)
-        {
-            return 0.25;
-        }
-        else if (effectivenessStage == -10)
+        var effectivenessOneStage = CheckEffectivessCategory(type1);
+        var effectivenessTwoStage = CheckEffectivessCategory(type2);
+
+        if (effectivenessOneStage == -10 || effectivenessTwoStage == -10)
         {
             return 0;
         }
+
+        if (effectivenessOneStage + effectivenessTwoStage == 0)
+        {
+            return 1;
+        }
+        else if (effectivenessOneStage + effectivenessTwoStage == 1)
+        {
+            return 2;
+        }
+        else if (effectivenessOneStage + effectivenessTwoStage == 2)
+        {
+            return 4;
+        }
+        else if (effectivenessOneStage + effectivenessTwoStage == -1)
+        {
+            return 0.5;
+        }
+        else if (effectivenessOneStage + effectivenessTwoStage == -2)
+        {
+            return 0.25;
+        }
+
 
         return 1;
     }

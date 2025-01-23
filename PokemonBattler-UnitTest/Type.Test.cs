@@ -128,4 +128,25 @@ public class TypeTest : IClassFixture<TestFixture>
         // Assert
         Assert.Equal(1.0, effectiveness); // 2.0 (super effective) * 0.5 (not effective) = 1.0
     }
+
+    [Fact]
+    public void TestGetEffectiveness_Immune()
+    {
+        // Arrange
+        var groundType = TypeRepository.GetType("Ground");
+        var FlyingType = TypeRepository.GetType("Flying");
+        var rockType = TypeRepository.GetType("Rock");
+
+        // Act
+        var effectiveness = groundType.GetEffectiveness(FlyingType, rockType);
+
+        // Assert
+        Assert.Equal(0.0, effectiveness);
+
+
+        var ghostType = TypeRepository.GetType("Ghost");
+        var normalType = TypeRepository.GetType("Normal");
+        var effectiveness2 = normalType.GetEffectiveness(ghostType, null);
+        Assert.Equal(0.0, effectiveness2);
+    }
 }
