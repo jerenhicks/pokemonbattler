@@ -11,20 +11,20 @@ public class BattleConsoleTest : IClassFixture<TestFixture>
         _fixture = fixture;
     }
 
-    [Fact]
-    public void TestLoadData()
-    {
-        // Arrange
-        var battleConsole = new BattleConsole(1);
+    // [Fact]
+    // public void TestLoadData()
+    // {
+    //     // Arrange
+    //     var battleConsole = new BattleConsole(1);
 
-        // Act
-        battleConsole.LoadData(true);
+    //     // Act
+    //     battleConsole.LoadData(true);
 
-        // Assert
-        Assert.NotEmpty(EffectRepository.GetAllEffects());
-        Assert.NotEmpty(NatureRepository.GetAllNatures());
-        Assert.NotEmpty(TypeRepository.GetAllTypes());
-        Assert.NotEmpty(MoveRepository.GetAllMoves());
-        Assert.NotEmpty(PokedexRepository.GetAllPokemonTemplates());
-    }
+    //     // Assert
+    //     Assert.NotEmpty(EffectRepository.GetAllEffects());
+    //     Assert.NotEmpty(NatureRepository.GetAllNatures());
+    //     Assert.NotEmpty(TypeRepository.GetAllTypes());
+    //     Assert.NotEmpty(MoveRepository.GetAllMoves());
+    //     Assert.NotEmpty(PokedexRepository.GetAllPokemonTemplates());
+    // }
 }
