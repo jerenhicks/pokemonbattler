@@ -100,7 +100,7 @@ public class Pokemon
         EVSpeed = evSpeed;
 
         CalculateStats();
-        ResetCurrentStats();
+        Reset();
     }
 
     private void CalculateStats()
@@ -120,10 +120,14 @@ public class Pokemon
         CalculateStats();
     }
 
-    public void ResetCurrentStats()
+    public void Reset()
     {
         CurrentHP = HP;
         StatModifiers.ResetAll();
+        foreach (var move in Moves)
+        {
+            move.Reset();
+        }
     }
 
     public void ResetNonVolatileStatuses()

@@ -3,6 +3,7 @@ public class Move
     public string Name { get; private set; }
     public Type Type { get; private set; }
     public MoveCategory Category { get; private set; } // Physical, Special, or Status
+    public int MaxPP { get; private set; }
     public int PP { get; private set; }
     public int? Power { get; private set; }
     public decimal? Accuracy { get; private set; }
@@ -21,7 +22,8 @@ public class Move
         Name = name;
         Type = type;
         Category = category;
-        PP = pp;
+        MaxPP = pp;
+        PP = MaxPP;
         Power = power;
         Accuracy = accuracy;
         Priority = priority;
@@ -43,6 +45,11 @@ public class Move
     public void MoveUsed()
     {
         PP--;
+    }
+
+    public void Reset()
+    {
+        PP = MaxPP;
     }
 
 }

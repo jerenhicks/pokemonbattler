@@ -253,7 +253,7 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
-        pokemon.ResetCurrentStats();
+        pokemon.Reset();
 
         // Act
         pokemon.StatModifiers.ChangeAtkStage(2);
@@ -276,7 +276,7 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
-        pokemon.ResetCurrentStats();
+        pokemon.Reset();
 
         // Assert
         Assert.Equal(pokemon.Atk, pokemon.CurrentAtk);
@@ -292,7 +292,7 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
-        pokemon.ResetCurrentStats();
+        pokemon.Reset();
 
         // Act
         pokemon.StatModifiers.ChangeAtkStage(2);
@@ -300,7 +300,7 @@ public class PokemonTest : IClassFixture<TestFixture>
         pokemon.StatModifiers.ChangeSpAtkStage(3);
         pokemon.StatModifiers.ChangeSpDefStage(-2);
         pokemon.StatModifiers.ChangeSpeedStage(1);
-        pokemon.ResetCurrentStats(); // Reset modifiers
+        pokemon.Reset(); // Reset modifiers
 
         // Assert
         Assert.Equal(pokemon.Atk, pokemon.CurrentAtk);

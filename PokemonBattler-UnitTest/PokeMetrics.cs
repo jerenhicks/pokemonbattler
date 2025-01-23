@@ -58,7 +58,6 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
     }
 
-
     [Fact]
     public void TestAddMetrics_ExistingMetrics()
     {
@@ -87,28 +86,6 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         Assert.Equal(1, pokeMetrics.Metrics[pokemon2.Name].Wins);
     }
 
-    // [Fact]
-    // public void TestAddMetrics_BothFainted()
-    // {
-    //     // Arrange
-    //     var pokeMetrics = new PokeMetrics();
-    //     var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-    //     var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-    //     pokemon1.LevelUp(100);
-    //     pokemon2.LevelUp(100);
-    //     pokemon1.CurrentHP = 0; // Magikarp is fainted
-    //     pokemon2.CurrentHP = 0; // Galvantula is fainted
-    //     var battle = new Battle(pokemon1, pokemon2);
-
-    //     // Act
-    //     pokeMetrics.AddMetrics(battle);
-
-    //     // Assert
-    //     Assert.Contains(pokemon1.Name, pokeMetrics.Metrics.Keys);
-    //     Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
-    //     Assert.Equal(1, pokeMetrics.Metrics[pokemon1.Name].Ties);
-    //     Assert.Equal(1, pokeMetrics.Metrics[pokemon2.Name].Ties);
-    // }
 
     [Fact]
     public void TestAddMetrics_BothFainted()

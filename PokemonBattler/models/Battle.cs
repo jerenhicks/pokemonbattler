@@ -23,8 +23,8 @@ public class Battle
 
     public void CommenceBattle()
     {
-        Pokemon1.ResetCurrentStats();
-        Pokemon2.ResetCurrentStats();
+        Pokemon1.Reset();
+        Pokemon2.Reset();
 
         startTime = DateTime.Now;
         var turn = 0;
@@ -110,6 +110,10 @@ public class Battle
             {
                 var damage = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
                 defendingPokemon.CurrentHP -= damage.Item1;
+                if (defendingPokemon.CurrentHP < 0)
+                {
+                    defendingPokemon.CurrentHP = 0;
+                }
                 battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
                 if (damage.Item2)
                 {

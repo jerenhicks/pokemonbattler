@@ -15,7 +15,7 @@ public class PokeMetrics
 
     public void AddMetrics(Battle battle)
     {
-        if (battle.Pokemon1.CurrentHP == 0 && battle.Pokemon2.CurrentHP == 0)
+        if (battle.Pokemon1.CurrentHP <= 0 && battle.Pokemon2.CurrentHP <= 0)
         {
             if (!Metrics.ContainsKey(battle.Pokemon1.Name))
             {
@@ -37,7 +37,7 @@ public class PokeMetrics
         }
         else
         {
-            if (battle.Pokemon1.CurrentHP == 0)
+            if (battle.Pokemon1.CurrentHP <= 0)
             {
                 if (!Metrics.ContainsKey(battle.Pokemon1.Name))
                 {
@@ -93,9 +93,13 @@ public class PokeMetrics
 
     public void OutputResultsToFile(String path)
     {
+        var sortedMetrics = Metrics.OrderByDescending(m => m.Value.Wins)
+                                   .ThenByDescending(m => m.Value.Ties)
+                                   .ToList();
+
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(path))
         {
-            foreach (var metric in Metrics)
+            foreach (var metric in sortedMetrics)
             {
                 file.WriteLine($"{metric.Key} has {metric.Value.Wins} wins, {metric.Value.Losses} losses, and {metric.Value.Ties} ties.");
             }

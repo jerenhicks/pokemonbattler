@@ -46,7 +46,7 @@ public class BattleConsole
             Pokemon monster1 = PokedexRepository.CreatePokemon(pokedexIds[id1], NatureRepository.GetNature("adamant"), level: 100);
             monster1.AddMove(MoveRepository.GetMove("pound"));
             startTime = DateTime.Now;
-            for (int id2 = id1; id2 < pokedexIds.Count; id2++)
+            for (int id2 = id1 + 1; id2 < pokedexIds.Count; id2++)
             {
                 Pokemon monster2 = PokedexRepository.CreatePokemon(pokedexIds[id2], NatureRepository.GetNature("adamant"), level: 100);
                 monster2.AddMove(MoveRepository.GetMove("pound"));
@@ -61,7 +61,7 @@ public class BattleConsole
                     OutputBattleLog(battle);
                 }
 
-                monster1.ResetCurrentStats();
+                monster1.Reset();
                 monster1.ResetNonVolatileStatuses();
             }
 
