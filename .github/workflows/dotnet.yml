@@ -29,12 +29,16 @@ jobs:
         run: dotnet publish --output ./publish --runtime win-x64 --configuration Release  -p:PublishSingleFile=true -p:PublishTrimmed=true -p:UseAppHost=true --self-contained true
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: comnoco/create-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: release-${{ steps.date.outputs.date }}
           release_name: Release ${{ steps.date.outputs.date }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
           draft: false
           prerelease: false
       - name: Upload Release Asset
