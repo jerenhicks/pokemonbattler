@@ -12,7 +12,6 @@ public class TestFixture
             if (!_initialized)
             {
                 // Load natures from CSV file
-                EffectRepository.LoadEffectsFromFolder("effects");
                 NatureRepository.LoadNaturesFromFile("../../../../PokemonBattler/data/natures.csv");
                 TypeRepository.LoadTypesFromFile("../../../../PokemonBattler/data/types.csv");
                 MoveRepository.LoadMovesFromFile("../../../../PokemonBattler/data/moves.csv");

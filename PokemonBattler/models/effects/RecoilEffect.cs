@@ -25,3 +25,4 @@ public class RecoilEffect : BaseEffect
         return new List<String>();
     }
 }
+

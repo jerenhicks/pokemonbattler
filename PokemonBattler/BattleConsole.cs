@@ -8,8 +8,20 @@ public class BattleConsole
 {
     int battleMode;
     private bool outputBattleLogs = false;
+    private string basePath;
+    private string currentDirectory;
     public BattleConsole(int battleMode)
     {
+
+        currentDirectory = Directory.GetCurrentDirectory();
+        basePath = currentDirectory;
+
+        // Check if the data files exist in the current directory
+        if (!File.Exists(Path.Combine(currentDirectory, "data", "natures.csv")))
+        {
+            // If not, assume we are running from the solution level and adjust the path
+            basePath = Path.Combine(currentDirectory, "PokemonBattler");
+        }
         this.battleMode = battleMode;
     }
     private void BattleCountdown()
@@ -158,34 +170,34 @@ public class BattleConsole
 
     public void LoadData(bool testing = false)
     {
-        var path = Directory.GetCurrentDirectory();
 
         if (testing)
         {
-            path = "../../../..";
+            basePath = Path.Combine(currentDirectory, "../../../..");
         }
-        EffectRepository.LoadEffectsFromFolder("effects");
+
+        //EffectRepository.LoadEffectsFromFolder(Path.Combine(basePath, "effects"));
         Console.WriteLine("Effects loaded!");
-        NatureRepository.LoadNaturesFromFile(path + "/PokemonBattler/data/natures.csv");
+        NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.csv"));
         Console.WriteLine("Natures loaded!");
-        TypeRepository.LoadTypesFromFile(path + "/PokemonBattler/data/types.csv");
+        TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.csv"));
         Console.WriteLine("Types loaded!");
-        MoveRepository.LoadMovesFromFile(path + "/PokemonBattler/data/moves.csv");
+        MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.csv"));
         Console.WriteLine("Moves loaded!");
-        PokedexRepository.LoadPokedexFromFile(path + "/PokemonBattler/data/pokedex.csv");
+        PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.csv"));
         Console.WriteLine("Pokedex loaded!");
     }
 
     public void ClearOutputFile()
     {
-        File.WriteAllText(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", string.Empty);
+        File.WriteAllText(Path.Combine(basePath, "output", "battleoutput.txt"), string.Empty);
     }
 
     public void OutputBattleLog(Battle battle)
     {
         //add a blank line before adding new battle log
-        File.AppendAllText(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", "\n");
-        File.AppendAllLines(Directory.GetCurrentDirectory() + "/PokemonBattler/output/battleoutput.txt", battle.GetBattleLog());
+        File.AppendAllText(Path.Combine(basePath, "output", "battleoutput.txt"), "\n");
+        File.AppendAllLines(Path.Combine(basePath, "output", "battleoutput.txt"), battle.GetBattleLog());
     }
 }
 

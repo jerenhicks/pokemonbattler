@@ -22,3 +22,4 @@ public class GrowlEffect : BaseEffect
         return messages;
     }
 }
+

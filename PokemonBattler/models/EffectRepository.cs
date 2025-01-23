@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
+
 
 public static class EffectRepository
 {
@@ -10,7 +10,7 @@ public static class EffectRepository
 
     static EffectRepository()
     {
-        LoadEffectsFromFolder("effects");
+        LoadEffectsFromAssembly();
     }
 
     public static void AddEffect(BaseEffect effect)
@@ -23,24 +23,35 @@ public static class EffectRepository
         return Effects[name.ToLower()];
     }
 
-    public static void LoadEffectsFromFolder(string folderPath)
+    private static void LoadEffectsFromAssembly()
     {
-        var effectTypes = Assembly.GetExecutingAssembly().GetTypes()
+        var assembly = Assembly.GetExecutingAssembly();
+        Console.WriteLine($"Loading effects from assembly: {assembly.FullName}");
+
+        var effectTypes = assembly.GetTypes()
             .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(BaseEffect)))
             .ToList();
 
+        if (effectTypes.Count == 0)
+        {
+            Console.WriteLine("No effect types found in the assembly.");
+        }
+
         foreach (var type in effectTypes)
         {
-            var effect = (BaseEffect)Activator.CreateInstance(type);
-            if (!Effects.ContainsKey(effect.GetType().Name.ToLower()))
+            Console.WriteLine($"Loading effect: {type.FullName}");
+            try
             {
+                var effect = (BaseEffect)Activator.CreateInstance(type);
                 AddEffect(effect);
+                Console.WriteLine($"Successfully loaded effect: {type.FullName}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to load effect: {type.FullName}, Exception: {ex.Message}");
             }
         }
-    }
 
-    public static IEnumerable<BaseEffect> GetAllEffects()
-    {
-        return Effects.Values;
+        Console.WriteLine("All effects loaded!");
     }
 }
