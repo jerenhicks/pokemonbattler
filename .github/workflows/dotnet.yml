@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-    permissions: write-all
+    permissions:
+      contents: write
+      packages: write
     runs-on: ubuntu-latest
 
     steps:
