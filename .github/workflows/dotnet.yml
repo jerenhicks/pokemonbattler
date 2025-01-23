@@ -35,23 +35,23 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - name: Create Release
-        id: create_release
-        uses: comnoco/create-release-action@v2.0.5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: release-${{ steps.date.outputs.date }}
-          release_name: Release ${{ steps.date.outputs.date }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        uses: alexellis/upload-assets@0.4.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          asset_paths: '["./publish/*"]'
+      # - name: Create Release
+      #   id: create_release
+      #   uses: comnoco/create-release-action@v2.0.5
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: release-${{ steps.date.outputs.date }}
+      #     release_name: Release ${{ steps.date.outputs.date }}
+      #     body: |
+      #       Changes in this Release
+      #       - First Change
+      #       - Second Change
+      #     draft: false
+      #     prerelease: false
+      # - name: Upload Release Asset
+      #   uses: alexellis/upload-assets@0.4.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     asset_paths: '["./publish/*"]'
