@@ -149,4 +149,16 @@ public class TypeTest : IClassFixture<TestFixture>
         var effectiveness2 = normalType.GetEffectiveness(ghostType, null);
         Assert.Equal(0.0, effectiveness2);
     }
+
+    [Fact]
+    public void TestTypelessType()
+    {
+        // Arrange
+        var typelessType = TypeRepository.GetType("Typeless");
+
+        // Assert
+        Assert.Empty(typelessType.SuperEffectiveAgainst);
+        Assert.Empty(typelessType.NotEffectiveAgainst);
+        Assert.Empty(typelessType.NoEffectAgainst);
+    }
 }

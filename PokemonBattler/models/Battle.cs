@@ -433,20 +433,14 @@ public class Battle
         }
 
         var STABStatus = 1.0;
-        if (move.Name != "Struggle")
+        if (attacker.TypeOne == move.Type || attacker.TypeTwo == move.Type)
         {
-            if (attacker.TypeOne == move.Type || attacker.TypeTwo == move.Type)
-            {
-                STABStatus = 1.5;
-            }
-
+            STABStatus = 1.5;
         }
 
         var Type1Status = 1.0;
-        if (move.Name != "Struggle")
-        {
-            Type1Status = move.Type.GetEffectiveness(defender.TypeOne, defender.TypeTwo);
-        }
+        Type1Status = move.Type.GetEffectiveness(defender.TypeOne, defender.TypeTwo);
+
 
         if (move.Category == MoveCategory.Physical)
         {

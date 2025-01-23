@@ -16,3 +16,4 @@ ice,2:flying/ground/grass/dragon,.5:steel/fire/water/ice
 dragon,2:ice,.5:steel,0:fairy
 dark,2:ghost/psychic,.5:fighting/dark/fairy
 fairy,2:fighting/dragon/dark,.5:poison/steel/fire
+typeless
