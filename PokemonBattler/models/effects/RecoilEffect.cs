@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 public class RecoilEffect : BaseEffect
 {
+    public RecoilEffect()
+    {
+    }
     public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
 

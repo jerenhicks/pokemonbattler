@@ -83,7 +83,17 @@ public class BattleConsole
             Console.WriteLine($"{monster1.Name}'s battles have completed in {duration} milliseconds.");
         }
         double totalSeconds = totalTime / 1000;
-        pokeMetrics.OutputResultsToFile(Directory.GetCurrentDirectory() + "/PokemonBattler/output/metrics.txt");
+
+        var metricsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "PokemonBattler", "output", "metrics.txt");
+
+        // Check if the metrics file exists, and create it if it doesn't
+        if (!File.Exists(metricsFilePath))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(metricsFilePath)); // Ensure the directory exists
+            File.Create(metricsFilePath).Dispose(); // Create the file and close it immediately
+        }
+
+        pokeMetrics.OutputResultsToFile(metricsFilePath);
         Console.WriteLine($"Total time to run Battle Simulator: {(int)(totalSeconds / 60)} minutes and {(int)(totalSeconds % 60)} seconds.");
     }
 
