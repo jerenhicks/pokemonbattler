@@ -39,7 +39,6 @@ public static class EffectRepository
 
         foreach (var type in effectTypes)
         {
-            Console.WriteLine($"Loading effect: {type.FullName}");
             try
             {
                 var effect = (BaseEffect)Activator.CreateInstance(type);
