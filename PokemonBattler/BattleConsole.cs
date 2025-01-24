@@ -84,7 +84,7 @@ public class BattleConsole
         }
         double totalSeconds = totalTime / 1000;
 
-        var metricsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "PokemonBattler", "output", "metrics.txt");
+        var metricsFilePath = Path.Combine(basePath, "output", "metrics.txt");
 
         // Check if the metrics file exists, and create it if it doesn't
         if (!File.Exists(metricsFilePath))
