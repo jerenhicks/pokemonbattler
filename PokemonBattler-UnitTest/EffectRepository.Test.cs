@@ -44,7 +44,7 @@ public class EffectRepositoryTest : IClassFixture<TestFixture>
     public void TestGetEffect_NotFound()
     {
         // Act & Assert
-        Assert.Throws<KeyNotFoundException>(() => EffectRepository.GetEffect("nonexistent"));
+        Assert.Equal(null, EffectRepository.GetEffect("nonexistent"));
     }
 }
 
