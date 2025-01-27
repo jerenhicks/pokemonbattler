@@ -10,6 +10,11 @@ public class GrowlEffect : BaseEffect
     {
     }
 
+    public override void SetModifier(double amount)
+    {
+        // No modifier needed for growl
+    }
+
     public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         List<String> messages = new List<String>();

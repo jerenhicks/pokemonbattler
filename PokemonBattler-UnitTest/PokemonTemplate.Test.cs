@@ -27,8 +27,8 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         var baseSpeed = 80;
         var moves = new List<Move>
         {
-            new Move("Splash", TypeRepository.GetType("Normal"), MoveCategory.Status, 40, null, null, 0, false, false, false, false, false, false, null),
-            new Move("Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, null)
+            new Move(150,"Splash", TypeRepository.GetType("Normal"), MoveCategory.Status, 40, null, null, 0, false, false, false, false, false, false, Range.Normal, null),
+            new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, Range.Normal, null)
         };
 
         // Act

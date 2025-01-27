@@ -20,7 +20,7 @@ public static class EffectRepository
 
     public static BaseEffect GetEffect(string name)
     {
-        return Effects[name.ToLower()];
+        return (BaseEffect)Activator.CreateInstance(Effects[name.ToLower()].GetType());
     }
 
     private static void LoadEffectsFromAssembly()

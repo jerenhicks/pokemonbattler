@@ -10,6 +10,11 @@ public class BurnEffect : BaseEffect
     {
     }
 
+    public override void SetModifier(double amount)
+    {
+        // No modifier needed for burn
+    }
+
     public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         // Implement the effect logic here

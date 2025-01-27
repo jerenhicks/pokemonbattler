@@ -23,22 +23,46 @@ public static class MoveRepository
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
+                BaseEffect effect = null;
+
+
+                if (values[15] != "null")
+                {
+                    var effectString = values[15].Trim();
+                    if (effectString.Contains("(") && effectString.Contains(")"))
+                    {
+                        var effectName = effectString.Substring(0, effectString.IndexOf("("));
+                        var parameterString = effectString.Substring(effectString.IndexOf("(") + 1, effectString.IndexOf(")") - effectString.IndexOf("(") - 1);
+                        var parameter = double.Parse(parameterString);
+
+                        effect = EffectRepository.GetEffect(effectName);
+                        effect.SetModifier(parameter);
+                    }
+                    else
+                    {
+                        effect = EffectRepository.GetEffect(effectString);
+                    }
+                }
+
                 var move = new Move(
-                    name: values[0].Trim(),
-                    type: TypeRepository.GetType(values[1]),
-                    category: Enum.Parse<MoveCategory>(values[2], true),
-                    pp: int.Parse(values[3]),
-                    power: values[4] == "null" ? (int?)null : int.Parse(values[4]),
-                    accuracy: values[5] == "null" ? (decimal?)null : decimal.Parse(values[5]),
-                    priority: int.Parse(values[6]),
-                    makesContact: bool.Parse(values[7]),
-                    affectedByProtect: bool.Parse(values[8]),
-                    affectedByMagicCoat: bool.Parse(values[9]),
-                    affectedBySnatch: bool.Parse(values[10]),
-                    affectedByMirrorMove: bool.Parse(values[11]),
-                    affectedByKingsRock: bool.Parse(values[12]),
-                    effect: values[13] == "null" ? null : EffectRepository.GetEffect(values[13])
+                    id: int.Parse(values[0]),
+                    name: values[1].Trim(),
+                    type: TypeRepository.GetType(values[2]),
+                    category: Enum.Parse<MoveCategory>(values[3], true),
+                    pp: int.Parse(values[4]),
+                    power: values[5] == "null" ? (int?)null : int.Parse(values[5]),
+                    accuracy: values[6] == "null" ? (decimal?)null : decimal.Parse(values[6]),
+                    priority: int.Parse(values[7]),
+                    makesContact: bool.Parse(values[8]),
+                    affectedByProtect: bool.Parse(values[9]),
+                    affectedByMagicCoat: bool.Parse(values[10]),
+                    affectedBySnatch: bool.Parse(values[11]),
+                    affectedByMirrorMove: bool.Parse(values[12]),
+                    affectedByKingsRock: bool.Parse(values[13]),
+                    range: Enum.Parse<Range>(values[14], true),
+                    effect: effect
                 );
+
                 if (!Moves.ContainsKey(move.Name.ToLower()))
                 {
                     Moves.Add(move.Name.ToLower(), move);

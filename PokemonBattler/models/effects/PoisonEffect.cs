@@ -9,6 +9,11 @@ public class PoisonEffect : BaseEffect
     public PoisonEffect()
     {
     }
+
+    public override void SetModifier(double amount)
+    {
+        // No modifier needed for poison
+    }
     public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         // Implement the effect logic here

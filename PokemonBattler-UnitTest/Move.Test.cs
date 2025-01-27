@@ -16,6 +16,7 @@ public class MoveTest : IClassFixture<TestFixture>
         // Arrange
         var pp = 15;
         var originalMove = new Move(
+            id: 8,
             name: "Ice Punch",
             type: TypeRepository.GetType("Ice"),
             category: MoveCategory.Physical,
@@ -29,6 +30,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedBySnatch: false,
             affectedByMirrorMove: true,
             affectedByKingsRock: true,
+            range: Range.Normal,
             null
         );
 
@@ -59,6 +61,7 @@ public class MoveTest : IClassFixture<TestFixture>
     {
         // Arrange
         var move = new Move(
+            id: 45,
             name: "Growl",
             type: TypeRepository.GetType("Normal"),
             category: MoveCategory.Status,
@@ -72,6 +75,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedBySnatch: false,
             affectedByMirrorMove: true,
             affectedByKingsRock: false,
+            range: Range.Normal,
             effect: new GrowlEffect()
         );
 
@@ -87,6 +91,7 @@ public class MoveTest : IClassFixture<TestFixture>
     {
         // Arrange
         var move = new Move(
+            id: 33,
             name: "Tackle",
             type: TypeRepository.GetType("Normal"),
             category: MoveCategory.Physical,
@@ -100,6 +105,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedBySnatch: false,
             affectedByMirrorMove: true,
             affectedByKingsRock: true,
+            range: Range.Normal,
             effect: null
         );
 

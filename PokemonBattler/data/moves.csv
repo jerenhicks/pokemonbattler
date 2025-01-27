@@ -1,10 +1,10 @@
-﻿Pound,Normal,Physical,35,40,1,0,true,true,false,false,true,true,null
-Tackle,Normal,Physical,35,40,1,0,true,true,false,false,true,true,null
-Ice Punch,Ice,Physical,15,75,1,0,true,true,false,false,true,true,null
-Slam,Normal,Physical,20,80,0.75,0,true,true,false,false,true,true,null
-Struggle,Typeless,Physical,1,50,null,0,true,true,false,false,false,true,RecoilEffect
-Ice Fang,Ice,Physical,15,65,0.95,0,true,true,false,false,true,false,null
-Quick Attack,Normal,Physical,30,40,1,1,true,true,false,false,true,true,null
-Razor Wind,Normal,Special,10,80,1,0,false,true,false,false,true,true,null
-Growl,Normal,Status,40,null,1,0,false,true,true,false,true,false,GrowlEffect
-Brave Bird,Flying,Physical,15,120,0.9,0,true,true,false,false,true,true,RecoilEffect
+﻿1,Pound,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
+33,Tackle,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
+8,Ice Punch,Ice,Physical,15,75,1,0,true,true,false,false,true,true,Normal,null
+21,Slam,Normal,Physical,20,80,0.75,0,true,true,false,false,true,true,Normal,null
+165,Struggle,Typeless,Physical,1,50,null,0,true,true,false,false,false,true,OneRandom,RecoilEffect(.25)
+423,Ice Fang,Ice,Physical,15,65,0.95,0,true,true,false,false,true,false,Normal,null
+98,Quick Attack,Normal,Physical,30,40,1,1,true,true,false,false,true,true,Normal,null
+13,Razor Wind,Normal,Special,10,80,1,0,false,true,false,false,true,true,ManyOthers,null
+45,Growl,Normal,Status,40,null,1,0,false,true,true,false,true,false,ManyOthers,GrowlEffect
+413,Brave Bird,Flying,Physical,15,120,0.9,0,true,true,false,false,true,true,NormalLongRange,RecoilEffect(.33)

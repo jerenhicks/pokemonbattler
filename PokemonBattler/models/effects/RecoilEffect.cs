@@ -6,26 +6,39 @@ using System.Threading.Tasks;
 
 public class RecoilEffect : BaseEffect
 {
+
+    public double Modifier { get; set; } = 0;
     public RecoilEffect()
     {
     }
+
+    public override void SetModifier(double amount)
+    {
+        Modifier = amount;
+    }
     public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
-
-        if (move.Name.ToLower() == "struggle")
+        if (Modifier == 0)
         {
-            var damage = (int)(attacker.HP * 0.25);
-            attacker.CurrentHP -= damage;
-            return new List<String> { $"{attacker.Name} is hit with recoil!" };
+            return new List<string>();
         }
-        else if (move.Name.ToLower() == "brave bird")
-        {
-            var damage = (int)(attacker.HP * 0.33);
-            attacker.CurrentHP -= damage;
-            return new List<String> { $"{attacker.Name} is hit with recoil!" };
-        }
+        var damage = (int)(attacker.HP * Modifier);
+        attacker.CurrentHP -= damage;
+        return new List<String> { $"{attacker.Name} is hit with recoil!" };
 
-        return new List<String>();
+        // if (move.Name.ToLower() == "struggle")
+        // {
+        //     var damage = (int)(attacker.HP * 0.25);
+        //     attacker.CurrentHP -= damage;
+        //     return new List<String> { $"{attacker.Name} is hit with recoil!" };
+        // }
+        // else if (move.Name.ToLower() == "brave bird")
+        // {
+        //     var damage = (int)(attacker.HP * 0.33);
+        //     attacker.CurrentHP -= damage;
+        //     return new List<String> { $"{attacker.Name} is hit with recoil!" };
+        // }
+
     }
 }
 

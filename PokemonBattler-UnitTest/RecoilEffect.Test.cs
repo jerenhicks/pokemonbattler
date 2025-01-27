@@ -16,6 +16,7 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var recoilEffect = new RecoilEffect();
+        recoilEffect.SetModifier(0.25);
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("struggle");
@@ -34,31 +35,13 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
         Assert.Contains($"{attacker.Name} is hit with recoil!", messages);
     }
 
-    [Fact]
-    public void TestDoEffect_NonRecoilMove()
-    {
-        // Arrange
-        var recoilEffect = new RecoilEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var move = MoveRepository.GetMove("tackle");
-
-        // Set initial HP
-        attacker.CurrentHP = attacker.HP;
-
-        // Act
-        var messages = recoilEffect.DoEffect(attacker, defender, move);
-
-        // Assert
-        Assert.Equal(attacker.HP, attacker.CurrentHP); // No recoil damage should be applied
-        Assert.Empty(messages); // No messages should be returned
-    }
 
     [Fact]
     public void TestDoEffect_BraveBird()
     {
         // Arrange
         var recoilEffect = new RecoilEffect();
+        recoilEffect.SetModifier(0.33);
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("brave bird");
