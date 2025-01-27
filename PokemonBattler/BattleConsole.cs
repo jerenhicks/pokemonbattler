@@ -197,6 +197,8 @@ public class BattleConsole
         Console.WriteLine("Moves loaded!");
         PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.csv"));
         Console.WriteLine("Pokedex loaded!");
+        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "movesets.csv"));
+        Console.WriteLine("MoveSets loaded!");
     }
 
     public void ClearOutputFile()

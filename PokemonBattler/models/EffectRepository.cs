@@ -20,7 +20,11 @@ public static class EffectRepository
 
     public static BaseEffect GetEffect(string name)
     {
-        return (BaseEffect)Activator.CreateInstance(Effects[name.ToLower()].GetType());
+        if (Effects.TryGetValue(name.ToLower(), out var effect))
+        {
+            return (BaseEffect)Activator.CreateInstance(effect.GetType());
+        }
+        return null;
     }
 
     private static void LoadEffectsFromAssembly()
@@ -49,5 +53,7 @@ public static class EffectRepository
                 Console.WriteLine($"Failed to load effect: {type.FullName}, Exception: {ex.Message}");
             }
         }
+
+        Console.WriteLine("All effects loaded!");
     }
 }

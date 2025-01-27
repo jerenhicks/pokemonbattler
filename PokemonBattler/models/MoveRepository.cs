@@ -15,6 +15,11 @@ public static class MoveRepository
         return Moves[name.ToLower()].Clone();
     }
 
+    public static Move GetMoveByID(int id)
+    {
+        return Moves.Values.FirstOrDefault(m => m.Id == id)?.Clone();
+    }
+
     public static void LoadMovesFromFile(string filePath)
     {
         using (var reader = new StreamReader(filePath))
@@ -40,14 +45,20 @@ public static class MoveRepository
                             var parameter = double.Parse(parameterString);
 
                             effect = EffectRepository.GetEffect(effectName);
-                            effect.SetModifier(parameter);
+                            if (effect != null)
+                            {
+                                effect.SetModifier(parameter);
+                            }
                         }
                         else
                         {
                             effect = EffectRepository.GetEffect(effectString);
                         }
 
-                        effects.Add(effect);
+                        if (effect != null)
+                        {
+                            effects.Add(effect);
+                        }
                     }
                 }
 
