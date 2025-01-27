@@ -23,24 +23,31 @@ public static class MoveRepository
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
-                BaseEffect effect = null;
 
+                List<BaseEffect> effects = new List<BaseEffect>();
 
-                if (values[15] != "null")
+                for (int i = 15; i < values.Length; i++)
                 {
-                    var effectString = values[15].Trim();
-                    if (effectString.Contains("(") && effectString.Contains(")"))
+                    if (values[i] != "null")
                     {
-                        var effectName = effectString.Substring(0, effectString.IndexOf("("));
-                        var parameterString = effectString.Substring(effectString.IndexOf("(") + 1, effectString.IndexOf(")") - effectString.IndexOf("(") - 1);
-                        var parameter = double.Parse(parameterString);
+                        var effectString = values[i].Trim();
+                        BaseEffect effect = null;
 
-                        effect = EffectRepository.GetEffect(effectName);
-                        effect.SetModifier(parameter);
-                    }
-                    else
-                    {
-                        effect = EffectRepository.GetEffect(effectString);
+                        if (effectString.Contains("(") && effectString.Contains(")"))
+                        {
+                            var effectName = effectString.Substring(0, effectString.IndexOf("("));
+                            var parameterString = effectString.Substring(effectString.IndexOf("(") + 1, effectString.IndexOf(")") - effectString.IndexOf("(") - 1);
+                            var parameter = double.Parse(parameterString);
+
+                            effect = EffectRepository.GetEffect(effectName);
+                            effect.SetModifier(parameter);
+                        }
+                        else
+                        {
+                            effect = EffectRepository.GetEffect(effectString);
+                        }
+
+                        effects.Add(effect);
                     }
                 }
 
@@ -60,7 +67,7 @@ public static class MoveRepository
                     affectedByMirrorMove: bool.Parse(values[12]),
                     affectedByKingsRock: bool.Parse(values[13]),
                     range: Enum.Parse<Range>(values[14], true),
-                    effect: effect
+                    effects: effects
                 );
 
                 if (!Moves.ContainsKey(move.Name.ToLower()))

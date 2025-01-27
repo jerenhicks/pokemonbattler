@@ -1,10 +1,23 @@
 ﻿1,Pound,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
-33,Tackle,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
+2,Karate Chop,Fighting,Physical,25,50,1,0,true,true,false,false,true,true,Normal,null
+3,DoubleSlap,Normal,Physical,10,15,0.85,0,true,true,false,false,true,true,ManyOthers,null
+4,Comet Punch,Normal,Physical,15,18,0.85,0,true,true,false,false,true,true,ManyOthers,null
+5,Mega Punch,Normal,Physical,20,80,0.85,0,true,true,false,false,true,true,Normal,null
+6,Pay Day,Normal,Physical,20,40,1,0,true,true,false,false,true,true,Normal,null
+7,Fire Punch,Fire,Physical,15,75,1,0,true,true,false,false,true,true,Normal,null
 8,Ice Punch,Ice,Physical,15,75,1,0,true,true,false,false,true,true,Normal,null
+9,Thunder Punch,Electric,Physical,15,75,1,0,true,true,false,false,true,true,Normal,null
+10,Scratch,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
+11,Vice Grip,Normal,Physical,30,55,1,0,true,true,false,false,true,true,Normal,null
+12,Guillotine,Normal,Physical,5,1,1,0,true,true,false,false,true,true,Normal,null
+13,Razor Wind,Normal,Special,10,80,1,0,false,true,false,false,true,true,ManyOthers,null
+14,Swords Dance,Normal,Status,30,null,1,0,false,true,true,false,true,false,Self,null
+15,Cut,Normal,Physical,30,50,0.95,0,true,true,false,false,true,true,Normal,null
+33,Tackle,Normal,Physical,35,40,1,0,true,true,false,false,true,true,Normal,null
 21,Slam,Normal,Physical,20,80,0.75,0,true,true,false,false,true,true,Normal,null
 165,Struggle,Typeless,Physical,1,50,null,0,true,true,false,false,false,true,OneRandom,RecoilEffect(.25)
 423,Ice Fang,Ice,Physical,15,65,0.95,0,true,true,false,false,true,false,Normal,null
 98,Quick Attack,Normal,Physical,30,40,1,1,true,true,false,false,true,true,Normal,null
-13,Razor Wind,Normal,Special,10,80,1,0,false,true,false,false,true,true,ManyOthers,null
 45,Growl,Normal,Status,40,null,1,0,false,true,true,false,true,false,ManyOthers,GrowlEffect
 413,Brave Bird,Flying,Physical,15,120,0.9,0,true,true,false,false,true,true,NormalLongRange,RecoilEffect(.33)
+394,Flare Blitz,Fire,Physical,15,120,1,0,true,true,false,false,true,true,Normal,RecoilEffect(.33), BurnEffect(.1)

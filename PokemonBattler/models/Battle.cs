@@ -123,12 +123,14 @@ public class Battle
 
             }
 
-            if (attackerMove.Effect != null)
+            if (attackerMove.Effects.Count > 0)
             {
-                var effects = attackerMove.Effect.DoEffect(attackingPokemon, defendingPokemon, attackerMove);
-                foreach (var effect in effects)
+                foreach (BaseEffect effect in attackerMove.Effects)
                 {
-                    battleLog.Add(effect);
+                    foreach (var log in effect.DoEffect(attackingPokemon, defendingPokemon, attackerMove))
+                    {
+                        battleLog.Add(log);
+                    }
                 }
             }
         }

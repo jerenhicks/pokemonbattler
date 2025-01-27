@@ -15,11 +15,11 @@ public class Move
     public bool AffectedBySnatch { get; private set; }
     public bool AffectedByMirrorMove { get; private set; }
     public bool AffectedByKingsRock { get; private set; }
-    public BaseEffect Effect { get; private set; }
+    public List<BaseEffect> Effects { get; private set; }
     public bool IsNonDamage => Power == null;
     public Range Range { get; private set; }
 
-    public Move(int id, string name, Type type, MoveCategory category, int pp, int? power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool affectedByMagicCoat, bool affectedBySnatch, bool affectedByMirrorMove, bool affectedByKingsRock, Range range, BaseEffect effect)
+    public Move(int id, string name, Type type, MoveCategory category, int pp, int? power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool affectedByMagicCoat, bool affectedBySnatch, bool affectedByMirrorMove, bool affectedByKingsRock, Range range, List<BaseEffect> effects)
     {
         Id = id;
         Name = name;
@@ -37,13 +37,13 @@ public class Move
         AffectedByMirrorMove = affectedByMirrorMove;
         AffectedByKingsRock = affectedByKingsRock;
         Range = range;
-        Effect = effect;
+        Effects = effects;
     }
 
 
     public Move Clone()
     {
-        return new Move(Id, Name, Type, Category, PP, Power, Accuracy, Priority, MakesContact, AffectedByProtect, AffectedByMagicCoat, AffectedBySnatch, AffectedByMirrorMove, AffectedByKingsRock, Range, Effect);
+        return new Move(Id, Name, Type, Category, PP, Power, Accuracy, Priority, MakesContact, AffectedByProtect, AffectedByMagicCoat, AffectedBySnatch, AffectedByMirrorMove, AffectedByKingsRock, Range, new List<BaseEffect>(Effects));
     }
 
     public void MoveUsed()

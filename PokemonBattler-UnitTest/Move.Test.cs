@@ -31,7 +31,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedByMirrorMove: true,
             affectedByKingsRock: true,
             range: Range.Normal,
-            null
+            effects: new List<BaseEffect>()
         );
 
         // Act
@@ -76,7 +76,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedByMirrorMove: true,
             affectedByKingsRock: false,
             range: Range.Normal,
-            effect: new GrowlEffect()
+            effects: new List<BaseEffect> { new GrowlEffect() }
         );
 
         // Act
@@ -106,7 +106,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedByMirrorMove: true,
             affectedByKingsRock: true,
             range: Range.Normal,
-            effect: null
+            effects: new List<BaseEffect>()
         );
 
         // Act
