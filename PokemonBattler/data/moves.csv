@@ -24,3 +24,4 @@
 36,Take Down,Normal,Physical,20,90,0.85,0,true,true,false,false,true,true,Normal,RecoilEffect(.25)
 174,Curse,Ghost,Status,10,null,null,0,false,false,false,false,false,false,Self,CurseEffect
 92,Toxic,Poison,Status,10,null,0.9,0,false,true,true,false,true,false,OneRandom,ToxicEffect
+153,Explosion,Normal,Physical,5,250,1,0,false,true,false,false,true,true,Normal,FaintEffect

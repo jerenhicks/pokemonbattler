@@ -15,7 +15,14 @@ public class GrowlEffect : BaseEffect
         // No modifier needed for growl
     }
 
-    public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PreDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    {
+        // Implement the effect logic here
+        //TODO: Implement the BurnEffect logic
+        return new List<String>();
+    }
+
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         List<String> messages = new List<String>();
         // Implement the effect logic here

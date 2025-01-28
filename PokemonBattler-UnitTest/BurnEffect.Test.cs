@@ -26,7 +26,7 @@ public class BurnEffectTest : IClassFixture<TestFixture>
 
 
         // Act
-        var returnVals = burnEffect.DoEffect(attacker, defender, move);
+        var returnVals = burnEffect.PostDamageEffect(attacker, defender, move);
 
         // Assert
         Assert.True(returnVals.Count == 0);

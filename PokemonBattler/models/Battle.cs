@@ -105,6 +105,18 @@ public class Battle
         var canHit = CanHit(attackingPokemon, defendingPokemon, attackerMove);
         if (canHit)
         {
+            //Do pre damage effects
+            if (attackerMove.Effects.Count > 0)
+            {
+                foreach (BaseEffect effect in attackerMove.Effects)
+                {
+                    foreach (var log in effect.PreDamageEffect(attackingPokemon, defendingPokemon, attackerMove))
+                    {
+                        battleLog.Add(log);
+                    }
+                }
+            }
+
             if (attackerMove.IsNonDamage)
             {
                 //maybe there is something else we need to do here? for now just kick it out. 
@@ -127,11 +139,12 @@ public class Battle
 
             }
 
+            //Do post damage effects
             if (attackerMove.Effects.Count > 0)
             {
                 foreach (BaseEffect effect in attackerMove.Effects)
                 {
-                    foreach (var log in effect.DoEffect(attackingPokemon, defendingPokemon, attackerMove))
+                    foreach (var log in effect.PostDamageEffect(attackingPokemon, defendingPokemon, attackerMove))
                     {
                         battleLog.Add(log);
                     }

@@ -59,7 +59,15 @@ public class MockEffect : BaseEffect
     {
         // No modifier needed for mock effect
     }
-    public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
+
+    public override List<String> PreDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    {
+        // Implement the effect logic here
+        //TODO: Implement the BurnEffect logic
+        return new List<String>();
+    }
+
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
     {
         // Implement the effect logic here
         return new List<String>();

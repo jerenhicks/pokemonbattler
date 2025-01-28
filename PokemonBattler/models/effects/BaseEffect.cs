@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 public abstract class BaseEffect
 {
     public abstract void SetModifier(double amount);
-    public abstract List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move);
+    public abstract List<String> PreDamageEffect(Pokemon attacker, Pokemon defender, Move move);
+    public abstract List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move);
 }

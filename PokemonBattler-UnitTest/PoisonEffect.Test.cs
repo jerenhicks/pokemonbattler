@@ -26,7 +26,7 @@ public class PoisonEffectTest : IClassFixture<TestFixture>
 
 
         // Act
-        var returnVals = poisonEffect.DoEffect(attacker, defender, move);
+        var returnVals = poisonEffect.PostDamageEffect(attacker, defender, move);
 
         // Assert
         Assert.True(returnVals.Count == 0);

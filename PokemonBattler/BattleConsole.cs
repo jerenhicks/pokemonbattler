@@ -128,10 +128,10 @@ public class BattleConsole
             Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), level: 100);
             Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"), level: 100);
 
-            magikarp1.AddMove(MoveRepository.GetMove("Struggle"));
+            magikarp1.AddMove(MoveRepository.GetMove("Explosion"));
             galvantula.AddMove(MoveRepository.GetMove("Struggle"));
 
-            galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
+            //galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
 
             Battle battle = new Battle(magikarp1, galvantula);
             battle.CommenceBattle();
