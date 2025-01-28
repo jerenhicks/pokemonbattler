@@ -38,6 +38,13 @@ jobs:
         run: zip -r pokemonbattler-macx64.zip ./publish-mac
       - name: Create linux zip file
         run: zip -r pokemonbattler-linuxx64.zip ./publish-linux
+      - name: conventional changelog action
+        id: changelog
+        # https://github.com/TriPSs/conventional-changelog-action
+        uses: TriPSs/conventional-changelog-action@latest
+        with:
+          # you can also create separate token to trace action
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Create Release
         id: create_release
         uses: comnoco/create-release-action@v2.0.5
@@ -46,10 +53,7 @@ jobs:
         with:
           tag_name: v${{github.run_number}}
           release_name: Release v${{github.run_number}}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+          body: ${{steps.changelog.outputs.clean_changelog}}
           draft: false
           prerelease: false
       - name: Upload Release Asset - Windows
