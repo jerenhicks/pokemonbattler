@@ -42,8 +42,8 @@ public static class EffectRepository
 
         if (effectTypes.Count == 0)
         {
-            Console.WriteLine(typeof(GrowlEffect).ToString());
-            Console.WriteLine("No effect types found in the assembly.");
+            //Console.WriteLine(typeof(GrowlEffect).ToString());
+            //Console.WriteLine("No effect types found in the assembly.");
         }
 
         foreach (var type in effectTypes)
@@ -55,10 +55,10 @@ public static class EffectRepository
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Failed to load effect: {type.FullName}, Exception: {ex.Message}");
+                //Console.WriteLine($"Failed to load effect: {type.FullName}, Exception: {ex.Message}");
             }
         }
 
-        Console.WriteLine("All effects loaded!");
+        //Console.WriteLine("All effects loaded!");
     }
 }
