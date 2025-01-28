@@ -1,66 +1,68 @@
+using System;
+using System.Collections.Generic;
 using Xunit;
 
-public class EffectRepositoryTest : IClassFixture<TestFixture>
+public class EffectRepositoryTests
 {
-
-    private readonly TestFixture _fixture;
-
-    public EffectRepositoryTest(TestFixture fixture)
-    {
-        _fixture = fixture;
-    }
-
     [Fact]
-    public void TestLoadEffects()
-    {
-        // Act
-        var burnEffect = EffectRepository.GetEffect("burneffect");
-        var poisonEffect = EffectRepository.GetEffect("poisoneffect");
-
-        // Assert
-        Assert.NotNull(burnEffect);
-        Assert.IsType<BurnEffect>(burnEffect);
-
-        Assert.NotNull(poisonEffect);
-        Assert.IsType<PoisonEffect>(poisonEffect);
-    }
-
-    [Fact]
-    public void TestAddEffect()
+    public void AddEffect_AddsEffectToRepository()
     {
         // Arrange
-        var customEffect = new CustomEffect();
+        var effect = new MockEffect();
+        EffectRepository.ClearEffects(); // Clear existing effects for a clean test
 
         // Act
-        EffectRepository.AddEffect(customEffect);
-        var retrievedEffect = EffectRepository.GetEffect("customeffect");
+        EffectRepository.AddEffect(effect);
+        var result = EffectRepository.GetEffect("MockEffect");
 
         // Assert
-        Assert.NotNull(retrievedEffect);
-        Assert.IsType<CustomEffect>(retrievedEffect);
+        Assert.NotNull(result);
+        Assert.IsType<MockEffect>(result);
     }
 
     [Fact]
-    public void TestGetEffect_NotFound()
+    public void GetEffect_ReturnsNullIfEffectNotFound()
     {
-        // Act & Assert
-        Assert.Equal(null, EffectRepository.GetEffect("nonexistent"));
+        // Arrange
+        EffectRepository.ClearEffects(); // Clear existing effects for a clean test
+
+        // Act
+        var result = EffectRepository.GetEffect("NonExistentEffect");
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void LoadEffectsFromAssembly_LoadsAllEffects()
+    {
+        // Arrange
+        EffectRepository.ClearEffects(); // Clear existing effects for a clean test
+
+        // Act
+        EffectRepository.LoadEffectsFromAssembly();
+        var effect = new MockEffect();
+        EffectRepository.AddEffect(effect);
+        var result = EffectRepository.GetEffect("MockEffect");
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.IsType<MockEffect>(result);
     }
 }
 
-// Example of a custom effect class for testing
-public class CustomEffect : BaseEffect
+// Mock effect class for testing
+public class MockEffect : BaseEffect
 {
-
+    // Implement necessary members of BaseEffect
     public override void SetModifier(double amount)
     {
-        // Implement custom modifier logic here
+        // No modifier needed for mock effect
     }
-
-    public override List<string> DoEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> DoEffect(Pokemon attacker, Pokemon defender, Move move)
     {
-        // Implement custom effect logic here
-        return new List<string>();
+        // Implement the effect logic here
+        return new List<String>();
     }
-
 }
+

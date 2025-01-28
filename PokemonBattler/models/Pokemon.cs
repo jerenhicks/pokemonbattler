@@ -46,7 +46,7 @@ public class Pokemon
     public int CurrentDef => (int)(Def * StatModifiers.GetDefModifier());
     public int CurrentSpAtk => (int)(SpAtk * StatModifiers.GetSpAtkModifier());
     public int CurrentSpDef => (int)(SpDef * StatModifiers.GetSpDefModifier());
-    public int CurrentSpeed => (int)(Speed * StatModifiers.GetSpeedModifier());
+    public int CurrentSpeed => (int)(Speed * StatModifiers.GetSpeedModifier() * (NonVolatileStatus == NonVolatileStatus.Paralysis ? 0.5 : 1));
 
     public List<Move> Moves { get; set; } = new List<Move>();
     public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;

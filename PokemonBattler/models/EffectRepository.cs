@@ -27,7 +27,12 @@ public static class EffectRepository
         return null;
     }
 
-    private static void LoadEffectsFromAssembly()
+    public static void ClearEffects()
+    {
+        Effects.Clear();
+    }
+
+    public static void LoadEffectsFromAssembly()
     {
         var assembly = Assembly.GetExecutingAssembly();
 

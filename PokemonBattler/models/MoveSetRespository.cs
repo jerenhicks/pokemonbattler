@@ -49,4 +49,9 @@ public class MoveSetRepository
             }
         }
     }
+
+    public static Dictionary<int, MoveSet> GetMoveSets()
+    {
+        return MoveSets;
+    }
 }

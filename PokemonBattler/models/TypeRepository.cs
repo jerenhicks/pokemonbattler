@@ -30,7 +30,7 @@ public static class TypeRepository
             while ((line = reader.ReadLine()) != null)
             {
                 var values = line.Split(',');
-                var typeName = values[0].Trim();
+                var typeName = values[0].Trim().ToLower();
                 var type = Types[typeName];
 
                 foreach (var effectiveness in values[1..])

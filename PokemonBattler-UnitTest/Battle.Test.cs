@@ -744,4 +744,92 @@ public class BattleTest : IClassFixture<TestFixture>
         Assert.DoesNotContain($"{pokemon.Name} thawed out!", battleLog);
     }
 
+    [Fact]
+    public void CheckParalysis_PokemonNotParalyzed_ReturnsFalse()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+
+        // Act
+        var result = battle.CheckParalysis(pokemon);
+
+        // Assert
+        Assert.False(result);
+    }
+
+    [Fact]
+    public void CheckParalysis_PokemonParalyzedAndCannotMove_ReturnsTrue()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
+
+        // Mock the random number generator to return a value within the paralysis range
+        var random = new RandomMock(21);
+        battle.SetRandom(random);
+
+        // Act
+        var result = battle.CheckParalysis(pokemon);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void CheckParalysis_PokemonParalyzedAndCanMove_ReturnsFalse()
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        pokemon.LevelUp(100);
+        pokemon.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
+
+        // Mock the random number generator to return a value within the paralysis range
+        var random = new RandomMock(50);
+        battle.SetRandom(random);
+
+        // Act
+        var result = battle.CheckParalysis(pokemon);
+
+        // Assert
+        Assert.False(result);
+    }
+
+    [Theory]
+    [InlineData(2, "It's super effective!")]
+    [InlineData(4, "It's super effective!")]
+    [InlineData(0.25, "It's not very effective...")]
+    [InlineData(0.5, "It's not very effective...")]
+    [InlineData(0, "It has no effect!")]
+    [InlineData(1, null)] // No log for neutral effectiveness
+    public void CheckTypeEffectiveness_LogsCorrectMessage(double effectiveness, string expectedMessage)
+    {
+        // Arrange
+        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var battle = new Battle(pokemon, pokemon2);
+        var battleLog = new List<string>();
+        battle.SetBattleLog(battleLog);
+
+        // Act
+        battle.CheckTypeEffectiveness(effectiveness);
+
+        // Assert
+        if (expectedMessage != null)
+        {
+            Assert.Contains(expectedMessage, battleLog);
+        }
+        else
+        {
+            Assert.Empty(battleLog);
+        }
+    }
+
 }

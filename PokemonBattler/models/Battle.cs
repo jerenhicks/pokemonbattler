@@ -95,6 +95,10 @@ public class Battle
         {
             return;
         }
+        if (CheckParalysis(attackingPokemon))
+        {
+            return;
+        }
 
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
 
@@ -182,6 +186,27 @@ public class Battle
             {
                 battleLog.Add($"{pokemon.Name} is frozen solid!");
                 return true;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckParalysis(Pokemon pokemon)
+    {
+        if (pokemon.NonVolatileStatus == NonVolatileStatus.Paralysis)
+        {
+            int randomNumber = random.Next(1, 101);
+            if (randomNumber <= 25)
+            {
+                battleLog.Add($"{pokemon.Name} couldn't move because it's paralyzed");
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         else
@@ -468,6 +493,11 @@ public class Battle
     public void SetRandom(Random random)
     {
         this.random = random;
+    }
+
+    public void SetBattleLog(List<string> log)
+    {
+        battleLog = log;
     }
 
 }
