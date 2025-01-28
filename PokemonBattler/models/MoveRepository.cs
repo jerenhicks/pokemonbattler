@@ -12,7 +12,7 @@ public static class MoveRepository
 
     public static Move GetMove(string name)
     {
-        return Moves[name.ToLower()].Clone();
+        return Moves[name.ToLower()].
     }
 
     public static Move GetMoveByID(int id)
