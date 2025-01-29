@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public static class NatureRepository
 {
@@ -22,25 +25,21 @@ public static class NatureRepository
 
     public static void LoadNaturesFromFile(string filePath)
     {
-        using (var reader = new StreamReader(filePath))
+        var jsonData = File.ReadAllText(filePath);
+        var natures = JsonConvert.DeserializeObject<List<Nature>>(jsonData);
+
+        foreach (var nature in natures)
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            if (!Natures.ContainsKey(nature.Name.ToLower()))
             {
-                var values = line.Split(',');
-                var nature = new Nature(
-                    name: values[0].Trim(),
-                    attackModifier: double.Parse(values[1]),
-                    defenseModifier: double.Parse(values[2]),
-                    specialAttackModifier: double.Parse(values[3]),
-                    specialDefenseModifier: double.Parse(values[4]),
-                    speedModifier: double.Parse(values[5])
-                );
-                if (!Natures.ContainsKey(nature.Name.ToLower()))
-                {
-                    Natures.Add(nature.Name.ToLower(), nature);
-                }
+                Natures.Add(nature.Name.ToLower(), nature);
             }
         }
+    }
+
+    public static void SaveNaturesToFile(string filePath)
+    {
+        var jsonData = JsonConvert.SerializeObject(Natures.Values, Formatting.Indented);
+        File.WriteAllText(filePath, jsonData);
     }
 }

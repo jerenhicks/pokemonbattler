@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -187,15 +188,14 @@ public class BattleConsole
             basePath = Path.Combine(currentDirectory, "../../../..");
         }
 
-        //EffectRepository.LoadEffectsFromFolder(Path.Combine(basePath, "effects"));
         Console.WriteLine("Effects loaded!");
-        NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.csv"));
+        NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.json"));
         Console.WriteLine("Natures loaded!");
         TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.csv"));
         Console.WriteLine("Types loaded!");
         MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.csv"));
         Console.WriteLine("Moves loaded!");
-        PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.csv"));
+        PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
         Console.WriteLine("Pokedex loaded!");
         MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "movesets.csv"));
         Console.WriteLine("MoveSets loaded!");

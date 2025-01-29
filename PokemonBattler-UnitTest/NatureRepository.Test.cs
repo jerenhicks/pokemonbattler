@@ -1,5 +1,8 @@
 using Xunit;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public class NatureRepositoryTest : IClassFixture<TestFixture>
 {
@@ -42,20 +45,18 @@ public class NatureRepositoryTest : IClassFixture<TestFixture>
     public void TestLoadNaturesFromFile()
     {
         // Arrange
-        var filePath = "../../../../PokemonBattler/data/test_natures.csv";
+        var filePath = "../../../../PokemonBattler/data/test_natures.json";
         var natures = new List<Nature>
         {
             new Nature("Bold", 0.9, 1.0, 1.1, 1.0, 1.0),
             new Nature("Timid", 1.0, 1.0, 1.0, 1.0, 1.1)
         };
 
-        using (var writer = new StreamWriter(filePath))
-        {
-            foreach (var nature in natures)
-            {
-                writer.WriteLine($"{nature.Name},{nature.AttackModifier},{nature.SpecialAttackModifier},{nature.DefenseModifier},{nature.SpecialDefenseModifier},{nature.SpeedModifier}");
-            }
-        }
+
+
+        var jsonData = JsonConvert.SerializeObject(natures, Formatting.Indented);
+        File.WriteAllText(filePath, jsonData);
+
 
         // Act
         NatureRepository.LoadNaturesFromFile(filePath);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 public class PokedexRepository
 {
@@ -8,27 +9,19 @@ public class PokedexRepository
 
     public static void LoadPokedexFromFile(string filePath)
     {
-        using (var reader = new StreamReader(filePath))
+        var jsonData = File.ReadAllText(filePath);
+        var pokemonTemplates = JsonConvert.DeserializeObject<List<PokemonTemplate>>(jsonData);
+
+        foreach (var template in pokemonTemplates)
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                var values = line.Trim().Split(',');
-                var template = new PokemonTemplate(
-                    name: values[0].Trim(),
-                    pokedexNumber: int.Parse(values[1]),
-                    typeOne: values[2].ToLower() == "null" ? null : TypeRepository.GetType(values[2]),
-                    typeTwo: values[3].ToLower() == "null" ? null : TypeRepository.GetType(values[3]),
-                    baseHP: int.Parse(values[4]),
-                    baseAtk: int.Parse(values[5]),
-                    baseDef: int.Parse(values[6]),
-                    baseSpAtk: int.Parse(values[7]),
-                    baseSpDef: int.Parse(values[8]),
-                    baseSpeed: int.Parse(values[9])
-                );
-                Pokedex[template.PokedexNumber] = template;
-            }
+            Pokedex[template.PokedexNumber] = template;
         }
+    }
+
+    public static void SavePokedexToFile(string filePath)
+    {
+        var jsonData = JsonConvert.SerializeObject(Pokedex.Values, Formatting.Indented);
+        File.WriteAllText(filePath, jsonData);
     }
 
     public static bool PokemonExists(int pokedexNumber)

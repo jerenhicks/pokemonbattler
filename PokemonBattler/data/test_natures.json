@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "Bold",
+    "AttackModifier": 0.9,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.1,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Timid",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.1
+  }
+]

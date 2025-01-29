@@ -1,0 +1,202 @@
+[
+  {
+    "Name": "Hardy",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Lonely",
+    "AttackModifier": 1.1,
+    "DefenseModifier": 0.9,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Brave",
+    "AttackModifier": 1.1,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 0.9,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Adamant",
+    "AttackModifier": 1.1,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 0.9,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Naughty",
+    "AttackModifier": 1.1,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 0.9,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Bold",
+    "AttackModifier": 0.9,
+    "DefenseModifier": 1.1,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Docile",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.1,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Relaxed",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.1,
+    "SpecialAttackModifier": 0.9,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Impish",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.1,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 0.9,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Lax",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.1,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 0.9
+  },
+  {
+    "Name": "Timid",
+    "AttackModifier": 0.9,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.1
+  },
+  {
+    "Name": "Hasty",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 0.9,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.1
+  },
+  {
+    "Name": "Serious",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Jolly",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 0.9,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.1
+  },
+  {
+    "Name": "Naïve",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 0.9,
+    "SpeedModifier": 1.1
+  },
+  {
+    "Name": "Modest",
+    "AttackModifier": 0.9,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.1,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Mild",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 0.9,
+    "SpecialAttackModifier": 1.1,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Quiet",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.1,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 0.9
+  },
+  {
+    "Name": "Bashful",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Rash",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.1,
+    "SpecialDefenseModifier": 0.9,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Calm",
+    "AttackModifier": 0.9,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.1,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Gentle",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 0.9,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.1,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Sassy",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.1,
+    "SpeedModifier": 0.9
+  },
+  {
+    "Name": "Careful",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 0.9,
+    "SpecialDefenseModifier": 1.1,
+    "SpeedModifier": 1.0
+  },
+  {
+    "Name": "Quirky",
+    "AttackModifier": 1.0,
+    "DefenseModifier": 1.0,
+    "SpecialAttackModifier": 1.0,
+    "SpecialDefenseModifier": 1.0,
+    "SpeedModifier": 1.0
+  }
+]

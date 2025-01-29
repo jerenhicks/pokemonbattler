@@ -17,8 +17,8 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         // Arrange
         var name = "Magikarp";
         var pokedexNumber = 129;
-        var typeOne = TypeRepository.GetType("Water");
-        Type typeTwo = null;
+        string typeOne = "water";
+        string typeTwo = null;
         var baseHP = 20;
         var baseAtk = 10;
         var baseDef = 55;
@@ -37,8 +37,8 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         // Assert
         Assert.Equal(name, pokemonTemplate.Name);
         Assert.Equal(pokedexNumber, pokemonTemplate.PokedexNumber);
-        Assert.Equal(typeOne, pokemonTemplate.TypeOne);
-        Assert.Equal(typeTwo, pokemonTemplate.TypeTwo);
+        Assert.Equal(typeOne, pokemonTemplate.TypeOneName);
+        Assert.Equal(typeTwo, pokemonTemplate.TypeTwoName);
         Assert.Equal(baseHP, pokemonTemplate.BaseHP);
         Assert.Equal(baseAtk, pokemonTemplate.BaseAtk);
         Assert.Equal(baseDef, pokemonTemplate.BaseDef);
@@ -55,8 +55,8 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         // Arrange
         var name = "Magikarp";
         var pokedexNumber = 129;
-        var typeOne = TypeRepository.GetType("Water");
-        Type typeTwo = null;
+        string typeOne = "water";
+        string typeTwo = null;
         var baseHP = 20;
         var baseAtk = 10;
         var baseDef = 55;
@@ -70,8 +70,8 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         // Assert
         Assert.Equal(name, pokemonTemplate.Name);
         Assert.Equal(pokedexNumber, pokemonTemplate.PokedexNumber);
-        Assert.Equal(typeOne, pokemonTemplate.TypeOne);
-        Assert.Equal(typeTwo, pokemonTemplate.TypeTwo);
+        Assert.Equal(typeOne, pokemonTemplate.TypeOneName);
+        Assert.Equal(typeTwo, pokemonTemplate.TypeTwoName);
         Assert.Equal(baseHP, pokemonTemplate.BaseHP);
         Assert.Equal(baseAtk, pokemonTemplate.BaseAtk);
         Assert.Equal(baseDef, pokemonTemplate.BaseDef);
