@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public static class MoveRepository
 {
@@ -20,7 +21,7 @@ public static class MoveRepository
         return Moves.Values.FirstOrDefault(m => m.Id == id)?.Clone();
     }
 
-    public static void LoadMovesFromFile(string filePath)
+    public static void LoadMovesFromFileOLD(string filePath)
     {
         using (var reader = new StreamReader(filePath))
         {
@@ -81,6 +82,11 @@ public static class MoveRepository
                     effects: effects
                 );
 
+                move.TypeName = values[2];
+                move.CategoryName = values[3];
+                move.RangeName = values[14];
+                move.EffectNames = values.Skip(15).Where(v => v != "null").Select(v => v.Trim()).ToList();
+
                 if (!Moves.ContainsKey(move.Name.ToLower()))
                 {
                     Moves.Add(move.Name.ToLower(), move);
@@ -88,6 +94,28 @@ public static class MoveRepository
             }
         }
     }
+
+    public static void LoadMovesFromFile(string filePath)
+    {
+        var jsonData = File.ReadAllText(filePath);
+        var moves = JsonConvert.DeserializeObject<List<Move>>(jsonData);
+
+        foreach (var move in moves)
+        {
+            Moves[move.Name.ToLower()] = move;
+        }
+        foreach (var move in moves)
+        {
+            move.Unpack();
+        }
+    }
+
+    public static void SaveMovesToFile(string filePath)
+    {
+        var jsonData = JsonConvert.SerializeObject(Moves.Values, Formatting.Indented);
+        File.WriteAllText(filePath, jsonData);
+    }
+
 
     public static IEnumerable<Move> GetAllMoves()
     {

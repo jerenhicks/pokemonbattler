@@ -194,7 +194,7 @@ public class BattleConsole
         Console.WriteLine("Natures loaded!");
         TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.json"));
         Console.WriteLine("Types loaded!");
-        MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.csv"));
+        MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.json"));
         Console.WriteLine("Moves loaded!");
         PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
         Console.WriteLine("Pokedex loaded!");
