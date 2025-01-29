@@ -1,10 +1,20 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class Type
 {
     public string Name { get; private set; }
+    public List<string> SuperEffectiveAgainstNames { get; set; }
+
+    public List<string> NotEffectiveAgainstNames { get; set; }
+
+    public List<string> NoEffectAgainstNames { get; set; }
+
+    [JsonIgnore]
     public List<Type> SuperEffectiveAgainst { get; private set; }
+    [JsonIgnore]
     public List<Type> NotEffectiveAgainst { get; private set; }
+    [JsonIgnore]
     public List<Type> NoEffectAgainst { get; private set; }
 
     public Type(string name)
@@ -13,6 +23,9 @@ public class Type
         SuperEffectiveAgainst = new List<Type>();
         NotEffectiveAgainst = new List<Type>();
         NoEffectAgainst = new List<Type>();
+        SuperEffectiveAgainstNames = new List<string>();
+        NotEffectiveAgainstNames = new List<string>();
+        NoEffectAgainstNames = new List<string>();
     }
 
     public double GetEffectiveness(Type type1, Type type2)
@@ -72,5 +85,21 @@ public class Type
         }
 
         return 0;
+    }
+
+    public void ConnectTypes()
+    {
+        foreach (var superEffectiveType in SuperEffectiveAgainstNames)
+        {
+            SuperEffectiveAgainst.Add(TypeRepository.GetType(superEffectiveType));
+        }
+        foreach (var notEffectiveType in NotEffectiveAgainstNames)
+        {
+            NotEffectiveAgainst.Add(TypeRepository.GetType(notEffectiveType));
+        }
+        foreach (var noEffectType in NoEffectAgainstNames)
+        {
+            NoEffectAgainst.Add(TypeRepository.GetType(noEffectType));
+        }
     }
 }

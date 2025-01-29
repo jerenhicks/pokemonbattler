@@ -188,10 +188,11 @@ public class BattleConsole
             basePath = Path.Combine(currentDirectory, "../../../..");
         }
 
+
         Console.WriteLine("Effects loaded!");
         NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.json"));
         Console.WriteLine("Natures loaded!");
-        TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.csv"));
+        TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.json"));
         Console.WriteLine("Types loaded!");
         MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.csv"));
         Console.WriteLine("Moves loaded!");

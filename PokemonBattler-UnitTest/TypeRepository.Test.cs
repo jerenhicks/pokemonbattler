@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using Xunit;
 
 public class TypeRepositoryTests
@@ -9,17 +10,18 @@ public class TypeRepositoryTests
     public void GetAllTypes_ReturnsCorrectTypes()
     {
         // Arrange
-        var filePath = "test_types.csv";
+        var filePath = "test_types.json";
         var expectedTypes = new List<string> { "normal", "fire", "water", "grass" };
 
-        // Create a temporary CSV file for testing
-        File.WriteAllLines(filePath, new[]
+        // Create a temporary JSON file for testing
+        var jsonData = new[]
         {
-            "Normal",
-            "Fire",
-            "Water",
-            "Grass"
-        });
+            new { Name = "normal" },
+            new { Name = "fire" },
+            new { Name = "water" },
+            new { Name = "grass" }
+        };
+        File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonData));
 
         TypeRepository.LoadTypesFromFile(filePath);
 

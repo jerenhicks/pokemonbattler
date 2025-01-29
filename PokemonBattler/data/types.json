@@ -1,0 +1,277 @@
+[
+  {
+    "Name": "normal",
+    "SuperEffectiveAgainstNames": [],
+    "NotEffectiveAgainstNames": [
+      "rock",
+      "steel"
+    ],
+    "NoEffectAgainstNames": [
+      "ghost"
+    ]
+  },
+  {
+    "Name": "fighting",
+    "SuperEffectiveAgainstNames": [
+      "normal",
+      "rock",
+      "ice",
+      "dark"
+    ],
+    "NotEffectiveAgainstNames": [
+      "flying",
+      "poison",
+      "bug",
+      "psychic",
+      "fairy"
+    ],
+    "NoEffectAgainstNames": [
+      "ghost"
+    ]
+  },
+  {
+    "Name": "flying",
+    "SuperEffectiveAgainstNames": [
+      "fighting",
+      "bug",
+      "grass"
+    ],
+    "NotEffectiveAgainstNames": [
+      "rock",
+      "steel",
+      "electric"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "poison",
+    "SuperEffectiveAgainstNames": [
+      "grass"
+    ],
+    "NotEffectiveAgainstNames": [
+      "poison",
+      "ground",
+      "rock",
+      "ghost"
+    ],
+    "NoEffectAgainstNames": [
+      "steel"
+    ]
+  },
+  {
+    "Name": "ground",
+    "SuperEffectiveAgainstNames": [
+      "poison",
+      "rock",
+      "steel",
+      "fire",
+      "electric"
+    ],
+    "NotEffectiveAgainstNames": [
+      "bug",
+      "grass"
+    ],
+    "NoEffectAgainstNames": [
+      "flying"
+    ]
+  },
+  {
+    "Name": "rock",
+    "SuperEffectiveAgainstNames": [
+      "flying",
+      "bug",
+      "fire",
+      "ice"
+    ],
+    "NotEffectiveAgainstNames": [
+      "fighting",
+      "ground",
+      "steel"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "bug",
+    "SuperEffectiveAgainstNames": [
+      "grass",
+      "psychic",
+      "dark"
+    ],
+    "NotEffectiveAgainstNames": [
+      "fighting",
+      "flying",
+      "poison",
+      "ghost",
+      "steel",
+      "fire",
+      "fairy"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "ghost",
+    "SuperEffectiveAgainstNames": [
+      "ghost",
+      "psychic"
+    ],
+    "NotEffectiveAgainstNames": [
+      "dark"
+    ],
+    "NoEffectAgainstNames": [
+      "normal"
+    ]
+  },
+  {
+    "Name": "steel",
+    "SuperEffectiveAgainstNames": [
+      "rock",
+      "ice",
+      "fairy"
+    ],
+    "NotEffectiveAgainstNames": [
+      "steel",
+      "fire",
+      "water",
+      "electric"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "fire",
+    "SuperEffectiveAgainstNames": [
+      "bug",
+      "steel",
+      "grass",
+      "ice"
+    ],
+    "NotEffectiveAgainstNames": [
+      "rock",
+      "fire",
+      "water",
+      "dragon"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "water",
+    "SuperEffectiveAgainstNames": [
+      "ground",
+      "rock",
+      "fire"
+    ],
+    "NotEffectiveAgainstNames": [
+      "water",
+      "grass",
+      "dragon"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "grass",
+    "SuperEffectiveAgainstNames": [
+      "ground",
+      "rock",
+      "water"
+    ],
+    "NotEffectiveAgainstNames": [
+      "flying",
+      "poison",
+      "bug",
+      "steel",
+      "fire",
+      "grass",
+      "dragon"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "electric",
+    "SuperEffectiveAgainstNames": [
+      "flying",
+      "water"
+    ],
+    "NotEffectiveAgainstNames": [
+      "grass",
+      "electric",
+      "dragon"
+    ],
+    "NoEffectAgainstNames": [
+      "ground"
+    ]
+  },
+  {
+    "Name": "psychic",
+    "SuperEffectiveAgainstNames": [
+      "fighting",
+      "poison"
+    ],
+    "NotEffectiveAgainstNames": [
+      "steel",
+      "psychic"
+    ],
+    "NoEffectAgainstNames": [
+      "dark"
+    ]
+  },
+  {
+    "Name": "ice",
+    "SuperEffectiveAgainstNames": [
+      "flying",
+      "ground",
+      "grass",
+      "dragon"
+    ],
+    "NotEffectiveAgainstNames": [
+      "steel",
+      "fire",
+      "water",
+      "ice"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "dragon",
+    "SuperEffectiveAgainstNames": [
+      "ice"
+    ],
+    "NotEffectiveAgainstNames": [
+      "steel"
+    ],
+    "NoEffectAgainstNames": [
+      "fairy"
+    ]
+  },
+  {
+    "Name": "dark",
+    "SuperEffectiveAgainstNames": [
+      "ghost",
+      "psychic"
+    ],
+    "NotEffectiveAgainstNames": [
+      "fighting",
+      "dark",
+      "fairy"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "fairy",
+    "SuperEffectiveAgainstNames": [
+      "fighting",
+      "dragon",
+      "dark"
+    ],
+    "NotEffectiveAgainstNames": [
+      "poison",
+      "steel",
+      "fire"
+    ],
+    "NoEffectAgainstNames": []
+  },
+  {
+    "Name": "typeless",
+    "SuperEffectiveAgainstNames": [],
+    "NotEffectiveAgainstNames": [],
+    "NoEffectAgainstNames": []
+  }
+]
