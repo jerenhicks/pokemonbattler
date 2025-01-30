@@ -11,6 +11,7 @@ public class Move
     [JsonIgnore]
     public MoveCategory Category { get; private set; } // Physical, Special, or Status
     public int MaxPP { get; private set; }
+    [JsonIgnore]
     public int PP { get; private set; }
     public int? Power { get; private set; }
     public decimal? Accuracy { get; private set; }
