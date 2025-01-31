@@ -1,6 +1,6 @@
 [{
     "Id": 719,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 195,
     "CategoryName": "Special",
       
@@ -47,12 +47,12 @@
     "MaxPP": 30,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Poison",
     "ContestType": "Clever"
 },{
     "Id": 151,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Acid Armor",
@@ -65,7 +65,7 @@
     "ContestType": "Tough"
 },{
     "Id": 628,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -100,24 +100,24 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cool"
 },{
     "Id": 367,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Acupressure",
     "MaxPP": 30,
     "Priority": 0,
      "flags": { "Metronome": 1},
-    "RangeName": "adjacentAllyOrSelf",
+    "RangeName": "SelfAlly",
     "TypeName": "Normal",
     "ContestType": "Tough"
 },{
     "Id": 332,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Physical",
     "Name": "Aerial Ace",
@@ -125,7 +125,7 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Slicing": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cool"
 },{
@@ -138,12 +138,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Wind": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cool"
 },{
     "Id": 495,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "After You",
@@ -157,7 +157,7 @@
     "ContestType": "Cute"
 },{
     "Id": 97,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Agility",
@@ -178,7 +178,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Slicing": 1,  "Wind": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
@@ -190,12 +190,12 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Slicing": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
     "Id": 624,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -221,7 +221,7 @@
     "TypeName": "Fairy"
 },{
     "Id": 502,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Ally Switch",
@@ -234,7 +234,7 @@
     "ContestType": "Clever"
 },{
     "Id": 133,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Amnesia",
@@ -307,7 +307,7 @@
     "ContestType": "Cool"
 },{
     "Id": 392,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Aqua Ring",
@@ -353,7 +353,7 @@
      "flags": { "protect": 1,  "mirror": 1},
  
     "RangeName": "normal",
-    "TypeName": "Fire",
+    "TypeName": "Fire"
 },{
     "Id": 292,
     "Accuracy": 100,
@@ -368,7 +368,7 @@
      "ContestType": "Tough"
 },{
     "Id": 312,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -376,24 +376,24 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "Snatch": 1,  "Distance": 1,  "Metronome": 1},
-    "RangeName": "allyTeam",
+    "RangeName": "YourSide",
     "TypeName": "Grass",
     "ContestType": "Clever"
 },{
     "Id": 597,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Aromatic Mist",
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "Bypasssub": 1,  "Metronome": 1},
-    "RangeName": "adjacentAlly",
+    "RangeName": "OneAlly",
     "TypeName": "Fairy",
     "ContestType": "Beautiful"
 },{
     "Id": 274,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -439,7 +439,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ghost"
 },{
     "Id": 454,
@@ -467,14 +467,14 @@
     "ContestType": "Cute"
 },{
     "Id": 396,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 80,
     "CategoryName": "Special",
     "Name": "Aura Sphere",
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Bullet": 1,  "Pulse": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Fighting",
     "ContestType": "Beautiful"
 },{
@@ -502,19 +502,19 @@
     "ContestType": "Beautiful"
 },{
     "Id": 694,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Aurora Veil",
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "Snatch": 1,  "Metronome": 1}, 
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Ice",
     "ContestType": "Beautiful"
 },{
     "Id": 475,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -578,7 +578,7 @@
     "ContestType": "Clever"
 },{
     "Id": 661,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Baneful Bunker",
@@ -614,7 +614,7 @@
     "ContestType": "Cute"
 },{
     "Id": 112,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -627,7 +627,7 @@
     "ContestType": "Cool"
 },{
     "Id": 226,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Baton Pass",
@@ -702,7 +702,7 @@
      "ContestType": "Tough"
 },{
     "Id": 187,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Belly Drum",
@@ -715,7 +715,7 @@
     "ContestType": "Cute"
 },{
     "Id": 516,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -729,7 +729,7 @@
     "ContestType": "Cute"
 },{
     "Id": 117,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Physical",
       
@@ -788,7 +788,7 @@
     "TypeName": "Ghost"
 },{
     "Id": 654,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -847,7 +847,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Flying"
 },{
     "Id": 59,
@@ -858,12 +858,12 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ice",
     "ContestType": "Beautiful"
 },{
     "Id": 335,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Block",
@@ -886,7 +886,7 @@
     "TypeName": "Normal"
 },{
     "Id": 644,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -1009,7 +1009,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Normal",
     "ContestType": "Tough"
 },{
@@ -1022,9 +1022,9 @@
     "Priority": 0,
      "flags": {
          "contact": 1, "Charge": 1,  "protect": 1,  "mirror": 1, "Gravity": 1,  "Distance": 1,
-         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1,
+         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1
     },
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cute"
 },{
@@ -1059,7 +1059,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cool"
 },{
@@ -1071,11 +1071,11 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dragon"
 },{
     "Id": 622,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -1121,7 +1121,7 @@
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Dark",
     "ContestType": "Tough"
 },{
@@ -1134,7 +1134,7 @@
     "MaxPP": 30,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Water",
     "ContestType": "Cute"
 },{
@@ -1175,7 +1175,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 339,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Bulk Up",
@@ -1194,7 +1194,7 @@
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Ground",
     "ContestType": "Tough"
 },{
@@ -1223,7 +1223,7 @@
     "ContestType": "Cool"
 },{
     "Id": 908,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Burning Bulwark",
@@ -1241,7 +1241,7 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fire",
      "ContestType": "Tough"
 },{
@@ -1271,7 +1271,7 @@
     "ContestType": "Clever"
 },{
     "Id": 347,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Calm Mind",
@@ -1284,7 +1284,7 @@
     "ContestType": "Clever"
 },{
     "Id": 293,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -1307,12 +1307,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
     "ContestType": "Cute"
 },{
     "Id": 658,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 210,
     "CategoryName": "Physical",
       
@@ -1335,10 +1335,10 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1,  "Slicing": 1},
     "RangeName": "normal",
-    "TypeName": "Dark",
+    "TypeName": "Dark"
 },{
     "Id": 606,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Celebrate",
@@ -1351,7 +1351,7 @@
     "ContestType": "Cute"
 },{
     "Id": 268,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Charge",
@@ -1399,7 +1399,7 @@
          "protect": 1,  "mirror": 1,  "Sound": 1,  "Distance": 1,  "Bypasssub": 1,
         "Nosleeptalk": 1,  "NoAssist": 1,  "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1
     },
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cute"
 },{
@@ -1416,7 +1416,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 881,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Chilly Reception",
@@ -1426,7 +1426,7 @@
       
        
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ice"
 },{
     "Id": 498,
@@ -1494,7 +1494,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dragon",
      "ContestType": "Tough"
 },{
@@ -1508,10 +1508,10 @@
      "flags": { "Snatch": 1,  "Sound": 1,  "Dance": 1},
  
     "RangeName": "self",
-    "TypeName": "Dragon",
+    "TypeName": "Dragon"
 },{
     "Id": 728,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 185,
     "CategoryName": "Special",
       
@@ -1520,12 +1520,12 @@
     "Priority": 0,
      "flags": { "Sound": 1,  "Bypasssub": 1},
     "IsZ": "kommoniumz",
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dragon",
     "ContestType":  "Cool"
 },{
     "Id": 499,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 50,
     "CategoryName": "Special",
     "Name": "Clear Smog",
@@ -1551,7 +1551,7 @@
      "ContestType": "Tough"
 },{
     "Id": 811,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Coaching",
@@ -1559,11 +1559,11 @@
     "Priority": 0,
      "flags": { "Bypasssub": 1,  "Allyanim": 1,  "Metronome": 1},
  
-    "RangeName": "adjacentAlly",
-    "TypeName": "Fighting",
+    "RangeName": "OneAlly",
+    "TypeName": "Fighting"
 },{
     "Id": 489,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Coil",
@@ -1598,10 +1598,10 @@
     "Priority": 0,
      "flags": {
          "protect": 1, "Failencore": 1,  "Failmefirst": 1, "Nosleeptalk": 1,  "NoAssist": 1,
-         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1,
+         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1
     },
     "RangeName": "normal",
-    "TypeName": "Fighting",
+    "TypeName": "Fighting"
 },{
     "Id": 4,
     "Accuracy": 85,
@@ -1625,12 +1625,12 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Failmefirst": 1},
  
-    "RangeName": "scripted",
+    "RangeName": "Varies",
     "TypeName": "Dark",
     "ContestType":  "Cool"
 },{
     "Id": 590,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Confide",
@@ -1682,7 +1682,7 @@
      "ContestType": "Tough"
 },{
     "Id": 632,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -1697,7 +1697,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 160,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Conversion",
@@ -1710,7 +1710,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 176,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Conversion 2",
@@ -1723,7 +1723,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 383,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Copycat",
@@ -1744,12 +1744,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dragon",
      "ContestType": "Tough"
 },{
     "Id": 638,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -1772,11 +1772,11 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Allyanim": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacent",
-    "TypeName": "Poison",
+    "RangeName": "AdjacentAllOthers",
+    "TypeName": "Poison"
 },{
     "Id": 322,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Cosmic Power",
@@ -1789,7 +1789,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 538,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Cotton Guard",
@@ -1810,7 +1810,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1, "Powder": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Grass",
     "ContestType": "Beautiful"
 },{
@@ -1823,7 +1823,7 @@
     "Priority": -5,
      "flags": { "contact": 1,  "protect": 1,  "Failmefirst": 1,  "NoAssist": 1,  "failcopycat": 1},
  
-    "RangeName": "scripted",
+    "RangeName": "Varies",
     "TypeName": "Fighting",
      "ContestType": "Tough"
 },{
@@ -1836,8 +1836,8 @@
     "Priority": 0,
      "flags": { "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "all",
-    "TypeName": "Normal",
+    "RangeName": "BothSides",
+    "TypeName": "Normal"
 },{
     "Id": 343,
     "Accuracy": 100,
@@ -1866,7 +1866,7 @@
      "ContestType": "Tough"
 },{
     "Id": 578,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -1874,7 +1874,7 @@
     "MaxPP": 10,
     "Priority": 3,
      "flags": {},
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Fairy",
     "ContestType": "Clever"
 },{
@@ -1940,7 +1940,7 @@
      "ContestType": "Tough"
 },{
     "Id": 174,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Curse",
@@ -1984,7 +1984,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Pulse": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Dark",
     "ContestType":  "Cool"
 },{
@@ -1996,7 +1996,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1, "Nosketch": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dark",
     "ContestType": "Clever"
 },{
@@ -2009,12 +2009,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fairy",
     "ContestType": "Beautiful"
 },{
     "Id": 777,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Decorate",
@@ -2023,10 +2023,10 @@
      "flags": { "Allyanim": 1},
  
     "RangeName": "normal",
-    "TypeName": "Fairy",
+    "TypeName": "Fairy"
 },{
     "Id": 455,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Defend Order",
@@ -2039,7 +2039,7 @@
     "ContestType": "Clever"
 },{
     "Id": 111,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Defense Curl",
@@ -2052,7 +2052,7 @@
     "ContestType": "Cute"
 },{
     "Id": 432,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Defog",
@@ -2065,7 +2065,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 194,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Destiny Bond",
@@ -2078,7 +2078,7 @@
     "ContestType": "Clever"
 },{
     "Id": 197,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Detect",
@@ -2091,7 +2091,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 652,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -2112,7 +2112,7 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Rock",
     "ContestType": "Beautiful"
 },{
@@ -2125,7 +2125,7 @@
     "Priority": 0,
      "flags": {
          "contact": 1, "Charge": 1,  "protect": 1,  "mirror": 1,
-        "Nonsky": 1,  "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1,
+        "Nonsky": 1,  "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1
     },
     "RangeName": "normal",
     "TypeName": "Ground",
@@ -2145,7 +2145,7 @@
     "ContestType": "Clever"
 },{
     "Id": 574,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 40,
     "CategoryName": "Special",
     "Name": "Disarming Voice",
@@ -2153,7 +2153,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fairy",
     "ContestType": "Cute"
 },{
@@ -2165,7 +2165,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Electric",
     "ContestType": "Beautiful"
 },{
@@ -2189,7 +2189,7 @@
     "Priority": 0,
      "flags": {
          "contact": 1, "Charge": 1,  "protect": 1,  "mirror": 1,
-        "Nonsky": 1,  "Allyanim": 1,  "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1,
+        "Nonsky": 1,  "Allyanim": 1,  "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1
     },
  
     "RangeName": "normal",
@@ -2218,7 +2218,7 @@
     "Priority": 0,
      "flags": {},
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal"
 },{
     "Id": 353,
@@ -2316,7 +2316,7 @@
     "ContestType": "Cute"
 },{
     "Id": 104,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Double Team",
@@ -2349,7 +2349,7 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Beautiful"
 },{
@@ -2366,14 +2366,14 @@
     "ContestType":  "Cool"
 },{
     "Id": 913,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Dragon Cheer",
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "Bypasssub": 1,  "Allyanim": 1,  "Metronome": 1},
-    "RangeName": "adjacentAlly",
+    "RangeName": "OneAlly",
     "TypeName": "Dragon"
 },{
     "Id": 337,
@@ -2390,7 +2390,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 349,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Dragon Dance",
@@ -2422,8 +2422,8 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
  
-    "RangeName": "allAdjacentFoes",
-    "TypeName": "Dragon",
+    "RangeName": "ManyOthers",
+    "TypeName": "Dragon"
 },{
     "Id": 692,
     "Accuracy": 100,
@@ -2447,7 +2447,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Pulse": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Dragon",
     "ContestType": "Beautiful"
 },{
@@ -2535,7 +2535,7 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
@@ -2560,7 +2560,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
     "RangeName": "normal",
-    "TypeName": "Grass",
+    "TypeName": "Grass"
 },{
     "Id": 530,
     "Accuracy": 90,
@@ -2584,7 +2584,7 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Flying",
+    "TypeName": "Flying"
 },{
     "Id": 744,
     "Accuracy": 100,
@@ -2596,7 +2596,7 @@
      "flags": { "protect": 1, "Failencore": 1, "Nosleeptalk": 1,  "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Noparentalbond": 1},
  
     "RangeName": "normal",
-    "TypeName": "Dragon",
+    "TypeName": "Dragon"
 },{
     "Id": 223,
     "Accuracy": 50,
@@ -2631,7 +2631,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Ground",
      "ContestType": "Tough"
 },{
@@ -2687,19 +2687,19 @@
     "ContestType": "Cute"
 },{
     "Id": 604,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Electric Terrain",
     "MaxPP": 10,
     "Priority": 0,
      "flags": {"Nonsky": 1,  "Metronome": 1},
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Electric",
     "ContestType": "Clever"
 },{
     "Id": 582,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -2756,7 +2756,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Electric",
     "ContestType": "Beautiful"
 },{
@@ -2811,7 +2811,7 @@
      "ContestType": "Tough"
 },{
     "Id": 203,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Endure",
@@ -2856,7 +2856,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fire",
     "ContestType": "Beautiful"
 },{
@@ -2869,7 +2869,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 795,
     "Accuracy": 90,
@@ -2904,7 +2904,7 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1, "Noparentalbond": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Normal",
     "ContestType": "Beautiful"
 },{
@@ -2921,7 +2921,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 702,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -2962,14 +2962,14 @@
     "ContestType": "Cute"
 },{
     "Id": 587,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Fairy Lock",
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "mirror": 1,  "Bypasssub": 1,  "Metronome": 1},
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Fairy",
     "ContestType": "Clever"
 },{
@@ -3012,7 +3012,7 @@
     "ContestType": "Cute"
 },{
     "Id": 793,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 80,
     "CategoryName": "Physical",
     "Name": "False Surrender",
@@ -3061,7 +3061,7 @@
     "ContestType": "Clever"
 },{
     "Id": 185,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Physical",
       
@@ -3119,11 +3119,11 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dark"
 },{
     "Id": 868,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Fillet Away",
@@ -3422,7 +3422,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 666,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Floral Healing",
@@ -3435,7 +3435,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 579,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -3444,12 +3444,12 @@
     "Priority": 0,
      "flags": { "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Fairy",
     "ContestType": "Beautiful"
 },{
     "Id": 870,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 70,
     "CategoryName": "Physical",
     "Name": "Flower Trick",
@@ -3468,10 +3468,10 @@
     "Priority": 0,
      "flags": {
          "contact": 1, "Charge": 1,  "protect": 1,  "mirror": 1, "Gravity": 1,  "Distance": 1,
-         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1,
+         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1
     },
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Clever"
 },{
@@ -3484,7 +3484,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1, "Gravity": 1,  "Distance": 1, "Nonsky": 1,  "Metronome": 1},
     "Priority": 0,
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Fighting",
      "ContestType": "Tough"
 },{
@@ -3501,7 +3501,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 116,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Focus Energy",
@@ -3526,7 +3526,7 @@
      "ContestType": "Tough"
 },{
     "Id": 266,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Follow Me",
@@ -3550,7 +3550,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 193,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -3620,7 +3620,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
     "RangeName": "normal",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 739,
     "Accuracy": 90,
@@ -3791,7 +3791,7 @@
     "ContestType": "Clever"
 },{
     "Id": 674,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -3800,13 +3800,13 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Steel",
      
     "ContestType": "Clever"
 },{
     "Id": 703,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 185,
     "CategoryName": "Special",
       
@@ -3820,7 +3820,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 601,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -3874,7 +3874,7 @@
     "TypeName": "Steel"
 },{
     "Id": 646,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -3897,7 +3897,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ice"
 },{
     "Id": 549,
@@ -3908,7 +3908,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ice",
     "ContestType": "Beautiful"
 },{
@@ -3922,7 +3922,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Dragon",
+    "TypeName": "Dragon"
 },{
     "Id": 137,
     "Accuracy": 100,
@@ -3954,7 +3954,7 @@
     "ContestType": "Clever"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -3963,12 +3963,12 @@
     "Priority": 0,
      "flags": {},
 
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Bug",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -3978,12 +3978,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -3993,12 +3993,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4008,12 +4008,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fighting",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4023,12 +4023,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4038,12 +4038,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Dragon",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 160,
     "CategoryName": "Physical",
      
@@ -4054,12 +4054,12 @@
 
      
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4069,12 +4069,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fairy",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 160,
     "CategoryName": "Physical",
      
@@ -4085,12 +4085,12 @@
 
      
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4100,12 +4100,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4115,12 +4115,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4129,12 +4129,12 @@
     "Priority": 0,
      "flags": {},
 
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Psychic",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 160,
     "CategoryName": "Physical",
      
@@ -4145,12 +4145,12 @@
 
      
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4159,12 +4159,12 @@
     "Priority": 0,
      "flags": {},
 
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Poison",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4174,12 +4174,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Steel",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4189,12 +4189,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Dark",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4204,12 +4204,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4219,12 +4219,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4234,12 +4234,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ice",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4249,12 +4249,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ground",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4264,12 +4264,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fairy",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4279,12 +4279,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Dark",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4294,12 +4294,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Steel",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4309,12 +4309,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4324,12 +4324,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Electric",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4339,12 +4339,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4353,12 +4353,12 @@
     "Priority": 0,
      "flags": {},
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4368,12 +4368,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ghost",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4383,12 +4383,12 @@
      "flags": {},
 
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4397,12 +4397,12 @@
     "Priority": 0,
      "flags": {},
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Rock",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4411,12 +4411,12 @@
     "Priority": 0,
      "flags": {},
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Electric",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4425,12 +4425,12 @@
     "Priority": 0,
      "flags": {},
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 1000,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
      
@@ -4440,7 +4440,7 @@
      "flags": {},
      
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
@@ -4501,7 +4501,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 580,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Grassy Terrain",
@@ -4510,7 +4510,7 @@
      "flags": {"Nonsky": 1,  "Metronome": 1},
      
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Grass",
        
     "ContestType": "Beautiful"
@@ -4524,10 +4524,10 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
     "RangeName": "normal",
-    "TypeName": "Grass",
+    "TypeName": "Grass"
 },{
     "Id": 356,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Gravity",
@@ -4535,7 +4535,7 @@
     "Priority": 0,
      "flags": {"Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Psychic",
      
     "ContestType": "Clever"
@@ -4549,13 +4549,13 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
        
     "ContestType": "Cute"
 },{
     "Id": 74,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Growth",
@@ -4569,7 +4569,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 288,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -4585,7 +4585,7 @@
      "ContestType": "Tough"
 },{
     "Id": 698,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Special",
       
@@ -4600,7 +4600,7 @@
      "ContestType": "Tough"
 },{
     "Id": 470,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Guard Split",
@@ -4614,7 +4614,7 @@
     "ContestType": "Clever"
 },{
     "Id": 385,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Guard Swap",
@@ -4663,7 +4663,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Wind": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Clever"
 },{
@@ -4682,7 +4682,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 258,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -4690,9 +4690,8 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "Metronome": 1},
-    weather: 'hail',
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ice",
        
     "ContestType": "Beautiful"
@@ -4711,32 +4710,27 @@
      "ContestType": "Tough"
 },{
     "Id": 603,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Happy Hour",
     "MaxPP": 30,
     "Priority": 0,
      "flags": { "Metronome": 1},
-    onTryHit(target, source) {
-        this.add('-activate', target, 'move: Happy Hour');
-    },
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Normal",
        
     "ContestType": "Cute"
 },{
     "Id": 106,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Harden",
     "MaxPP": 30,
     "Priority": 0,
-     "flags": { "Snatch": 1,  "Metronome": 1},{
-        def: 1,
-    },
+     "flags": { "Snatch": 1,  "Metronome": 1},
  
     "RangeName": "self",
     "TypeName": "Normal",
@@ -4753,10 +4747,10 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Steel",
+    "TypeName": "Steel"
 },{
     "Id": 114,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Haze",
@@ -4764,7 +4758,7 @@
     "Priority": 0,
      "flags": { "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ice",
      
     "ContestType": "Beautiful"
@@ -4806,7 +4800,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1, "Punch": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Ground",
+    "TypeName": "Ground"
 },{
     "Id": 457,
     "Accuracy": 80,
@@ -4823,14 +4817,14 @@
      "ContestType": "Tough"
 },{
     "Id": 215,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Heal Bell",
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "Snatch": 1,  "Sound": 1,  "Distance": 1,  "Bypasssub": 1,  "Metronome": 1},
-    "RangeName": "allyTeam",
+    "RangeName": "YourSide",
     "TypeName": "Normal",
      
     "ContestType": "Beautiful"
@@ -4844,16 +4838,15 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
-    volatileStatus: 'healblock',
 
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Psychic",
      
     "ContestType": "Clever"
 },{
     "Id": 361,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Healing Wish",
@@ -4866,7 +4859,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 456,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -4882,7 +4875,7 @@
     "ContestType": "Clever"
 },{
     "Id": 505,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Heal Pulse",
@@ -4891,7 +4884,7 @@
      "flags": { "protect": 1,  "Reflectable": 1,  "Distance": 1,  "Heal": 1,  "Allyanim": 1,  "Metronome": 1,  "Pulse": 1},
 
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Psychic",
      
     "ContestType": "Beautiful"
@@ -4910,7 +4903,7 @@
     "ContestType": "Cute"
 },{
     "Id": 391,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Heart Swap",
@@ -4932,13 +4925,6 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
-    onTryHit(target, pokemon, move) {
-        if (target.volatiles['dynamax']) {
-            this.add('-fail', pokemon, 'Dynamax');
-            this.attrLastMove('[still]');
-            return null;
-        }
-    },
  
     "RangeName": "normal",
     "TypeName": "Fire",
@@ -4953,7 +4939,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fire",
     "ContestType": "Beautiful"
 },{
@@ -4973,17 +4959,16 @@
      "ContestType": "Tough"
 },{
     "Id": 270,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Helping Hand",
     "MaxPP": 20,
     "Priority": 5,
      "flags": { "Bypasssub": 1,  "NoAssist": 1,  "failcopycat": 1},
-    volatileStatus: 'helpinghand',
 
  
-    "RangeName": "adjacentAlly",
+    "RangeName": "OneAlly",
     "TypeName": "Normal",
      
     "ContestType": "Clever"
@@ -5300,7 +5285,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 607,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
        
@@ -5309,19 +5294,19 @@
     "Priority": 0,
      "flags": { "Bypasssub": 1, "Nosleeptalk": 1,  "NoAssist": 1,  "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1},
  
-    "RangeName": "adjacentAlly",
+    "RangeName": "OneAlly",
     "TypeName": "Normal",
        
     "ContestType": "Cute"
 },{
     "Id": 468,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Hone Claws",
     "MaxPP": 15,
     "Priority": 0,
-     "flags": { "Snatch": 1,  "Metronome": 1},,
+     "flags": { "Snatch": 1,  "Metronome": 1},
  
     "RangeName": "self",
     "TypeName": "Dark",
@@ -5371,7 +5356,7 @@
      "ContestType": "Tough"
 },{
     "Id": 336,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Howl",
@@ -5379,7 +5364,7 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Sound": 1,  "Metronome": 1},
  
-    "RangeName": "allies",
+    "RangeName": "YourParty",
     "TypeName": "Normal",
        
     "ContestType":  "Cool"
@@ -5393,7 +5378,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Wind": 1},
 
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
      "ContestType": "Tough"
 },{
@@ -5431,14 +5416,13 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Defrost": 1,  "Metronome": 1},
-    // Damage boost in Sun applied in conditions.ts
       
  
     "RangeName": "normal",
-    "TypeName": "Water",
+    "TypeName": "Water"
 },{
     "Id": 642,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -5459,7 +5443,7 @@
     "Name": "Hyper Beam",
     "MaxPP": 5,
     "Priority": 0,
-     "flags": { "Recharge": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},,
+     "flags": { "Recharge": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
     "TypeName": "Normal",
@@ -5492,7 +5476,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 621,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 100,
     "CategoryName": "Physical",
     "Name": "Hyperspace Fury",
@@ -5505,7 +5489,7 @@
      "ContestType": "Tough"
 },{
     "Id": 593,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 80,
     "CategoryName": "Special",
     "Name": "Hyperspace Hole",
@@ -5527,7 +5511,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
@@ -5648,7 +5632,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Ice",
+    "TypeName": "Ice"
 },{
     "Id": 556,
     "Accuracy": 90,
@@ -5685,12 +5669,12 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ice",
     "ContestType": "Beautiful"
 },{
     "Id": 286,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Imprison",
@@ -5713,7 +5697,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fire",
      "ContestType": "Tough"
 },{
@@ -5726,7 +5710,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Ghost",
+    "TypeName": "Ghost"
 },{
     "Id": 517,
     "Accuracy": 50,
@@ -5741,7 +5725,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 640,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -5770,7 +5754,7 @@
     "ContestType": "Cute"
 },{
     "Id": 275,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Ingrain",
@@ -5784,7 +5768,7 @@
     "ContestType": "Clever"
 },{
     "Id": 689,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Instruct",
@@ -5798,7 +5782,7 @@
     "ContestType": "Clever"
 },{
     "Id": 569,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -5807,13 +5791,13 @@
     "Priority": 1,
      "flags": { "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Electric",
      
     "ContestType": "Beautiful"
 },{
     "Id": 334,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Iron Defense",
@@ -5863,7 +5847,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Grass",
+    "TypeName": "Grass"
 },{
     "Id": 746,
     "Accuracy": 100,
@@ -5875,7 +5859,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1,  "Bite": 1},
  
     "RangeName": "normal",
-    "TypeName": "Dark",
+    "TypeName": "Dark"
 },{
     "Id": 857,
     "Accuracy": 100,
@@ -5920,7 +5904,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 816,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Jungle Healing",
@@ -5929,8 +5913,8 @@
      "flags": { "Heal": 1,  "Bypasssub": 1,  "Allyanim": 1},
 
  
-    "RangeName": "allies",
-    "TypeName": "Grass",
+    "RangeName": "YourParty",
+    "TypeName": "Grass"
 },{
     "Id": 2,
     "Accuracy": 100,
@@ -5962,7 +5946,7 @@
     "ContestType": "Clever"
 },{
     "Id": 588,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -5991,7 +5975,7 @@
     "ContestType": "Clever"
 },{
     "Id": 869,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 85,
     "CategoryName": "Physical",
     "Name": "Kowtow Cleave",
@@ -6000,7 +5984,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1,  "Slicing": 1},
  
     "RangeName": "normal",
-    "TypeName": "Dark",
+    "TypeName": "Dark"
 },{
     "Id": 616,
     "Accuracy": 100,
@@ -6012,13 +5996,13 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ground",
       
     "ContestType": "Beautiful"
 },{
     "Id": 673,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6045,7 +6029,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Dark",
+    "TypeName": "Dark"
 },{
     "Id": 387,
     "Accuracy": 100,
@@ -6071,7 +6055,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Ghost",
+    "TypeName": "Ghost"
 },{
     "Id": 436,
     "Accuracy": 100,
@@ -6081,7 +6065,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Fire",
      "ContestType": "Tough"
 },{
@@ -6176,13 +6160,13 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
        
     "ContestType":  "Cool"
 },{
     "Id": 726,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 190,
     "CategoryName": "Physical",
       
@@ -6209,7 +6193,7 @@
     "ContestType": "Cute"
 },{
     "Id": 791,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Life Dew",
@@ -6218,8 +6202,8 @@
      "flags": { "Snatch": 1,  "Heal": 1,  "Bypasssub": 1},
      "Heal": [1, 4],
  
-    "RangeName": "allies",
-    "TypeName": "Water",
+    "RangeName": "YourParty",
+    "TypeName": "Water"
 },{
     "Id": 617,
     "Accuracy": 90,
@@ -6237,7 +6221,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 113,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Light Screen",
@@ -6245,13 +6229,13 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Metronome": 1},
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Psychic",
        
     "ContestType": "Beautiful"
 },{
     "Id": 723,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 200,
     "CategoryName": "Special",
       
@@ -6279,7 +6263,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 199,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Lock-On",
@@ -6337,7 +6321,7 @@
     "ContestType": "Clever"
 },{
     "Id": 381,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6346,7 +6330,7 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Metronome": 1},
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Normal",
       
     "ContestType": "Cute"
@@ -6363,18 +6347,18 @@
     "TypeName": "Psychic"
 },{
     "Id": 849,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Lunar Blessing",
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "Snatch": 1,  "Heal": 1,  "Metronome": 1},
-    "RangeName": "allies",
+    "RangeName": "YourParty",
     "TypeName": "Psychic"
 },{
     "Id": 461,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Lunar Dance",
@@ -6426,7 +6410,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 345,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Special",
     "Name": "Magical Leaf",
@@ -6448,13 +6432,13 @@
     "Priority": 0,
      "flags": {
          "protect": 1, "Failencore": 1,  "Failmefirst": 1, "Nosleeptalk": 1,  "NoAssist": 1,
-         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1,
+         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1
     },
     "RangeName": "normal",
-    "TypeName": "Fairy",
+    "TypeName": "Fairy"
 },{
     "Id": 277,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6482,7 +6466,7 @@
     "TypeName": "Psychic"
 },{
     "Id": 478,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Magic Room",
@@ -6491,7 +6475,7 @@
      "flags": { "mirror": 1,  "Metronome": 1},
 
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Psychic",
        
     "ContestType": "Clever"
@@ -6511,7 +6495,7 @@
      "ContestType": "Tough"
 },{
     "Id": 443,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Physical",
       
@@ -6525,7 +6509,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 602,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Magnetic Flux",
@@ -6533,13 +6517,13 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Distance": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Electric",
        
     "ContestType": "Clever"
 },{
     "Id": 393,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Magnet Rise",
@@ -6564,7 +6548,7 @@
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
 
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Ground",
       
      "ContestType": "Tough"
@@ -6578,12 +6562,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Steel",
     "ContestType": "Beautiful"
 },{
     "Id": 696,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 180,
     "CategoryName": "Physical",
       
@@ -6609,7 +6593,7 @@
     "TypeName": "Poison"
 },{
     "Id": 561,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6620,7 +6604,7 @@
       
       
   
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Fighting",
        
     "ContestType":  "Cool"
@@ -6635,11 +6619,11 @@
      "flags": { "protect": 1,  "mirror": 1, "Defrost": 1,  "Heal": 1,  "Metronome": 1},
      
       
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Grass"
 },{
     "Id": 766,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6648,12 +6632,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
     "Id": 772,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6662,12 +6646,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Dark",
     "ContestType":  "Cool"
 },{
     "Id": 757,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 100,
     "CategoryName": "Physical",
       
@@ -6676,12 +6660,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 758,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6690,12 +6674,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Bug",
     "ContestType":  "Cool"
 },{
     "Id": 765,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6704,12 +6688,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
     "Id": 743,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6724,7 +6708,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 763,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6733,12 +6717,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ice",
     "ContestType":  "Cool"
 },{
     "Id": 761,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6747,12 +6731,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fighting",
     "ContestType":  "Cool"
 },{
     "Id": 759,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6761,12 +6745,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Electric",
     "ContestType":  "Cool"
 },{
     "Id": 769,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6775,12 +6759,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Psychic",
     "ContestType":  "Cool"
 },{
     "Id": 764,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6789,12 +6773,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Poison",
     "ContestType":  "Cool"
 },{
     "Id": 773,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6803,12 +6787,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
     "Id": 762,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6817,12 +6801,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ghost",
     "ContestType":  "Cool"
 },{
     "Id": 771,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6831,12 +6815,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Ground",
     "ContestType":  "Cool"
 },{
     "Id": 770,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6845,12 +6829,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Rock",
     "ContestType":  "Cool"
 },{
     "Id": 767,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6859,12 +6843,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Fairy",
     "ContestType":  "Cool"
 },{
     "Id": 774,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6873,12 +6857,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Steel",
     "ContestType":  "Cool"
 },{
     "Id": 760,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6887,12 +6871,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
     "Id": 768,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 10,
     "CategoryName": "Physical",
       
@@ -6901,12 +6885,12 @@
     "Priority": 0,
      "flags": {},
      
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Dragon",
     "ContestType":  "Cool"
 },{
     "Id": 212,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Mean Look",
@@ -6921,7 +6905,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 96,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6936,7 +6920,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 382,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -6946,11 +6930,11 @@
      "flags": {
          "protect": 1,  "Bypasssub": 1,
         "Failencore": 1,  "Failmefirst": 1, "Nosleeptalk": 1,  "NoAssist": 1,
-         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1,
+         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1
     },
       
  
-    "RangeName": "adjacentFoe",
+    "RangeName": "VariesOneOther",
     "TypeName": "Normal",
       
     "ContestType": "Clever"
@@ -7025,7 +7009,7 @@
      "ContestType": "Tough"
 },{
     "Id": 725,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 200,
     "CategoryName": "Special",
       
@@ -7052,7 +7036,7 @@
 
 
  
-    "RangeName": "scripted",
+    "RangeName": "Varies",
     "TypeName": "Steel",
     "ContestType":  "Cool"
 },{
@@ -7093,7 +7077,7 @@
      "flags": { "Recharge": 1,  "protect": 1,  "mirror": 1, "Failinstruct": 1},
  
     "RangeName": "normal",
-    "TypeName": "Fighting",
+    "TypeName": "Fighting"
 },{
     "Id": 800,
     "Accuracy": 90,
@@ -7106,7 +7090,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Rock",
+    "TypeName": "Rock"
 },{
     "Id": 309,
     "Accuracy": 90,
@@ -7121,7 +7105,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 118,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Metronome",
@@ -7145,10 +7129,10 @@
      "flags": { "contact": 1,  "mirror": 1,  "Metronome": 1,  "Slicing": 1},
  
     "RangeName": "normal",
-    "TypeName": "Rock",
+    "TypeName": "Rock"
 },{
     "Id": 208,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Milk Drink",
@@ -7163,7 +7147,7 @@
     "ContestType": "Cute"
 },{
     "Id": 102,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Mimic",
@@ -7171,7 +7155,7 @@
     "Priority": 0,
      "flags": {
          "protect": 1,  "Bypasssub": 1,  "Allyanim": 1,
-        "Failencore": 1, "Nosleeptalk": 1,  "NoAssist": 1,  "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1,
+        "Failencore": 1, "Nosleeptalk": 1,  "NoAssist": 1,  "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1
     },
  
     "RangeName": "normal",
@@ -7190,12 +7174,12 @@
      "flags": { "protect": 1,  "mirror": 1},
       
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 170,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7210,7 +7194,7 @@
     "ContestType": "Clever"
 },{
     "Id": 107,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Minimize",
@@ -7225,7 +7209,7 @@
     "ContestType": "Cute"
 },{
     "Id": 357,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7250,12 +7234,12 @@
     "Priority": -5,
      "flags": { "protect": 1,  "Failmefirst": 1,  "NoAssist": 1},
  
-    "RangeName": "scripted",
+    "RangeName": "Varies",
     "TypeName": "Psychic",
     "ContestType": "Beautiful"
 },{
     "Id": 119,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7284,7 +7268,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 54,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Mist",
@@ -7293,7 +7277,7 @@
      "flags": { "Snatch": 1,  "Metronome": 1},
       
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Ice",
      
     "ContestType": "Beautiful"
@@ -7321,11 +7305,11 @@
       
 
  
-    "RangeName": "allAdjacent",
-    "TypeName": "Fairy",
+    "RangeName": "AdjacentAllOthers",
+    "TypeName": "Fairy"
 },{
     "Id": 581,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Misty Terrain",
@@ -7333,7 +7317,7 @@
     "Priority": 0,
      "flags": {"Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Fairy",
        
     "ContestType": "Beautiful"
@@ -7365,7 +7349,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 236,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Moonlight",
@@ -7379,7 +7363,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 234,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Morning Sun",
@@ -7400,8 +7384,8 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
-    "TypeName": "Poison",
+    "RangeName": "ManyOthers",
+    "TypeName": "Poison"
 },{
     "Id": 836,
     "Accuracy": 85,
@@ -7412,7 +7396,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Ice",
+    "TypeName": "Ice"
 },{
     "Id": 426,
     "Accuracy": 85,
@@ -7452,7 +7436,7 @@
     "ContestType": "Cute"
 },{
     "Id": 300,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7462,7 +7446,7 @@
      "flags": {"Nonsky": 1,  "Metronome": 1},
 
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ground",
        
     "ContestType": "Cute"
@@ -7475,7 +7459,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Water",
      "ContestType": "Tough"
 },{
@@ -7491,7 +7475,6 @@
  
     "RangeName": "normal",
     "TypeName": "Normal",
-      {"Power": 95},
      "ContestType": "Tough"
 },{
     "Id": 595,
@@ -7518,7 +7501,7 @@
     "TypeName": "Psychic"
 },{
     "Id": 417,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Nasty Plot",
@@ -7548,7 +7531,7 @@
     "ContestType": "Clever"
 },{
     "Id": 267,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7591,7 +7574,7 @@
     "ContestType": "Clever"
 },{
     "Id": 636,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -7675,7 +7658,7 @@
      "ContestType": "Tough"
 },{
     "Id": 748,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "No Retreat",
@@ -7685,7 +7668,7 @@
       
  
     "RangeName": "self",
-    "TypeName": "Fighting",
+    "TypeName": "Fighting"
 },{
     "Id": 898,
     "Accuracy": 100,
@@ -7697,10 +7680,10 @@
     "Priority": 0,
      "flags": {
          "protect": 1, "Failencore": 1,  "Failmefirst": 1, "Nosleeptalk": 1,  "NoAssist": 1,
-         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1,
+         "failcopycat": 1, "Failmimic": 1, "Failinstruct": 1, "Nosketch": 1
     },
     "RangeName": "normal",
-    "TypeName": "Poison",
+    "TypeName": "Poison"
 },{
     "Id": 609,
     "Accuracy": 100,
@@ -7725,7 +7708,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Heal": 1,  "Metronome": 1},
       
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
@@ -7742,10 +7725,10 @@
 
  
     "RangeName": "self",
-    "TypeName": "Dark",
+    "TypeName": "Dark"
 },{
     "Id": 697,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 195,
     "CategoryName": "Special",
       
@@ -7785,10 +7768,10 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Fighting",
+    "TypeName": "Fighting"
 },{
     "Id": 316,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -7838,7 +7821,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Pulse": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Water",
     "ContestType": "Beautiful"
 },{
@@ -7852,7 +7835,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1, "Failinstruct": 1},
 
  
-    "RangeName": "randomNormal",
+    "RangeName": "OneRandom",
     "TypeName": "Dragon",
     "ContestType":  "Cool"
 },{
@@ -7865,7 +7848,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Electric"
 },{
     "Id": 315,
@@ -7882,7 +7865,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 220,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Pain Split",
@@ -7905,7 +7888,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Heal": 1,  "Metronome": 1},
      
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Electric",
     "ContestType": "Clever"
 },{
@@ -7960,12 +7943,12 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
     "Id": 195,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Perish Song",
@@ -7973,7 +7956,7 @@
     "Priority": 0,
      "flags": { "Sound": 1,  "Distance": 1,  "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Normal",
      
     "ContestType": "Beautiful"
@@ -7987,7 +7970,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Grass",
     "ContestType": "Beautiful"
 },{
@@ -8001,7 +7984,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Dance": 1,  "Metronome": 1, "Failinstruct": 1},
 
  
-    "RangeName": "randomNormal",
+    "RangeName": "OneRandom",
     "TypeName": "Grass",
     "ContestType": "Beautiful"
 },{
@@ -8034,7 +8017,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 732,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
 
     "CategoryName": "Special",
@@ -8079,7 +8062,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 589,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Play Nice",
@@ -8113,7 +8096,7 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType": "Cute"
 },{
@@ -8139,7 +8122,7 @@
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
        
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Poison",
        
     "ContestType": "Clever"
@@ -8219,7 +8202,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Ghost",
+    "TypeName": "Ghost"
 },{
     "Id": 860,
     "Accuracy": 90,
@@ -8233,7 +8216,7 @@
         
  
     "RangeName": "normal",
-    "TypeName": "Normal",
+    "TypeName": "Normal"
 },{
     "Id": 884,
     "Accuracy": 100,
@@ -8284,7 +8267,7 @@
     "MaxPP": 25,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ice",
     "ContestType": "Beautiful"
 },{
@@ -8302,7 +8285,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 829,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
        
@@ -8313,10 +8296,10 @@
 
  
     "RangeName": "self",
-    "TypeName": "Normal",
+    "TypeName": "Normal"
 },{
     "Id": 471,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Power Split",
@@ -8330,7 +8313,7 @@
     "ContestType": "Clever"
 },{
     "Id": 384,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Power Swap",
@@ -8344,7 +8327,7 @@
     "ContestType": "Clever"
 },{
     "Id": 379,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Power Trick",
@@ -8406,7 +8389,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ground",
     "ContestType":  "Cool"
 },{
@@ -8438,7 +8421,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 182,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Protect",
@@ -8476,10 +8459,10 @@
  
 
     "RangeName": "normal",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 244,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Psych Up",
@@ -8527,10 +8510,10 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 678,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Psychic Terrain",
@@ -8539,7 +8522,7 @@
      "flags": {"Nonsky": 1,  "Metronome": 1},
 
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Psychic",
      
     "ContestType": "Clever"
@@ -8594,7 +8577,7 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 473,
     "Accuracy": 100,
@@ -8640,7 +8623,7 @@
     "ContestType": "Clever"
 },{
     "Id": 701,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 210,
     "CategoryName": "Physical",
       
@@ -8671,7 +8654,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 685,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -8709,7 +8692,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Defrost": 1,  "Bullet": 1},
     "RangeName": "normal",
-    "TypeName": "Fire",
+    "TypeName": "Fire"
 },{
     "Id": 511,
     "Accuracy": 100,
@@ -8740,7 +8723,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 501,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Quick Guard",
@@ -8750,13 +8733,13 @@
 
 
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Fighting",
        
     "ContestType":  "Cool"
 },{
     "Id": 483,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Quiver Dance",
@@ -8794,10 +8777,10 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1, "Punch": 1},
  
     "RangeName": "normal",
-    "TypeName": "Ghost",
+    "TypeName": "Ghost"
 },{
     "Id": 476,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Rage Powder",
@@ -8824,7 +8807,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Normal",
+    "TypeName": "Normal"
 },{
     "Id": 833,
     "Accuracy": 100,
@@ -8836,11 +8819,11 @@
      "flags": { "protect": 1,  "mirror": 1},
 
  
-    "RangeName": "randomNormal",
-    "TypeName": "Fire",
+    "RangeName": "OneRandom",
+    "TypeName": "Fire"
 },{
     "Id": 240,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Rain Dance",
@@ -8849,7 +8832,7 @@
      "flags": { "Metronome": 1},
 
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Water",
        
     "ContestType": "Beautiful"
@@ -8877,7 +8860,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Slicing": 1},
      
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Grass",
     "ContestType":  "Cool"
 },{
@@ -8905,12 +8888,12 @@
 
      
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
     "Id": 105,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Recover",
@@ -8925,7 +8908,7 @@
     "ContestType": "Clever"
 },{
     "Id": 278,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Recycle",
@@ -8939,7 +8922,7 @@
     "ContestType": "Clever"
 },{
     "Id": 115,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Reflect",
@@ -8948,13 +8931,13 @@
      "flags": { "Snatch": 1,  "Metronome": 1},
 
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Psychic",
        
     "ContestType": "Clever"
 },{
     "Id": 513,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Reflect Type",
@@ -8968,7 +8951,7 @@
     "ContestType": "Clever"
 },{
     "Id": 287,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -8990,12 +8973,12 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
     "ContestType": "Beautiful"
 },{
     "Id": 156,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Rest",
@@ -9083,7 +9066,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 863,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Revival Blessing",
@@ -9093,7 +9076,7 @@
      "flags": { "Heal": 1, "Nosketch": 1},
  
     "RangeName": "self",
-    "TypeName": "Normal",
+    "TypeName": "Normal"
 },{
     "Id": 804,
     "Accuracy": 100,
@@ -9106,10 +9089,10 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
     "RangeName": "normal",
-    "TypeName": "Electric",
+    "TypeName": "Electric"
   },{
     "Id": 46,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Roar",
@@ -9165,7 +9148,7 @@
      "ContestType": "Tough"
 },{
     "Id": 397,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Rock Polish",
@@ -9186,7 +9169,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Rock",
      "ContestType": "Tough"
 },{
@@ -9241,7 +9224,7 @@
      "ContestType": "Tough"
 },{
     "Id": 272,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Role Play",
@@ -9283,7 +9266,7 @@
     "ContestType": "Cute"
 },{
     "Id": 355,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Roost",
@@ -9298,7 +9281,7 @@
     "ContestType": "Clever"
 },{
     "Id": 563,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -9307,7 +9290,7 @@
     "Priority": 0,
      "flags": { "Distance": 1, "Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ground",
        
      "ContestType": "Tough"
@@ -9369,7 +9352,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 219,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Safeguard",
@@ -9377,7 +9360,7 @@
     "Priority": 0,
      "flags": { "Snatch": 1,  "Metronome": 1},
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Normal",
        
     "ContestType": "Beautiful"
@@ -9391,7 +9374,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
     "RangeName": "normal",
-    "TypeName": "Rock",
+    "TypeName": "Rock"
 },{
     "Id": 28,
     "Accuracy": 100,
@@ -9415,11 +9398,11 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
-    "TypeName": "Ground",
+    "RangeName": "ManyOthers",
+    "TypeName": "Ground"
 },{
     "Id": 201,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Sandstorm",
@@ -9427,7 +9410,7 @@
     "Priority": 0,
      "flags": { "Metronome": 1,  "Wind": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Rock",
        
      "ContestType": "Tough"
@@ -9462,7 +9445,7 @@
     "ContestType": "Clever"
 },{
     "Id": 634,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -9526,7 +9509,7 @@
      "flags": { "protect": 1,  "mirror": 1, "Defrost": 1,  "Metronome": 1},
       
     "RangeName": "normal",
-    "TypeName": "Ground",
+    "TypeName": "Ground"
 },{
     "Id": 10,
     "Accuracy": 100,
@@ -9564,12 +9547,12 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Bullet": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Fire",
     "ContestType":  "Cool"
 },{
     "Id": 724,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 200,
     "CategoryName": "Physical",
       
@@ -9648,7 +9631,6 @@
  
     "RangeName": "normal",
     "TypeName": "Fighting",
-    maxMove: {"Power": 75},
      "ContestType": "Tough"
 },{
     "Id": 120,
@@ -9661,7 +9643,7 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1, "Noparentalbond": 1},
       
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Normal",
     "ContestType": "Beautiful"
 },{
@@ -9719,7 +9701,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 325,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Physical",
     "Name": "Shadow Punch",
@@ -9745,7 +9727,7 @@
     "ContestType": "Clever"
 },{
     "Id": 159,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -9760,7 +9742,7 @@
     "ContestType": "Cute"
 },{
     "Id": 648,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -9775,7 +9757,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 880,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Shed Tail",
@@ -9808,10 +9790,10 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
     "RangeName": "normal",
-    "TypeName": "Poison",
+    "TypeName": "Poison"
 },{
     "Id": 504,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Shell Smash",
@@ -9834,12 +9816,12 @@
     "Priority": -3,
      "flags": { "protect": 1,  "Failmefirst": 1, "Nosleeptalk": 1,  "NoAssist": 1,  "failcopycat": 1, "Failinstruct": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Fire",
      "ContestType": "Tough"
 },{
     "Id": 842,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Shelter",
@@ -9848,10 +9830,10 @@
      "flags": { "Snatch": 1,  "Metronome": 1},
  
     "RangeName": "self",
-    "TypeName": "Steel",
+    "TypeName": "Steel"
 },{
     "Id": 508,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Shift Gear",
@@ -9865,7 +9847,7 @@
     "ContestType": "Clever"
 },{
     "Id": 351,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Special",
     "Name": "Shock Wave",
@@ -9878,7 +9860,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 659,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Shore Up",
@@ -9905,7 +9887,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 852,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Silk Trap",
@@ -9915,7 +9897,7 @@
 
 
     "RangeName": "self",
-    "TypeName": "Bug",
+    "TypeName": "Bug"
 },{
     "Id": 318,
     "Accuracy": 100,
@@ -9960,7 +9942,7 @@
     "ContestType": "Cute"
 },{
     "Id": 695,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 180,
     "CategoryName": "Physical",
       
@@ -9988,7 +9970,7 @@
     "ContestType": "Clever"
 },{
     "Id": 166,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Sketch",
@@ -10006,7 +9988,7 @@
     "ContestType": "Clever"
 },{
     "Id": 285,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Skill Swap",
@@ -10055,7 +10037,7 @@
      "flags": {"Charge": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1, "Nosleeptalk": 1, "Failinstruct": 1},
      
 
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
@@ -10069,10 +10051,10 @@
     "Priority": 0,
      "flags": {
          "contact": 1, "Charge": 1,  "protect": 1,  "mirror": 1, "Gravity": 1,  "Distance": 1,
-         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1,
+         "Metronome": 1, "Nosleeptalk": 1,  "NoAssist": 1, "Failinstruct": 1
     },
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
      "ContestType": "Tough"
 },{
@@ -10091,7 +10073,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 303,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Slack Off",
@@ -10148,7 +10130,7 @@
     "ContestType": "Clever"
 },{
     "Id": 214,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Sleep Talk",
@@ -10197,7 +10179,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Poison",
      "ContestType": "Tough"
 },{
@@ -10216,7 +10198,7 @@
      "ContestType": "Tough"
 },{
     "Id": 684,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 70,
     "CategoryName": "Physical",
     "Name": "Smart Strike",
@@ -10291,12 +10273,12 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dark",
      "ContestType": "Tough"
 },{
     "Id": 289,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -10339,7 +10321,7 @@
     "ContestType": "Cute"
 },{
     "Id": 883,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Snowscape",
@@ -10348,7 +10330,7 @@
      "flags": {},
       
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Ice"
 },{
     "Id": 487,
@@ -10367,7 +10349,7 @@
     "ContestType": "Cute"
 },{
     "Id": 135,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Soft-Boiled",
@@ -10425,7 +10407,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 699,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 195,
     "CategoryName": "Physical",
       
@@ -10473,7 +10455,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1},
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Water",
      "ContestType": "Tough"
 },{
@@ -10507,7 +10489,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 683,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Speed Swap",
@@ -10522,7 +10504,7 @@
     "ContestType": "Clever"
 },{
     "Id": 858,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Spicy Extract",
@@ -10534,7 +10516,7 @@
     "TypeName": "Grass"
 },{
     "Id": 169,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -10566,7 +10548,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 191,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Spikes",
@@ -10574,13 +10556,13 @@
     "Priority": 0,
      "flags": { "Reflectable": 1, "Nonsky": 1,  "Metronome": 1, "Mustpressure": 1},
  
-    "RangeName": "foeSide",
+    "RangeName": "OtherSide",
     "TypeName": "Ground",
        
     "ContestType": "Clever"
 },{
     "Id": 596,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Spiky Shield",
@@ -10658,7 +10640,7 @@
      "ContestType": "Tough"
 },{
     "Id": 150,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Splash",
@@ -10672,7 +10654,7 @@
     "ContestType": "Cute"
 },{
     "Id": 727,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 190,
     "CategoryName": "Physical",
       
@@ -10697,7 +10679,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Water",
     "ContestType":  "Cool"
 },{
@@ -10717,7 +10699,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 671,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -10740,11 +10722,11 @@
     "MaxPP": 5,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
-    "TypeName": "Fairy",
+    "RangeName": "ManyOthers",
+    "TypeName": "Fairy"
 },{
     "Id": 446,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Stealth Rock",
@@ -10752,7 +10734,7 @@
     "Priority": 0,
      "flags": { "Reflectable": 1,  "Metronome": 1, "Mustpressure": 1},
  
-    "RangeName": "foeSide",
+    "RangeName": "OtherSide",
     "TypeName": "Rock",
        
     "ContestType":  "Cool"
@@ -10795,7 +10777,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Steel",
+    "TypeName": "Steel"
 },{
     "Id": 798,
     "Accuracy": 100,
@@ -10809,7 +10791,7 @@
 
  
     "RangeName": "normal",
-    "TypeName": "Steel",
+    "TypeName": "Steel"
 },{
     "Id": 211,
     "Accuracy": 90,
@@ -10824,7 +10806,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 564,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Sticky Web",
@@ -10833,13 +10815,13 @@
      "flags": { "Reflectable": 1,  "Metronome": 1},
 
  
-    "RangeName": "foeSide",
+    "RangeName": "OtherSide",
     "TypeName": "Bug",
        
      "ContestType": "Tough"
 },{
     "Id": 254,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Stockpile",
@@ -10854,7 +10836,7 @@
      "ContestType": "Tough"
 },{
     "Id": 700,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 175,
     "CategoryName": "Special",
       
@@ -10995,12 +10977,12 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Bug",
     "ContestType": "Clever"
 },{
     "Id": 165,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 50,
     "CategoryName": "Physical",
     "Name": "Struggle",
@@ -11013,7 +10995,7 @@
     },
      
  
-    "RangeName": "randomNormal",
+    "RangeName": "OneRandom",
     "TypeName": "Normal",
      "ContestType": "Tough"
 },{
@@ -11025,12 +11007,12 @@
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Bug",
     "ContestType": "Cute"
 },{
     "Id": 747,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Stuff Cheeks",
@@ -11072,7 +11054,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 164,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Substitute",
@@ -11089,7 +11071,7 @@
     "ContestType": "Cute"
 },{
     "Id": 650,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -11117,7 +11099,7 @@
     "ContestType": "Clever"
 },{
     "Id": 241,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Sunny Day",
@@ -11125,7 +11107,7 @@
     "Priority": 0,
      "flags": { "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Fire",
        
     "ContestType": "Beautiful"
@@ -11201,7 +11183,7 @@
     "ContestType": "Clever"
 },{
     "Id": 626,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -11224,7 +11206,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Water",
     "ContestType": "Beautiful"
 },{
@@ -11255,7 +11237,7 @@
     "ContestType": "Cute"
 },{
     "Id": 256,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Swallow",
@@ -11292,13 +11274,13 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
       
     "ContestType": "Cute"
 },{
     "Id": 129,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 60,
     "CategoryName": "Special",
     "Name": "Swift",
@@ -11306,7 +11288,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
     "ContestType":  "Cool"
 },{
@@ -11325,7 +11307,7 @@
     "ContestType": "Clever"
 },{
     "Id": 14,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Swords Dance",
@@ -11349,12 +11331,12 @@
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
 
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Psychic",
     "ContestType": "Clever"
 },{
     "Id": 235,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Synthesis",
@@ -11376,10 +11358,10 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Bullet": 1},
     "RangeName": "normal",
-    "TypeName": "Grass",
+    "TypeName": "Grass"
 },{
     "Id": 911,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 50,
     "CategoryName": "Special",
     "Name": "Tachyon Cutter",
@@ -11390,7 +11372,6 @@
  
     "RangeName": "normal",
     "TypeName": "Steel",
-      {"Power": 140},
     "ContestType": "Clever"
 },{
     "Id": 33,
@@ -11407,7 +11388,7 @@
      "ContestType": "Tough"
 },{
     "Id": 294,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Tail Glow",
@@ -11444,13 +11425,13 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Normal",
        
     "ContestType": "Cute"
 },{
     "Id": 366,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Tailwind",
@@ -11459,7 +11440,7 @@
      "flags": { "Snatch": 1,  "Metronome": 1,  "Wind": 1},
 
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Flying",
       
     "ContestType":  "Cool"
@@ -11479,7 +11460,7 @@
      "ContestType": "Tough"
 },{
     "Id": 850,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Take Heart",
@@ -11488,7 +11469,7 @@
      "flags": { "Snatch": 1,  "Metronome": 1},
  
     "RangeName": "self",
-    "TypeName": "Psychic",
+    "TypeName": "Psychic"
 },{
     "Id": 749,
     "Accuracy": 100,
@@ -11500,7 +11481,7 @@
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
 
     "RangeName": "normal",
-    "TypeName": "Rock",
+    "TypeName": "Rock"
 },{
     "Id": 269,
     "Accuracy": 100,
@@ -11518,7 +11499,7 @@
     "ContestType": "Clever"
 },{
     "Id": 715,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Tearful Look",
@@ -11532,7 +11513,7 @@
     "ContestType": "Cute"
 },{
     "Id": 752,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Teatime",
@@ -11540,8 +11521,8 @@
     "Priority": 0,
      "flags": { "Bypasssub": 1,  "Metronome": 1},
  
-    "RangeName": "all",
-    "TypeName": "Normal",
+    "RangeName": "BothSides",
+    "TypeName": "Normal"
 },{
     "Id": 546,
     "Accuracy": 100,
@@ -11559,7 +11540,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 630,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -11583,13 +11564,13 @@
      "flags": { "protect": 1,  "mirror": 1,  "Dance": 1,  "Metronome": 1},
      
  
-    "RangeName": "allAdjacent",
+    "RangeName": "AdjacentAllOthers",
     "TypeName": "Normal",
      
     "ContestType": "Cute"
 },{
     "Id": 477,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -11604,7 +11585,7 @@
     "ContestType": "Clever"
 },{
     "Id": 100,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Teleport",
@@ -11696,7 +11677,7 @@
       
       
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ground",
       
     "ContestType": "Beautiful"
@@ -11712,7 +11693,7 @@
      "flags": { "protect": 1,  "mirror": 1, "Nonsky": 1},
 
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Ground",
      "ContestType": "Tough"
 },{
@@ -11726,7 +11707,7 @@
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Metronome": 1, "Failinstruct": 1},
 
  
-    "RangeName": "randomNormal",
+    "RangeName": "OneRandom",
     "TypeName": "Normal",
      "ContestType": "Tough"
 },{
@@ -11871,7 +11852,7 @@
     "ContestType": "Cute"
 },{
     "Id": 882,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Tidy Up",
@@ -11883,7 +11864,7 @@
     "TypeName": "Normal"
 },{
     "Id": 576,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Topsy-Turvy",
@@ -11939,7 +11920,7 @@
     "ContestType": "Clever"
 },{
     "Id": 390,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Toxic Spikes",
@@ -11947,7 +11928,7 @@
     "Priority": 0,
      "flags": { "Reflectable": 1, "Nonsky": 1,  "Metronome": 1, "Mustpressure": 1},
  
-    "RangeName": "foeSide",
+    "RangeName": "OtherSide",
     "TypeName": "Poison",
        
     "ContestType": "Clever"
@@ -11981,7 +11962,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 144,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Transform",
@@ -12037,7 +12018,7 @@
     "ContestType": "Cute"
 },{
     "Id": 433,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Trick Room",
@@ -12045,7 +12026,7 @@
     "Priority": -7,
      "flags": { "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Psychic",
       
     "ContestType": "Clever"
@@ -12118,7 +12099,7 @@
     "ContestType": "Cute"
 },{
     "Id": 376,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
 
     "CategoryName": "Special",
@@ -12164,7 +12145,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 656,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 1,
     "CategoryName": "Physical",
       
@@ -12186,7 +12167,7 @@
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Dragon",
     "ContestType":  "Cool"
 },{
@@ -12224,7 +12205,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Sound": 1,  "Bypasssub": 1,  "Metronome": 1, "Nosleeptalk": 1, "Failinstruct": 1},
  
-    "RangeName": "randomNormal",
+    "RangeName": "OneRandom",
     "TypeName": "Normal",
     "ContestType": "Cute"
 },{
@@ -12257,7 +12238,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 741,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
 
     "CategoryName": "Physical",
@@ -12281,7 +12262,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "Reflectable": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Poison",
        
     "ContestType": "Clever"
@@ -12301,7 +12282,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 837,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Victory Dance",
@@ -12339,7 +12320,7 @@
      "ContestType": "Tough"
 },{
     "Id": 233,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 70,
     "CategoryName": "Physical",
       
@@ -12438,7 +12419,7 @@
     "MaxPP": 20,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1,  "Pulse": 1},
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Water",
     "ContestType": "Beautiful"
 },{
@@ -12457,7 +12438,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 346,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
       
@@ -12465,7 +12446,7 @@
     "MaxPP": 15,
     "Priority": 0,
      "flags": {"Nonsky": 1,  "Metronome": 1},
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Water",
     "ContestType": "Cute"
 },{
@@ -12478,7 +12459,7 @@
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1},
  
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Water",
     "ContestType": "Beautiful"
 },{
@@ -12524,7 +12505,7 @@
     "ContestType": "Beautiful"
 },{
     "Id": 18,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Whirlwind",
@@ -12567,7 +12548,7 @@
     "TypeName": "Dark"
 },{
     "Id": 469,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Wide Guard",
@@ -12576,7 +12557,7 @@
      "flags": { "Snatch": 1},
        
  
-    "RangeName": "allySide",
+    "RangeName": "YourSide",
     "TypeName": "Rock",
        
      "ContestType": "Tough"
@@ -12589,7 +12570,7 @@
     "MaxPP": 10,
     "Priority": 0,
      "flags": { "protect": 1,  "mirror": 1,  "Metronome": 1,  "Wind": 1},
-    "RangeName": "allAdjacentFoes",
+    "RangeName": "ManyOthers",
     "TypeName": "Electric"
 },{
     "Id": 528,
@@ -12630,12 +12611,12 @@
     "Priority": 0,
      "flags": { "contact": 1,  "protect": 1,  "mirror": 1,  "Distance": 1,  "Metronome": 1},
  
-    "RangeName": "any",
+    "RangeName": "NormalLongRange",
     "TypeName": "Flying",
     "ContestType":  "Cool"
 },{
     "Id": 273,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Wish",
@@ -12650,7 +12631,7 @@
     "ContestType": "Cute"
 },{
     "Id": 110,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Withdraw",
@@ -12664,7 +12645,7 @@
     "ContestType": "Cute"
 },{
     "Id": 472,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Wonder Room",
@@ -12673,7 +12654,7 @@
      "flags": { "mirror": 1,  "Metronome": 1},
 
  
-    "RangeName": "all",
+    "RangeName": "BothSides",
     "TypeName": "Psychic",
        
     "ContestType": "Clever"
@@ -12693,7 +12674,7 @@
      "ContestType": "Tough"
 },{
     "Id": 526,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Work Up",
@@ -12763,7 +12744,7 @@
     "ContestType":  "Cool"
 },{
     "Id": 281,
-    "Accuracy": true,
+    "Accuracy": null,
     "Power": 0,
     "CategoryName": "Status",
     "Name": "Yawn",
@@ -12826,7 +12807,7 @@
     "ContestType":  "Cool"
 },
 
-// CAP moves
+
 
 {
     "Id": 0,

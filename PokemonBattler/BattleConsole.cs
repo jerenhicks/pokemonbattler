@@ -188,7 +188,6 @@ public class BattleConsole
             basePath = Path.Combine(currentDirectory, "../../../..");
         }
 
-
         Console.WriteLine("Effects loaded!");
         NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.json"));
         Console.WriteLine("Natures loaded!");
@@ -200,6 +199,9 @@ public class BattleConsole
         Console.WriteLine("Pokedex loaded!");
         MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "movesets.csv"));
         Console.WriteLine("MoveSets loaded!");
+
+        TestMoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "test_moves.json"));
+
     }
 
     public void ClearOutputFile()
