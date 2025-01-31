@@ -1441,7 +1441,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.33)"],
     "RangeName": "NormalLongRange"
   },
   {
@@ -3005,7 +3005,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.33)"],
     "RangeName": "normal"
   },
   {
@@ -3906,7 +3906,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["FaintEffect"],
     "RangeName": "AdjacentAllOthers"
   },
   {
@@ -4484,7 +4484,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.33)"],
     "RangeName": "normal"
   },
   {
@@ -6269,7 +6269,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.25)"],
     "RangeName": "normal"
   },
   {
@@ -6303,7 +6303,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.5)"],
     "RangeName": "normal"
   },
   {
@@ -8020,7 +8020,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": false,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.5)"],
     "RangeName": "normal"
   },
   {
@@ -12236,7 +12236,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["FaintEffect"],
     "RangeName": "AdjacentAllOthers"
   },
   {
@@ -13902,7 +13902,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": false,
     "Metronome": false,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.25)"],
     "RangeName": "OneRandom"
   },
   {
@@ -13970,7 +13970,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.25)"],
     "RangeName": "normal"
   },
   {
@@ -14463,7 +14463,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.25)"],
     "RangeName": "normal"
   },
   {
@@ -15585,7 +15585,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": [ "Recoil(.33)"],
     "RangeName": "normal"
   },
   {
@@ -15738,7 +15738,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.33)"],
     "RangeName": "normal"
   },
   {
@@ -15874,7 +15874,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.25)"],
     "RangeName": "normal"
   },
   {
@@ -15976,7 +15976,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["Recoil(.33)"],
     "RangeName": "normal"
   },
   {

@@ -14,7 +14,7 @@ public class TestFixture
                 // Load natures from CSV file
                 NatureRepository.LoadNaturesFromFile("../../../../PokemonBattler/data/natures.json");
                 TypeRepository.LoadTypesFromFile("../../../../PokemonBattler/data/types.json");
-                MoveRepository.LoadMovesFromFile("../../../../PokemonBattler/data/moves2.json");
+                MoveRepository.LoadMovesFromFile("../../../../PokemonBattler/data/moves.json");
                 PokedexRepository.LoadPokedexFromFile("../../../../PokemonBattler/data/pokedex.json");
 
                 _initialized = true;
