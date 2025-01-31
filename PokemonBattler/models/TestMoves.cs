@@ -21,7 +21,8 @@ public class TestMove
     public bool AffectedBySnatch { get; private set; }
     public bool AffectedByMirrorMove { get; private set; }
     public bool Metronome { get; private set; }
-    public TestFlag flags { get; set; }
+    [JsonIgnore]
+    public TestFlag Flags { get; set; }
     public List<string> EffectNames { get; set; }
     [JsonIgnore]
     public List<BaseEffect> Effects { get; private set; } = new List<BaseEffect>();
@@ -30,25 +31,28 @@ public class TestMove
     [JsonIgnore]
     public Range Range { get; private set; }
 
-    public TestMove(int id, string name, Type type, MoveCategory category, int pp, int? power, decimal? accuracy, int priority, Range range, TestFlag flag, List<BaseEffect> effects)
+    public TestMove(int id, string name, Type type, MoveCategory category, int maxPP, int? power, decimal? accuracy, int priority, Range range, TestFlag flags, List<BaseEffect> effects)
     {
         Id = id;
         Name = name;
         Type = type;
         Category = category;
-        MaxPP = pp;
+        MaxPP = maxPP;
         PP = MaxPP;
         Power = power;
-        Accuracy = accuracy;
+        Accuracy = Accuracy.HasValue ? Accuracy / 100 : null; ;
         Priority = priority;
         Range = range;
-        flags = flag;
-
-        MakesContact = flag.Contact.HasValue ? flag.Contact == 1 : false;
-        AffectedByProtect = flag.Protect.HasValue ? flag.Protect == 1 : false;
-        AffectedBySnatch = flag.Snatch.HasValue ? flag.Snatch == 1 : false;
-        AffectedByMirrorMove = flag.Mirror.HasValue ? flag.Mirror == 1 : false;
-        Metronome = flag.Metronome.HasValue ? flag.Metronome == 1 : false;
+        Flags = flags;
+        if (Flags == null)
+        {
+            Flags = new TestFlag();
+        }
+        MakesContact = Flags.Contact.HasValue ? Flags.Contact == 1 : false;
+        AffectedByProtect = Flags.Protect.HasValue ? Flags.Protect == 1 : false;
+        AffectedBySnatch = Flags.Snatch.HasValue ? Flags.Snatch == 1 : false;
+        AffectedByMirrorMove = Flags.Mirror.HasValue ? Flags.Mirror == 1 : false;
+        Metronome = Flags.Metronome.HasValue ? Flags.Metronome == 1 : false;
 
         if (effects != null)
         {

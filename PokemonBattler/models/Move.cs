@@ -30,13 +30,13 @@ public class Move
     [JsonIgnore]
     public Range Range { get; private set; }
 
-    public Move(int id, string name, Type type, MoveCategory category, int pp, int? power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool metronome, bool affectedBySnatch, bool affectedByMirrorMove, Range range, List<BaseEffect> effects)
+    public Move(int id, string name, Type type, MoveCategory category, int maxPP, int? power, decimal? accuracy, int priority, bool makesContact, bool affectedByProtect, bool metronome, bool affectedBySnatch, bool affectedByMirrorMove, Range range, List<BaseEffect> effects)
     {
         Id = id;
         Name = name;
         Type = type;
         Category = category;
-        MaxPP = pp;
+        MaxPP = maxPP;
         PP = MaxPP;
         Power = power;
         Accuracy = accuracy;
