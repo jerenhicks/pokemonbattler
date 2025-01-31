@@ -188,7 +188,6 @@ public class BattleConsole
             basePath = Path.Combine(currentDirectory, "../../../..");
         }
 
-
         Console.WriteLine("Effects loaded!");
         NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.json"));
         Console.WriteLine("Natures loaded!");

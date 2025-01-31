@@ -618,7 +618,7 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var move = new Move(129, "Swift", TypeRepository.GetType("Normal"), MoveCategory.Special, 20, 60, null, 0, false, false, false, false, false, false, Range.Normal, null); // Always hit move
+        var move = new Move(129, "Swift", TypeRepository.GetType("Normal"), MoveCategory.Special, 20, 60, null, 0, false, false, false, false, false, Range.Normal, null); // Always hit move
         var battle = new Battle(attacker, defender);
 
         // Act
@@ -634,7 +634,7 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, Range.Normal, null); // High accuracy move
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
         var battle = new Battle(attacker, defender);
 
         // Act
@@ -650,7 +650,7 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var move = new Move(21, "Slam", TypeRepository.GetType("Normal"), MoveCategory.Physical, 20, 80, 0.75m, 0, false, false, false, false, false, false, Range.Normal, null); // Low accuracy move
+        var move = new Move(21, "Slam", TypeRepository.GetType("Normal"), MoveCategory.Physical, 20, 80, 0.75m, 0, false, false, false, false, false, Range.Normal, null); // Low accuracy move
         var battle = new Battle(attacker, defender);
 
         // Act
@@ -666,7 +666,7 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, false, Range.Normal, null); // High accuracy move
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
         var battle = new Battle(attacker, defender);
 
         // Mock modifiers

@@ -20,16 +20,15 @@ public class MoveTest : IClassFixture<TestFixture>
             name: "Ice Punch",
             type: TypeRepository.GetType("Ice"),
             category: MoveCategory.Physical,
-            pp: pp,
+            maxPP: pp,
             power: 75,
             accuracy: 1.0m,
             priority: 0,
             makesContact: true,
             affectedByProtect: true,
-            affectedByMagicCoat: false,
+            metronome: false,
             affectedBySnatch: false,
             affectedByMirrorMove: true,
-            affectedByKingsRock: true,
             range: Range.Normal,
             effects: new List<BaseEffect>()
         );
@@ -47,10 +46,9 @@ public class MoveTest : IClassFixture<TestFixture>
         Assert.Equal(originalMove.Priority, clonedMove.Priority);
         Assert.Equal(originalMove.MakesContact, clonedMove.MakesContact);
         Assert.Equal(originalMove.AffectedByProtect, clonedMove.AffectedByProtect);
-        Assert.Equal(originalMove.AffectedByMagicCoat, clonedMove.AffectedByMagicCoat);
+        Assert.Equal(originalMove.Metronome, clonedMove.Metronome);
         Assert.Equal(originalMove.AffectedBySnatch, clonedMove.AffectedBySnatch);
         Assert.Equal(originalMove.AffectedByMirrorMove, clonedMove.AffectedByMirrorMove);
-        Assert.Equal(originalMove.AffectedByKingsRock, clonedMove.AffectedByKingsRock);
 
         clonedMove.MoveUsed();
         Assert.Equal(pp - 1, clonedMove.PP);
@@ -65,16 +63,15 @@ public class MoveTest : IClassFixture<TestFixture>
             name: "Growl",
             type: TypeRepository.GetType("Normal"),
             category: MoveCategory.Status,
-            pp: 40,
+            maxPP: 40,
             power: null,
             accuracy: 1.0m,
             priority: 0,
             makesContact: false,
             affectedByProtect: true,
-            affectedByMagicCoat: true,
+            metronome: true,
             affectedBySnatch: false,
             affectedByMirrorMove: true,
-            affectedByKingsRock: false,
             range: Range.Normal,
             effects: new List<BaseEffect> { new GrowlEffect() }
         );
@@ -95,16 +92,15 @@ public class MoveTest : IClassFixture<TestFixture>
             name: "Tackle",
             type: TypeRepository.GetType("Normal"),
             category: MoveCategory.Physical,
-            pp: 35,
+            maxPP: 35,
             power: 40,
             accuracy: 1.0m,
             priority: 0,
             makesContact: true,
             affectedByProtect: true,
-            affectedByMagicCoat: false,
+            metronome: false,
             affectedBySnatch: false,
             affectedByMirrorMove: true,
-            affectedByKingsRock: true,
             range: Range.Normal,
             effects: new List<BaseEffect>()
         );
