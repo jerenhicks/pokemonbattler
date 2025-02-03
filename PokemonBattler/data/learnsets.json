@@ -90,7 +90,7 @@
 			"vinewhip": ["9L3", "8L3", "8V", "7L7", "7V", "6L9", "6S4", "5L9", "5S2", "4L9", "3L10", "3S1"],
 			"weatherball": ["9M", "8M", "5S3"],
 			"workup": ["8M", "7M"],
-			"worryseed": ["9L30", "8L30", "7T", "7L31", "6T", "6L31", "5T", "5L31", "4T", "4L31"],
+			"worryseed": ["9L30", "8L30", "7T", "7L31", "6T", "6L31", "5T", "5L31", "4T", "4L31"]
 		},
 		"eventData": [
 			{"generation": 3, "level": 70, "moves": ["sweetscent", "growth", "solarbeam", "synthesis"], "pokeball": "pokeball"},
@@ -98,11 +98,11 @@
 			{"generation": 5, "level": 10, "gender": "M", "isHidden": true, "moves": ["tackle", "growl", "leechseed", "vinewhip"]},
 			{"generation": 5, "level": 1, "shiny": 1, "ivs": {"def": 31}, "moves": ["falseswipe", "block", "frenzyplant", "weatherball"], "pokeball": "pokeball"},
 			{"generation": 6, "level": 5, "moves": ["growl", "leechseed", "vinewhip", "poisonpowder"], "pokeball": "cherishball"},
-			{"generation": 6, "level": 5, "isHidden": true, "moves": ["tackle", "growl", "celebrate"], "pokeball": "cherishball"},
+			{"generation": 6, "level": 5, "isHidden": true, "moves": ["tackle", "growl", "celebrate"], "pokeball": "cherishball"}
 		],
 		"encounters": [
-			{"generation": 1, "level": 5},
-		],
+			{"generation": 1, "level": 5}
+		]
 	},
 	{
 		"name":"ivysaur",
@@ -187,10 +187,11 @@
 			"vinewhip": ["9L1", "8L1", "8V", "7L9", "7V", "6L9", "5L9", "4L9", "3L10"],
 			"weatherball": ["9M", "8M"],
 			"workup": ["8M", "7M"],
-			"worryseed": ["9L40", "8L40", "7T", "7L36", "6T", "6L36", "5T", "5L36", "4T", "4L36"],
-		},
+			"worryseed": ["9L40", "8L40", "7T", "7L36", "6T", "6L36", "5T", "5L36", "4T", "4L36"]
+		}
 	},
-	venusaur: {
+	{
+		"name": "venusaur",
 		"learnset": {
 			"acidspray": ["9M"],
 			"amnesia": ["9M", "8M", "8V"],
@@ -286,13 +287,14 @@
 			"vinewhip": ["9L1", "8L1", "8V", "7L1", "7V", "6L1", "5L1", "4L1", "3L1"],
 			"weatherball": ["9M", "8M"],
 			"workup": ["8M", "7M"],
-			"worryseed": ["9L44", "8L44", "7T", "7L39", "6T", "6L39", "5T", "5L39", "4T", "4L39"],
+			"worryseed": ["9L44", "8L44", "7T", "7L39", "6T", "6L39", "5T", "5L39", "4T", "4L39"]
 		},
 		"eventData": [
 			{"generation": 6, "level": 100, "isHidden": true, "moves": ["solarbeam", "frenzyplant", "synthesis", "grasspledge"], "pokeball": "cherishball"},
-		],
+		]
 	},
-	charmander: {
+	{
+		"name": "charmander",
 		"learnset": {
 			"acrobatics": ["8M", "5S6"],
 			"aerialace": ["7M", "6M", "5M", "4M", "3M"],
@@ -403,7 +405,7 @@
 			"weatherball": ["9M", "8M"],
 			willowisp: ["9M", "8M", "8V", "7M", "6M", "5M", "4M"],
 			wingattack: ["8E"],
-			"workup": ["8M", "7M"],
+			"workup": ["8M", "7M"]
 		},
 		"eventData": [
 			{"generation": 3, "level": 10, "gender": "M", "moves": ["scratch", "growl", "ember"], "pokeball": "pokeball"},
@@ -414,11 +416,11 @@
 			{"generation": 4, "level": 40, "gender": "M", nature: "Hardy", "moves": ["return", "hiddenpower", "quickattack", "howl"], "pokeball": "cherishball"},
 			{"generation": 5, "level": 1, "shiny": 1, "ivs": {spe: 31}, "moves": ["falseswipe", "block", "blastburn", "acrobatics"], "pokeball": "pokeball"},
 			{"generation": 6, "level": 5, "moves": ["growl", "ember", "smokescreen", "dragonrage"], "pokeball": "cherishball"},
-			{"generation": 6, "level": 5, "isHidden": true, "moves": ["scratch", "growl", "celebrate"], "pokeball": "cherishball"},
+			{"generation": 6, "level": 5, "isHidden": true, "moves": ["scratch", "growl", "celebrate"], "pokeball": "cherishball"}
 		],
 		"encounters": [
-			{"generation": 1, "level": 5},
-		],
+			{"generation": 1, "level": 5}
+		]
 	},
 	charmeleon: {
 		"learnset": {
