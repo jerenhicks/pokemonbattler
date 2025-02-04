@@ -16,6 +16,18 @@ public static class MoveRepository
         return Moves[name.ToLower()].Clone();
     }
 
+    public static Move GetMoveTrimmed(string name)
+    {
+        foreach (var move in Moves.Values)
+        {
+            if (move.Name.ToLower().Trim() == name.ToLower().Trim())
+            {
+                return move.Clone();
+            }
+        }
+        return null;
+    }
+
     public static Move GetMoveByID(int id)
     {
         return Moves.Values.FirstOrDefault(m => m.Id == id)?.Clone();
