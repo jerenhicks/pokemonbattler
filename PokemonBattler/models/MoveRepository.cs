@@ -20,7 +20,7 @@ public static class MoveRepository
     {
         foreach (var move in Moves.Values)
         {
-            if (move.Name.ToLower().Trim() == name.ToLower().Trim())
+            if (move.Name.ToLower().Replace(" ", "") == name.ToLower().Replace(" ", ""))
             {
                 return move.Clone();
             }
