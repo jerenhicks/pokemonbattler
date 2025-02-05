@@ -19,6 +19,7 @@ public class MoveSetRepositoryTests
             { "hyperbeam", new List<string> { "9M" } },
             { "leechseed", new List<string> { "9E" } }
         });
+        moveSet.Unpack();
 
         var expectedMoveSets = new Dictionary<int, MoveSet>
         {
@@ -26,6 +27,8 @@ public class MoveSetRepositoryTests
                 9, moveSet
             }
         };
+
+
 
 
 
@@ -57,6 +60,7 @@ public class MoveSetRepositoryTests
     public void GetMoveSets_ReturnsCorrectMoveSets()
     {
         // Arrange
+        var filePath = "test_movesets.json";
         var moveSet = new MoveSet(9, "Bulbasaur", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
@@ -64,6 +68,7 @@ public class MoveSetRepositoryTests
             { "hyperbeam", new List<string> { "9M" } },
             { "leechseed", new List<string> { "9E" } }
         });
+        moveSet.Unpack();
         var expectedMoveSets = new Dictionary<int, MoveSet>
         {
             {
@@ -71,7 +76,11 @@ public class MoveSetRepositoryTests
             }
         };
 
-        MoveSetRepository.LoadMoveSetsFromFile("test_movesets.json");
+        // Create a temporary JSON file for testing
+        var jsonData = JsonConvert.SerializeObject(expectedMoveSets.Values);
+        File.WriteAllText(filePath, jsonData);
+
+        MoveSetRepository.LoadMoveSetsFromFile(filePath);
 
         // Act
         var result = MoveSetRepository.GetMoveSets();
@@ -101,7 +110,7 @@ public class MoveSetRepositoryTests
             { "hyperbeam", new List<string> { "9M" } },
             { "leechseed", new List<string> { "9E" } }
         });
-
+        moveSet.Unpack();
 
         var moveSets = new List<MoveSet> { moveSet };
         var jsonData = JsonConvert.SerializeObject(moveSets);
@@ -110,7 +119,7 @@ public class MoveSetRepositoryTests
         MoveSetRepository.LoadMoveSetsFromFile(filePath);
 
         // Act
-        var result = MoveSetRepository.BuildRandomMoveSet(1, 9, 4, true, true, true, true, true, true, true);
+        var result = MoveSetRepository.BuildRandomMoveSet(9, 9, 4, true, true, true, true, true, true, true);
 
         // Assert
         Assert.Equal(4, result.Count);

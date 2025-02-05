@@ -37,7 +37,7 @@ public class MoveSetRepository
 
         List<Move> moves = new List<Move>();
 
-        var generation = 9;
+        var generation = generationToInclude;
         do
         {
             moves.AddRange(LoadMovesForGeneration(pokemonID, generation, incldueTMs, includeEggMoves, includeTutorMoves, includeRestrictedMoves, includeDreamWorldMoves, includeEventMoves, includeVirtualConsoleMoves));
@@ -68,32 +68,35 @@ public class MoveSetRepository
         var moveSet = MoveSets[pokemonID];
 
         List<Move> moves = new List<Move>();
-        moves.AddRange(moveSet.LevelUpMoves[generationToInclude.ToString()]);
-        if (incldueTMs)
+        if (moveSet.LevelUpMoves.ContainsKey(generationToInclude.ToString()))
+        {
+            moves.AddRange(moveSet.LevelUpMoves[generationToInclude.ToString()]);
+        }
+        if (incldueTMs && moveSet.MachineMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.MachineMoves[generationToInclude.ToString()]);
         }
-        if (includeEggMoves)
+        if (includeEggMoves && moveSet.EggMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.EggMoves[generationToInclude.ToString()]);
         }
-        if (includeTutorMoves)
+        if (includeTutorMoves && moveSet.TutorMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.TutorMoves[generationToInclude.ToString()]);
         }
-        if (includeRestrictedMoves)
+        if (includeRestrictedMoves && moveSet.RestrictedMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.RestrictedMoves[generationToInclude.ToString()]);
         }
-        if (includeDreamWorldMoves)
+        if (includeDreamWorldMoves && moveSet.DreamWorldMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.DreamWorldMoves[generationToInclude.ToString()]);
         }
-        if (includeEventMoves)
+        if (includeEventMoves && moveSet.EventMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.EventMoves[generationToInclude.ToString()]);
         }
-        if (includeVirtualConsoleMoves)
+        if (includeVirtualConsoleMoves && moveSet.VirtualConsoleMoves.ContainsKey(generationToInclude.ToString()))
         {
             moves.AddRange(moveSet.VirtualConsoleMoves[generationToInclude.ToString()]);
         }

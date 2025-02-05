@@ -58,7 +58,6 @@ public class MoveSet
                             LevelUpMoves.Add(generation, new List<Move>());
                         }
                         LevelUpMoves[generation].Add(move);
-                        //LevelUpMoves.Add("" + generation, move);
                         break;
                     case 'E':
                         //if generation doesn't exist in the keys, add one.
@@ -67,7 +66,6 @@ public class MoveSet
                             EggMoves.Add(generation, new List<Move>());
                         }
                         EggMoves[generation].Add(move);
-                        //EggMoves.Add("" + generation, move);
                         break;
                     case 'M':
                         //if generation doesn't exist in the keys, add one.
@@ -76,7 +74,6 @@ public class MoveSet
                             MachineMoves.Add(generation, new List<Move>());
                         }
                         MachineMoves[generation].Add(move);
-                        //MachineMoves.Add("" + generation, move);
                         break;
                     case 'T':
                         //if generation doesn't exist in the keys, add one.
@@ -85,7 +82,6 @@ public class MoveSet
                             TutorMoves.Add(generation, new List<Move>());
                         }
                         TutorMoves[generation].Add(move);
-                        //TutorMoves.Add("" + generation, move);
                         break;
                     case 'R':
                         //if generation doesn't exist in the keys, add one.
@@ -94,7 +90,6 @@ public class MoveSet
                             RestrictedMoves.Add(generation, new List<Move>());
                         }
                         RestrictedMoves[generation].Add(move);
-                        //RestrictedMoves.Add("" + generation, move);
                         break;
                     case 'D':
                         //if generation doesn't exist in the keys, add one.
@@ -103,7 +98,6 @@ public class MoveSet
                             DreamWorldMoves.Add(generation, new List<Move>());
                         }
                         DreamWorldMoves[generation].Add(move);
-                        //DreamWorldMoves.Add("" + generation, move);
                         break;
                     case 'S':
                         //if generation doesn't exist in the keys, add one.
@@ -112,7 +106,6 @@ public class MoveSet
                             EventMoves.Add(generation, new List<Move>());
                         }
                         EventMoves[generation].Add(move);
-                        //EventMoves.Add("" + generation, move);
                         break;
                     case 'V':
                         //if generation doesn't exist in the keys, add one.
@@ -121,14 +114,12 @@ public class MoveSet
                             VirtualConsoleMoves.Add(generation, new List<Move>());
                         }
                         VirtualConsoleMoves[generation].Add(move);
-                        //VirtualConsoleMoves.Add("" + generation, move);
                         break;
                 }
 
             }
 
         }
-        Console.WriteLine("Done");
     }
 
 
