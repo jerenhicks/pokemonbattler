@@ -4,43 +4,76 @@ using System.IO;
 using Newtonsoft.Json;
 using Xunit;
 
-public class TypeRepositoryTests
+public class TypeRepositoryTests : IClassFixture<TestFixture>
 {
-    [Fact]
-    public void GetAllTypes_ReturnsCorrectTypes()
+
+    private readonly TestFixture _fixture;
+
+    public TypeRepositoryTests(TestFixture fixture)
     {
-        // // Arrange
-        // var filePath = "test_types.json";
-        // var expectedTypes = new List<string> { "normal", "fire", "water", "grass" };
+        _fixture = fixture;
+    }
 
-        // // Create a temporary JSON file for testing
-        // var jsonData = new[]
-        // {
-        //     new { Name = "normal" },
-        //     new { Name = "fire" },
-        //     new { Name = "water" },
-        //     new { Name = "grass" }
-        // };
-        // File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonData));
+    [Fact]
+    public void LoadTypesFromFile_CorrectlyParsesTypes()
+    {
 
-        // TypeRepository.LoadTypesFromFile(filePath);
+        var result = TypeRepository.GetAllTypes();
 
-        // // Act
-        // var result = TypeRepository.GetAllTypes();
+        // Assert
+        Assert.Equal(TypeRepository.GetAllTypes().Count(), result.Count());
+        foreach (var expectedType in TypeRepository.GetAllTypes())
+        {
+            Assert.Contains(result, t => t.Name == expectedType.Name);
+        }
 
-        // List<string> actualTypes = new List<string>();
-        // foreach (var type in result)
-        // {
-        //     actualTypes.Add(type.Name);
-        // }
+    }
 
-        // // Assert
-        // foreach (var type in expectedTypes)
-        // {
-        //     Assert.Contains(type, actualTypes);
-        // }
+    [Fact]
+    public void GetType_ReturnsCorrectType()
+    {
+        // Act
+        var result = TypeRepository.GetType("Fire");
 
-        // // Clean up
-        // File.Delete(filePath);
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("fire", result.Name);
+
+    }
+
+    [Fact]
+    public void GetAllTypes_ReturnsAllTypes()
+    {
+        // Act
+        var result = TypeRepository.GetAllTypes();
+
+        // Assert
+        Assert.Equal(TypeRepository.GetAllTypes().Count(), result.Count());
+        foreach (var expectedType in TypeRepository.GetAllTypes())
+        {
+            Assert.Contains(result, t => t.Name == expectedType.Name);
+        }
+
+    }
+
+    [Fact]
+    public void SavePokedexToFile_SavesCorrectData()
+    {
+        var saveFilePath = "saved_types.json";
+
+        // Act
+        TypeRepository.SavePokedexToFile(saveFilePath);
+        var savedJsonData = File.ReadAllText(saveFilePath);
+        var savedTypes = JsonConvert.DeserializeObject<List<Type>>(savedJsonData);
+
+        // Assert
+        Assert.Equal(TypeRepository.GetAllTypes().Count(), savedTypes.Count);
+        foreach (var expectedType in TypeRepository.GetAllTypes())
+        {
+            Assert.Contains(savedTypes, t => t.Name == expectedType.Name);
+        }
+
+        // Clean up
+        File.Delete(saveFilePath);
     }
 }
