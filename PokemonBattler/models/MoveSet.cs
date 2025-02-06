@@ -9,9 +9,10 @@ using Newtonsoft.Json;
 public class MoveSet
 {
     public int PokemonID { get; set; }
+    [JsonProperty("name")]
     public string PokemonName { get; set; }
     [JsonProperty("learnset")]
-    public Dictionary<string, List<string>> LearnsetsDictionary { get; set; }
+    public Dictionary<string, List<string>> Learnset { get; set; }
     [JsonIgnore]
     public Dictionary<string, List<Move>> LevelUpMoves { get; set; } = new Dictionary<string, List<Move>>();
     [JsonIgnore]
@@ -30,19 +31,23 @@ public class MoveSet
     public Dictionary<string, List<Move>> VirtualConsoleMoves { get; set; } = new Dictionary<string, List<Move>>();
 
 
-    public MoveSet(int pokemonID, string pokemonName, Dictionary<string, List<string>> learnsetDictionary)
+    public MoveSet(string pokemonName, Dictionary<string, List<string>> learnset)
     {
-        PokemonID = pokemonID;
         PokemonName = pokemonName;
-        LearnsetsDictionary = learnsetDictionary;
+        Console.WriteLine("Pokemon processed: " + PokemonName);
+        Learnset = learnset;
+        if (Learnset == null)
+        {
+            Console.WriteLine("Found you");
+        }
     }
 
     public void Unpack()
     {
-        foreach (var set in LearnsetsDictionary.Keys)
+        foreach (var set in Learnset.Keys)
         {
             Move move = MoveRepository.GetMoveTrimmed(set);
-            foreach (var genData in LearnsetsDictionary[set])
+            foreach (var genData in Learnset[set])
             {
                 //pull the first character from the string, this will be the generation identifier.
                 string generation = genData[0].ToString();
