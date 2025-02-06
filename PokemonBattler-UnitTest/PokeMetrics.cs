@@ -38,9 +38,9 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
         pokemon3.CurrentHP = 50; // Bulbasaur is not fainted
         pokemon4.CurrentHP = 0; // Ivysaur is not fainted
-        var battle = new Battle(pokemon1, pokemon2);
-        var battle2 = new Battle(pokemon3, pokemon1);
-        var battle3 = new Battle(pokemon2, pokemon4);
+        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        var battle2 = new Battle(pokemon3, pokemon1, new NinethGenerationBattleData());
+        var battle3 = new Battle(pokemon2, pokemon4, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
@@ -71,7 +71,7 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
 
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
-        var battle = new Battle(pokemon1, pokemon2);
+        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
 
         // Add initial metrics
         pokeMetrics.AddMetrics(battle);
@@ -98,7 +98,7 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 0; // Galvantula is fainted
-        var battle = new Battle(pokemon1, pokemon2);
+        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
@@ -121,7 +121,7 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
-        var battle = new Battle(pokemon1, pokemon2);
+        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
@@ -154,7 +154,8 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
-        var battle = new Battle(pokemon1, pokemon2);
+        GenerationBattleData generationBattleData = new NinethGenerationBattleData();
+        var battle = new Battle(pokemon1, pokemon2, generationBattleData);
 
         // Act
         pokeMetrics.AddMetrics(battle);
