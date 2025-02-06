@@ -50,20 +50,39 @@ public class Pokemon
 
     public List<Move> Moves { get; set; } = new List<Move>();
     public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;
+    public Generation Generation { get; private set; }
+    public BaseStats BaseStats { get; private set; } = null;
 
-    public Pokemon(PokemonTemplate template, Nature nature, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
+    public Pokemon(PokemonTemplate template, Nature nature, Generation generation, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
     {
         Name = template.Name;
         PokedexNumber = template.PokedexNumber;
         TypeOne = template.TypeOne;
         TypeTwo = template.TypeTwo;
         Nature = nature;
-        BaseHP = template.BaseHP;
-        BaseAtk = template.BaseAtk;
-        BaseDef = template.BaseDef;
-        BaseSpAtk = template.BaseSpAtk;
-        BaseSpDef = template.BaseSpDef;
-        BaseSpeed = template.BaseSpeed;
+        Generation = generation;
+
+        //get the latest generation from the base stats.
+        foreach (var baseStat in template.BaseStats)
+        {
+            if (baseStat.ValidForGeneration.Contains(generation))
+            {
+                BaseStats = baseStat;
+                break;
+            }
+        }
+
+        if (BaseStats == null)
+        {
+            throw new ArgumentException("Base stats for generation not found.");
+        }
+
+        BaseHP = BaseStats.BaseHP;
+        BaseAtk = BaseStats.BaseAtk;
+        BaseDef = BaseStats.BaseDef;
+        BaseSpAtk = BaseStats.BaseSpAtk;
+        BaseSpDef = BaseStats.BaseSpDef;
+        BaseSpeed = BaseStats.BaseSpeed;
         Level = level;
 
         // Check IVs
