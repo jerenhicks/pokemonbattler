@@ -1,8 +1,15 @@
 using System.Collections.Generic;
 using Xunit;
 
-public class MoveSetTests
+public class MoveSetTests : IClassFixture<TestFixture>
 {
+
+    private readonly TestFixture _fixture;
+
+    public MoveSetTests(TestFixture fixture)
+    {
+        _fixture = fixture;
+    }
     [Fact]
     public void MoveSet_Initialization_SetsPropertiesCorrectly()
     {
@@ -18,19 +25,20 @@ public class MoveSetTests
         };
 
         // Act
-        var moveSet = new MoveSet(pokemonID, pokemonName, learnsetsDictionary);
+        var moveSet = new MoveSet(pokemonName, learnsetsDictionary);
+        moveSet.Unpack();
 
         // Assert
         Assert.Equal(pokemonID, moveSet.PokemonID);
         Assert.Equal(pokemonName, moveSet.PokemonName);
-        Assert.Equal(learnsetsDictionary, moveSet.LearnsetsDictionary);
+        Assert.Equal(learnsetsDictionary, moveSet.Learnset);
     }
 
     [Fact]
     public void Unpack_Method_WorksCorrectly()
     {
         // Arrange
-        var moveSet = new MoveSet(1, "Bulbasaur", new Dictionary<string, List<string>>
+        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
             { "growl", new List<string> { "9L11", "8M" } },
@@ -50,10 +58,10 @@ public class MoveSetTests
     public void LearnsetsDictionary_CanBeEmpty()
     {
         // Arrange
-        var moveSet = new MoveSet(1, "Bulbasaur", new Dictionary<string, List<string>>());
+        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>());
 
         // Act & Assert
-        Assert.Empty(moveSet.LearnsetsDictionary);
+        Assert.Empty(moveSet.Learnset);
     }
 
     [Fact]
@@ -66,11 +74,11 @@ public class MoveSetTests
             { "generation2", new List<string> { "vinewhip", "razorleaf" } }
         };
 
-        var moveSet = new MoveSet(1, "Bulbasaur", learnsetsDictionary);
+        var moveSet = new MoveSet("Bulbasaur", learnsetsDictionary);
 
         // Act & Assert
-        Assert.Equal(2, moveSet.LearnsetsDictionary.Count);
-        Assert.Contains("generation1", moveSet.LearnsetsDictionary.Keys);
-        Assert.Contains("generation2", moveSet.LearnsetsDictionary.Keys);
+        Assert.Equal(2, moveSet.Learnset.Count);
+        Assert.Contains("generation1", moveSet.Learnset.Keys);
+        Assert.Contains("generation2", moveSet.Learnset.Keys);
     }
 }

@@ -41,4 +41,9 @@ public class PokedexRepository
     {
         return Pokedex.Values;
     }
+
+    public static PokemonTemplate GetPokemonTemplateByName(string name)
+    {
+        return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+    }
 }

@@ -53474,18 +53474,6 @@
 		"eventOnly": true
 	},
 	{
-		"name": "deoxysattack",
-		"eventOnly": true
-	},
-	{
-		"name": "deoxysdefense",
-		"eventOnly": true
-	},
-	{
-		"name": "deoxysspeed",
-		"eventOnly": true
-	},
-	{
 		"name": "turtwig",
 		"learnset": {
 			"absorb": [ "9L9", "7L9", "6L9", "5L9", "5S0", "5S1", "4L9" ],
@@ -60275,10 +60263,6 @@
 		"eventOnly": true
 	},
 	{
-		"name": "dialgaorigin",
-		"eventOnly": true
-	},
-	{
 		"name": "palkia",
 		"learnset": {
 			"aerialace": [ "9M", "7M", "6M", "5M", "4M" ],
@@ -60474,10 +60458,6 @@
 				"moves": [ "dracometeor", "thunder", "fireblast", "hydropump" ]
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "palkiaorigin",
 		"eventOnly": true
 	},
 	{
@@ -60937,10 +60917,6 @@
 				"moves": [ "dragonclaw", "scaryface", "shadowball", "ancientpower" ]
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "giratinaorigin",
 		"eventOnly": true
 	},
 	{
@@ -61570,10 +61546,6 @@
 		"eventOnly": true
 	},
 	{
-		"name": "shayminsky",
-		"eventOnly": true
-	},
-	{
 		"name": "arceus",
 		"learnset": {
 			"acidspray": [ "9M" ],
@@ -61784,74 +61756,6 @@
 				"pokeball": "cherishball"
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "arceusbug",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusdark",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusdragon",
-		"eventOnly": true
-	},
-	{
-		"name": "arceuselectric",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusfairy",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusfighting",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusfire",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusflying",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusghost",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusgrass",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusground",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusice",
-		"eventOnly": true
-	},
-	{
-		"name": "arceuspoison",
-		"eventOnly": true
-	},
-	{
-		"name": "arceuspsychic",
-		"eventOnly": true
-	},
-	{
-		"name": "arceusrock",
-		"eventOnly": true
-	},
-	{
-		"name": "arceussteel",
-		"eventOnly": true
-	},
-	{
-		"name": "arceuswater",
 		"eventOnly": true
 	},
 	{
@@ -75263,10 +75167,6 @@
 		"eventOnly": true
 	},
 	{
-		"name": "tornadustherian",
-		"eventOnly": true
-	},
-	{
 		"name": "thundurus",
 		"learnset": {
 			"acrobatics": [ "9M" ],
@@ -75411,10 +75311,6 @@
 				"moves": [ "thunder", "raindance", "weatherball", "sludgewave" ]
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "thundurustherian",
 		"eventOnly": true
 	},
 	{
@@ -75856,10 +75752,6 @@
 				"moves": [ "sandtomb", "rockslide", "bulldoze", "focusblast" ]
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "landorustherian",
 		"eventOnly": true
 	},
 	{
@@ -76395,10 +76287,6 @@
 		"eventOnly": true
 	},
 	{
-		"name": "keldeoresolute",
-		"eventOnly": true
-	},
-	{
 		"name": "meloetta",
 		"learnset": {
 			"acrobatics": [ "9M", "9L26", "7M", "7L26", "6M", "6L26", "5M", "5L26" ],
@@ -76681,22 +76569,6 @@
 				"pokeball": "cherishball"
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "genesectburn",
-		"eventOnly": true
-	},
-	{
-		"name": "genesectchill",
-		"eventOnly": true
-	},
-	{
-		"name": "genesectdouse",
-		"eventOnly": true
-	},
-	{
-		"name": "genesectshock",
 		"eventOnly": true
 	},
 	{
@@ -83391,10 +83263,6 @@
 				"pokeball": "cherishball"
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "hoopaunbound",
 		"eventOnly": true
 	},
 	{
@@ -104378,18 +104246,6 @@
 				"moves": [ "ivycudgel", "lowkick", "slam", "grassyterrain" ]
 			}
 		],
-		"eventOnly": true
-	},
-	{
-		"name": "ogerponhearthflame",
-		"eventOnly": true
-	},
-	{
-		"name": "ogerponwellspring",
-		"eventOnly": true
-	},
-	{
-		"name": "ogerponcornerstone",
 		"eventOnly": true
 	},
 	{

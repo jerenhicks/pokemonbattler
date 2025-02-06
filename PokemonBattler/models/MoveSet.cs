@@ -34,16 +34,12 @@ public class MoveSet
     public MoveSet(string pokemonName, Dictionary<string, List<string>> learnset)
     {
         PokemonName = pokemonName;
-        Console.WriteLine("Pokemon processed: " + PokemonName);
         Learnset = learnset;
-        if (Learnset == null)
-        {
-            Console.WriteLine("Found you");
-        }
     }
 
     public void Unpack()
     {
+        PokemonID = PokedexRepository.GetPokemonTemplateByName(PokemonName).PokedexNumber;
         foreach (var set in Learnset.Keys)
         {
             Move move = MoveRepository.GetMoveTrimmed(set);
