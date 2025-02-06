@@ -54,6 +54,9 @@ public class BattleConsole
         double totalTime = 0;
         PokeMetrics pokeMetrics = new PokeMetrics();
 
+        //TODO: let the user pick which generation they want to use
+        GenerationBattleData generationBattleData = new NinethGenerationBattleData();
+
         for (int id1 = 0; id1 < pokedexIds.Count; id1++)
         {
             Pokemon monster1 = PokedexRepository.CreatePokemon(pokedexIds[id1], NatureRepository.GetNature("adamant"), level: 100);
@@ -65,7 +68,7 @@ public class BattleConsole
                 monster2.AddMove(MoveRepository.GetMove("pound"));
                 //monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
-                Battle battle = new Battle(monster1, monster2);
+                Battle battle = new Battle(monster1, monster2, generationBattleData);
                 battle.CommenceBattle();
 
                 pokeMetrics.AddMetrics(battle);
@@ -113,6 +116,8 @@ public class BattleConsole
         string restartResponse = "";
         bool validRestartResponse = false;
         bool keepBattling = true;
+        //TODO: let the user pick which generation they want to use
+        GenerationBattleData generationBattleData = new NinethGenerationBattleData();
 
         do
         {
@@ -134,7 +139,7 @@ public class BattleConsole
 
             //galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
 
-            Battle battle = new Battle(magikarp1, galvantula);
+            Battle battle = new Battle(magikarp1, galvantula, generationBattleData);
             battle.CommenceBattle();
             foreach (var logEntry in battle.GetBattleLog()) // Updated line
             {
@@ -197,7 +202,7 @@ public class BattleConsole
         Console.WriteLine("Moves loaded!");
         PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
         Console.WriteLine("Pokedex loaded!");
-        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "movesets.csv"));
+        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets.json"));
         Console.WriteLine("MoveSets loaded!");
     }
 

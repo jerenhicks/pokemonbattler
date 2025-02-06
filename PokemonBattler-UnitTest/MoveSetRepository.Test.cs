@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using Xunit;
-
 
 public class MoveSetRepositoryTests : IClassFixture<TestFixture>
 {
@@ -13,119 +13,36 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     {
         _fixture = fixture;
     }
+
     [Fact]
     public void LoadMoveSetsFromFile_CorrectlyParsesMoveSets()
     {
         // Arrange
-        var filePath = "test_movesets.csv";
+        var filePath = "test_movesets.json";
 
-        var growl = new Move(
-           id: 45,
-           name: "Growl",
-           type: TypeRepository.GetType("Normal"),
-           category: MoveCategory.Status,
-           maxPP: 40,
-           power: null,
-           accuracy: 1.0m,
-           priority: 0,
-           makesContact: false,
-           affectedByProtect: true,
-           metronome: true,
-           affectedBySnatch: false,
-           affectedByMirrorMove: true,
-           range: Range.Normal,
-           effects: new List<BaseEffect> { new GrowlEffect() }
-       );
-        var tackle = new Move(
-            id: 33,
-            name: "Tackle",
-            type: TypeRepository.GetType("Normal"),
-            category: MoveCategory.Physical,
-            maxPP: 35,
-            power: 40,
-            accuracy: 1.0m,
-            priority: 0,
-            makesContact: true,
-            affectedByProtect: true,
-            metronome: false,
-            affectedBySnatch: false,
-            affectedByMirrorMove: true,
-            range: Range.Normal,
-            effects: new List<BaseEffect>()
-        );
-
-        var tailWhip = new Move(
-            id: 36,
-            name: "Tail Whip",
-            type: TypeRepository.GetType("Normal"),
-            category: MoveCategory.Status,
-            maxPP: 30,
-            power: null,
-            accuracy: 1.0m,
-            priority: 0,
-            makesContact: false,
-            affectedByProtect: true,
-            metronome: false,
-            affectedBySnatch: false,
-            affectedByMirrorMove: true,
-            range: Range.Normal,
-            effects: new List<BaseEffect> { }
-        );
-
-        var hyperbeam = new Move(
-            id: 92,
-            name: "Hyper Beam",
-            type: TypeRepository.GetType("Normal"),
-            category: MoveCategory.Special,
-            maxPP: 5,
-            power: 150,
-            accuracy: 0.9m,
-            priority: 0,
-            makesContact: false,
-            affectedByProtect: true,
-            metronome: false,
-            affectedBySnatch: false,
-            affectedByMirrorMove: true,
-            range: Range.Normal,
-            effects: new List<BaseEffect> { }
-        );
-
-        var earthquake = new Move(
-            id: 174,
-            name: "Earthquake",
-            type: TypeRepository.GetType("Ground"),
-            category: MoveCategory.Physical,
-            maxPP: 10,
-            power: 100,
-            accuracy: 1.0m,
-            priority: 0,
-            makesContact: false,
-            affectedByProtect: true,
-            metronome: false,
-            affectedBySnatch: false,
-            affectedByMirrorMove: true,
-            range: Range.Normal,
-            effects: new List<BaseEffect> { }
-        );
+        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        {
+            { "tackle", new List<string> { "9L10", "8M" } },
+            { "growl", new List<string> { "9L11", "8M" } },
+            { "hyperbeam", new List<string> { "9M" } },
+            { "leechseed", new List<string> { "9E" } }
+        });
+        moveSet.Unpack();
 
         var expectedMoveSets = new Dictionary<int, MoveSet>
         {
             {
-                1, new MoveSet
-                {
-                    PokemonID = 1,
-                    LevelUpMoves = new List<Move> { tackle, growl },
-                    MachineMoves = new List<Move> { hyperbeam },
-                    EggMoves = new List<Move> { earthquake, tailWhip }
-                }
+                1, moveSet
             }
         };
 
-        // Create a temporary CSV file for testing
-        File.WriteAllLines(filePath, new[]
-        {
-            "1,33/45,36,92/174"
-        });
+
+
+
+
+        // Create a temporary JSON file for testing
+        var jsonData = JsonConvert.SerializeObject(expectedMoveSets.Values);
+        File.WriteAllText(filePath, jsonData);
 
         // Act
         MoveSetRepository.LoadMoveSetsFromFile(filePath);
@@ -138,9 +55,9 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
             Assert.True(result.ContainsKey(expectedMoveSet.Key));
             var actualMoveSet = result[expectedMoveSet.Key];
             Assert.Equal(expectedMoveSet.Value.PokemonID, actualMoveSet.PokemonID);
-            Assert.Equal(expectedMoveSet.Value.LevelUpMoves.Count, actualMoveSet.LevelUpMoves.Count);
-            Assert.Equal(expectedMoveSet.Value.MachineMoves.Count, actualMoveSet.MachineMoves.Count);
-            Assert.Equal(expectedMoveSet.Value.EggMoves.Count, actualMoveSet.EggMoves.Count);
+            Assert.Equal(expectedMoveSet.Value.LevelUpMoves["9"].Count, actualMoveSet.LevelUpMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.MachineMoves["9"].Count, actualMoveSet.MachineMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.EggMoves["9"].Count, actualMoveSet.EggMoves["9"].Count);
         }
 
         // Clean up
@@ -148,20 +65,72 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     }
 
     [Fact]
-    public void LoadMoveSetsFromFile_EmptyFile_ReturnsEmptyDictionary()
+    public void GetMoveSets_ReturnsCorrectMoveSets()
     {
         // Arrange
-        var filePath = "empty_movesets.csv";
+        var filePath = "test_movesets.json";
+        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        {
+            { "tackle", new List<string> { "9L10", "8M" } },
+            { "growl", new List<string> { "9L11", "8M" } },
+            { "hyperbeam", new List<string> { "9M" } },
+            { "leechseed", new List<string> { "9E" } }
+        });
+        moveSet.Unpack();
+        var expectedMoveSets = new Dictionary<int, MoveSet>
+        {
+            {
+                1,moveSet
+            }
+        };
 
-        // Create an empty CSV file for testing
-        File.WriteAllText(filePath, string.Empty);
+        // Create a temporary JSON file for testing
+        var jsonData = JsonConvert.SerializeObject(expectedMoveSets.Values);
+        File.WriteAllText(filePath, jsonData);
+
+        MoveSetRepository.LoadMoveSetsFromFile(filePath);
 
         // Act
-        MoveSetRepository.LoadMoveSetsFromFile(filePath);
         var result = MoveSetRepository.GetMoveSets();
 
         // Assert
-        Assert.Empty(result);
+        Assert.Equal(expectedMoveSets.Count, result.Count);
+        foreach (var expectedMoveSet in expectedMoveSets)
+        {
+            Assert.True(result.ContainsKey(expectedMoveSet.Key));
+            var actualMoveSet = result[expectedMoveSet.Key];
+            Assert.Equal(expectedMoveSet.Value.PokemonID, actualMoveSet.PokemonID);
+            Assert.Equal(expectedMoveSet.Value.LevelUpMoves["9"].Count, actualMoveSet.LevelUpMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.MachineMoves["9"].Count, actualMoveSet.MachineMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.EggMoves["9"].Count, actualMoveSet.EggMoves["9"].Count);
+        }
+    }
+
+    [Fact]
+    public void BuildRandomMoveSet_ReturnsCorrectNumberOfMoves()
+    {
+        // Arrange
+        var filePath = "test_movesets.json";
+        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        {
+            { "tackle", new List<string> { "9L10", "8M" } },
+            { "growl", new List<string> { "9L11", "8M" } },
+            { "hyperbeam", new List<string> { "9M" } },
+            { "leechseed", new List<string> { "9E" } }
+        });
+        moveSet.Unpack();
+
+        var moveSets = new List<MoveSet> { moveSet };
+        var jsonData = JsonConvert.SerializeObject(moveSets);
+        File.WriteAllText(filePath, jsonData);
+
+        MoveSetRepository.LoadMoveSetsFromFile(filePath);
+
+        // Act
+        var result = MoveSetRepository.BuildRandomMoveSet(1, Generation.NINE, 4, true, true, true, true, true, true, true);
+
+        // Assert
+        Assert.Equal(4, result.Count);
 
         // Clean up
         File.Delete(filePath);
