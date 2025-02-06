@@ -19,34 +19,33 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         var pokedexNumber = 129;
         string typeOne = "water";
         string typeTwo = null;
-        var baseHP = 20;
-        var baseAtk = 10;
-        var baseDef = 55;
-        var baseSpAtk = 15;
-        var baseSpDef = 20;
-        var baseSpeed = 80;
-        var moves = new List<Move>
+        List<Generation> generations = new List<Generation>
         {
-            new Move(150,"Splash", TypeRepository.GetType("Normal"), MoveCategory.Status, 40, null, null, 0, false, false, false, false, false, Range.Normal, null),
-            new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null)
+            Generation.NINE
+        };
+        BaseStats stats = new BaseStats(generations, 20, 10, 55, 15, 20, 80);
+        List<BaseStats> baseStats = new List<BaseStats>
+        {
+            stats
         };
 
+        var generation = 9;
+
         // Act
-        var pokemonTemplate = new PokemonTemplate(name, pokedexNumber, typeOne, typeTwo, baseHP, baseAtk, baseDef, baseSpAtk, baseSpDef, baseSpeed, moves);
+        var pokemonTemplate = new PokemonTemplate(name, pokedexNumber, typeOne, typeTwo, baseStats);
 
         // Assert
         Assert.Equal(name, pokemonTemplate.Name);
         Assert.Equal(pokedexNumber, pokemonTemplate.PokedexNumber);
         Assert.Equal(typeOne, pokemonTemplate.TypeOneName);
         Assert.Equal(typeTwo, pokemonTemplate.TypeTwoName);
-        Assert.Equal(baseHP, pokemonTemplate.BaseHP);
-        Assert.Equal(baseAtk, pokemonTemplate.BaseAtk);
-        Assert.Equal(baseDef, pokemonTemplate.BaseDef);
-        Assert.Equal(baseSpAtk, pokemonTemplate.BaseSpAtk);
-        Assert.Equal(baseSpDef, pokemonTemplate.BaseSpDef);
-        Assert.Equal(baseSpeed, pokemonTemplate.BaseSpeed);
+        Assert.Equal(stats.BaseHP, pokemonTemplate.BaseStats[0].BaseHP);
+        Assert.Equal(stats.BaseAtk, pokemonTemplate.BaseStats[0].BaseAtk);
+        Assert.Equal(stats.BaseDef, pokemonTemplate.BaseStats[0].BaseDef);
+        Assert.Equal(stats.BaseSpAtk, pokemonTemplate.BaseStats[0].BaseSpAtk);
+        Assert.Equal(stats.BaseSpDef, pokemonTemplate.BaseStats[0].BaseSpDef);
+        Assert.Equal(stats.BaseSpeed, pokemonTemplate.BaseStats[0].BaseSpeed);
         Assert.Equal(1, pokemonTemplate.Level);
-        Assert.Equal(moves, pokemonTemplate.Moves);
     }
 
     [Fact]
@@ -57,27 +56,32 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
         var pokedexNumber = 129;
         string typeOne = "water";
         string typeTwo = null;
-        var baseHP = 20;
-        var baseAtk = 10;
-        var baseDef = 55;
-        var baseSpAtk = 15;
-        var baseSpDef = 20;
-        var baseSpeed = 80;
+        var generation = 9;
+        List<Generation> generations = new List<Generation>
+        {
+            Generation.NINE
+        };
+        BaseStats stats = new BaseStats(generations, 20, 10, 55, 15, 20, 80);
+        List<BaseStats> baseStats = new List<BaseStats>
+        {
+            stats
+        };
+
 
         // Act
-        var pokemonTemplate = new PokemonTemplate(name, pokedexNumber, typeOne, typeTwo, baseHP, baseAtk, baseDef, baseSpAtk, baseSpDef, baseSpeed);
+        var pokemonTemplate = new PokemonTemplate(name, pokedexNumber, typeOne, typeTwo, baseStats);
 
         // Assert
         Assert.Equal(name, pokemonTemplate.Name);
         Assert.Equal(pokedexNumber, pokemonTemplate.PokedexNumber);
         Assert.Equal(typeOne, pokemonTemplate.TypeOneName);
         Assert.Equal(typeTwo, pokemonTemplate.TypeTwoName);
-        Assert.Equal(baseHP, pokemonTemplate.BaseHP);
-        Assert.Equal(baseAtk, pokemonTemplate.BaseAtk);
-        Assert.Equal(baseDef, pokemonTemplate.BaseDef);
-        Assert.Equal(baseSpAtk, pokemonTemplate.BaseSpAtk);
-        Assert.Equal(baseSpDef, pokemonTemplate.BaseSpDef);
-        Assert.Equal(baseSpeed, pokemonTemplate.BaseSpeed);
+        Assert.Equal(stats.BaseHP, pokemonTemplate.BaseStats[0].BaseHP);
+        Assert.Equal(stats.BaseAtk, pokemonTemplate.BaseStats[0].BaseAtk);
+        Assert.Equal(stats.BaseDef, pokemonTemplate.BaseStats[0].BaseDef);
+        Assert.Equal(stats.BaseSpAtk, pokemonTemplate.BaseStats[0].BaseSpAtk);
+        Assert.Equal(stats.BaseSpDef, pokemonTemplate.BaseStats[0].BaseSpDef);
+        Assert.Equal(stats.BaseSpeed, pokemonTemplate.BaseStats[0].BaseSpeed);
         Assert.Equal(1, pokemonTemplate.Level);
         Assert.Empty(pokemonTemplate.Moves);
     }
