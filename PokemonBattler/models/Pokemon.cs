@@ -163,6 +163,14 @@ public class Pokemon
         }
     }
 
+    public void AddMoves(List<Move> moves)
+    {
+        foreach (var move in moves)
+        {
+            AddMove(move);
+        }
+    }
+
     public bool AddNonVolatileStatus(NonVolatileStatus status)
     {
         bool wasAdded = false;

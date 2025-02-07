@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class BattleConsole
 {
     int battleMode;
-    private bool outputBattleLogs = false;
+    private bool outputBattleLogs = true;
     private string basePath;
     private string currentDirectory;
     public BattleConsole(int battleMode)
@@ -60,12 +60,14 @@ public class BattleConsole
         for (int id1 = 0; id1 < pokedexIds.Count; id1++)
         {
             Pokemon monster1 = PokedexRepository.CreatePokemon(pokedexIds[id1], NatureRepository.GetNature("adamant"), level: 100);
-            monster1.AddMove(MoveRepository.GetMove("pound"));
+            List<Move> monster1Moves = MoveSetRepository.BuildRandomMoveSet(monster1.PokedexNumber, Generation.NINE, 4);
+            monster1.AddMoves(monster1Moves);
             startTime = DateTime.Now;
             for (int id2 = id1 + 1; id2 < pokedexIds.Count; id2++)
             {
                 Pokemon monster2 = PokedexRepository.CreatePokemon(pokedexIds[id2], NatureRepository.GetNature("adamant"), level: 100);
-                monster2.AddMove(MoveRepository.GetMove("pound"));
+                List<Move> monster2Moves = MoveSetRepository.BuildRandomMoveSet(monster2.PokedexNumber, Generation.NINE, 4);
+                monster2.AddMoves(monster2Moves);
                 //monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
                 Battle battle = new Battle(monster1, monster2, generationBattleData);
@@ -131,8 +133,8 @@ public class BattleConsole
             BattleCountdown();
 
             // Create a Magikarp Pokemon with level 1 and specified base stats
-            Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), level: 100);
-            Pokemon galvantula = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon magikarp1 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon galvantula = PokedexRepository.CreatePokemon("596", NatureRepository.GetNature("adamant"), level: 100);
 
             magikarp1.AddMove(MoveRepository.GetMove("Explosion"));
             galvantula.AddMove(MoveRepository.GetMove("Struggle"));
@@ -200,10 +202,13 @@ public class BattleConsole
         Console.WriteLine("Types loaded!");
         MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.json"));
         Console.WriteLine("Moves loaded!");
-        PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
+        PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex-test2.json"));
         Console.WriteLine("Pokedex loaded!");
         MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets.json"));
         Console.WriteLine("MoveSets loaded!");
+
+        //MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
+        //PokedexRepository.SavePokedexToFile(Path.Combine(basePath, "data", "pokedex-test2.json"));
     }
 
     public void ClearOutputFile()

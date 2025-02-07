@@ -39,6 +39,16 @@ public class MoveSet
 
     public void Unpack()
     {
+        if (PokedexRepository.GetPokemonTemplateByName(PokemonName) == null)
+        {
+            Console.WriteLine($"WARNING: Could not load learnset for Pokemon {PokemonName}.");
+            return;
+        }
+        var poke = PokedexRepository.GetPokemonTemplateByName(PokemonName);
+        if (poke == null)
+        {
+            throw new Exception($"Pokemon {PokemonName} not found in Pokedex.");
+        }
         PokemonID = PokedexRepository.GetPokemonTemplateByName(PokemonName).PokedexNumber;
         foreach (var set in Learnset.Keys)
         {

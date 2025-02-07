@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public class PokedexRepository
 {
-    private static Dictionary<int, PokemonTemplate> Pokedex = new Dictionary<int, PokemonTemplate>();
+    private static Dictionary<string, PokemonTemplate> Pokedex = new Dictionary<string, PokemonTemplate>();
 
     public static void LoadPokedexFromFile(string filePath)
     {
@@ -15,7 +15,7 @@ public class PokedexRepository
 
         foreach (var template in pokemonTemplates)
         {
-            Pokedex[template.PokedexNumber] = template;
+            Pokedex[template.PokedexNumberString] = template;
         }
     }
 
@@ -25,14 +25,14 @@ public class PokedexRepository
         File.WriteAllText(filePath, jsonData);
     }
 
-    public static bool PokemonExists(int pokedexNumber)
+    public static bool PokemonExists(string pokedexNumber)
     {
         return Pokedex.ContainsKey(pokedexNumber);
     }
 
-    public static List<int> PokemonIds() { return new List<int>(Pokedex.Keys); }
+    public static List<string> PokemonIds() { return new List<string>(Pokedex.Keys); }
 
-    public static Pokemon CreatePokemon(int pokedexNumber, Nature nature, Generation generation = Generation.NINE, int ivHp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHp = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
+    public static Pokemon CreatePokemon(string pokedexNumber, Nature nature, Generation generation = Generation.NINE, int ivHp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHp = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
     {
         return PokemonExists(pokedexNumber) ? new Pokemon(Pokedex[pokedexNumber], nature, generation, ivHp, ivAtk, ivDef, ivSpAtk, ivSpDef, ivSpeed, evHp, evAtk, evDef, evSpAtk, evSpDef, evSpeed, level) : null;
     }
@@ -44,6 +44,6 @@ public class PokedexRepository
 
     public static PokemonTemplate GetPokemonTemplateByName(string name)
     {
-        return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+        return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", "") == name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", ""));
     }
 }

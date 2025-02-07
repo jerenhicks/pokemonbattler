@@ -15,14 +15,18 @@ public class MoveSetRepository
 
         foreach (var moveSet in moveSets)
         {
-            MoveSets[moveSet.PokemonID] = moveSet;
+            moveSet.Unpack();
         }
         foreach (var moveSet in moveSets)
         {
-            moveSet.Unpack();
+            MoveSets[moveSet.PokemonID] = moveSet;
         }
+    }
 
-
+    public static void SaveMoveSetsToFile(string filePath)
+    {
+        var jsonData = JsonConvert.SerializeObject(MoveSets.Values, Formatting.Indented);
+        File.WriteAllText(filePath, jsonData);
     }
 
     public static Dictionary<int, MoveSet> GetMoveSets()

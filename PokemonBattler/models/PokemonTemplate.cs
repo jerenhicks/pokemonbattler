@@ -7,7 +7,9 @@ using Newtonsoft.Json;
 public class PokemonTemplate
 {
     public string Name { get; private set; }
+    [JsonIgnore]
     public int PokedexNumber { get; private set; }
+    public string PokedexNumberString { get; set; }
 
     [JsonIgnore]
     public Type TypeOne { get; private set; }
@@ -21,10 +23,11 @@ public class PokemonTemplate
 
     public List<Move> Moves { get; set; } = new List<Move>();
 
-    public PokemonTemplate(string name, int pokedexNumber, string typeOneName, string typeTwoName, List<BaseStats> baseStats, List<Move> moves = null)
+    public PokemonTemplate(string name, string pokedexNumberString, string typeOneName, string typeTwoName, List<BaseStats> baseStats, List<Move> moves = null)
     {
         Name = name;
-        PokedexNumber = pokedexNumber;
+        // PokedexNumber = pokedexNumber;
+        PokedexNumberString = pokedexNumberString;
         TypeOneName = typeOneName;
         TypeTwoName = typeTwoName;
         if (TypeOneName != null)

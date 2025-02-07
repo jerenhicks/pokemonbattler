@@ -20,12 +20,12 @@ public static class MoveRepository
     {
         foreach (var move in Moves.Values)
         {
-            if (move.Name.ToLower().Replace(" ", "") == name.ToLower().Replace(" ", ""))
+            if (move.Name.ToLower().Replace("'", "").Replace("-", "").Replace(" ", "") == name.ToLower().Replace("'", "").Replace("-", "").Replace(" ", ""))
             {
                 return move.Clone();
             }
         }
-        return null;
+        throw new KeyNotFoundException($"Move {name} not found.");
     }
 
     public static Move GetMoveByID(int id)
