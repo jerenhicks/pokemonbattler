@@ -2279,6 +2279,66 @@
     "Level": 1,
     "Moves": []
   },
+      {
+    "Name": "Alolan Meowth",
+    "PokedexNumberString": "52a",
+    "TypeOneName": "dark",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 40,
+        "BaseAtk": 35,
+        "BaseDef": 35,
+        "BaseSpAtk": 50,
+        "BaseSpDef": 40,
+        "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+      {
+    "Name": "Galarian Meowth",
+    "PokedexNumberString": "52b",
+    "TypeOneName": "steel",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 55,
+        "BaseSpAtk": 40,
+        "BaseSpDef": 40,
+        "BaseSpeed": 40
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Persian",
     "PokedexNumberString": "53",
@@ -2302,6 +2362,36 @@
         "BaseAtk": 70,
         "BaseDef": 60,
         "BaseSpAtk": 65,
+        "BaseSpDef": 65,
+        "BaseSpeed": 115
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+      {
+    "Name": "Alolan Persian",
+    "PokedexNumberString": "53a",
+    "TypeOneName": "dark",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 60,
+        "BaseDef": 60,
+        "BaseSpAtk": 75,
         "BaseSpDef": 65,
         "BaseSpeed": 115
       }
@@ -2459,6 +2549,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Hisuian Growlithe",
+    "PokedexNumberString": "58a",
+    "TypeOneName": "fire",
+    "TypeTwoName": "rock",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 75,
+        "BaseDef": 45,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 50,
+        "BaseSpeed": 55
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Arcanine",
     "PokedexNumberString": "59",
@@ -2484,6 +2604,36 @@
         "BaseSpAtk": 100,
         "BaseSpDef": 80,
         "BaseSpeed": 95
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+      {
+    "Name": "Hisuian Arcanine",
+    "PokedexNumberString": "59a",
+    "TypeOneName": "fire",
+    "TypeTwoName": "rock",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 95,
+        "BaseAtk": 115,
+        "BaseDef": 80,
+        "BaseSpAtk": 95,
+        "BaseSpDef": 80,
+        "BaseSpeed": 90
       }
     ],
     "Level": 1,
@@ -2939,11 +3089,71 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Alolan Geodude",
+    "PokedexNumberString": "74a",
+    "TypeOneName": "rock",
+    "TypeTwoName": "electric",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 40,
+        "BaseAtk": 80,
+        "BaseDef": 100,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 30,
+        "BaseSpeed": 20
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Graveler",
     "PokedexNumberString": "75",
     "TypeOneName": "rock",
     "TypeTwoName": "ground",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 55,
+        "BaseAtk": 95,
+        "BaseDef": 115,
+        "BaseSpAtk": 45,
+        "BaseSpDef": 45,
+        "BaseSpeed": 35
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Alolan Graveler",
+    "PokedexNumberString": "75a",
+    "TypeOneName": "rock",
+    "TypeTwoName": "electric",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -2999,10 +3209,70 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Alolan Golem",
+    "PokedexNumberString": "76a",
+    "TypeOneName": "rock",
+    "TypeTwoName": "electric",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 120,
+        "BaseDef": 130,
+        "BaseSpAtk": 55,
+        "BaseSpDef": 65,
+        "BaseSpeed": 45
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Ponyta",
     "PokedexNumberString": "77",
     "TypeOneName": "fire",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 85,
+        "BaseDef": 55,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 65,
+        "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Ponyta",
+    "PokedexNumberString": "77a",
+    "TypeOneName": "psychic",
     "TypeTwoName": null,
     "BaseStats": [
       {
@@ -3059,11 +3329,71 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Rapidash",
+    "PokedexNumberString": "78a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "fairy",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 100,
+        "BaseDef": 70,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 80,
+        "BaseSpeed": 105
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Slowpoke",
     "PokedexNumberString": "79",
     "TypeOneName": "water",
     "TypeTwoName": "psychic",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 90,
+        "BaseAtk": 65,
+        "BaseDef": 65,
+        "BaseSpAtk": 40,
+        "BaseSpDef": 40,
+        "BaseSpeed": 15
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Slowpoke",
+    "PokedexNumberString": "79a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -3113,6 +3443,36 @@
         "BaseDef": 110,
         "BaseSpAtk": 100,
         "BaseSpDef": 80,
+        "BaseSpeed": 30
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Slowbro",
+    "PokedexNumberString": "80a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "psychic",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 95,
+        "BaseAtk": 100,
+        "BaseDef": 95,
+        "BaseSpAtk": 100,
+        "BaseSpDef": 70,
         "BaseSpeed": 30
       }
     ],
@@ -3204,6 +3564,36 @@
         "BaseSpAtk": 58,
         "BaseSpDef": 62,
         "BaseSpeed": 60
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Farfetch'd",
+    "PokedexNumberString": "83a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 52,
+        "BaseAtk": 95,
+        "BaseDef": 55,
+        "BaseSpAtk": 58,
+        "BaseSpDef": 62,
+        "BaseSpeed": 55
       }
     ],
     "Level": 1,
@@ -3359,11 +3749,71 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Alolan Grimer",
+    "PokedexNumberString": "88a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "dark",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 80,
+        "BaseDef": 50,
+        "BaseSpAtk": 40,
+        "BaseSpDef": 50,
+        "BaseSpeed": 25
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Muk",
     "PokedexNumberString": "89",
     "TypeOneName": "poison",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 105,
+        "BaseAtk": 105,
+        "BaseDef": 75,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 100,
+        "BaseSpeed": 50
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Alolan Muk",
+    "PokedexNumberString": "89a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "dark",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -3719,11 +4169,71 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Hisuian Voltorb",
+    "PokedexNumberString": "100a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 40,
+        "BaseAtk": 30,
+        "BaseDef": 50,
+        "BaseSpAtk": 55,
+        "BaseSpDef": 55,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Electrode",
     "PokedexNumberString": "101",
     "TypeOneName": "electric",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 50,
+        "BaseDef": 70,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 80,
+        "BaseSpeed": 150
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Electrode",
+    "PokedexNumberString": "101a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "grass",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -3809,6 +4319,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Alolan Exeggutor",
+    "PokedexNumberString": "103a",
+    "TypeOneName": "grass",
+    "TypeTwoName": "dragon",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 95,
+        "BaseAtk": 105,
+        "BaseDef": 85,
+        "BaseSpAtk": 125,
+        "BaseSpDef": 75,
+        "BaseSpeed": 45
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Cubone",
     "PokedexNumberString": "104",
@@ -3844,6 +4384,36 @@
     "PokedexNumberString": "105",
     "TypeOneName": "ground",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 80,
+        "BaseDef": 110,
+        "BaseSpAtk": 50,
+        "BaseSpDef": 80,
+        "BaseSpeed": 45
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Alolan Marowak",
+    "PokedexNumberString": "105a",
+    "TypeOneName": "fire",
+    "TypeTwoName": "ghost",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -3994,6 +4564,36 @@
     "PokedexNumberString": "110",
     "TypeOneName": "poison",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 90,
+        "BaseDef": 120,
+        "BaseSpAtk": 85,
+        "BaseSpDef": 70,
+        "BaseSpeed": 60
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Weezing",
+    "PokedexNumberString": "110a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "fairy",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -4379,6 +4979,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Mr. Mime",
+    "PokedexNumberString": "122a",
+    "TypeOneName": "ice",
+    "TypeTwoName": "psychic",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 65,
+        "BaseSpAtk": 90,
+        "BaseSpDef": 90,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Scyther",
     "PokedexNumberString": "123",
@@ -4559,6 +5189,96 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Paldean Tauros Combat Breed",
+    "PokedexNumberString": "128a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 110,
+        "BaseDef": 105,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 70,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+      {
+    "Name": "Paldean Tauros Blaze Breed",
+    "PokedexNumberString": "128b",
+    "TypeOneName": "fighting",
+    "TypeTwoName": "fire",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 110,
+        "BaseDef": 105,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 70,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+      {
+    "Name": "Paldean Tauros Aqua Breed",
+    "PokedexNumberString": "128c",
+    "TypeOneName": "fighting",
+    "TypeTwoName": "water",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 110,
+        "BaseDef": 105,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 70,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Magikarp",
     "PokedexNumberString": "129",
@@ -4704,6 +5424,36 @@
         "BaseSpAtk": 45,
         "BaseSpDef": 65,
         "BaseSpeed": 55
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Partner Eevee",
+    "PokedexNumberString": "133a",
+    "TypeOneName": "normal",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 75,
+        "BaseDef": 70,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 85,
+        "BaseSpeed": 75
       }
     ],
     "Level": 1,
@@ -5039,6 +5789,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Articuno",
+    "PokedexNumberString": "144a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 90,
+        "BaseAtk": 85,
+        "BaseDef": 100,
+        "BaseSpAtk": 95,
+        "BaseSpDef": 125,
+        "BaseSpeed": 85
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Zapdos",
     "PokedexNumberString": "145",
@@ -5062,6 +5842,36 @@
         "BaseAtk": 90,
         "BaseDef": 85,
         "BaseSpAtk": 125,
+        "BaseSpDef": 90,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Zapdos",
+    "PokedexNumberString": "145a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 90,
+        "BaseAtk": 125,
+        "BaseDef": 90,
+        "BaseSpAtk": 85,
         "BaseSpDef": 90,
         "BaseSpeed": 100
       }
@@ -5093,6 +5903,36 @@
         "BaseDef": 90,
         "BaseSpAtk": 125,
         "BaseSpDef": 85,
+        "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Moltres",
+    "PokedexNumberString": "146a",
+    "TypeOneName": "dark",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 90,
+        "BaseAtk": 85,
+        "BaseDef": 90,
+        "BaseSpAtk": 100,
+        "BaseSpDef": 125,
         "BaseSpeed": 90
       }
     ],
@@ -5424,6 +6264,36 @@
         "BaseSpAtk": 109,
         "BaseSpDef": 85,
         "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Typhlosion",
+    "PokedexNumberString": "157a",
+    "TypeOneName": "fire",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 73,
+        "BaseAtk": 84,
+        "BaseDef": 78,
+        "BaseSpAtk": 119,
+        "BaseSpDef": 85,
+        "BaseSpeed": 85
       }
     ],
     "Level": 1,
@@ -6569,6 +7439,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Paldean Wooper",
+    "PokedexNumberString": "194a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "ground",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 55,
+        "BaseAtk": 45,
+        "BaseDef": 45,
+        "BaseSpAtk": 25,
+        "BaseSpDef": 25,
+        "BaseSpeed": 15
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Quagsire",
     "PokedexNumberString": "195",
@@ -6712,6 +7612,36 @@
         "BaseAtk": 75,
         "BaseDef": 80,
         "BaseSpAtk": 100,
+        "BaseSpDef": 110,
+        "BaseSpeed": 30
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Slowking",
+    "PokedexNumberString": "199a",
+    "TypeOneName": "poison",
+    "TypeTwoName": "psychic",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 95,
+        "BaseAtk": 65,
+        "BaseDef": 80,
+        "BaseSpAtk": 110,
         "BaseSpDef": 110,
         "BaseSpeed": 30
       }
@@ -7079,6 +8009,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Hisuian Qwilfish",
+    "PokedexNumberString": "211a",
+    "TypeOneName": "dark",
+    "TypeTwoName": "poison",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 95,
+        "BaseDef": 85,
+        "BaseSpAtk": 55,
+        "BaseSpDef": 55,
+        "BaseSpeed": 85
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Scizor",
     "PokedexNumberString": "212",
@@ -7174,6 +8134,36 @@
     "PokedexNumberString": "215",
     "TypeOneName": "dark",
     "TypeTwoName": "ice",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 55,
+        "BaseAtk": 95,
+        "BaseDef": 55,
+        "BaseSpAtk": 35,
+        "BaseSpDef": 75,
+        "BaseSpeed": 115
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Sneasel",
+    "PokedexNumberString": "215a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": "poison",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -7404,6 +8394,36 @@
         "BaseSpAtk": 65,
         "BaseSpDef": 95,
         "BaseSpeed": 35
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Corsola",
+    "PokedexNumberString": "222a",
+    "TypeOneName": "ghost",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 55,
+        "BaseDef": 100,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 100,
+        "BaseSpeed": 30
       }
     ],
     "Level": 1,
@@ -8639,11 +9659,71 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Zigzagoon",
+    "PokedexNumberString": "263a",
+    "TypeOneName": "dark",
+    "TypeTwoName": "normal",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 38,
+        "BaseAtk": 30,
+        "BaseDef": 41,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 41,
+        "BaseSpeed": 60
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Linoone",
     "PokedexNumberString": "264",
     "TypeOneName": "normal",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 78,
+        "BaseAtk": 70,
+        "BaseDef": 61,
+        "BaseSpAtk": 50,
+        "BaseSpDef": 61,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Linoone",
+    "PokedexNumberString": "264a",
+    "TypeOneName": "dark",
+    "TypeTwoName": "normal",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -12329,6 +13409,96 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Deoxys Attack Forme",
+    "PokedexNumberString": "386a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 180,
+        "BaseDef": 20,
+        "BaseSpAtk": 180,
+        "BaseSpDef": 20,
+        "BaseSpeed": 150
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Deoxys Defense Forme",
+    "PokedexNumberString": "386b",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 70,
+        "BaseDef": 160,
+        "BaseSpAtk": 70,
+        "BaseSpDef": 160,
+        "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Deoxys Speed Forme",
+    "PokedexNumberString": "386c",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 95,
+        "BaseDef": 90,
+        "BaseSpAtk": 95,
+        "BaseSpDef": 90,
+        "BaseSpeed": 180
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Turtwig",
     "PokedexNumberString": "387",
@@ -13109,6 +14279,66 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Burmy Sandy Cloak",
+    "PokedexNumberString": "412a",
+    "TypeOneName": "bug",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 40,
+        "BaseAtk": 29,
+        "BaseDef": 45,
+        "BaseSpAtk": 29,
+        "BaseSpDef": 45,
+        "BaseSpeed": 36
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Burmy Trash Cloak",
+    "PokedexNumberString": "412b",
+    "TypeOneName": "bug",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 40,
+        "BaseAtk": 29,
+        "BaseDef": 45,
+        "BaseSpAtk": 29,
+        "BaseSpDef": 45,
+        "BaseSpeed": 36
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Wormadam Plant Cloak",
     "PokedexNumberString": "413",
@@ -13133,6 +14363,66 @@
         "BaseDef": 85,
         "BaseSpAtk": 79,
         "BaseSpDef": 105,
+        "BaseSpeed": 36
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Wormadam Sandy Cloak",
+    "PokedexNumberString": "413a",
+    "TypeOneName": "bug",
+    "TypeTwoName": "ground",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 79,
+        "BaseDef": 105,
+        "BaseSpAtk": 59,
+        "BaseSpDef": 85,
+        "BaseSpeed": 36
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Wormadam Trash Cloak",
+    "PokedexNumberString": "413b",
+    "TypeOneName": "bug",
+    "TypeTwoName": "steel",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 69,
+        "BaseDef": 95,
+        "BaseSpAtk": 69,
+        "BaseSpDef": 95,
         "BaseSpeed": 36
       }
     ],
@@ -27779,6 +29069,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Bloodmoon Ursaluna",
+    "PokedexNumberString": "901a",
+    "TypeOneName": "ground",
+    "TypeTwoName": "normal",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 113,
+        "BaseAtk": 70,
+        "BaseDef": 120,
+        "BaseSpAtk": 135,
+        "BaseSpDef": 65,
+        "BaseSpeed": 52
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Basculegion Male",
     "PokedexNumberString": "902",
@@ -30182,6 +31502,36 @@
   {
     "Name": "Dudunsparce Two-Segment Form",
     "PokedexNumberString": "982",
+    "TypeOneName": "normal",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 125,
+        "BaseAtk": 100,
+        "BaseDef": 80,
+        "BaseSpAtk": 85,
+        "BaseSpDef": 75,
+        "BaseSpeed": 55
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Dudunsparce Three-Segment Form",
+    "PokedexNumberString": "982a",
     "TypeOneName": "normal",
     "TypeTwoName": null,
     "BaseStats": [
