@@ -16409,6 +16409,156 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Wash Rotom",
+    "PokedexNumberString": "479a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "water",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 107,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 107,
+        "BaseSpeed": 86
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Frost Rotom",
+    "PokedexNumberString": "479b",
+    "TypeOneName": "electric",
+    "TypeTwoName": "ice",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 107,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 107,
+        "BaseSpeed": 86
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Fan Rotom",
+    "PokedexNumberString": "479c",
+    "TypeOneName": "electric",
+    "TypeTwoName": "Flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 107,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 107,
+        "BaseSpeed": 86
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Heat Rotom",
+    "PokedexNumberString": "479d",
+    "TypeOneName": "electric",
+    "TypeTwoName": "fire",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 107,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 107,
+        "BaseSpeed": 86
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Mow Rotom",
+    "PokedexNumberString": "479e",
+    "TypeOneName": "electric",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 50,
+        "BaseAtk": 65,
+        "BaseDef": 107,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 107,
+        "BaseSpeed": 86
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Uxie",
     "PokedexNumberString": "480",
@@ -16649,6 +16799,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Giratina Origin Forme",
+    "PokedexNumberString": "487a",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "dragon",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 150,
+        "BaseAtk": 120,
+        "BaseDef": 100,
+        "BaseSpAtk": 120,
+        "BaseSpDef": 100,
+        "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Cresselia",
     "PokedexNumberString": "488",
@@ -16794,6 +16974,36 @@
         "BaseSpAtk": 100,
         "BaseSpDef": 100,
         "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Shaymin Sky Forme",
+    "PokedexNumberString": "492a",
+    "TypeOneName": "grass",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 103,
+        "BaseDef": 75,
+        "BaseSpAtk": 120,
+        "BaseSpDef": 75,
+        "BaseSpeed": 127
       }
     ],
     "Level": 1,
@@ -17124,6 +17334,36 @@
         "BaseSpAtk": 108,
         "BaseSpDef": 70,
         "BaseSpeed": 70
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Samurott",
+    "PokedexNumberString": "503b",
+    "TypeOneName": "water",
+    "TypeTwoName": "dark",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 90,
+        "BaseAtk": 108,
+        "BaseDef": 80,
+        "BaseSpAtk": 100,
+        "BaseSpDef": 65,
+        "BaseSpeed": 85
       }
     ],
     "Level": 1,
@@ -18509,9 +18749,99 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Hisuian Lilligant",
+    "PokedexNumberString": "549a",
+    "TypeOneName": "grass",
+    "TypeTwoName": "fighting",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 70,
+        "BaseAtk": 105,
+        "BaseDef": 75,
+        "BaseSpAtk": 50,
+        "BaseSpDef": 75,
+        "BaseSpeed": 105
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Basculin Red-Striped Form",
     "PokedexNumberString": "550",
+    "TypeOneName": "water",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 70,
+        "BaseAtk": 92,
+        "BaseDef": 65,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 55,
+        "BaseSpeed": 98
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Basculin Blue-Striped Form",
+    "PokedexNumberString": "550a",
+    "TypeOneName": "water",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 70,
+        "BaseAtk": 92,
+        "BaseDef": 65,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 55,
+        "BaseSpeed": 98
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Basculin White-Striped Form",
+    "PokedexNumberString": "550b",
     "TypeOneName": "water",
     "TypeTwoName": null,
     "BaseStats": [
@@ -18659,9 +18989,69 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Darumaka",
+    "PokedexNumberString": "554a",
+    "TypeOneName": "ice",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 70,
+        "BaseAtk": 90,
+        "BaseDef": 45,
+        "BaseSpAtk": 15,
+        "BaseSpDef": 45,
+        "BaseSpeed": 50
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
-    "Name": "Darmanitan Zen Mode",
+    "Name": "Darmanitan Standard Mode",
     "PokedexNumberString": "555",
+    "TypeOneName": "fire",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 105,
+        "BaseAtk": 140,
+        "BaseDef": 55,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 55,
+        "BaseSpeed": 95
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Darmanitan Zen Mode",
+    "PokedexNumberString": "555a",
     "TypeOneName": "fire",
     "TypeTwoName": "psychic",
     "BaseStats": [
@@ -18684,6 +19074,66 @@
         "BaseSpAtk": 140,
         "BaseSpDef": 105,
         "BaseSpeed": 55
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Darmanitan Standard Mode",
+    "PokedexNumberString": "555b",
+    "TypeOneName": "ice",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 105,
+        "BaseAtk": 140,
+        "BaseDef": 55,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 55,
+        "BaseSpeed": 95
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Darmanitan Zen Mode",
+    "PokedexNumberString": "555c",
+    "TypeOneName": "ice",
+    "TypeTwoName": "fire",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 105,
+        "BaseAtk": 160,
+        "BaseDef": 55,
+        "BaseSpAtk": 30,
+        "BaseSpDef": 55,
+        "BaseSpeed": 135
       }
     ],
     "Level": 1,
@@ -18892,6 +19342,36 @@
         "BaseAtk": 30,
         "BaseDef": 85,
         "BaseSpAtk": 55,
+        "BaseSpDef": 65,
+        "BaseSpeed": 30
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Galarian Yamask",
+    "PokedexNumberString": "562b",
+    "TypeOneName": "ground",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 38,
+        "BaseAtk": 55,
+        "BaseDef": 85,
+        "BaseSpAtk": 30,
         "BaseSpDef": 65,
         "BaseSpeed": 30
       }
@@ -19139,6 +19619,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Hisuian Zorua",
+    "PokedexNumberString": "570a",
+    "TypeOneName": "normal",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 35,
+        "BaseAtk": 60,
+        "BaseDef": 40,
+        "BaseSpAtk": 85,
+        "BaseSpDef": 40,
+        "BaseSpeed": 70
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Zoroark",
     "PokedexNumberString": "571",
@@ -19164,6 +19674,36 @@
         "BaseSpAtk": 120,
         "BaseSpDef": 60,
         "BaseSpeed": 105
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Zoroark",
+    "PokedexNumberString": "571a",
+    "TypeOneName": "normal",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 55,
+        "BaseAtk": 100,
+        "BaseDef": 60,
+        "BaseSpAtk": 125,
+        "BaseSpDef": 60,
+        "BaseSpeed": 110
       }
     ],
     "Level": 1,
@@ -20579,6 +21119,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Galarian Stunfisk",
+    "PokedexNumberString": "618a",
+    "TypeOneName": "ground",
+    "TypeTwoName": "steel",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 109,
+        "BaseAtk": 81,
+        "BaseDef": 99,
+        "BaseSpAtk": 66,
+        "BaseSpDef": 84,
+        "BaseSpeed": 32
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Mienfoo",
     "PokedexNumberString": "619",
@@ -20874,6 +21444,36 @@
         "BaseSpAtk": 57,
         "BaseSpDef": 75,
         "BaseSpeed": 80
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Hisuian Braviary",
+    "PokedexNumberString": "628a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 110,
+        "BaseAtk": 83,
+        "BaseDef": 70,
+        "BaseSpAtk": 112,
+        "BaseSpDef": 70,
+        "BaseSpeed": 65
       }
     ],
     "Level": 1,
@@ -21269,6 +21869,36 @@
     "Level": 1,
     "Moves": []
   },
+    {
+    "Name": "Tornadus Therian Forme",
+    "PokedexNumberString": "641a",
+    "TypeOneName": "flying",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 79,
+        "BaseAtk": 100,
+        "BaseDef": 80,
+        "BaseSpAtk": 110,
+        "BaseSpDef": 90,
+        "BaseSpeed": 121
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
   {
     "Name": "Thundurus Incarnate Forme",
     "PokedexNumberString": "642",
@@ -21294,6 +21924,36 @@
         "BaseSpAtk": 125,
         "BaseSpDef": 80,
         "BaseSpeed": 111
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Thundurus Therian Forme",
+    "PokedexNumberString": "642a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 79,
+        "BaseAtk": 105,
+        "BaseDef": 70,
+        "BaseSpAtk": 145,
+        "BaseSpDef": 80,
+        "BaseSpeed": 101
       }
     ],
     "Level": 1,
@@ -21384,6 +22044,36 @@
         "BaseSpAtk": 115,
         "BaseSpDef": 80,
         "BaseSpeed": 101
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Landorus Therian Forme",
+    "PokedexNumberString": "645a",
+    "TypeOneName": "ground",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 89,
+        "BaseAtk": 145,
+        "BaseDef": 90,
+        "BaseSpAtk": 105,
+        "BaseSpDef": 80,
+        "BaseSpeed": 91
       }
     ],
     "Level": 1,
@@ -29122,6 +29812,36 @@
         "BaseAtk": 112,
         "BaseDef": 65,
         "BaseSpAtk": 80,
+        "BaseSpDef": 75,
+        "BaseSpeed": 78
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+    {
+    "Name": "Basculegion Female",
+    "PokedexNumberString": "902a",
+    "TypeOneName": "water",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 120,
+        "BaseAtk": 92,
+        "BaseDef": 65,
+        "BaseSpAtk": 100,
         "BaseSpDef": 75,
         "BaseSpeed": 78
       }
