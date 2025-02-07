@@ -22110,8 +22110,98 @@
     "Moves": []
   },
   {
+    "Name": "Black Kyurem",
+    "PokedexNumberString": "646a",
+    "TypeOneName": "dragon",
+    "TypeTwoName": "ice",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 125,
+        "BaseAtk": 170,
+        "BaseDef": 100,
+        "BaseSpAtk": 120,
+        "BaseSpDef": 90,
+        "BaseSpeed": 95
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "White Kyurem",
+    "PokedexNumberString": "646b",
+    "TypeOneName": "dragon",
+    "TypeTwoName": "ice",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 125,
+        "BaseAtk": 120,
+        "BaseDef": 90,
+        "BaseSpAtk": 170,
+        "BaseSpDef": 100,
+        "BaseSpeed": 95
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Keldeo Ordinary Form",
     "PokedexNumberString": "647",
+    "TypeOneName": "water",
+    "TypeTwoName": "fighting",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 91,
+        "BaseAtk": 72,
+        "BaseDef": 90,
+        "BaseSpAtk": 129,
+        "BaseSpDef": 90,
+        "BaseSpeed": 108
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Keldeo Resolute Form",
+    "PokedexNumberString": "647a",
     "TypeOneName": "water",
     "TypeTwoName": "fighting",
     "BaseStats": [
@@ -22164,6 +22254,36 @@
         "BaseSpAtk": 128,
         "BaseSpDef": 128,
         "BaseSpeed": 90
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Meloetta Pirouette Forme",
+    "PokedexNumberString": "648a",
+    "TypeOneName": "normal",
+    "TypeTwoName": "fighting",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 128,
+        "BaseDef": 90,
+        "BaseSpAtk": 77,
+        "BaseSpDef": 77,
+        "BaseSpeed": 128
       }
     ],
     "Level": 1,
@@ -22442,6 +22562,36 @@
   {
     "Name": "Greninja",
     "PokedexNumberString": "658",
+    "TypeOneName": "water",
+    "TypeTwoName": "dark",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 72,
+        "BaseAtk": 95,
+        "BaseDef": 67,
+        "BaseSpAtk": 103,
+        "BaseSpDef": 71,
+        "BaseSpeed": 122
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Ash-Greninja",
+    "PokedexNumberString": "658a",
     "TypeOneName": "water",
     "TypeTwoName": "dark",
     "BaseStats": [
@@ -22830,6 +22980,36 @@
     "Moves": []
   },
   {
+    "Name": "Eternal Flower Floette",
+    "PokedexNumberString": "670a",
+    "TypeOneName": "fairy",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 74,
+        "BaseAtk": 65,
+        "BaseDef": 67,
+        "BaseSpAtk": 125,
+        "BaseSpDef": 128,
+        "BaseSpeed": 92
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Florges",
     "PokedexNumberString": "671",
     "TypeOneName": "fairy",
@@ -23040,8 +23220,38 @@
     "Moves": []
   },
   {
-    "Name": "Meowstic",
+    "Name": "Meowstic Male",
     "PokedexNumberString": "678",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 74,
+        "BaseAtk": 48,
+        "BaseDef": 76,
+        "BaseSpAtk": 83,
+        "BaseSpDef": 81,
+        "BaseSpeed": 104
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Meowstic Female",
+    "PokedexNumberString": "678a",
     "TypeOneName": "psychic",
     "TypeTwoName": null,
     "BaseStats": [
@@ -23153,6 +23363,36 @@
         "BaseDef": 140,
         "BaseSpAtk": 50,
         "BaseSpDef": 140,
+        "BaseSpeed": 60
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Aegislash Sword Forme",
+    "PokedexNumberString": "681a",
+    "TypeOneName": "steel",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 140,
+        "BaseDef": 50,
+        "BaseSpAtk": 140,
+        "BaseSpDef": 50,
         "BaseSpeed": 60
       }
     ],
@@ -23880,6 +24120,36 @@
     "Moves": []
   },
   {
+    "Name": "Hisuian Sliggoo",
+    "PokedexNumberString": "705a",
+    "TypeOneName": "steel",
+    "TypeTwoName": "dragon",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 58,
+        "BaseAtk": 75,
+        "BaseDef": 83,
+        "BaseSpAtk": 83,
+        "BaseSpDef": 113,
+        "BaseSpeed": 40
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Goodra",
     "PokedexNumberString": "706",
     "TypeOneName": "dragon",
@@ -23904,6 +24174,36 @@
         "BaseSpAtk": 110,
         "BaseSpDef": 150,
         "BaseSpeed": 80
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Hisuian Goodra",
+    "PokedexNumberString": "706a",
+    "TypeOneName": "steel",
+    "TypeTwoName": "dragon",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 100,
+        "BaseDef": 100,
+        "BaseSpAtk": 110,
+        "BaseSpDef": 150,
+        "BaseSpeed": 60
       }
     ],
     "Level": 1,
@@ -24030,6 +24330,96 @@
     "Moves": []
   },
   {
+    "Name": "Pumpkaboo Small Size",
+    "PokedexNumberString": "710a",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 44,
+        "BaseAtk": 66,
+        "BaseDef": 70,
+        "BaseSpAtk": 44,
+        "BaseSpDef": 55,
+        "BaseSpeed": 56
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Pumpkaboo Average Size",
+    "PokedexNumberString": "710b",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 49,
+        "BaseAtk": 66,
+        "BaseDef": 70,
+        "BaseSpAtk": 44,
+        "BaseSpDef": 55,
+        "BaseSpeed": 51
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Pumpkaboo Large Size",
+    "PokedexNumberString": "710c",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 54,
+        "BaseAtk": 66,
+        "BaseDef": 70,
+        "BaseSpAtk": 44,
+        "BaseSpDef": 55,
+        "BaseSpeed": 46
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Gourgeist Super Size",
     "PokedexNumberString": "711",
     "TypeOneName": "ghost",
@@ -24054,6 +24444,96 @@
         "BaseSpAtk": 58,
         "BaseSpDef": 75,
         "BaseSpeed": 54
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Gourgeist Small Size",
+    "PokedexNumberString": "711a",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 55,
+        "BaseAtk": 85,
+        "BaseDef": 122,
+        "BaseSpAtk": 58,
+        "BaseSpDef": 75,
+        "BaseSpeed": 99
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Gourgeist Average Size",
+    "PokedexNumberString": "711b",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 65,
+        "BaseAtk": 90,
+        "BaseDef": 122,
+        "BaseSpAtk": 58,
+        "BaseSpDef": 75,
+        "BaseSpeed": 84
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Gourgeist Large Size",
+    "PokedexNumberString": "711c",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 95,
+        "BaseDef": 122,
+        "BaseSpAtk": 58,
+        "BaseSpDef": 75,
+        "BaseSpeed": 69
       }
     ],
     "Level": 1,
@@ -24114,6 +24594,36 @@
         "BaseSpAtk": 44,
         "BaseSpDef": 46,
         "BaseSpeed": 28
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Hisuian Avalugg",
+    "PokedexNumberString": "713a",
+    "TypeOneName": "ice",
+    "TypeTwoName": "rock",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 95,
+        "BaseAtk": 127,
+        "BaseDef": 184,
+        "BaseSpAtk": 34,
+        "BaseSpDef": 36,
+        "BaseSpeed": 38
       }
     ],
     "Level": 1,
@@ -24270,6 +24780,66 @@
     "Moves": []
   },
   {
+    "Name": "Zygarde 10% Forme",
+    "PokedexNumberString": "718a",
+    "TypeOneName": "dragon",
+    "TypeTwoName": "ground",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 54,
+        "BaseAtk": 100,
+        "BaseDef": 71,
+        "BaseSpAtk": 61,
+        "BaseSpDef": 85,
+        "BaseSpeed": 115
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Zygarde Complete Forme",
+    "PokedexNumberString": "718b",
+    "TypeOneName": "dragon",
+    "TypeTwoName": "ground",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 216,
+        "BaseAtk": 100,
+        "BaseDef": 121,
+        "BaseSpAtk": 91,
+        "BaseSpDef": 95,
+        "BaseSpeed": 85
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Diancie",
     "PokedexNumberString": "719",
     "TypeOneName": "rock",
@@ -24300,7 +24870,7 @@
     "Moves": []
   },
   {
-    "Name": "Hoopa Hoopa Unbound",
+    "Name": "Hoopa Unbound",
     "PokedexNumberString": "720",
     "TypeOneName": "psychic",
     "TypeTwoName": "dark",
@@ -24324,6 +24894,36 @@
         "BaseSpAtk": 170,
         "BaseSpDef": 130,
         "BaseSpeed": 80
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Hoopa Confined",
+    "PokedexNumberString": "720a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "dark",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 110,
+        "BaseDef": 60,
+        "BaseSpAtk": 150,
+        "BaseSpDef": 130,
+        "BaseSpeed": 70
       }
     ],
     "Level": 1,
@@ -24444,6 +25044,36 @@
         "BaseSpAtk": 100,
         "BaseSpDef": 100,
         "BaseSpeed": 70
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Hisuian Decidueye",
+    "PokedexNumberString": "724a",
+    "TypeOneName": "grass",
+    "TypeTwoName": "fighting",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 88,
+        "BaseAtk": 112,
+        "BaseDef": 80,
+        "BaseSpAtk": 95,
+        "BaseSpDef": 95,
+        "BaseSpeed": 60
       }
     ],
     "Level": 1,
@@ -24960,6 +25590,96 @@
     "Moves": []
   },
   {
+    "Name": "Oricorio Pom-Pom Style",
+    "PokedexNumberString": "741a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 70,
+        "BaseDef": 70,
+        "BaseSpAtk": 98,
+        "BaseSpDef": 70,
+        "BaseSpeed": 93
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Oricorio Pa'u Style",
+    "PokedexNumberString": "741b",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 70,
+        "BaseDef": 70,
+        "BaseSpAtk": 98,
+        "BaseSpDef": 70,
+        "BaseSpeed": 93
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Oricorio Sensu Style",
+    "PokedexNumberString": "741c",
+    "TypeOneName": "ghost",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 70,
+        "BaseDef": 70,
+        "BaseSpAtk": 98,
+        "BaseSpDef": 70,
+        "BaseSpeed": 93
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Cutiefly",
     "PokedexNumberString": "742",
     "TypeOneName": "bug",
@@ -25080,6 +25800,66 @@
     "Moves": []
   },
   {
+    "Name": "Lycanroc Midnight Form",
+    "PokedexNumberString": "745a",
+    "TypeOneName": "rock",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 85,
+        "BaseAtk": 115,
+        "BaseDef": 75,
+        "BaseSpAtk": 55,
+        "BaseSpDef": 75,
+        "BaseSpeed": 82
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Lycanroc Dusk Form",
+    "PokedexNumberString": "745b",
+    "TypeOneName": "rock",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 117,
+        "BaseDef": 65,
+        "BaseSpAtk": 55,
+        "BaseSpDef": 65,
+        "BaseSpeed": 110
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Wishiwashi Solo Form",
     "PokedexNumberString": "746",
     "TypeOneName": "water",
@@ -25104,6 +25884,36 @@
         "BaseSpAtk": 25,
         "BaseSpDef": 25,
         "BaseSpeed": 40
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Wishiwashi School Form",
+    "PokedexNumberString": "746a",
+    "TypeOneName": "water",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 45,
+        "BaseAtk": 140,
+        "BaseDef": 130,
+        "BaseSpAtk": 140,
+        "BaseSpDef": 135,
+        "BaseSpeed": 30
       }
     ],
     "Level": 1,
@@ -25950,6 +26760,36 @@
     "Moves": []
   },
   {
+    "Name": "Minior Core",
+    "PokedexNumberString": "774a",
+    "TypeOneName": "rock",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 60,
+        "BaseAtk": 100,
+        "BaseDef": 60,
+        "BaseSpAtk": 100,
+        "BaseSpDef": 60,
+        "BaseSpeed": 120
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Komala",
     "PokedexNumberString": "775",
     "TypeOneName": "normal",
@@ -26700,7 +27540,7 @@
     "Moves": []
   },
   {
-    "Name": "Necrozma Ultra Necrozma",
+    "Name": "Ultra Necrozma",
     "PokedexNumberString": "800",
     "TypeOneName": "psychic",
     "TypeTwoName": "dragon",
@@ -26724,6 +27564,96 @@
         "BaseSpAtk": 167,
         "BaseSpDef": 97,
         "BaseSpeed": 129
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Necrozma",
+    "PokedexNumberString": "800a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 97,
+        "BaseAtk": 107,
+        "BaseDef": 101,
+        "BaseSpAtk": 127,
+        "BaseSpDef": 89,
+        "BaseSpeed": 79
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Dusk Mane Necrozma",
+    "PokedexNumberString": "800b",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "steel",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 97,
+        "BaseAtk": 157,
+        "BaseDef": 127,
+        "BaseSpAtk": 113,
+        "BaseSpDef": 109,
+        "BaseSpeed": 77
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Dawn Wings Necrozma",
+    "PokedexNumberString": "800c",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 97,
+        "BaseAtk": 113,
+        "BaseDef": 109,
+        "BaseSpAtk": 157,
+        "BaseSpDef": 127,
+        "BaseSpeed": 77
       }
     ],
     "Level": 1,
@@ -28200,6 +29130,36 @@
     "Moves": []
   },
   {
+    "Name": "Toxtricity Low Key Form",
+    "PokedexNumberString": "849a",
+    "TypeOneName": "electric",
+    "TypeTwoName": "poison",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 98,
+        "BaseDef": 70,
+        "BaseSpAtk": 114,
+        "BaseSpDef": 70,
+        "BaseSpeed": 75
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Sizzlipede",
     "PokedexNumberString": "850",
     "TypeOneName": "fire",
@@ -28980,6 +29940,36 @@
     "Moves": []
   },
   {
+    "Name": "Eiscue Noice Face",
+    "PokedexNumberString": "875a",
+    "TypeOneName": "ice",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 75,
+        "BaseAtk": 80,
+        "BaseDef": 70,
+        "BaseSpAtk": 65,
+        "BaseSpDef": 50,
+        "BaseSpeed": 130
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Indeedee Male",
     "PokedexNumberString": "876",
     "TypeOneName": "psychic",
@@ -29010,8 +30000,68 @@
     "Moves": []
   },
   {
+    "Name": "Indeedee Female",
+    "PokedexNumberString": "876a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "normal",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 70,
+        "BaseAtk": 55,
+        "BaseDef": 65,
+        "BaseSpAtk": 95,
+        "BaseSpDef": 105,
+        "BaseSpeed": 85
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Morpeko Hangry Mode",
     "PokedexNumberString": "877",
+    "TypeOneName": "electric",
+    "TypeTwoName": "dark",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 58,
+        "BaseAtk": 95,
+        "BaseDef": 58,
+        "BaseSpAtk": 70,
+        "BaseSpDef": 58,
+        "BaseSpeed": 97
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Morpeko Full Belly Mode",
+    "PokedexNumberString": "877a",
     "TypeOneName": "electric",
     "TypeTwoName": "dark",
     "BaseStats": [
@@ -29370,6 +30420,36 @@
     "Moves": []
   },
   {
+    "Name": "Zacian Hero of Many Battles",
+    "PokedexNumberString": "888a",
+    "TypeOneName": "fairy",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 92,
+        "BaseAtk": 120,
+        "BaseDef": 115,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 115,
+        "BaseSpeed": 138
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Zamazenta Crowned Shield",
     "PokedexNumberString": "889",
     "TypeOneName": "fighting",
@@ -29400,7 +30480,37 @@
     "Moves": []
   },
   {
-    "Name": "Eternatus Eternamax",
+    "Name": "Zamazenta Hero of Many Battles",
+    "PokedexNumberString": "889a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 92,
+        "BaseAtk": 120,
+        "BaseDef": 115,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 115,
+        "BaseSpeed": 138
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Eternatus",
     "PokedexNumberString": "890",
     "TypeOneName": "poison",
     "TypeTwoName": "dragon",
@@ -29418,11 +30528,11 @@
           8,
           9
         ],
-        "BaseHP": 255,
-        "BaseAtk": 115,
-        "BaseDef": 250,
-        "BaseSpAtk": 125,
-        "BaseSpDef": 250,
+        "BaseHP": 140,
+        "BaseAtk": 85,
+        "BaseDef": 95,
+        "BaseSpAtk": 145,
+        "BaseSpDef": 95,
         "BaseSpeed": 130
       }
     ],
@@ -29464,6 +30574,36 @@
     "PokedexNumberString": "892",
     "TypeOneName": "fighting",
     "TypeTwoName": "water",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 130,
+        "BaseDef": 100,
+        "BaseSpAtk": 63,
+        "BaseSpDef": 60,
+        "BaseSpeed": 97
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Urshifu Single Strike Style",
+    "PokedexNumberString": "892a",
+    "TypeOneName": "fighting",
+    "TypeTwoName": "dark",
     "BaseStats": [
       {
         "ValidForGeneration": [
@@ -29640,7 +30780,7 @@
     "Moves": []
   },
   {
-    "Name": "Calyrex Ice Rider",
+    "Name": "Ice Rider Calyrex",
     "PokedexNumberString": "898",
     "TypeOneName": "psychic",
     "TypeTwoName": "ice",
@@ -29664,6 +30804,66 @@
         "BaseSpAtk": 85,
         "BaseSpDef": 130,
         "BaseSpeed": 50
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Shadow Rider Calyrex",
+    "PokedexNumberString": "898a",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "ghost",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 85,
+        "BaseDef": 80,
+        "BaseSpAtk": 165,
+        "BaseSpDef": 100,
+        "BaseSpeed": 150
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Calyrex",
+    "PokedexNumberString": "898b",
+    "TypeOneName": "psychic",
+    "TypeTwoName": "grass",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 80,
+        "BaseDef": 80,
+        "BaseSpAtk": 80,
+        "BaseSpDef": 80,
+        "BaseSpeed": 80
       }
     ],
     "Level": 1,
@@ -29934,6 +31134,36 @@
         "BaseSpAtk": 135,
         "BaseSpDef": 80,
         "BaseSpeed": 106
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Enamorus Therian Forme",
+    "PokedexNumberString": "905a",
+    "TypeOneName": "fairy",
+    "TypeTwoName": "flying",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 74,
+        "BaseAtk": 115,
+        "BaseDef": 110,
+        "BaseSpAtk": 135,
+        "BaseSpDef": 100,
+        "BaseSpeed": 46
       }
     ],
     "Level": 1,
@@ -30270,6 +31500,36 @@
     "Moves": []
   },
   {
+    "Name": "Oinkologne Female",
+    "PokedexNumberString": "916b",
+    "TypeOneName": "normal",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 115,
+        "BaseAtk": 90,
+        "BaseDef": 70,
+        "BaseSpAtk": 59,
+        "BaseSpDef": 90,
+        "BaseSpeed": 65
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Tarountula",
     "PokedexNumberString": "917",
     "TypeOneName": "bug",
@@ -30510,7 +31770,7 @@
     "Moves": []
   },
   {
-    "Name": "Maushold Family of Four",
+    "Name": "Maushold",
     "PokedexNumberString": "925",
     "TypeOneName": "normal",
     "TypeTwoName": null,
@@ -30690,7 +31950,7 @@
     "Moves": []
   },
   {
-    "Name": "Squawkabilly Blue Plumage",
+    "Name": "Squawkabilly",
     "PokedexNumberString": "931",
     "TypeOneName": "normal",
     "TypeTwoName": "flying",
@@ -31710,6 +32970,36 @@
     "Moves": []
   },
   {
+    "Name": "Palafin Hero Form",
+    "PokedexNumberString": "964a",
+    "TypeOneName": "water",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 100,
+        "BaseAtk": 160,
+        "BaseDef": 97,
+        "BaseSpAtk": 106,
+        "BaseSpDef": 87,
+        "BaseSpeed": 100
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Varoom",
     "PokedexNumberString": "965",
     "TypeOneName": "steel",
@@ -32100,7 +33390,7 @@
     "Moves": []
   },
   {
-    "Name": "Tatsugiri Curly Form",
+    "Name": "Tatsugiri",
     "PokedexNumberString": "978",
     "TypeOneName": "dragon",
     "TypeTwoName": "water",
@@ -32790,6 +34080,36 @@
     "Moves": []
   },
   {
+    "Name": "Gimmighoul Roaming Form",
+    "PokedexNumberString": "999a",
+    "TypeOneName": "ghost",
+    "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 45,
+        "BaseAtk": 30,
+        "BaseDef": 25,
+        "BaseSpAtk": 75,
+        "BaseSpDef": 45,
+        "BaseSpeed": 80
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
     "Name": "Gholdengo",
     "PokedexNumberString": "1000",
     "TypeOneName": "steel",
@@ -33304,6 +34624,96 @@
     "PokedexNumberString": "1017",
     "TypeOneName": "grass",
     "TypeTwoName": null,
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 120,
+        "BaseDef": 84,
+        "BaseSpAtk": 60,
+        "BaseSpDef": 96,
+        "BaseSpeed": 110
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Ogerpon Wellspring Mask",
+    "PokedexNumberString": "1017a",
+    "TypeOneName": "grass",
+    "TypeTwoName": "water",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 120,
+        "BaseDef": 84,
+        "BaseSpAtk": 60,
+        "BaseSpDef": 96,
+        "BaseSpeed": 110
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Ogerpon Hearthflame Mask",
+    "PokedexNumberString": "1017b",
+    "TypeOneName": "grass",
+    "TypeTwoName": "fire",
+    "BaseStats": [
+      {
+        "ValidForGeneration": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "BaseHP": 80,
+        "BaseAtk": 120,
+        "BaseDef": 84,
+        "BaseSpAtk": 60,
+        "BaseSpDef": 96,
+        "BaseSpeed": 110
+      }
+    ],
+    "Level": 1,
+    "Moves": []
+  },
+  {
+    "Name": "Ogerpon Cornerstone Mask",
+    "PokedexNumberString": "1017c",
+    "TypeOneName": "grass",
+    "TypeTwoName": "rock",
     "BaseStats": [
       {
         "ValidForGeneration": [
