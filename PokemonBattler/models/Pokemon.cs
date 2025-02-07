@@ -5,7 +5,7 @@ public class Pokemon
 {
     public string Name { get; private set; }
     public Guid ID { get; private set; } = Guid.NewGuid();
-    public int PokedexNumber { get; private set; }
+    public string PokedexNumber { get; private set; }
     public Type TypeOne { get; private set; }
     public Type TypeTwo { get; private set; }
     public Nature Nature { get; private set; }

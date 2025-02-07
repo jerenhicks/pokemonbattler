@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 public class MoveSetRepository
 {
 
-    private static readonly Dictionary<int, MoveSet> MoveSets = new Dictionary<int, MoveSet>();
+    private static readonly Dictionary<string, MoveSet> MoveSets = new Dictionary<string, MoveSet>();
     public static void LoadMoveSetsFromFile(string filePath)
     {
         var jsonData = File.ReadAllText(filePath);
@@ -29,13 +29,13 @@ public class MoveSetRepository
         File.WriteAllText(filePath, jsonData);
     }
 
-    public static Dictionary<int, MoveSet> GetMoveSets()
+    public static Dictionary<string, MoveSet> GetMoveSets()
     {
         return MoveSets;
     }
 
 
-    public static List<Move> BuildRandomMoveSet(int pokemonID, Generation generationToInclude = Generation.NINE, int numMoves = 4, bool incldueTMs = false, bool includeEggMoves = false, bool includeTutorMoves = false, bool includeRestrictedMoves = false, bool includeDreamWorldMoves = false, bool includeEventMoves = false, bool includeVirtualConsoleMoves = false)
+    public static List<Move> BuildRandomMoveSet(string pokemonID, Generation generationToInclude = Generation.NINE, int numMoves = 4, bool incldueTMs = false, bool includeEggMoves = false, bool includeTutorMoves = false, bool includeRestrictedMoves = false, bool includeDreamWorldMoves = false, bool includeEventMoves = false, bool includeVirtualConsoleMoves = false)
     {
         var moveSet = MoveSets[pokemonID];
 
@@ -67,7 +67,7 @@ public class MoveSetRepository
         return selectedMoves;
     }
 
-    private static List<Move> LoadMovesForGeneration(int pokemonID, Generation generationToInclude = Generation.NINE, bool incldueTMs = false, bool includeEggMoves = false, bool includeTutorMoves = false, bool includeRestrictedMoves = false, bool includeDreamWorldMoves = false, bool includeEventMoves = false, bool includeVirtualConsoleMoves = false)
+    private static List<Move> LoadMovesForGeneration(string pokemonID, Generation generationToInclude = Generation.NINE, bool incldueTMs = false, bool includeEggMoves = false, bool includeTutorMoves = false, bool includeRestrictedMoves = false, bool includeDreamWorldMoves = false, bool includeEventMoves = false, bool includeVirtualConsoleMoves = false)
     {
         var moveSet = MoveSets[pokemonID];
 

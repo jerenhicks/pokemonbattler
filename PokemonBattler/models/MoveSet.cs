@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 public class MoveSet
 {
-    public int PokemonID { get; set; }
+    public string PokemonID { get; set; }
     [JsonProperty("name")]
     public string PokemonName { get; set; }
     [JsonProperty("learnset")]
@@ -31,25 +31,15 @@ public class MoveSet
     public Dictionary<string, List<Move>> VirtualConsoleMoves { get; set; } = new Dictionary<string, List<Move>>();
 
 
-    public MoveSet(string pokemonName, Dictionary<string, List<string>> learnset)
+    public MoveSet(string pokemonName, string pokemonID, Dictionary<string, List<string>> learnset)
     {
         PokemonName = pokemonName;
+        PokemonID = pokemonID;
         Learnset = learnset;
     }
 
     public void Unpack()
     {
-        if (PokedexRepository.GetPokemonTemplateByName(PokemonName) == null)
-        {
-            Console.WriteLine($"WARNING: Could not load learnset for Pokemon {PokemonName}.");
-            return;
-        }
-        var poke = PokedexRepository.GetPokemonTemplateByName(PokemonName);
-        if (poke == null)
-        {
-            throw new Exception($"Pokemon {PokemonName} not found in Pokedex.");
-        }
-        PokemonID = PokedexRepository.GetPokemonTemplateByName(PokemonName).PokedexNumber;
         foreach (var set in Learnset.Keys)
         {
             Move move = MoveRepository.GetMoveTrimmed(set);

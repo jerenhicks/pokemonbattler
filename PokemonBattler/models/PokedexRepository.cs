@@ -15,7 +15,7 @@ public class PokedexRepository
 
         foreach (var template in pokemonTemplates)
         {
-            Pokedex[template.PokedexNumberString] = template;
+            Pokedex[template.PokedexNumber] = template;
         }
     }
 
@@ -42,8 +42,13 @@ public class PokedexRepository
         return Pokedex.Values;
     }
 
-    public static PokemonTemplate GetPokemonTemplateByName(string name)
+    // public static PokemonTemplate GetPokemonTemplateByName(string name)
+    // {
+    //     return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", "") == name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", ""));
+    // }
+
+    public static PokemonTemplate GetPokemonTemplateById(string id)
     {
-        return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", "") == name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", ""));
+        return Pokedex[id];
     }
 }
