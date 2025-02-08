@@ -77282,7 +77282,7 @@
 		"eventOnly": true
 	},
 	{
-		"name": "landorusincarnateforme",
+		"name": "landorustherianforme",
 		"learnset": {
 			"attract": [ "8M", "7M", "6M", "5M" ],
 			"block": [ "9L10", "8L10", "7T", "7L1", "6T", "6L1", "5T", "5L1", "5S1" ],

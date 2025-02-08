@@ -42,11 +42,6 @@ public class PokedexRepository
         return Pokedex.Values;
     }
 
-    // public static PokemonTemplate GetPokemonTemplateByName(string name)
-    // {
-    //     return Pokedex.Values.FirstOrDefault(p => p.Name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", "") == name.ToLower().Replace(":", "").Replace("é", "e").Replace("-", "").Replace("'", "").Replace(".", "").Replace(" ", ""));
-    // }
-
     public static PokemonTemplate GetPokemonTemplateById(string id)
     {
         return Pokedex[id];
