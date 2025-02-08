@@ -25,7 +25,7 @@ public class Move
     [JsonIgnore]
     public List<BaseEffect> Effects { get; private set; } = new List<BaseEffect>();
     [JsonIgnore]
-    public bool IsNonDamage => Power == null;
+    public bool IsNonDamage => Power == null || Power == 0;
     public string RangeName { get; set; }
     [JsonIgnore]
     public Range Range { get; private set; }
