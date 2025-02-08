@@ -19,8 +19,8 @@ public class PoisonEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var poisonEffect = new PoisonEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
 
@@ -50,8 +50,8 @@ public class PoisonEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var poisonEffect = new PoisonEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
         // Act

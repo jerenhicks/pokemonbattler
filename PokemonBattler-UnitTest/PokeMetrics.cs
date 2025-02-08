@@ -26,10 +26,10 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokeMetrics = new PokeMetrics();
-        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
-        var pokemon3 = PokedexRepository.CreatePokemon(1, NatureRepository.GetNature("adamant")); // Bulbasaur
-        var pokemon4 = PokedexRepository.CreatePokemon(2, NatureRepository.GetNature("adamant")); // Ivysaur
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        var pokemon3 = PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")); // Bulbasaur
+        var pokemon4 = PokedexRepository.CreatePokemon("" + 2, NatureRepository.GetNature("adamant")); // Ivysaur
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
         pokemon3.LevelUp(100);
@@ -63,8 +63,8 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokeMetrics = new PokeMetrics();
-        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
 
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
@@ -92,8 +92,8 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokeMetrics = new PokeMetrics();
-        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
@@ -115,8 +115,8 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokeMetrics = new PokeMetrics();
-        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
@@ -148,8 +148,8 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokeMetrics = new PokeMetrics();
-        var pokemon1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var pokemon2 = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted

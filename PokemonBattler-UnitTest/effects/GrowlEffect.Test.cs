@@ -14,8 +14,8 @@ public class GrowlEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var growlEffect = new GrowlEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
         // Initial AtkStage of defender
@@ -33,8 +33,8 @@ public class GrowlEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var growlEffect = new GrowlEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
         // Set defender's AtkStage to minimum
@@ -65,8 +65,8 @@ public class GrowlEffectTest : IClassFixture<TestFixture>
     {
         // Arrange
         var growlEffect = new GrowlEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
         // Act

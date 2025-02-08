@@ -15,7 +15,7 @@ public class MetricTest : IClassFixture<TestFixture>
     public void TestMetricInitialization()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var winsAgainst = new List<Pokemon>();
         var lossesAgainst = new List<Pokemon>();
         var tiesAgainst = new List<Pokemon>();
@@ -40,11 +40,11 @@ public class MetricTest : IClassFixture<TestFixture>
     public void TestMetricWins()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var winsAgainst = new List<Pokemon>
         {
-            PokedexRepository.CreatePokemon(25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon(1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
+            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
         };
         var lossesAgainst = new List<Pokemon>();
         var tiesAgainst = new List<Pokemon>();
@@ -66,12 +66,12 @@ public class MetricTest : IClassFixture<TestFixture>
     public void TestMetricLosses()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var winsAgainst = new List<Pokemon>();
         var lossesAgainst = new List<Pokemon>
         {
-            PokedexRepository.CreatePokemon(25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon(1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
+            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
         };
         var tiesAgainst = new List<Pokemon>();
 
@@ -92,13 +92,13 @@ public class MetricTest : IClassFixture<TestFixture>
     public void TestMetricTies()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var winsAgainst = new List<Pokemon>();
         var lossesAgainst = new List<Pokemon>();
         var tiesAgainst = new List<Pokemon>
         {
-            PokedexRepository.CreatePokemon(25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon(1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
+            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
         };
 
         // Act

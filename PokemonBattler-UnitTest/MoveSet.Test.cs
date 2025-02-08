@@ -14,7 +14,7 @@ public class MoveSetTests : IClassFixture<TestFixture>
     public void MoveSet_Initialization_SetsPropertiesCorrectly()
     {
         // Arrange
-        int pokemonID = 1;
+        string pokemonID = "1";
         string pokemonName = "Bulbasaur";
         var learnsetsDictionary = new Dictionary<string, List<string>>
         {
@@ -25,7 +25,7 @@ public class MoveSetTests : IClassFixture<TestFixture>
         };
 
         // Act
-        var moveSet = new MoveSet(pokemonName, learnsetsDictionary);
+        var moveSet = new MoveSet(pokemonName, pokemonID, learnsetsDictionary);
         moveSet.Unpack();
 
         // Assert
@@ -38,7 +38,7 @@ public class MoveSetTests : IClassFixture<TestFixture>
     public void Unpack_Method_WorksCorrectly()
     {
         // Arrange
-        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
             { "growl", new List<string> { "9L11", "8M" } },
@@ -58,7 +58,7 @@ public class MoveSetTests : IClassFixture<TestFixture>
     public void LearnsetsDictionary_CanBeEmpty()
     {
         // Arrange
-        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>());
+        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>());
 
         // Act & Assert
         Assert.Empty(moveSet.Learnset);
@@ -74,7 +74,7 @@ public class MoveSetTests : IClassFixture<TestFixture>
             { "generation2", new List<string> { "vinewhip", "razorleaf" } }
         };
 
-        var moveSet = new MoveSet("Bulbasaur", learnsetsDictionary);
+        var moveSet = new MoveSet("Bulbasaur", "1", learnsetsDictionary);
 
         // Act & Assert
         Assert.Equal(2, moveSet.Learnset.Count);

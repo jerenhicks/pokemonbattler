@@ -30,8 +30,8 @@ public class FaintEffectTests : IClassFixture<TestFixture>
     {
         // Arrange
         var faintEffect = new FaintEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
         // Act
         var result = faintEffect.PreDamageEffect(attacker, defender, move);
@@ -45,8 +45,8 @@ public class FaintEffectTests : IClassFixture<TestFixture>
     {
         // Arrange
         var faintEffect = new FaintEffect();
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("growl");
 
         // Act

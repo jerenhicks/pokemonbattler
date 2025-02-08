@@ -17,8 +17,8 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
         // Arrange
         var recoilEffect = new RecoilEffect();
         recoilEffect.SetModifier(0.25);
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("struggle");
 
         // Set initial HP
@@ -42,8 +42,8 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
         // Arrange
         var recoilEffect = new RecoilEffect();
         recoilEffect.SetModifier(0.33);
-        var attacker = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
-        var defender = PokedexRepository.CreatePokemon(596, NatureRepository.GetNature("adamant")); // Galvantula
+        var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         var move = MoveRepository.GetMove("brave bird");
 
         // Set initial HP

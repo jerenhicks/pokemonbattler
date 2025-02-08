@@ -18,7 +18,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MaxIVsMaxEVsLevel50()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
 
         pokemon.LevelUp(50);
 
@@ -33,7 +33,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MaxIVsMaxEVsLevel100()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 31, 31, 31, 31, 31, 31, 252, 252, 0, 0, 0, 0);
 
         pokemon.LevelUp(100);
 
@@ -48,7 +48,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MinIVsMinEVsLevel50()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         pokemon.LevelUp(50);
 
@@ -63,7 +63,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     [Fact]
     public void TestCalculateStats_MinIVsMinEVsLevel100()
     {
-        Pokemon pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        Pokemon pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
         pokemon.LevelUp(100);
 
@@ -81,32 +81,32 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Check if an exception is thrown for each EV stat exceeding 252
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 253);
         });
     }
 
@@ -116,32 +116,32 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Check if an exception is thrown for each IV stat exceeding 31
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0);
         });
 
     }
@@ -152,12 +152,12 @@ public class PokemonTest : IClassFixture<TestFixture>
         // Check if an exception is thrown when total EVs exceed 510
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 252, 252, 252, 252, 252, 252);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 252, 252, 252, 252, 252, 252);
         });
 
         Assert.Throws<ArgumentException>(() =>
         {
-            PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 100, 100, 100, 100, 100, 11);
+            PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"), Generation.NINE, 0, 0, 0, 0, 0, 0, 100, 100, 100, 100, 100, 11);
         });
     }
 
@@ -165,8 +165,8 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestAddMovesToMagikarp()
     {
         // Create two Magikarps and set their levels to 100
-        Pokemon magikarp1 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
-        Pokemon magikarp2 = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant"));
+        Pokemon magikarp1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"));
+        Pokemon magikarp2 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"));
 
         magikarp1.LevelUp(100);
         magikarp2.LevelUp(100);
@@ -191,7 +191,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestAddNonVolatileStatus_WhenNone_ShouldAddStatus()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var status = NonVolatileStatus.Burn;
 
         // Act
@@ -206,7 +206,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestAddNonVolatileStatus_WhenAlreadyHasStatus_ShouldNotAddStatus()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Burn);
         var newStatus = NonVolatileStatus.Paralysis;
 
@@ -222,7 +222,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestAddNonVolatileStatus_WhenAlreadyHasSameStatus_ShouldNotChangeStatus()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
         // Act
@@ -237,7 +237,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestAddNonVolatileStatus_WhenNone_ShouldAddDifferentStatus()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var status = NonVolatileStatus.Paralysis;
 
         // Act
@@ -252,7 +252,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestCurrentStatsWithModifiers()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
         pokemon.Reset();
 
@@ -275,7 +275,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestCurrentStatsWithoutModifiers()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
         pokemon.Reset();
 
@@ -291,7 +291,7 @@ public class PokemonTest : IClassFixture<TestFixture>
     public void TestResetModifiers()
     {
         // Arrange
-        var pokemon = PokedexRepository.CreatePokemon(129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         pokemon.LevelUp(50);
         pokemon.Reset();
 

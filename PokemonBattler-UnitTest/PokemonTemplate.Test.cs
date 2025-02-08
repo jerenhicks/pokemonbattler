@@ -16,7 +16,7 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
     {
         // Arrange
         var name = "Magikarp";
-        var pokedexNumber = 129;
+        var pokedexNumber = "" + 129;
         string typeOne = "water";
         string typeTwo = null;
         List<Generation> generations = new List<Generation>
@@ -53,7 +53,7 @@ public class PokemonTemplateTest : IClassFixture<TestFixture>
     {
         // Arrange
         var name = "Magikarp";
-        var pokedexNumber = 129;
+        string pokedexNumber = "" + 129;
         string typeOne = "water";
         string typeTwo = null;
         var generation = 9;

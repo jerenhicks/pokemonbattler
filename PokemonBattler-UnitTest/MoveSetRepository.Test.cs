@@ -20,7 +20,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
         // Arrange
         var filePath = "test_movesets.json";
 
-        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
             { "growl", new List<string> { "9L11", "8M" } },
@@ -29,10 +29,10 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
         });
         moveSet.Unpack();
 
-        var expectedMoveSets = new Dictionary<int, MoveSet>
+        var expectedMoveSets = new Dictionary<string, MoveSet>
         {
             {
-                1, moveSet
+                "1", moveSet
             }
         };
 
@@ -69,7 +69,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     {
         // Arrange
         var filePath = "test_movesets.json";
-        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
             { "growl", new List<string> { "9L11", "8M" } },
@@ -77,10 +77,10 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
             { "leechseed", new List<string> { "9E" } }
         });
         moveSet.Unpack();
-        var expectedMoveSets = new Dictionary<int, MoveSet>
+        var expectedMoveSets = new Dictionary<string, MoveSet>
         {
             {
-                1,moveSet
+                "1",moveSet
             }
         };
 
@@ -111,7 +111,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     {
         // Arrange
         var filePath = "test_movesets.json";
-        var moveSet = new MoveSet("Bulbasaur", new Dictionary<string, List<string>>
+        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
         {
             { "tackle", new List<string> { "9L10", "8M" } },
             { "growl", new List<string> { "9L11", "8M" } },
@@ -127,7 +127,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
         MoveSetRepository.LoadMoveSetsFromFile(filePath);
 
         // Act
-        var result = MoveSetRepository.BuildRandomMoveSet(1, Generation.NINE, 4, true, true, true, true, true, true, true);
+        var result = MoveSetRepository.BuildRandomMoveSet("1", Generation.NINE, 4, true, true, true, true, true, true, true);
 
         // Assert
         Assert.Equal(4, result.Count);
