@@ -15,7 +15,7 @@ public class MoveSetRepository
 
         foreach (var moveSet in moveSets)
         {
-            moveSet.Unpack();
+            moveSet.UnpackTest();
         }
         foreach (var moveSet in moveSets)
         {

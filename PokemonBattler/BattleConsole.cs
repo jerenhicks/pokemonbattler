@@ -204,10 +204,10 @@ public class BattleConsole
         Console.WriteLine("Moves loaded!");
         PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
         Console.WriteLine("Pokedex loaded!");
-        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets.json"));
+        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
         Console.WriteLine("MoveSets loaded!");
 
-        //MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
+        MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
         //PokedexRepository.SavePokedexToFile(Path.Combine(basePath, "data", "pokedex-test2.json"));
     }
 
