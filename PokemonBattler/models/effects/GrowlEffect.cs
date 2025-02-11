@@ -22,20 +22,23 @@ public class GrowlEffect : BaseEffect
         return new List<String>();
     }
 
-    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move, int damageDone)
     {
-        List<String> messages = new List<String>();
         // Implement the effect logic here
-        var succeed = defender.StatModifiers.ChangeAtkStage(-1);
-        if (succeed)
         {
-            messages.Add($"{defender.Name}'s attack fell!");
+            List<String> messages = new List<String>();
+            // Implement the effect logic here
+            var succeed = defender.StatModifiers.ChangeAtkStage(-1);
+            if (succeed)
+            {
+                messages.Add($"{defender.Name}'s attack fell!");
+            }
+            else
+            {
+                messages.Add($"{defender.Name}'s attack can't go any lower!");
+            }
+            return messages;
         }
-        else
-        {
-            messages.Add($"{defender.Name}'s attack can't go any lower!");
-        }
-        return messages;
     }
 }
 

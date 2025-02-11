@@ -22,7 +22,7 @@ public class GrowlEffectTest : IClassFixture<TestFixture>
         var initialAtkStage = defender.StatModifiers.AtkStage;
 
         // Act
-        growlEffect.PostDamageEffect(attacker, defender, move);
+        growlEffect.PostDamageEffect(attacker, defender, move, 0);
 
         // Assert
         Assert.Equal(initialAtkStage - 1, defender.StatModifiers.AtkStage);
@@ -41,7 +41,7 @@ public class GrowlEffectTest : IClassFixture<TestFixture>
         defender.StatModifiers.ChangeAtkStage(-6);
 
         // Act
-        growlEffect.PostDamageEffect(attacker, defender, move);
+        growlEffect.PostDamageEffect(attacker, defender, move, 0);
 
         // Assert
         Assert.Equal(-6, defender.StatModifiers.AtkStage); // AtkStage should not go below -6

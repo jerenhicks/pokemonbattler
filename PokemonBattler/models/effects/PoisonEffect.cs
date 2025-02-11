@@ -20,7 +20,7 @@ public class PoisonEffect : BaseEffect
         //TODO: Implement the BurnEffect logic
         return new List<String>();
     }
-    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move, int damageDone)
     {
         // Implement the effect logic here
         //TODO: Implement the BurnEffect logic

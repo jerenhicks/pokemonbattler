@@ -22,7 +22,7 @@ public class RecoilEffect : BaseEffect
         //TODO: Implement the BurnEffect logic
         return new List<String>();
     }
-    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move, int damageDone)
     {
         if (Modifier == 0)
         {

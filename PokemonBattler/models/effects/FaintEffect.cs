@@ -21,7 +21,7 @@ public class FaintEffect : BaseEffect
         return new List<String>();
     }
 
-    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move, int damageDone)
     {
         attacker.CurrentHP = 0;
         return new List<String>();

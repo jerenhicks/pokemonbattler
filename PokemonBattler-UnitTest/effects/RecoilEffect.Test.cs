@@ -25,7 +25,7 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
         attacker.CurrentHP = attacker.HP;
 
         // Act
-        var messages = recoilEffect.PostDamageEffect(attacker, defender, move);
+        var messages = recoilEffect.PostDamageEffect(attacker, defender, move, 0);
 
         // Calculate expected recoil damage (25% of max HP)
         var expectedDamage = (int)(attacker.HP * 0.25);
@@ -50,7 +50,7 @@ public class RecoilEffectTest : IClassFixture<TestFixture>
         attacker.CurrentHP = attacker.HP;
 
         // Act
-        var messages = recoilEffect.PostDamageEffect(attacker, defender, move);
+        var messages = recoilEffect.PostDamageEffect(attacker, defender, move, 0);
 
         // Calculate expected recoil damage (33% of max HP)
         var expectedDamage = (int)(attacker.HP * 0.33);

@@ -107,6 +107,7 @@ public class Battle
         var canHit = BattleData.CanHit(attackingPokemon, defendingPokemon, attackerMove, random);
         if (canHit)
         {
+            var damage = 0;
             //Do pre damage effects
             if (attackerMove.Effects.Count > 0)
             {
@@ -126,18 +127,19 @@ public class Battle
             }
             else
             {
-                var damage = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
-                defendingPokemon.CurrentHP -= damage.Item1;
+                var damageResult = CalculateDamage(attackingPokemon, defendingPokemon, attackerMove);
+                damage = damageResult.Item1;
+                defendingPokemon.CurrentHP -= damageResult.Item1;
                 if (defendingPokemon.CurrentHP < 0)
                 {
                     defendingPokemon.CurrentHP = 0;
                 }
-                battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damage.Item1} damage");
-                if (damage.Item2)
+                battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) attacks {defendingPokemon.Name}({defendingPokemon.ID}) for {damageResult.Item1} damage");
+                if (damageResult.Item2)
                 {
                     battleLog.Add("A Critical Hit!");
                 }
-                CheckTypeEffectiveness(damage.Item3);
+                CheckTypeEffectiveness(damageResult.Item3);
 
             }
 
@@ -146,7 +148,7 @@ public class Battle
             {
                 foreach (BaseEffect effect in attackerMove.Effects)
                 {
-                    foreach (var log in effect.PostDamageEffect(attackingPokemon, defendingPokemon, attackerMove))
+                    foreach (var log in effect.PostDamageEffect(attackingPokemon, defendingPokemon, attackerMove, damage))
                     {
                         battleLog.Add(log);
                     }

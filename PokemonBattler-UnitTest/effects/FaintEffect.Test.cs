@@ -50,7 +50,7 @@ public class FaintEffectTests : IClassFixture<TestFixture>
         var move = MoveRepository.GetMove("growl");
 
         // Act
-        var result = faintEffect.PostDamageEffect(attacker, defender, move);
+        var result = faintEffect.PostDamageEffect(attacker, defender, move, 0);
 
         // Assert
         Assert.Equal(0, attacker.CurrentHP);

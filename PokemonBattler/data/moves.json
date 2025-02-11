@@ -30,7 +30,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["AbsorbEffect(.5)"],
     "RangeName": "normal"
   },
   {
@@ -5147,7 +5147,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["AbsorbEffect(.5)"],
     "RangeName": "normal"
   },
   {
@@ -8904,7 +8904,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["AbsorbEffect(.5)"],
     "RangeName": "normal"
   },
   {

@@ -67,7 +67,7 @@ public class MockEffect : BaseEffect
         return new List<String>();
     }
 
-    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move)
+    public override List<String> PostDamageEffect(Pokemon attacker, Pokemon defender, Move move, int damageDone)
     {
         // Implement the effect logic here
         return new List<String>();
