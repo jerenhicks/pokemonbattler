@@ -11,6 +11,10 @@ public class BattleConsole
     private bool outputBattleLogs = true;
     private string basePath;
     private string currentDirectory;
+
+    private StreamWriter writer;
+    private static string OUTPUT_FILE_PATH = "battleoutput.txt";
+    private string OutputPath = null;
     public BattleConsole(int battleMode)
     {
 
@@ -23,6 +27,8 @@ public class BattleConsole
             // If not, assume we are running from the solution level and adjust the path
             basePath = Path.Combine(currentDirectory, "PokemonBattler");
         }
+        OutputPath = Path.Combine(basePath, "output", OUTPUT_FILE_PATH);
+
         this.battleMode = battleMode;
     }
     private void BattleCountdown()
@@ -100,6 +106,7 @@ public class BattleConsole
         }
 
         pokeMetrics.OutputResultsToFile(metricsFilePath);
+        CloseOutputFile();
         Console.WriteLine($"Total time to run Battle Simulator: {(int)(totalSeconds / 60)} minutes and {(int)(totalSeconds % 60)} seconds.");
     }
 
@@ -213,14 +220,32 @@ public class BattleConsole
 
     public void ClearOutputFile()
     {
-        File.WriteAllText(Path.Combine(basePath, "output", "battleoutput.txt"), string.Empty);
+        File.WriteAllText(OutputPath, string.Empty);
     }
 
     public void OutputBattleLog(Battle battle)
     {
-        //add a blank line before adding new battle log
-        File.AppendAllText(Path.Combine(basePath, "output", "battleoutput.txt"), "\n");
-        File.AppendAllLines(Path.Combine(basePath, "output", "battleoutput.txt"), battle.GetBattleLog());
+        if (writer == null)
+        {
+            writer = new StreamWriter(OutputPath, true);
+        }
+
+
+        writer.WriteLine("\n");
+        foreach (var row in battle.GetBattleLog())
+        {
+            writer.WriteLine(row);
+        }
     }
+
+    public void CloseOutputFile()
+    {
+        if (writer != null)
+        {
+            writer.Flush();
+            writer.Close();
+        }
+    }
+
 }
 
