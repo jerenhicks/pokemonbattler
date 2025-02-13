@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 public class BattleConsole
 {
-    int battleMode;
-    private bool outputBattleLogs = true;
+    public int BattleMode { get; set; }
+    public bool OutputBattleLogs { get; set; } = false;
     private string basePath;
     private string currentDirectory;
 
     private StreamWriter writer;
     private static string OUTPUT_FILE_PATH = "battleoutput.txt";
     private string OutputPath = null;
-    public BattleConsole(int battleMode)
+    public BattleConsole(int battleMode = 1)
     {
 
         currentDirectory = Directory.GetCurrentDirectory();
@@ -29,7 +30,7 @@ public class BattleConsole
         }
         OutputPath = Path.Combine(basePath, "output", OUTPUT_FILE_PATH);
 
-        this.battleMode = battleMode;
+        this.BattleMode = battleMode;
     }
     private void BattleCountdown()
     {
@@ -80,7 +81,7 @@ public class BattleConsole
                 battle.CommenceBattle();
 
                 pokeMetrics.AddMetrics(battle);
-                if (outputBattleLogs)
+                if (OutputBattleLogs)
                 {
                     OutputBattleLog(battle);
                 }
@@ -180,11 +181,11 @@ public class BattleConsole
 
     public void Run()
     {
-        if (battleMode == 1)
+        if (BattleMode == 1)
         {
             BattleAllMonsters();
         }
-        else if (battleMode == 2)
+        else if (BattleMode == 2)
         {
             ChooseYourPokemon();
         }
