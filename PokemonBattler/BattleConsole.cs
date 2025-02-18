@@ -200,19 +200,38 @@ public class BattleConsole
             basePath = Path.Combine(currentDirectory, "../../../..");
         }
 
-        Console.WriteLine("Effects loaded!");
+        Console.Write("Loading Effects...");
+        DateTime startTime = DateTime.Now;
+        EffectRepository.LoadEffectsFromAssembly();
+        DateTime endTime = DateTime.Now;
+        Console.WriteLine("Effects loaded -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
+        Console.Write("Loading Natures...");
+        startTime = DateTime.Now;
         NatureRepository.LoadNaturesFromFile(Path.Combine(basePath, "data", "natures.json"));
-        Console.WriteLine("Natures loaded!");
+        endTime = DateTime.Now;
+        Console.WriteLine("Natures loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
+        Console.Write("Loading Types...");
+        startTime = DateTime.Now;
         TypeRepository.LoadTypesFromFile(Path.Combine(basePath, "data", "types.json"));
-        Console.WriteLine("Types loaded!");
+        endTime = DateTime.Now;
+        Console.WriteLine("Types loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
+        Console.Write("Loading Moves...");
+        startTime = DateTime.Now;
         MoveRepository.LoadMovesFromFile(Path.Combine(basePath, "data", "moves.json"));
-        Console.WriteLine("Moves loaded!");
+        endTime = DateTime.Now;
+        Console.WriteLine("Moves loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
+        Console.Write("Loading Pokedex...");
+        startTime = DateTime.Now;
         PokedexRepository.LoadPokedexFromFile(Path.Combine(basePath, "data", "pokedex.json"));
-        Console.WriteLine("Pokedex loaded!");
+        endTime = DateTime.Now;
+        Console.WriteLine("Pokedex loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
+        Console.Write("Loading MoveSets...");
+        startTime = DateTime.Now;
         MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets.json"));
-        Console.WriteLine("MoveSets loaded!");
+        endTime = DateTime.Now;
+        Console.WriteLine("MoveSets loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
 
-        //MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
+        MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
         //PokedexRepository.SavePokedexToFile(Path.Combine(basePath, "data", "pokedex-test2.json"));
     }
 
