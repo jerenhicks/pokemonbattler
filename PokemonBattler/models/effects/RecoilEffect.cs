@@ -8,8 +8,15 @@ public class RecoilEffect : BaseEffect
 {
 
     public double Modifier { get; set; } = 0;
+    public double Chance { get; set; } = 1;
+    public Random Random = new Random();
     public RecoilEffect()
     {
+    }
+
+    public override void SetChance(double chance)
+    {
+        this.Chance = chance;
     }
 
     public override void SetModifier(double amount)
@@ -31,6 +38,11 @@ public class RecoilEffect : BaseEffect
         var damage = (int)(attacker.HP * Modifier);
         attacker.CurrentHP -= damage;
         return new List<String> { $"{attacker.Name} is hit with recoil!" };
+    }
+
+    public override void SetRandom(Random random)
+    {
+        this.Random = random;
     }
 }
 

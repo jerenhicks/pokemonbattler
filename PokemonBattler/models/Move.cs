@@ -82,12 +82,19 @@ public class Move
             {
                 var effectNameParsed = effectName.Substring(0, effectName.IndexOf("("));
                 var parameterString = effectName.Substring(effectName.IndexOf("(") + 1, effectName.IndexOf(")") - effectName.IndexOf("(") - 1);
-                var parameter = double.Parse(parameterString);
+                //var parameters = double.Parse(parameterString);
+                //split parameters based on comma
+                var paramsd = parameterString.ToString().Split(',');
+
 
                 effect = EffectRepository.GetEffect(effectNameParsed);
                 if (effect != null)
                 {
-                    effect.SetModifier(parameter);
+                    effect.SetModifier(double.Parse(paramsd[0]));
+                    if (paramsd.Length > 1)
+                    {
+                        effect.SetChance(double.Parse(paramsd[1]));
+                    }
                 }
             }
             else

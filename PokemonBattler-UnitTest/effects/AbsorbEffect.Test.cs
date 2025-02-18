@@ -13,6 +13,19 @@ public class AbsorbEffectTests : IClassFixture<TestFixture>
         _fixture = fixture;
     }
     [Fact]
+    public void SeChance_SetsCorrectValue()
+    {
+        // Arrange
+        var absorbEffect = new AbsorbEffect();
+        double modifier = 0.33;
+
+        // Act
+        absorbEffect.SetChance(modifier);
+
+        // Assert
+        Assert.Equal(modifier, absorbEffect.Chance);
+    }
+    [Fact]
     public void SetModifier_SetsCorrectValue()
     {
         // Arrange
@@ -65,5 +78,16 @@ public class AbsorbEffectTests : IClassFixture<TestFixture>
         Assert.Equal(assumingEndHP, attacker.CurrentHP);
         Assert.Single(result);
         Assert.Equal("Galvantula has had it's energy drained!", result[0]);
+    }
+
+    [Fact]
+    public void SetRandom()
+    {
+        // Arrange
+        var absorbEffect = new AbsorbEffect();
+        var random = new Random();
+        absorbEffect.SetRandom(random);
+
+        Assert.Equal(random, absorbEffect.Random);
     }
 }

@@ -5,13 +5,21 @@ using System.Threading.Tasks;
 
 public class FaintEffect : BaseEffect
 {
+    public double Modifier { get; set; } = 0;
+    public double Chance { get; set; } = 1;
+    public Random Random = new Random();
     public FaintEffect()
     {
     }
 
+    public override void SetChance(double chance)
+    {
+        this.Chance = chance;
+    }
+
     public override void SetModifier(double amount)
     {
-        // No modifier needed for burn
+        this.Modifier = amount;
     }
 
     public override List<String> PreDamageEffect(Pokemon attacker, Pokemon defender, Move move)
@@ -25,5 +33,10 @@ public class FaintEffect : BaseEffect
     {
         attacker.CurrentHP = 0;
         return new List<String>();
+    }
+
+    public override void SetRandom(Random random)
+    {
+        this.Random = random;
     }
 }

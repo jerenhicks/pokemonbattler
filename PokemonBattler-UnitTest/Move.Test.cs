@@ -73,7 +73,7 @@ public class MoveTest : IClassFixture<TestFixture>
             affectedBySnatch: false,
             affectedByMirrorMove: true,
             range: Range.Normal,
-            effects: new List<BaseEffect> { new GrowlEffect() }
+            effects: new List<BaseEffect> { new OpponentDefenseEffect() }
         );
 
         // Act

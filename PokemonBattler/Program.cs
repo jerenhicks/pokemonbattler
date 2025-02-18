@@ -7,7 +7,7 @@ public class Program
     {
         battleConsole = new BattleConsole();
         bool exitGame = false;
-
+        battleConsole.LoadData();
         do
         {
             InstructionsBlock();

@@ -72,5 +72,15 @@ public class MockEffect : BaseEffect
         // Implement the effect logic here
         return new List<String>();
     }
+
+    public override void SetChance(double chance)
+    {
+        // Implement the SetChance logic here
+    }
+
+    public override void SetRandom(Random random)
+    {
+        // Implement the SetRandom logic here
+    }
 }
 

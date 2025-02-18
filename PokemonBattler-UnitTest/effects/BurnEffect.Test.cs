@@ -60,4 +60,29 @@ public class BurnEffectTest : IClassFixture<TestFixture>
         // Assert
         Assert.Empty(result);
     }
+
+    [Fact]
+    public void SetRandom()
+    {
+        // Arrange
+        var BurnEffect = new BurnEffect();
+        var random = new Random();
+        BurnEffect.SetRandom(random);
+
+        Assert.Equal(random, BurnEffect.Random);
+    }
+
+    [Fact]
+    public void SeChance_SetsCorrectValue()
+    {
+        // Arrange
+        var BurnEffect = new BurnEffect();
+        double modifier = 0.33;
+
+        // Act
+        BurnEffect.SetChance(modifier);
+
+        // Assert
+        Assert.Equal(modifier, BurnEffect.Chance);
+    }
 }

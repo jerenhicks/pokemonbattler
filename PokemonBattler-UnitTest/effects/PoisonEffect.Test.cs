@@ -60,4 +60,29 @@ public class PoisonEffectTest : IClassFixture<TestFixture>
         // Assert
         Assert.Empty(result);
     }
+
+    [Fact]
+    public void SetRandom()
+    {
+        // Arrange
+        var PoisonEffect = new PoisonEffect();
+        var random = new Random();
+        PoisonEffect.SetRandom(random);
+
+        Assert.Equal(random, PoisonEffect.Random);
+    }
+
+    [Fact]
+    public void SeChance_SetsCorrectValue()
+    {
+        // Arrange
+        var PoisonEffect = new PoisonEffect();
+        double modifier = 0.33;
+
+        // Act
+        PoisonEffect.SetChance(modifier);
+
+        // Assert
+        Assert.Equal(modifier, PoisonEffect.Chance);
+    }
 }

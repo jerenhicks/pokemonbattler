@@ -56,4 +56,29 @@ public class FaintEffectTests : IClassFixture<TestFixture>
         Assert.Equal(0, attacker.CurrentHP);
         Assert.Empty(result); // Assuming PostDamageEffect does not return any messages
     }
+
+    [Fact]
+    public void SetRandom()
+    {
+        // Arrange
+        var FaintEffect = new FaintEffect();
+        var random = new Random();
+        FaintEffect.SetRandom(random);
+
+        Assert.Equal(random, FaintEffect.Random);
+    }
+
+    [Fact]
+    public void SeChance_SetsCorrectValue()
+    {
+        // Arrange
+        var FaintEffect = new FaintEffect();
+        double modifier = 0.33;
+
+        // Act
+        FaintEffect.SetChance(modifier);
+
+        // Assert
+        Assert.Equal(modifier, FaintEffect.Chance);
+    }
 }

@@ -64,7 +64,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["OpponentDefenseEffect(-1,.33)"],
     "RangeName": "ManyOthers"
   },
   {
@@ -81,7 +81,7 @@
     "AffectedBySnatch": true,
     "AffectedByMirrorMove": false,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["SelfDefenseEffect(2)"],
     "RangeName": "self"
   },
   {
@@ -1441,7 +1441,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.33)"],
+    "EffectNames": [ "RecoilEffect(.33)"],
     "RangeName": "NormalLongRange"
   },
   {
@@ -3005,7 +3005,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.33)"],
+    "EffectNames": [ "RecoilEffect(.33)"],
     "RangeName": "normal"
   },
   {
@@ -4484,7 +4484,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": ["Recoil(.33)"],
+    "EffectNames": ["RecoilEffect(.33)"],
     "RangeName": "normal"
   },
   {
@@ -5980,7 +5980,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [],
+    "EffectNames": ["OpponentAttackEffect(1)"],
     "RangeName": "ManyOthers"
   },
   {
@@ -6269,7 +6269,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.25)"],
+    "EffectNames": [ "RecoilEffect(.25)"],
     "RangeName": "normal"
   },
   {
@@ -6303,7 +6303,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.5)"],
+    "EffectNames": [ "RecoilEffect(.5)"],
     "RangeName": "normal"
   },
   {
@@ -8020,7 +8020,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": false,
-    "EffectNames": ["Recoil(.5)"],
+    "EffectNames": ["RecoilEffect(.5)"],
     "RangeName": "normal"
   },
   {
@@ -13902,7 +13902,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": false,
     "Metronome": false,
-    "EffectNames": ["Recoil(.25)"],
+    "EffectNames": ["RecoilEffect(.25)"],
     "RangeName": "OneRandom"
   },
   {
@@ -13970,7 +13970,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": ["Recoil(.25)"],
+    "EffectNames": ["RecoilEffect(.25)"],
     "RangeName": "normal"
   },
   {
@@ -14463,7 +14463,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.25)"],
+    "EffectNames": [ "RecoilEffect(.25)"],
     "RangeName": "normal"
   },
   {
@@ -15585,7 +15585,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": [ "Recoil(.33)"],
+    "EffectNames": [ "RecoilEffect(.33)"],
     "RangeName": "normal"
   },
   {
@@ -15738,7 +15738,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": ["Recoil(.33)"],
+    "EffectNames": ["RecoilEffect(.33)"],
     "RangeName": "normal"
   },
   {
@@ -15874,7 +15874,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": ["Recoil(.25)"],
+    "EffectNames": ["RecoilEffect(.25)"],
     "RangeName": "normal"
   },
   {
@@ -15976,7 +15976,7 @@
     "AffectedBySnatch": false,
     "AffectedByMirrorMove": true,
     "Metronome": true,
-    "EffectNames": ["Recoil(.33)"],
+    "EffectNames": ["RecoilEffect(.33)"],
     "RangeName": "normal"
   },
   {

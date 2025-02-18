@@ -50,7 +50,6 @@ public class BattleConsole
     //      depenencies to the BattleConsole constructor
     private void BattleAllMonsters()
     {
-        LoadData();
         ClearOutputFile();
 
         BattleCountdown();
@@ -119,8 +118,6 @@ public class BattleConsole
     //      need to actually do something with the user input
     private void ChooseYourPokemon()
     {
-        LoadData();
-
         string pokemon1Name = "";
         string pokemon2Name = "";
         string restartResponse = "";
@@ -144,7 +141,7 @@ public class BattleConsole
             Pokemon magikarp1 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
             Pokemon galvantula = PokedexRepository.CreatePokemon("596", NatureRepository.GetNature("adamant"), level: 100);
 
-            magikarp1.AddMove(MoveRepository.GetMove("Explosion"));
+            magikarp1.AddMove(MoveRepository.GetMove("acid"));
             galvantula.AddMove(MoveRepository.GetMove("Struggle"));
 
             //galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
