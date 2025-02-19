@@ -227,11 +227,11 @@ public class BattleConsole
         Console.WriteLine("Pokedex loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
         Console.Write("Loading MoveSets...");
         startTime = DateTime.Now;
-        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "learnsets.json"));
+        MoveSetRepository.LoadMoveSetsFromFile(Path.Combine(basePath, "data", "movesets.json"));
         endTime = DateTime.Now;
         Console.WriteLine("MoveSets loaded! -- Time To Load: " + (endTime - startTime).TotalMilliseconds + "ms");
 
-        MoveSetRepository.SaveMoveSetsToFile(Path.Combine(basePath, "data", "learnsets-test1.json"));
+        //MoveSetRepository.SaveMockMoveSets(Path.Combine(basePath, "data", "learnsets-test1.json"));
         //PokedexRepository.SavePokedexToFile(Path.Combine(basePath, "data", "pokedex-test2.json"));
     }
 

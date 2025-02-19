@@ -11,8 +11,22 @@ public class MoveSet
     public string PokemonID { get; set; }
     [JsonProperty("name")]
     public string PokemonName { get; set; }
-    [JsonProperty("learnset")]
-    public Dictionary<string, List<string>> Learnset { get; set; }
+    public Dictionary<string, List<MoveAbbreviated>> LevelUpMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> EggMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> MachineMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> TutorMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> RestrictedMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> DreamWorldMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> EventMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
+    public Dictionary<string, List<MoveAbbreviated>> VirtualConsoleMovesAbbreviated { get; set; } = new Dictionary<string, List<MoveAbbreviated>>();
+
     [JsonIgnore]
     public Dictionary<string, List<Move>> LevelUpMoves { get; set; } = new Dictionary<string, List<Move>>();
     [JsonIgnore]
@@ -31,96 +45,94 @@ public class MoveSet
     public Dictionary<string, List<Move>> VirtualConsoleMoves { get; set; } = new Dictionary<string, List<Move>>();
 
 
-    public MoveSet(string pokemonName, string pokemonID, Dictionary<string, List<string>> learnset)
+    public MoveSet(string pokemonName, string pokemonID, Dictionary<string, List<MoveAbbreviated>> LevelUpMoves, Dictionary<string, List<MoveAbbreviated>> EggMoves, Dictionary<string, List<MoveAbbreviated>> MachineMoves, Dictionary<string, List<MoveAbbreviated>> TutorMoves, Dictionary<string, List<MoveAbbreviated>> RestrictedMoves, Dictionary<string, List<MoveAbbreviated>> DreamWorldMoves, Dictionary<string, List<MoveAbbreviated>> EventMoves, Dictionary<string, List<MoveAbbreviated>> VirtualConsoleMoves)
     {
         PokemonName = pokemonName;
         PokemonID = pokemonID;
-        Learnset = learnset;
+        this.LevelUpMovesAbbreviated = LevelUpMoves;
+        this.EggMovesAbbreviated = EggMoves;
+        this.MachineMovesAbbreviated = MachineMoves;
+        this.TutorMovesAbbreviated = TutorMoves;
+        this.RestrictedMovesAbbreviated = RestrictedMoves;
+        this.DreamWorldMovesAbbreviated = DreamWorldMoves;
+        this.EventMovesAbbreviated = EventMoves;
+        this.VirtualConsoleMovesAbbreviated = VirtualConsoleMoves;
     }
 
     public void Unpack()
     {
-        foreach (var set in Learnset.Keys)
+        foreach (var key in LevelUpMovesAbbreviated.Keys)
         {
-            Move move = MoveRepository.GetMoveTrimmed(set);
-            foreach (var genData in Learnset[set])
+            LevelUpMoves[key] = new List<Move>();
+            foreach (var move in LevelUpMovesAbbreviated[key])
             {
-                //pull the first character from the string, this will be the generation identifier.
-                string generation = genData[0].ToString();
-                //the second character is the method for learning, M = Machine, L = Level Up, T = tutor, R = restricted, E = egg, D = dream world, S = event, V = virtual console
-                var method = genData[1];
-                //ignore the rest for now.
-                switch (method)
-                {
-                    case 'L':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!LevelUpMoves.ContainsKey(generation))
-                        {
-                            LevelUpMoves.Add(generation, new List<Move>());
-                        }
-                        LevelUpMoves[generation].Add(move);
-                        break;
-                    case 'E':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!EggMoves.ContainsKey(generation))
-                        {
-                            EggMoves.Add(generation, new List<Move>());
-                        }
-                        EggMoves[generation].Add(move);
-                        break;
-                    case 'M':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!MachineMoves.ContainsKey(generation))
-                        {
-                            MachineMoves.Add(generation, new List<Move>());
-                        }
-                        MachineMoves[generation].Add(move);
-                        break;
-                    case 'T':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!TutorMoves.ContainsKey(generation))
-                        {
-                            TutorMoves.Add(generation, new List<Move>());
-                        }
-                        TutorMoves[generation].Add(move);
-                        break;
-                    case 'R':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!RestrictedMoves.ContainsKey(generation))
-                        {
-                            RestrictedMoves.Add(generation, new List<Move>());
-                        }
-                        RestrictedMoves[generation].Add(move);
-                        break;
-                    case 'D':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!DreamWorldMoves.ContainsKey(generation))
-                        {
-                            DreamWorldMoves.Add(generation, new List<Move>());
-                        }
-                        DreamWorldMoves[generation].Add(move);
-                        break;
-                    case 'S':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!EventMoves.ContainsKey(generation))
-                        {
-                            EventMoves.Add(generation, new List<Move>());
-                        }
-                        EventMoves[generation].Add(move);
-                        break;
-                    case 'V':
-                        //if generation doesn't exist in the keys, add one.
-                        if (!VirtualConsoleMoves.ContainsKey(generation))
-                        {
-                            VirtualConsoleMoves.Add(generation, new List<Move>());
-                        }
-                        VirtualConsoleMoves[generation].Add(move);
-                        break;
-                }
-
+                LevelUpMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
             }
-
         }
+
+        foreach (var key in EggMovesAbbreviated.Keys)
+        {
+            EggMoves[key] = new List<Move>();
+            foreach (var move in EggMovesAbbreviated[key])
+            {
+                EggMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in MachineMovesAbbreviated.Keys)
+        {
+            MachineMoves[key] = new List<Move>();
+            foreach (var move in MachineMovesAbbreviated[key])
+            {
+                MachineMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in TutorMovesAbbreviated.Keys)
+        {
+            TutorMoves[key] = new List<Move>();
+            foreach (var move in TutorMovesAbbreviated[key])
+            {
+                TutorMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in RestrictedMovesAbbreviated.Keys)
+        {
+            RestrictedMoves[key] = new List<Move>();
+            foreach (var move in RestrictedMovesAbbreviated[key])
+            {
+                RestrictedMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in DreamWorldMovesAbbreviated.Keys)
+        {
+            DreamWorldMoves[key] = new List<Move>();
+            foreach (var move in DreamWorldMovesAbbreviated[key])
+            {
+                DreamWorldMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in EventMovesAbbreviated.Keys)
+        {
+            EventMoves[key] = new List<Move>();
+            foreach (var move in EventMovesAbbreviated[key])
+            {
+                EventMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
+        foreach (var key in VirtualConsoleMovesAbbreviated.Keys)
+        {
+            VirtualConsoleMoves[key] = new List<Move>();
+            foreach (var move in VirtualConsoleMovesAbbreviated[key])
+            {
+                VirtualConsoleMoves[key].Add(MoveRepository.GetMoveByID(move.Id));
+            }
+        }
+
     }
 
 

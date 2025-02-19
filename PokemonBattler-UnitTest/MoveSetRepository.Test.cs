@@ -20,13 +20,21 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
         // Arrange
         var filePath = "test_movesets.json";
 
-        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
-        {
-            { "tackle", new List<string> { "9L10", "8M" } },
-            { "growl", new List<string> { "9L11", "8M" } },
-            { "hyperbeam", new List<string> { "9M" } },
-            { "leechseed", new List<string> { "9E" } }
-        });
+
+        Dictionary<string, List<MoveAbbreviated>> LevelUpMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        LevelUpMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> EggMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        EggMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(73, "Leech Seed"), new MoveAbbreviated(33, "Hyper Beam") });
+        Dictionary<string, List<MoveAbbreviated>> MachineMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        MachineMoves.Add("8", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> TutorMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> RestrictedMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> DreamWorldMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> EventMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> VirtualConsoleMoves = new Dictionary<string, List<MoveAbbreviated>>();
+
+
+        var moveSet = new MoveSet("Bulbasaur", "1", LevelUpMoves, EggMoves, MachineMoves, TutorMoves, RestrictedMoves, DreamWorldMoves, EventMoves, VirtualConsoleMoves);
         moveSet.Unpack();
 
         var expectedMoveSets = new Dictionary<string, MoveSet>
@@ -56,7 +64,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
             var actualMoveSet = result[expectedMoveSet.Key];
             Assert.Equal(expectedMoveSet.Value.PokemonID, actualMoveSet.PokemonID);
             Assert.Equal(expectedMoveSet.Value.LevelUpMoves["9"].Count, actualMoveSet.LevelUpMoves["9"].Count);
-            Assert.Equal(expectedMoveSet.Value.MachineMoves["9"].Count, actualMoveSet.MachineMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.MachineMoves["8"].Count, actualMoveSet.MachineMoves["8"].Count);
             Assert.Equal(expectedMoveSet.Value.EggMoves["9"].Count, actualMoveSet.EggMoves["9"].Count);
         }
 
@@ -69,13 +77,20 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     {
         // Arrange
         var filePath = "test_movesets.json";
-        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
-        {
-            { "tackle", new List<string> { "9L10", "8M" } },
-            { "growl", new List<string> { "9L11", "8M" } },
-            { "hyperbeam", new List<string> { "9M" } },
-            { "leechseed", new List<string> { "9E" } }
-        });
+        Dictionary<string, List<MoveAbbreviated>> LevelUpMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        LevelUpMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> EggMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        EggMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(73, "Leech Seed"), new MoveAbbreviated(33, "Hyper Beam") });
+        Dictionary<string, List<MoveAbbreviated>> MachineMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        MachineMoves.Add("8", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> TutorMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> RestrictedMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> DreamWorldMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> EventMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> VirtualConsoleMoves = new Dictionary<string, List<MoveAbbreviated>>();
+
+
+        var moveSet = new MoveSet("Bulbasaur", "1", LevelUpMoves, EggMoves, MachineMoves, TutorMoves, RestrictedMoves, DreamWorldMoves, EventMoves, VirtualConsoleMoves);
         moveSet.Unpack();
         var expectedMoveSets = new Dictionary<string, MoveSet>
         {
@@ -101,7 +116,7 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
             var actualMoveSet = result[expectedMoveSet.Key];
             Assert.Equal(expectedMoveSet.Value.PokemonID, actualMoveSet.PokemonID);
             Assert.Equal(expectedMoveSet.Value.LevelUpMoves["9"].Count, actualMoveSet.LevelUpMoves["9"].Count);
-            Assert.Equal(expectedMoveSet.Value.MachineMoves["9"].Count, actualMoveSet.MachineMoves["9"].Count);
+            Assert.Equal(expectedMoveSet.Value.MachineMoves["8"].Count, actualMoveSet.MachineMoves["8"].Count);
             Assert.Equal(expectedMoveSet.Value.EggMoves["9"].Count, actualMoveSet.EggMoves["9"].Count);
         }
     }
@@ -111,13 +126,19 @@ public class MoveSetRepositoryTests : IClassFixture<TestFixture>
     {
         // Arrange
         var filePath = "test_movesets.json";
-        var moveSet = new MoveSet("Bulbasaur", "1", new Dictionary<string, List<string>>
-        {
-            { "tackle", new List<string> { "9L10", "8M" } },
-            { "growl", new List<string> { "9L11", "8M" } },
-            { "hyperbeam", new List<string> { "9M" } },
-            { "leechseed", new List<string> { "9E" } }
-        });
+        Dictionary<string, List<MoveAbbreviated>> LevelUpMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        LevelUpMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> EggMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        EggMoves.Add("9", new List<MoveAbbreviated> { new MoveAbbreviated(73, "Leech Seed"), new MoveAbbreviated(33, "Hyper Beam") });
+        Dictionary<string, List<MoveAbbreviated>> MachineMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        MachineMoves.Add("8", new List<MoveAbbreviated> { new MoveAbbreviated(33, "Tackle"), new MoveAbbreviated(45, "Growl") });
+        Dictionary<string, List<MoveAbbreviated>> TutorMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> RestrictedMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> DreamWorldMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> EventMoves = new Dictionary<string, List<MoveAbbreviated>>();
+        Dictionary<string, List<MoveAbbreviated>> VirtualConsoleMoves = new Dictionary<string, List<MoveAbbreviated>>();
+
+        var moveSet = new MoveSet("Bulbasaur", "1", LevelUpMoves, EggMoves, MachineMoves, TutorMoves, RestrictedMoves, DreamWorldMoves, EventMoves, VirtualConsoleMoves);
         moveSet.Unpack();
 
         var moveSets = new List<MoveSet> { moveSet };
