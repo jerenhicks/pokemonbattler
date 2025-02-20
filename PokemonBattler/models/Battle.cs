@@ -16,6 +16,7 @@ public class Battle
     public BattleTeam Team1 { get; set; }
     public BattleTeam Team2 { get; set; }
     private List<Pokemon> PokemonParticipants { get; set; }
+    private List<Pokemon> PokemonFainted = new List<Pokemon>();
 
     public Battle(BattleTeam team1, BattleTeam team2, GenerationBattleData battleData, int turnLimit = 100)
     {
@@ -43,7 +44,14 @@ public class Battle
             turn++;
             //change this to have all the pokemon's stats shown instead of 2.
             var outputString = $"Turn {turn}: ";
-            foreach (var pokemon in PokemonParticipants)
+
+            outputString += $"Team 1: ";
+            foreach (var pokemon in Team1.GetTeam())
+            {
+                outputString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+            }
+            outputString += $"Team 2: ";
+            foreach (var pokemon in Team2.GetTeam())
             {
                 outputString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
             }
@@ -99,10 +107,25 @@ public class Battle
             // }
 
 
-        } while (turn <= TurnLimit && PokemonParticipants.TrueForAll(pokemon => pokemon.CurrentHP > 0));
+        } while (turn <= TurnLimit && !(Team1.KnockedOut() || Team2.KnockedOut()));
 
         endTime = DateTime.Now;
         var duration = (endTime - startTime).TotalMilliseconds;
+
+        var endresultString = $"Results {turn}: ";
+
+        endresultString += $"Team 1: ";
+        foreach (var pokemon in Team1.GetTeam())
+        {
+            endresultString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+        }
+        endresultString += $"Team 2: ";
+        foreach (var pokemon in Team2.GetTeam())
+        {
+            endresultString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+        }
+        battleLog.Add(endresultString);
+
         battleLog.Add($"Battle Duration: {duration} milliseconds");
     }
 
@@ -119,6 +142,11 @@ public class Battle
         }
 
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
+        if (defendingPokemon == null)
+        {
+            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name} but there was no target");
+            return;
+        }
 
 
 
@@ -276,26 +304,22 @@ public class Battle
         }
     }
 
-    public void CheckFainted(Pokemon pokemon1, Pokemon pokemon2)
-    {
-        if (pokemon1.CurrentHP <= 0)
-        {
-            battleLog.Add($"{pokemon1.Name} fainted!");
-        }
-        if (pokemon2.CurrentHP <= 0)
-        {
-            battleLog.Add($"{pokemon2.Name} fainted!");
-        }
-    }
-
     public void CheckFaintedAll() //check if all pokemon have fainted
     {
         var allFainted = true;
         foreach (var pokemon in PokemonParticipants)
         {
-            if (pokemon.CurrentHP > 0)
+            if (pokemon.CurrentHP <= 0)
             {
-                battleLog.Add($"{pokemon.Name} fainted!");
+                if (!PokemonFainted.Contains(pokemon))
+                {
+                    battleLog.Add($"{pokemon.Name} fainted!");
+                    PokemonFainted.Add(pokemon);
+                }
+            }
+            else
+            {
+                allFainted = false;
             }
         }
         if (allFainted)
@@ -360,9 +384,42 @@ public class Battle
 
     public Pokemon GetTarget(Pokemon attackingPokemon, Move move, BattleTeam activeTeam, BattleTeam opposingTeam)
     {
-        //FIXME: will need to add things here. This will probably break things.
-        //for now, just return the other pokemon. We will implement this later
-        return opposingTeam.GetPokemonInPosition(activeTeam.GetPosition(attackingPokemon));
+        int attackingPokemonPosition = activeTeam.GetPosition(attackingPokemon);
+        Pokemon defendingPokemonInPosition = opposingTeam.GetPokemonInPosition(attackingPokemonPosition);
+        if (defendingPokemonInPosition.CurrentHP > 0)
+        {
+            return defendingPokemonInPosition;
+        }
+        else
+        {
+            //check sides
+            int leftPosition = attackingPokemonPosition - 1;
+            int rightPosition = attackingPokemonPosition + 1;
+            if (leftPosition > 0)
+            {
+                Pokemon leftPokemon = opposingTeam.GetPokemonInPosition(leftPosition);
+                if (leftPokemon.CurrentHP > 0)
+                {
+                    return leftPokemon;
+                }
+                else
+                {
+                    return opposingTeam.GetPokemonInPosition(rightPosition);
+                }
+            }
+            else
+            {
+                Pokemon rightPokemon = opposingTeam.GetPokemonInPosition(rightPosition);
+                if (rightPokemon.CurrentHP > 0)
+                {
+                    return rightPokemon;
+                }
+                else
+                {
+                    return opposingTeam.GetPokemonInPosition(leftPosition);
+                }
+            }
+        }
     }
 
     public List<Pokemon> GetTurnOrder(Dictionary<Pokemon, Move> moves)
