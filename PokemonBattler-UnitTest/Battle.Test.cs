@@ -599,7 +599,7 @@ public class BattleTest : IClassFixture<TestFixture>
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
 
         // Act
-        battle.CheckFainted(pokemon1, pokemon2);
+        battle.CheckFaintedAll();
 
         // Assert
         var battleLog = battle.GetBattleLog();
@@ -624,7 +624,7 @@ public class BattleTest : IClassFixture<TestFixture>
         pokemon2.CurrentHP = 0; // Galvantula is fainted
 
         // Act
-        battle.CheckFainted(pokemon1, pokemon2);
+        battle.CheckFaintedAll();
 
         // Assert
         var battleLog = battle.GetBattleLog();
@@ -649,7 +649,7 @@ public class BattleTest : IClassFixture<TestFixture>
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
 
         // Act
-        battle.CheckFainted(pokemon1, pokemon2);
+        battle.CheckFaintedAll();
 
         // Assert
         var battleLog = battle.GetBattleLog();
