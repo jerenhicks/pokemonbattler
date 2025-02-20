@@ -17,7 +17,6 @@ public class BattleTest : IClassFixture<TestFixture>
     {
         Pokemon glaceon = PokedexRepository.CreatePokemon("" + 471, NatureRepository.GetNature("adamant"));
         Pokemon garchomp = PokedexRepository.CreatePokemon("" + 445, NatureRepository.GetNature("adamant"));
-        GenerationBattleData battleData = new NinethGenerationBattleData();
 
         glaceon.LevelUp(100);
         glaceon.Reset();
@@ -25,8 +24,9 @@ public class BattleTest : IClassFixture<TestFixture>
         garchomp.Reset();
 
         glaceon.AddMove(MoveRepository.GetMove("ice fang"));
-
-        Battle battle = new Battle(glaceon, garchomp, battleData);
+        BattleTeam team1 = new BattleTeam(glaceon);
+        BattleTeam team2 = new BattleTeam(garchomp);
+        Battle battle = new Battle(team1, team2, new NinethGenerationBattleData());
         var result = battle.CalculateDamage(glaceon, garchomp, glaceon.Moves[0], 1);
 
         //first let's make sure a critical didn't happen, we turned those off.
@@ -69,7 +69,9 @@ public class BattleTest : IClassFixture<TestFixture>
         glaceon.AddMove(MoveRepository.GetMove("ice fang"));
         glaceon.AddNonVolatileStatus(NonVolatileStatus.Burn);
 
-        Battle battle = new Battle(glaceon, garchomp, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(glaceon);
+        BattleTeam team2 = new BattleTeam(garchomp);
+        Battle battle = new Battle(team1, team2, new NinethGenerationBattleData());
         var result = battle.CalculateDamage(glaceon, garchomp, glaceon.Moves[0], 1);
 
         //first let's make sure a critical didn't happen, we turned those off.
@@ -109,7 +111,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
         pokemon.LevelUp(100);
 
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Act
         var move = battle.PokemonDecideMove(pokemon);
@@ -125,7 +129,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
 
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         pokemon.LevelUp(100);
         pokemon.AddMove(MoveRepository.GetMove("pound"));
@@ -156,7 +162,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
 
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         pokemon.LevelUp(100);
         pokemon.AddMove(MoveRepository.GetMove("pound"));
@@ -178,7 +186,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
 
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         pokemon.LevelUp(100);
         pokemon.AddMove(MoveRepository.GetMove("pound"));
@@ -209,7 +219,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
 
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         var move1 = MoveRepository.GetMove("quick attack");
         var move2 = MoveRepository.GetMove("tackle");
@@ -229,7 +241,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
 
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         pokemon1.LevelUp(50);
         pokemon2.LevelUp(50);
@@ -249,7 +263,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Another Magikarp
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         pokemon1.LevelUp(50);
         pokemon2.LevelUp(50);
@@ -270,7 +286,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
         var move = MoveRepository.GetMove("tackle");
 
         // Act
@@ -287,7 +305,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
         var move = MoveRepository.GetMove("tackle");
 
         // Act
@@ -304,7 +324,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var attacker = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
         var move = MoveRepository.GetMove("tackle");
 
         // Act
@@ -320,7 +342,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
 
@@ -348,7 +372,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
 
@@ -377,7 +403,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Apply badly poisoned condition to pokemon
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
@@ -404,7 +432,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Apply badly poisoned condition to pokemon
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
@@ -435,7 +465,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Apply badly poisoned condition to pokemon
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Badly_Poisoned);
@@ -465,7 +497,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
         var move = MoveRepository.GetMove("tackle");
-        var battle = new Battle(attacker, defender, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Accuracy and evasion stages range from -6 to +6
         for (int accuracyStage = -6; accuracyStage <= 6; accuracyStage++)
@@ -556,7 +590,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Set HP values
         pokemon1.CurrentHP = 0; // Magikarp is fainted
@@ -579,7 +615,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Set HP values
         pokemon1.CurrentHP = 0; // Magikarp is fainted
@@ -602,7 +640,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         pokemon1.LevelUp(100);
         pokemon2.LevelUp(100);
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Set HP values
         pokemon1.CurrentHP = 50; // Magikarp is not fainted
@@ -625,7 +665,10 @@ public class BattleTest : IClassFixture<TestFixture>
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
         var move = new Move(129, "Swift", TypeRepository.GetType("Normal"), MoveCategory.Special, 20, 60, null, 0, false, false, false, false, false, Range.Normal, null); // Always hit move
-        var battle = new Battle(attacker, defender, battleData);
+
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
 
         // Act
         var result = battleData.CanHit(attacker, defender, move, new RandomMock(50));
@@ -642,7 +685,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
         var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
 
         // Act
         var result = battleData.CanHit(attacker, defender, move, new RandomMock(50));
@@ -659,7 +704,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
         var move = new Move(21, "Slam", TypeRepository.GetType("Normal"), MoveCategory.Physical, 20, 80, 0.75m, 0, false, false, false, false, false, Range.Normal, null); // Low accuracy move
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
 
         // Act
         var result = battleData.CanHit(attacker, defender, move, new RandomMock(50));
@@ -676,7 +723,9 @@ public class BattleTest : IClassFixture<TestFixture>
         var defender = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
         NinethGenerationBattleData battleData = new NinethGenerationBattleData();
         var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
-        var battle = new Battle(attacker, defender, battleData);
+        BattleTeam team1 = new BattleTeam(attacker);
+        BattleTeam team2 = new BattleTeam(defender);
+        var battle = new Battle(team1, team2, battleData);
 
         // Mock modifiers
         attacker.StatModifiers.ChangeAccuracyStage(2);
@@ -695,7 +744,10 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Freeze);
 
@@ -717,7 +769,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Freeze);
 
@@ -740,7 +794,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
 
         // Act
@@ -759,7 +815,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
 
         // Act
@@ -775,7 +833,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
 
@@ -796,7 +856,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         pokemon.LevelUp(100);
         pokemon.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
 
@@ -823,7 +885,9 @@ public class BattleTest : IClassFixture<TestFixture>
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
         var pokemon2 = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
-        var battle = new Battle(pokemon, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
         var battleLog = new List<string>();
         battle.SetBattleLog(battleLog);
 

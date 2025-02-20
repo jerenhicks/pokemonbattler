@@ -6,81 +6,56 @@ using System.Threading.Tasks;
 
 public class PokeMetrics
 {
-    public Dictionary<string, Metric> Metrics { get; set; }
+    public Dictionary<BattleTeam, Metric> Metrics { get; set; }
 
     public PokeMetrics()
     {
-        Metrics = new Dictionary<string, Metric>();
+        Metrics = new Dictionary<BattleTeam, Metric>();
     }
 
     public void AddMetrics(Battle battle)
     {
-        if (battle.Pokemon1.CurrentHP <= 0 && battle.Pokemon2.CurrentHP <= 0)
+        //check to see if the pokemon in the battle object are already in the dictionary.
+        //if they are not, create a new metric for them
+        //if they are, update the metric for them
+        if (!Metrics.Keys.Contains(battle.Team1))
         {
-            if (!Metrics.ContainsKey(battle.Pokemon1.Name))
-            {
-                CreateNewMetric(battle.Pokemon1);
-            }
-            if (!Metrics.ContainsKey(battle.Pokemon2.Name))
-            {
-                CreateNewMetric(battle.Pokemon2);
-            }
+            CreateNewMetric(battle.Team1);
+        }
+        if (!Metrics.Keys.Contains(battle.Team2))
+        {
+            CreateNewMetric(battle.Team2);
+        }
 
-            if (!Metrics[battle.Pokemon1.Name].TiesAgainst.Contains(battle.Pokemon2))
-            {
-                Metrics[battle.Pokemon1.Name].TiesAgainst.Add(battle.Pokemon2);
-            }
-            if (!Metrics[battle.Pokemon2.Name].TiesAgainst.Contains(battle.Pokemon1))
-            {
-                Metrics[battle.Pokemon2.Name].TiesAgainst.Add(battle.Pokemon1);
-            }
+        //FIXME: OLD CODE DID THIS, BUT DO WE?
+        if (Metrics[battle.Team1].WinsAgainst.Contains(battle.Team2) || Metrics[battle.Team1].LossesAgainst.Contains(battle.Team2) || Metrics[battle.Team1].TiesAgainst.Contains(battle.Team2))
+        {
+            //we've already logged this battle, move on.
+            return;
+        }
+
+        var teamOneKnockedOut = battle.Team1.KnockedOut();
+        var teamTwoKnockedOut = battle.Team2.KnockedOut();
+        if (teamOneKnockedOut && teamTwoKnockedOut)
+        {
+            Metrics[battle.Team1].TiesAgainst.Add(battle.Team2);
+            Metrics[battle.Team2].TiesAgainst.Add(battle.Team1);
+        }
+        else if (teamOneKnockedOut)
+        {
+            Metrics[battle.Team1].LossesAgainst.Add(battle.Team2);
+            Metrics[battle.Team2].WinsAgainst.Add(battle.Team1);
         }
         else
         {
-            if (battle.Pokemon1.CurrentHP <= 0)
-            {
-                if (!Metrics.ContainsKey(battle.Pokemon1.Name))
-                {
-                    CreateNewMetric(battle.Pokemon1);
-                }
-                if (!Metrics.ContainsKey(battle.Pokemon2.Name))
-                {
-                    CreateNewMetric(battle.Pokemon2);
-                }
-                if (!Metrics[battle.Pokemon1.Name].LossesAgainst.Contains(battle.Pokemon2))
-                {
-                    Metrics[battle.Pokemon1.Name].LossesAgainst.Add(battle.Pokemon2);
-                }
-                if (!Metrics[battle.Pokemon2.Name].WinsAgainst.Contains(battle.Pokemon1))
-                {
-                    Metrics[battle.Pokemon2.Name].WinsAgainst.Add(battle.Pokemon1);
-                }
-            }
-            else
-            {
-                if (!Metrics.ContainsKey(battle.Pokemon1.Name))
-                {
-                    CreateNewMetric(battle.Pokemon1);
-                }
-                if (!Metrics.ContainsKey(battle.Pokemon2.Name))
-                {
-                    CreateNewMetric(battle.Pokemon2);
-                }
-                if (!Metrics[battle.Pokemon1.Name].WinsAgainst.Contains(battle.Pokemon2))
-                {
-                    Metrics[battle.Pokemon1.Name].WinsAgainst.Add(battle.Pokemon2);
-                }
-                if (!Metrics[battle.Pokemon2.Name].LossesAgainst.Contains(battle.Pokemon1))
-                {
-                    Metrics[battle.Pokemon2.Name].LossesAgainst.Add(battle.Pokemon1);
-                }
-            }
+            Metrics[battle.Team1].WinsAgainst.Add(battle.Team2);
+            Metrics[battle.Team2].LossesAgainst.Add(battle.Team1);
         }
     }
 
-    public void CreateNewMetric(Pokemon pokemon)
+    public void CreateNewMetric(BattleTeam team)
     {
-        Metrics.Add(pokemon.Name, new Metric { Pokemon = pokemon, WinsAgainst = new List<Pokemon>(), LossesAgainst = new List<Pokemon>(), TiesAgainst = new List<Pokemon>() });
+        Metrics.Add(team, new Metric { Team = team, WinsAgainst = new List<BattleTeam>(), LossesAgainst = new List<BattleTeam>(), TiesAgainst = new List<BattleTeam>() });
     }
 
     public void OutputResultsToConsole()

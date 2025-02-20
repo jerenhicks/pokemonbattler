@@ -16,21 +16,22 @@ public class MetricTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
-        var winsAgainst = new List<Pokemon>();
-        var lossesAgainst = new List<Pokemon>();
-        var tiesAgainst = new List<Pokemon>();
+        BattleTeam team = new BattleTeam(pokemon);
+        var winsAgainst = new List<BattleTeam>();
+        var lossesAgainst = new List<BattleTeam>();
+        var tiesAgainst = new List<BattleTeam>();
 
         // Act
         var metric = new Metric
         {
-            Pokemon = pokemon,
+            Team = team,
             WinsAgainst = winsAgainst,
             LossesAgainst = lossesAgainst,
             TiesAgainst = tiesAgainst
         };
 
         // Assert
-        Assert.Equal(pokemon, metric.Pokemon);
+        Assert.Equal(team, metric.Team);
         Assert.Equal(winsAgainst, metric.WinsAgainst);
         Assert.Equal(lossesAgainst, metric.LossesAgainst);
         Assert.Equal(tiesAgainst, metric.TiesAgainst);
@@ -41,18 +42,21 @@ public class MetricTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
-        var winsAgainst = new List<Pokemon>
+        BattleTeam team1 = new BattleTeam(pokemon);
+
+        BattleTeam team2 = new BattleTeam(PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"))); // Pikachu
+        BattleTeam team3 = new BattleTeam(PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant"))); // Bulbasaur
+        var winsAgainst = new List<BattleTeam>
         {
-            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            team2, team3
         };
-        var lossesAgainst = new List<Pokemon>();
-        var tiesAgainst = new List<Pokemon>();
+        var lossesAgainst = new List<BattleTeam>();
+        var tiesAgainst = new List<BattleTeam>();
 
         // Act
         var metric = new Metric
         {
-            Pokemon = pokemon,
+            Team = team1,
             WinsAgainst = winsAgainst,
             LossesAgainst = lossesAgainst,
             TiesAgainst = tiesAgainst
@@ -67,18 +71,22 @@ public class MetricTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
-        var winsAgainst = new List<Pokemon>();
-        var lossesAgainst = new List<Pokemon>
+        BattleTeam team = new BattleTeam(pokemon);
+
+        var winsAgainst = new List<BattleTeam>();
+
+        BattleTeam team2 = new BattleTeam(PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"))); // Pikachu
+        BattleTeam team3 = new BattleTeam(PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant"))); // Bulbasaur
+        var lossesAgainst = new List<BattleTeam>
         {
-            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            team2, team3
         };
-        var tiesAgainst = new List<Pokemon>();
+        var tiesAgainst = new List<BattleTeam>();
 
         // Act
         var metric = new Metric
         {
-            Pokemon = pokemon,
+            Team = team,
             WinsAgainst = winsAgainst,
             LossesAgainst = lossesAgainst,
             TiesAgainst = tiesAgainst
@@ -93,18 +101,22 @@ public class MetricTest : IClassFixture<TestFixture>
     {
         // Arrange
         var pokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
-        var winsAgainst = new List<Pokemon>();
-        var lossesAgainst = new List<Pokemon>();
-        var tiesAgainst = new List<Pokemon>
+        BattleTeam team = new BattleTeam(pokemon);
+
+        var winsAgainst = new List<BattleTeam>();
+        var lossesAgainst = new List<BattleTeam>();
+
+        BattleTeam team2 = new BattleTeam(PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"))); // Pikachu
+        BattleTeam team3 = new BattleTeam(PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant"))); // Bulbasaur
+        var tiesAgainst = new List<BattleTeam>
         {
-            PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant")), // Pikachu
-            PokedexRepository.CreatePokemon("" + 1, NatureRepository.GetNature("adamant")) // Bulbasaur
+            team2, team3
         };
 
         // Act
         var metric = new Metric
         {
-            Pokemon = pokemon,
+            Team = team,
             WinsAgainst = winsAgainst,
             LossesAgainst = lossesAgainst,
             TiesAgainst = tiesAgainst

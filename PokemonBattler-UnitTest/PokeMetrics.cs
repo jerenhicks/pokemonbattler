@@ -38,24 +38,28 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
         pokemon3.CurrentHP = 50; // Bulbasaur is not fainted
         pokemon4.CurrentHP = 0; // Ivysaur is not fainted
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
-        var battle2 = new Battle(pokemon3, pokemon1, new NinethGenerationBattleData());
-        var battle3 = new Battle(pokemon2, pokemon4, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        BattleTeam team3 = new BattleTeam(pokemon3);
+        BattleTeam team4 = new BattleTeam(pokemon4);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
+        var battle2 = new Battle(team3, team1, new NinethGenerationBattleData());
+        var battle3 = new Battle(team2, team4, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
 
         // Assert
-        Assert.Contains(pokemon1.Name, pokeMetrics.Metrics.Keys);
-        Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team1, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team2, pokeMetrics.Metrics.Keys);
 
         pokeMetrics.AddMetrics(battle2);
-        Assert.Contains(pokemon3.Name, pokeMetrics.Metrics.Keys);
-        Assert.Contains(pokemon1.Name, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team3, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team1, pokeMetrics.Metrics.Keys);
 
         pokeMetrics.AddMetrics(battle3);
-        Assert.Contains(pokemon4.Name, pokeMetrics.Metrics.Keys);
-        Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team4, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team2, pokeMetrics.Metrics.Keys);
     }
 
     [Fact]
@@ -71,7 +75,9 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
 
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Add initial metrics
         pokeMetrics.AddMetrics(battle);
@@ -80,10 +86,10 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokeMetrics.AddMetrics(battle);
 
         // Assert
-        Assert.Contains(pokemon1.Name, pokeMetrics.Metrics.Keys);
-        Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
-        Assert.Equal(1, pokeMetrics.Metrics[pokemon1.Name].Losses);
-        Assert.Equal(1, pokeMetrics.Metrics[pokemon2.Name].Wins);
+        Assert.Contains(team1, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team2, pokeMetrics.Metrics.Keys);
+        Assert.Equal(1, pokeMetrics.Metrics[team1].Losses);
+        Assert.Equal(1, pokeMetrics.Metrics[team2].Wins);
     }
 
 
@@ -98,16 +104,19 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 0; // Galvantula is fainted
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
 
         // Assert
-        Assert.Contains(pokemon1.Name, pokeMetrics.Metrics.Keys);
-        Assert.Contains(pokemon2.Name, pokeMetrics.Metrics.Keys);
-        Assert.Equal(1, pokeMetrics.Metrics[pokemon1.Name].Ties);
-        Assert.Equal(1, pokeMetrics.Metrics[pokemon2.Name].Ties);
+        Assert.Contains(team1, pokeMetrics.Metrics.Keys);
+        Assert.Contains(team2, pokeMetrics.Metrics.Keys);
+        Assert.Equal(1, pokeMetrics.Metrics[team1].Ties);
+        Assert.Equal(1, pokeMetrics.Metrics[team2].Ties);
     }
 
     [Fact]
@@ -121,7 +130,9 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon2.LevelUp(100);
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
-        var battle = new Battle(pokemon1, pokemon2, new NinethGenerationBattleData());
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
 
         // Act
         pokeMetrics.AddMetrics(battle);
@@ -155,7 +166,9 @@ public class PokeMetricsTest : IClassFixture<TestFixture>
         pokemon1.CurrentHP = 0; // Magikarp is fainted
         pokemon2.CurrentHP = 50; // Galvantula is not fainted
         GenerationBattleData generationBattleData = new NinethGenerationBattleData();
-        var battle = new Battle(pokemon1, pokemon2, generationBattleData);
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, generationBattleData);
 
         // Act
         pokeMetrics.AddMetrics(battle);

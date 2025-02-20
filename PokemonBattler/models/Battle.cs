@@ -13,15 +13,17 @@ public class Battle
 
     private Dictionary<Pokemon, int> badlyPoisonedTracker = new Dictionary<Pokemon, int>();
 
-    public BattlePositions BattlePositions { get; set; }
+    public BattleTeam Team1 { get; set; }
+    public BattleTeam Team2 { get; set; }
     private List<Pokemon> PokemonParticipants { get; set; }
 
-    public Battle(BattlePositions battlePositions, GenerationBattleData battleData, int turnLimit = 100)
+    public Battle(BattleTeam team1, BattleTeam team2, GenerationBattleData battleData, int turnLimit = 100)
     {
-        // Pokemon1 = pokemon1;
-        // Pokemon2 = pokemon2;
-        BattlePositions = battlePositions;
-        PokemonParticipants = BattlePositions.GetParticipants();
+        Team1 = team1;
+        Team2 = team2;
+        PokemonParticipants = new List<Pokemon>();
+        PokemonParticipants.AddRange(Team1.GetTeam());
+        PokemonParticipants.AddRange(Team2.GetTeam());
         TurnLimit = turnLimit;
         BattleData = battleData;
     }
@@ -32,8 +34,7 @@ public class Battle
         {
             pokemon.Reset();
         }
-        // Pokemon1.Reset();
-        // Pokemon2.Reset();
+
 
         startTime = DateTime.Now;
         var turn = 0;
@@ -56,17 +57,18 @@ public class Battle
             {
                 decidedMoves.Add(pokemon, PokemonDecideMove(pokemon));
             }
-            // var move1 = PokemonDecideMove(Pokemon1);
-            // var move2 = PokemonDecideMove(Pokemon2);
+
 
             //decide who goes first
             var turnOrder = GetTurnOrder(decidedMoves);
 
             foreach (var pokemon in turnOrder)
             {
+                BattleTeam activeTeam = Team1.GetTeam().Contains(pokemon) ? Team1 : Team2;
+                BattleTeam opposingTeam = Team1.GetTeam().Contains(pokemon) ? Team2 : Team1;
                 if (pokemon.CurrentHP > 0)
                 {
-                    var target = GetTarget(pokemon, decidedMoves[pokemon]);
+                    var target = GetTarget(pokemon, decidedMoves[pokemon], activeTeam, opposingTeam);
                     PokemonTurn(pokemon, decidedMoves[pokemon], target);
                     CheckFaintedAll();
                 }
@@ -356,11 +358,11 @@ public class Battle
         }
     }
 
-    public Pokemon GetTarget(Pokemon attackingPokemon, Move move)
+    public Pokemon GetTarget(Pokemon attackingPokemon, Move move, BattleTeam activeTeam, BattleTeam opposingTeam)
     {
         //FIXME: will need to add things here. This will probably break things.
         //for now, just return the other pokemon. We will implement this later
-        return BattlePositions.GetOpposingPokemon(attackingPokemon);
+        return opposingTeam.GetPokemonInPosition(activeTeam.GetPosition(attackingPokemon));
     }
 
     public List<Pokemon> GetTurnOrder(Dictionary<Pokemon, Move> moves)
