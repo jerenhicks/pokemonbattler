@@ -75,8 +75,9 @@ public class BattleConsole
                 List<Move> monster2Moves = MoveSetRepository.BuildRandomMoveSet(monster2.PokedexNumber, Generation.NINE, 4);
                 monster2.AddMoves(monster2Moves);
                 //monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
+                BattlePositions battlePositions = new BattlePositions(monster1, monster2);
 
-                Battle battle = new Battle(monster1, monster2, generationBattleData);
+                Battle battle = new Battle(battlePositions, generationBattleData);
                 battle.CommenceBattle();
 
                 pokeMetrics.AddMetrics(battle);
@@ -145,8 +146,9 @@ public class BattleConsole
             galvantula.AddMove(MoveRepository.GetMove("Struggle"));
 
             //galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
+            BattlePositions battlePositions = new BattlePositions(magikarp1, galvantula);
 
-            Battle battle = new Battle(magikarp1, galvantula, generationBattleData);
+            Battle battle = new Battle(battlePositions, generationBattleData);
             battle.CommenceBattle();
             foreach (var logEntry in battle.GetBattleLog()) // Updated line
             {

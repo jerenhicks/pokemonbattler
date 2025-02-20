@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 public class Battle
 {
-    public Pokemon Pokemon1 { get; }
-    public Pokemon Pokemon2 { get; }
     private int TurnLimit { get; }
     private List<string> battleLog = new List<string>();
     private DateTime startTime;
@@ -15,75 +13,91 @@ public class Battle
 
     private Dictionary<Pokemon, int> badlyPoisonedTracker = new Dictionary<Pokemon, int>();
 
-    public Battle(Pokemon pokemon1, Pokemon pokemon2, GenerationBattleData battleData, int turnLimit = 100)
+    public BattlePositions BattlePositions { get; set; }
+    private List<Pokemon> PokemonParticipants { get; set; }
+
+    public Battle(BattlePositions battlePositions, GenerationBattleData battleData, int turnLimit = 100)
     {
-        Pokemon1 = pokemon1;
-        Pokemon2 = pokemon2;
+        // Pokemon1 = pokemon1;
+        // Pokemon2 = pokemon2;
+        BattlePositions = battlePositions;
+        PokemonParticipants = BattlePositions.GetParticipants();
         TurnLimit = turnLimit;
         BattleData = battleData;
     }
 
     public void CommenceBattle()
     {
-        Pokemon1.Reset();
-        Pokemon2.Reset();
+        foreach (var pokemon in PokemonParticipants)
+        {
+            pokemon.Reset();
+        }
+        // Pokemon1.Reset();
+        // Pokemon2.Reset();
 
         startTime = DateTime.Now;
         var turn = 0;
         do
         {
             turn++;
-            battleLog.Add($"Turn {turn}: Pokemon1: {Pokemon1.Name} HP: {Pokemon1.CurrentHP}/{Pokemon1.HP} Pokemon2: {Pokemon2.Name} HP: {Pokemon2.CurrentHP}/{Pokemon2.HP}");
+            //change this to have all the pokemon's stats shown instead of 2.
+            var outputString = $"Turn {turn}: ";
+            foreach (var pokemon in PokemonParticipants)
+            {
+                outputString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+            }
+            battleLog.Add(outputString);
 
 
 
             //have both pokemon pick their attacks
-            var move1 = PokemonDecideMove(Pokemon1);
-            var move2 = PokemonDecideMove(Pokemon2);
+            Dictionary<Pokemon, Move> decidedMoves = new Dictionary<Pokemon, Move>();
+            foreach (var pokemon in PokemonParticipants)
+            {
+                decidedMoves.Add(pokemon, PokemonDecideMove(pokemon));
+            }
+            // var move1 = PokemonDecideMove(Pokemon1);
+            // var move2 = PokemonDecideMove(Pokemon2);
 
             //decide who goes first
-            var whoGoesFirst = DecideWhoGoesFirst(Pokemon1, Pokemon2, move1, move2);
+            var turnOrder = GetTurnOrder(decidedMoves);
 
-            if (whoGoesFirst == 1)
+            foreach (var pokemon in turnOrder)
             {
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                if (pokemon.CurrentHP > 0)
                 {
-                    PokemonTurn(Pokemon1, move1, Pokemon2);
-                    CheckFainted(Pokemon1, Pokemon2);
-                }
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
-                {
-                    PokemonTurn(Pokemon2, move2, Pokemon1);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    var target = GetTarget(pokemon, decidedMoves[pokemon]);
+                    PokemonTurn(pokemon, decidedMoves[pokemon], target);
+                    CheckFaintedAll();
                 }
             }
-            else
+
+            if (PokemonParticipants.TrueForAll(pokemon => pokemon.CurrentHP > 0))
             {
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                foreach (var pokemon in PokemonParticipants)
                 {
-                    PokemonTurn(Pokemon2, move2, Pokemon1);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    CheckPoison(pokemon);
                 }
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                foreach (var pokemon in PokemonParticipants)
                 {
-                    PokemonTurn(Pokemon1, move1, Pokemon2);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    CheckBurn(pokemon);
                 }
+                CheckFaintedAll();
             }
 
             //if both pokemon are still alive, check burn condition
-            if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
-            {
-                CheckPoison(Pokemon1);
-                CheckPoison(Pokemon2);
-                CheckBurn(Pokemon1);
-                CheckBurn(Pokemon2);
-                //only check for faints after both pokemon have taken their burn damage
-                CheckFainted(Pokemon1, Pokemon2);
-            }
+            // if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+            // {
+            //     CheckPoison(Pokemon1);
+            //     CheckPoison(Pokemon2);
+            //     CheckBurn(Pokemon1);
+            //     CheckBurn(Pokemon2);
+            //     //only check for faints after both pokemon have taken their burn damage
+            //     CheckFainted(Pokemon1, Pokemon2);
+            // }
 
 
-        } while (turn <= TurnLimit && Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0);
+        } while (turn <= TurnLimit && PokemonParticipants.TrueForAll(pokemon => pokemon.CurrentHP > 0));
 
         endTime = DateTime.Now;
         var duration = (endTime - startTime).TotalMilliseconds;
@@ -103,6 +117,8 @@ public class Battle
         }
 
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
+
+
 
         var canHit = BattleData.CanHit(attackingPokemon, defendingPokemon, attackerMove, random);
         if (canHit)
@@ -270,6 +286,22 @@ public class Battle
         }
     }
 
+    public void CheckFaintedAll() //check if all pokemon have fainted
+    {
+        var allFainted = true;
+        foreach (var pokemon in PokemonParticipants)
+        {
+            if (pokemon.CurrentHP > 0)
+            {
+                battleLog.Add($"{pokemon.Name} fainted!");
+            }
+        }
+        if (allFainted)
+        {
+            battleLog.Add("All Pokemon have fainted!");
+        }
+    }
+
     public Move PokemonDecideMove(Pokemon pokemon)
     {
         var moveToUse = MoveRepository.GetMove("struggle");
@@ -324,10 +356,71 @@ public class Battle
         }
     }
 
+    public Pokemon GetTarget(Pokemon attackingPokemon, Move move)
+    {
+        //FIXME: will need to add things here. This will probably break things.
+        //for now, just return the other pokemon. We will implement this later
+        return BattlePositions.GetOpposingPokemon(attackingPokemon);
+    }
+
+    public List<Pokemon> GetTurnOrder(Dictionary<Pokemon, Move> moves)
+    {
+        List<Pokemon> turnOrder = new List<Pokemon>();
+        //check to see move priority, highest gets added first. If the same, then check speed. If the same, then randomly decide
+        foreach (var pokemon in moves.Keys)
+        {
+            if (turnOrder.Count == 0)
+            {
+                turnOrder.Add(pokemon);
+            }
+            else
+            {
+                var move = moves[pokemon];
+                var added = false;
+                for (int i = 0; i < turnOrder.Count; i++)
+                {
+                    if (move.Priority > moves[turnOrder[i]].Priority)
+                    {
+                        turnOrder.Insert(i, pokemon);
+                        added = true;
+                        break;
+                    }
+                    else if (move.Priority == moves[turnOrder[i]].Priority)
+                    {
+                        if (pokemon.CurrentSpeed > turnOrder[i].CurrentSpeed)
+                        {
+                            turnOrder.Insert(i, pokemon);
+                            added = true;
+                            break;
+                        }
+                        else if (pokemon.CurrentSpeed == turnOrder[i].CurrentSpeed)
+                        {
+                            int randomValue = random.Next(0, 2);
+                            if (randomValue == 0)
+                            {
+                                turnOrder.Insert(i, pokemon);
+                                added = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (!added)
+                {
+                    turnOrder.Add(pokemon);
+                }
+            }
+        }
+
+        return turnOrder;
+    }
+
     public List<string> GetBattleLog()
     {
         return battleLog;
     }
+
+
 
     public (int, Boolean, double) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
     {
