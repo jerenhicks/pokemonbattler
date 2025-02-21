@@ -226,11 +226,23 @@ public class BattleTest : IClassFixture<TestFixture>
         var move1 = MoveRepository.GetMove("quick attack");
         var move2 = MoveRepository.GetMove("tackle");
 
+        Dictionary<Pokemon, Move> moves = new Dictionary<Pokemon, Move>
+        {
+            { pokemon1, move2 },
+            { pokemon2, move1 }
+        };
+
+        List<Pokemon> turnOrder = new List<Pokemon>
+        {
+            pokemon2,
+            pokemon1
+        };
+
         // Act
-        var result = battle.DecideWhoGoesFirst(pokemon1, pokemon2, move1, move2);
+        var result = battle.GetTurnOrder(moves);
 
         // Assert
-        Assert.Equal(1, result);
+        Assert.Equal(turnOrder, result);
     }
 
     [Fact]
@@ -250,11 +262,23 @@ public class BattleTest : IClassFixture<TestFixture>
         var move1 = MoveRepository.GetMove("tackle");
         var move2 = MoveRepository.GetMove("tackle");
 
+        Dictionary<Pokemon, Move> moves = new Dictionary<Pokemon, Move>
+        {
+            { pokemon1, move2 },
+            { pokemon2, move1 }
+        };
+
+        List<Pokemon> turnOrder = new List<Pokemon>
+        {
+            pokemon2,
+            pokemon1
+        };
+
         // Act
-        var result = battle.DecideWhoGoesFirst(pokemon1, pokemon2, move1, move2);
+        var result = battle.GetTurnOrder(moves);
 
         // Assert
-        Assert.Equal(2, result); // Assuming Galvantula has higher speed than Magikarp
+        Assert.Equal(turnOrder, result); // Assuming Galvantula has higher speed than Magikarp
     }
 
     [Fact]
@@ -266,17 +290,63 @@ public class BattleTest : IClassFixture<TestFixture>
         BattleTeam team1 = new BattleTeam(pokemon1);
         BattleTeam team2 = new BattleTeam(pokemon2);
         var battle = new Battle(team1, team2, new NinethGenerationBattleData());
+        battle.SetRandom(new RandomMock(0));
 
         pokemon1.LevelUp(50);
         pokemon2.LevelUp(50);
         var move1 = MoveRepository.GetMove("tackle");
         var move2 = MoveRepository.GetMove("tackle");
+        Dictionary<Pokemon, Move> moves = new Dictionary<Pokemon, Move>
+        {
+            { pokemon1, move2 },
+            { pokemon2, move1 }
+        };
+
+        List<Pokemon> turnOrder = new List<Pokemon>
+        {
+            pokemon2,
+            pokemon1
+        };
 
         // Act
-        var result = battle.DecideWhoGoesFirst(pokemon1, pokemon2, move1, move2);
+        var result = battle.GetTurnOrder(moves);
 
         // Assert
-        Assert.True(result == 1 || result == 2); // Random decision
+        Assert.Equal(turnOrder, result); // Random decision
+    }
+
+    [Fact]
+    public void TestDecideWhoGoesFirst_SamePriority_SameSpeed2()
+    {
+        // Arrange
+        var pokemon1 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var pokemon2 = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Another Magikarp
+        BattleTeam team1 = new BattleTeam(pokemon1);
+        BattleTeam team2 = new BattleTeam(pokemon2);
+        var battle = new Battle(team1, team2, new NinethGenerationBattleData());
+        battle.SetRandom(new RandomMock(1));
+
+        pokemon1.LevelUp(50);
+        pokemon2.LevelUp(50);
+        var move1 = MoveRepository.GetMove("tackle");
+        var move2 = MoveRepository.GetMove("tackle");
+        Dictionary<Pokemon, Move> moves = new Dictionary<Pokemon, Move>
+        {
+            { pokemon1, move2 },
+            { pokemon2, move1 }
+        };
+
+        List<Pokemon> turnOrder = new List<Pokemon>
+        {
+            pokemon1,
+            pokemon2
+        };
+
+        // Act
+        var result = battle.GetTurnOrder(moves);
+
+        // Assert
+        Assert.Equal(turnOrder, result); // Random decision
     }
 
     [Fact]
@@ -904,5 +974,145 @@ public class BattleTest : IClassFixture<TestFixture>
             Assert.Empty(battleLog);
         }
     }
+
+
+    [Fact]
+    public void GetTarget_ReturnsDefendingPokemonInSamePosition()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        var activeTeam = new BattleTeam(attackingPokemon);
+        var opposingTeam = new BattleTeam(defendingPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Equal(defendingPokemon, result);
+    }
+
+    [Fact]
+    public void GetTarget_ReturnsLeftPokemonWhenDefendingPokemonIsFainted()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        defendingPokemon.CurrentHP = 0;
+        var leftPokemon = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
+
+        var activeTeam = new BattleTeam(attackingPokemon);
+        var opposingTeam = new BattleTeam(defendingPokemon, leftPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Equal(leftPokemon, result);
+    }
+
+    [Fact]
+    public void GetTarget_ReturnsRightPokemonWhenDefendingPokemonAndLeftPokemonAreFainted()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        defendingPokemon.CurrentHP = 0;
+        var leftPokemon = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
+        leftPokemon.CurrentHP = 0;
+        var rightPokemon = PokedexRepository.CreatePokemon("" + 4, NatureRepository.GetNature("adamant"));
+        var activeTeam = new BattleTeam(attackingPokemon);
+        var opposingTeam = new BattleTeam(defendingPokemon, leftPokemon, rightPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Equal(rightPokemon, result);
+    }
+
+    [Fact]
+    public void GetTarget_ReturnsNullWhenAllDefendingPokemonAreFainted()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant")); // Magikarp
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        defendingPokemon.CurrentHP = 0;
+        var leftPokemon = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
+        leftPokemon.CurrentHP = 0;
+        var rightPokemon = PokedexRepository.CreatePokemon("" + 4, NatureRepository.GetNature("adamant"));
+        rightPokemon.CurrentHP = 0;
+        var activeTeam = new BattleTeam(attackingPokemon);
+        var opposingTeam = new BattleTeam(defendingPokemon, leftPokemon, rightPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void GetTarget_CheckMiddle()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"));
+        var attackingPokemon1 = PokedexRepository.CreatePokemon("" + 130, NatureRepository.GetNature("adamant"));
+        var attackingPokemon2 = PokedexRepository.CreatePokemon("" + 131, NatureRepository.GetNature("adamant"));
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        var leftPokemon = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
+        leftPokemon.CurrentHP = 0;
+        var rightPokemon = PokedexRepository.CreatePokemon("" + 4, NatureRepository.GetNature("adamant"));
+        var activeTeam = new BattleTeam(attackingPokemon, attackingPokemon1, attackingPokemon2);
+
+        var opposingTeam = new BattleTeam(defendingPokemon, leftPokemon, rightPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon1, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Equal(defendingPokemon, result);
+    }
+
+    [Fact]
+    public void GetTarget_CheckMiddleFar()
+    {
+        // Arrange
+        var attackingPokemon = PokedexRepository.CreatePokemon("" + 129, NatureRepository.GetNature("adamant"));
+        var attackingPokemon1 = PokedexRepository.CreatePokemon("" + 130, NatureRepository.GetNature("adamant"));
+        var attackingPokemon2 = PokedexRepository.CreatePokemon("" + 131, NatureRepository.GetNature("adamant"));
+        var defendingPokemon = PokedexRepository.CreatePokemon("" + 596, NatureRepository.GetNature("adamant")); // Galvantula
+        defendingPokemon.CurrentHP = 0;
+        var leftPokemon = PokedexRepository.CreatePokemon("" + 25, NatureRepository.GetNature("adamant"));
+        leftPokemon.CurrentHP = 0;
+        var rightPokemon = PokedexRepository.CreatePokemon("" + 4, NatureRepository.GetNature("adamant"));
+        var activeTeam = new BattleTeam(attackingPokemon, attackingPokemon1, attackingPokemon2);
+
+        var opposingTeam = new BattleTeam(defendingPokemon, leftPokemon, rightPokemon);
+        var battle = new Battle(activeTeam, opposingTeam, new NinethGenerationBattleData());
+        var move = new Move(33, "Tackle", TypeRepository.GetType("Normal"), MoveCategory.Physical, 35, 40, 1.0m, 0, false, false, false, false, false, Range.Normal, null); // High accuracy move
+
+
+        // Act
+        var result = battle.GetTarget(attackingPokemon1, move, activeTeam, opposingTeam);
+
+        // Assert
+        Assert.Equal(rightPokemon, result);
+    }
+
 
 }

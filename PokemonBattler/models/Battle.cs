@@ -344,44 +344,6 @@ public class Battle
         return moveToUse;
     }
 
-    public int DecideWhoGoesFirst(Pokemon pokemon1, Pokemon pokemon2, Move move1, Move move2)
-    {
-        //first thing is to check the priority of the moves. Highest priority goes first.
-        if (move1.Priority > move2.Priority)
-        {
-            return 1;
-        }
-        else if (move1.Priority < move2.Priority)
-        {
-            return 2;
-        }
-        else
-        {
-            //if the moves have the same priority, then we check the speed of the pokemon
-            if (pokemon1.CurrentSpeed > pokemon2.CurrentSpeed)
-            {
-                return 1;
-            }
-            else if (pokemon1.CurrentSpeed < pokemon2.CurrentSpeed)
-            {
-                return 2;
-            }
-            else
-            {
-                //if the pokemon have the same speed, then we randomly decide who goes first
-                int randomValue = random.Next(0, 2);
-                if (randomValue == 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
-            }
-        }
-    }
-
     public Pokemon GetTarget(Pokemon attackingPokemon, Move move, BattleTeam activeTeam, BattleTeam opposingTeam)
     {
         int attackingPokemonPosition = activeTeam.GetPosition(attackingPokemon);
@@ -416,7 +378,11 @@ public class Battle
                 }
                 else
                 {
-                    return opposingTeam.GetPokemonInPosition(leftPosition);
+                    if (opposingTeam.GetPokemonInPosition(rightPosition + 1).CurrentHP == 0)
+                    {
+                        return null;
+                    }
+                    return opposingTeam.GetPokemonInPosition(rightPosition + 1);
                 }
             }
         }
