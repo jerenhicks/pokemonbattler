@@ -360,7 +360,7 @@ public class Battle
             if (leftPosition > 0)
             {
                 Pokemon leftPokemon = opposingTeam.GetPokemonInPosition(leftPosition);
-                if (leftPokemon.CurrentHP > 0)
+                if (leftPokemon != null && leftPokemon.CurrentHP > 0)
                 {
                     return leftPokemon;
                 }
@@ -372,13 +372,18 @@ public class Battle
             else
             {
                 Pokemon rightPokemon = opposingTeam.GetPokemonInPosition(rightPosition);
-                if (rightPokemon.CurrentHP > 0)
+                if (rightPokemon != null && rightPokemon.CurrentHP > 0)
                 {
                     return rightPokemon;
                 }
                 else
                 {
-                    if (opposingTeam.GetPokemonInPosition(rightPosition + 1).CurrentHP == 0)
+                    Pokemon rightPos = opposingTeam.GetPokemonInPosition(rightPosition + 1);
+                    if (rightPos == null)
+                    {
+                        return null;
+                    }
+                    if (rightPos.CurrentHP == 0)
                     {
                         return null;
                     }
