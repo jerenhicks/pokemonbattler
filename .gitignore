@@ -5,6 +5,7 @@
 # .NET Core build folders
 bin/
 obj/
+coverage/
 
 
 # Common node modules locations
