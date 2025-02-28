@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 public class Battle
 {
-    public Pokemon Pokemon1 { get; }
-    public Pokemon Pokemon2 { get; }
     private int TurnLimit { get; }
     private List<string> battleLog = new List<string>();
     private DateTime startTime;
@@ -15,78 +13,119 @@ public class Battle
 
     private Dictionary<Pokemon, int> badlyPoisonedTracker = new Dictionary<Pokemon, int>();
 
-    public Battle(Pokemon pokemon1, Pokemon pokemon2, GenerationBattleData battleData, int turnLimit = 100)
+    public BattleTeam Team1 { get; set; }
+    public BattleTeam Team2 { get; set; }
+    private List<Pokemon> PokemonParticipants { get; set; }
+    private List<Pokemon> PokemonFainted = new List<Pokemon>();
+
+    public Battle(BattleTeam team1, BattleTeam team2, GenerationBattleData battleData, int turnLimit = 100)
     {
-        Pokemon1 = pokemon1;
-        Pokemon2 = pokemon2;
+        Team1 = team1;
+        Team2 = team2;
+        PokemonParticipants = new List<Pokemon>();
+        PokemonParticipants.AddRange(Team1.GetTeam());
+        PokemonParticipants.AddRange(Team2.GetTeam());
         TurnLimit = turnLimit;
         BattleData = battleData;
     }
 
     public void CommenceBattle()
     {
-        Pokemon1.Reset();
-        Pokemon2.Reset();
+        foreach (var pokemon in PokemonParticipants)
+        {
+            pokemon.Reset();
+        }
+
 
         startTime = DateTime.Now;
         var turn = 0;
         do
         {
             turn++;
-            battleLog.Add($"Turn {turn}: Pokemon1: {Pokemon1.Name} HP: {Pokemon1.CurrentHP}/{Pokemon1.HP} Pokemon2: {Pokemon2.Name} HP: {Pokemon2.CurrentHP}/{Pokemon2.HP}");
+            //change this to have all the pokemon's stats shown instead of 2.
+            var outputString = $"Turn {turn}: ";
+
+            outputString += $"Team 1: ";
+            foreach (var pokemon in Team1.GetTeam())
+            {
+                outputString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+            }
+            outputString += $"Team 2: ";
+            foreach (var pokemon in Team2.GetTeam())
+            {
+                outputString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+            }
+            battleLog.Add(outputString);
 
 
 
             //have both pokemon pick their attacks
-            var move1 = PokemonDecideMove(Pokemon1);
-            var move2 = PokemonDecideMove(Pokemon2);
+            Dictionary<Pokemon, Move> decidedMoves = new Dictionary<Pokemon, Move>();
+            foreach (var pokemon in PokemonParticipants)
+            {
+                decidedMoves.Add(pokemon, PokemonDecideMove(pokemon));
+            }
+
 
             //decide who goes first
-            var whoGoesFirst = DecideWhoGoesFirst(Pokemon1, Pokemon2, move1, move2);
+            var turnOrder = GetTurnOrder(decidedMoves);
 
-            if (whoGoesFirst == 1)
+            foreach (var pokemon in turnOrder)
             {
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                BattleTeam activeTeam = Team1.GetTeam().Contains(pokemon) ? Team1 : Team2;
+                BattleTeam opposingTeam = Team1.GetTeam().Contains(pokemon) ? Team2 : Team1;
+                if (pokemon.CurrentHP > 0)
                 {
-                    PokemonTurn(Pokemon1, move1, Pokemon2);
-                    CheckFainted(Pokemon1, Pokemon2);
-                }
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
-                {
-                    PokemonTurn(Pokemon2, move2, Pokemon1);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    var target = GetTarget(pokemon, decidedMoves[pokemon], activeTeam, opposingTeam);
+                    PokemonTurn(pokemon, decidedMoves[pokemon], target);
+                    CheckFaintedAll();
                 }
             }
-            else
+
+            if (PokemonParticipants.TrueForAll(pokemon => pokemon.CurrentHP > 0))
             {
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                foreach (var pokemon in PokemonParticipants)
                 {
-                    PokemonTurn(Pokemon2, move2, Pokemon1);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    CheckPoison(pokemon);
                 }
-                if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+                foreach (var pokemon in PokemonParticipants)
                 {
-                    PokemonTurn(Pokemon1, move1, Pokemon2);
-                    CheckFainted(Pokemon1, Pokemon2);
+                    CheckBurn(pokemon);
                 }
+                CheckFaintedAll();
             }
 
             //if both pokemon are still alive, check burn condition
-            if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
-            {
-                CheckPoison(Pokemon1);
-                CheckPoison(Pokemon2);
-                CheckBurn(Pokemon1);
-                CheckBurn(Pokemon2);
-                //only check for faints after both pokemon have taken their burn damage
-                CheckFainted(Pokemon1, Pokemon2);
-            }
+            // if (Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0)
+            // {
+            //     CheckPoison(Pokemon1);
+            //     CheckPoison(Pokemon2);
+            //     CheckBurn(Pokemon1);
+            //     CheckBurn(Pokemon2);
+            //     //only check for faints after both pokemon have taken their burn damage
+            //     CheckFainted(Pokemon1, Pokemon2);
+            // }
 
 
-        } while (turn <= TurnLimit && Pokemon1.CurrentHP > 0 && Pokemon2.CurrentHP > 0);
+        } while (turn <= TurnLimit && !(Team1.KnockedOut() || Team2.KnockedOut()));
 
         endTime = DateTime.Now;
         var duration = (endTime - startTime).TotalMilliseconds;
+
+        var endresultString = $"Results {turn}: ";
+
+        endresultString += $"Team 1: ";
+        foreach (var pokemon in Team1.GetTeam())
+        {
+            endresultString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+        }
+        endresultString += $"Team 2: ";
+        foreach (var pokemon in Team2.GetTeam())
+        {
+            endresultString += $"{pokemon.Name} HP: {pokemon.CurrentHP}/{pokemon.HP} ";
+        }
+        battleLog.Add(endresultString);
+
         battleLog.Add($"Battle Duration: {duration} milliseconds");
     }
 
@@ -103,6 +142,13 @@ public class Battle
         }
 
         battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name}");
+        if (defendingPokemon == null)
+        {
+            battleLog.Add($"{attackingPokemon.Name}({attackingPokemon.ID}) used {attackerMove.Name} but there was no target");
+            return;
+        }
+
+
 
         var canHit = BattleData.CanHit(attackingPokemon, defendingPokemon, attackerMove, random);
         if (canHit)
@@ -258,15 +304,27 @@ public class Battle
         }
     }
 
-    public void CheckFainted(Pokemon pokemon1, Pokemon pokemon2)
+    public void CheckFaintedAll() //check if all pokemon have fainted
     {
-        if (pokemon1.CurrentHP <= 0)
+        var allFainted = true;
+        foreach (var pokemon in PokemonParticipants)
         {
-            battleLog.Add($"{pokemon1.Name} fainted!");
+            if (pokemon.CurrentHP <= 0)
+            {
+                if (!PokemonFainted.Contains(pokemon))
+                {
+                    battleLog.Add($"{pokemon.Name} fainted!");
+                    PokemonFainted.Add(pokemon);
+                }
+            }
+            else
+            {
+                allFainted = false;
+            }
         }
-        if (pokemon2.CurrentHP <= 0)
+        if (allFainted)
         {
-            battleLog.Add($"{pokemon2.Name} fainted!");
+            battleLog.Add("All Pokemon have fainted!");
         }
     }
 
@@ -286,48 +344,113 @@ public class Battle
         return moveToUse;
     }
 
-    public int DecideWhoGoesFirst(Pokemon pokemon1, Pokemon pokemon2, Move move1, Move move2)
+    public Pokemon GetTarget(Pokemon attackingPokemon, Move move, BattleTeam activeTeam, BattleTeam opposingTeam)
     {
-        //first thing is to check the priority of the moves. Highest priority goes first.
-        if (move1.Priority > move2.Priority)
+        int attackingPokemonPosition = activeTeam.GetPosition(attackingPokemon);
+        Pokemon defendingPokemonInPosition = opposingTeam.GetPokemonInPosition(attackingPokemonPosition);
+        if (defendingPokemonInPosition.CurrentHP > 0)
         {
-            return 1;
-        }
-        else if (move1.Priority < move2.Priority)
-        {
-            return 2;
+            return defendingPokemonInPosition;
         }
         else
         {
-            //if the moves have the same priority, then we check the speed of the pokemon
-            if (pokemon1.CurrentSpeed > pokemon2.CurrentSpeed)
+            //check sides
+            int leftPosition = attackingPokemonPosition - 1;
+            int rightPosition = attackingPokemonPosition + 1;
+            if (leftPosition > 0)
             {
-                return 1;
-            }
-            else if (pokemon1.CurrentSpeed < pokemon2.CurrentSpeed)
-            {
-                return 2;
-            }
-            else
-            {
-                //if the pokemon have the same speed, then we randomly decide who goes first
-                int randomValue = random.Next(0, 2);
-                if (randomValue == 0)
+                Pokemon leftPokemon = opposingTeam.GetPokemonInPosition(leftPosition);
+                if (leftPokemon != null && leftPokemon.CurrentHP > 0)
                 {
-                    return 1;
+                    return leftPokemon;
                 }
                 else
                 {
-                    return 2;
+                    return opposingTeam.GetPokemonInPosition(rightPosition);
+                }
+            }
+            else
+            {
+                Pokemon rightPokemon = opposingTeam.GetPokemonInPosition(rightPosition);
+                if (rightPokemon != null && rightPokemon.CurrentHP > 0)
+                {
+                    return rightPokemon;
+                }
+                else
+                {
+                    Pokemon rightPos = opposingTeam.GetPokemonInPosition(rightPosition + 1);
+                    if (rightPos == null)
+                    {
+                        return null;
+                    }
+                    if (rightPos.CurrentHP == 0)
+                    {
+                        return null;
+                    }
+                    return opposingTeam.GetPokemonInPosition(rightPosition + 1);
                 }
             }
         }
+    }
+
+    public List<Pokemon> GetTurnOrder(Dictionary<Pokemon, Move> moves)
+    {
+        List<Pokemon> turnOrder = new List<Pokemon>();
+        //check to see move priority, highest gets added first. If the same, then check speed. If the same, then randomly decide
+        foreach (var pokemon in moves.Keys)
+        {
+            if (turnOrder.Count == 0)
+            {
+                turnOrder.Add(pokemon);
+            }
+            else
+            {
+                var move = moves[pokemon];
+                var added = false;
+                for (int i = 0; i < turnOrder.Count; i++)
+                {
+                    if (move.Priority > moves[turnOrder[i]].Priority)
+                    {
+                        turnOrder.Insert(i, pokemon);
+                        added = true;
+                        break;
+                    }
+                    else if (move.Priority == moves[turnOrder[i]].Priority)
+                    {
+                        if (pokemon.CurrentSpeed > turnOrder[i].CurrentSpeed)
+                        {
+                            turnOrder.Insert(i, pokemon);
+                            added = true;
+                            break;
+                        }
+                        else if (pokemon.CurrentSpeed == turnOrder[i].CurrentSpeed)
+                        {
+                            int randomValue = random.Next(0, 2);
+                            if (randomValue == 0)
+                            {
+                                turnOrder.Insert(i, pokemon);
+                                added = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (!added)
+                {
+                    turnOrder.Add(pokemon);
+                }
+            }
+        }
+
+        return turnOrder;
     }
 
     public List<string> GetBattleLog()
     {
         return battleLog;
     }
+
+
 
     public (int, Boolean, double) CalculateDamage(Pokemon attacker, Pokemon defender, Move move, int criticalOverride = 0)
     {

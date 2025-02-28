@@ -66,6 +66,8 @@ public class BattleConsole
         for (int id1 = 0; id1 < pokedexIds.Count; id1++)
         {
             Pokemon monster1 = PokedexRepository.CreatePokemon(pokedexIds[id1], NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon rider1 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon rider2 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
             List<Move> monster1Moves = MoveSetRepository.BuildRandomMoveSet(monster1.PokedexNumber, Generation.NINE, 4);
             monster1.AddMoves(monster1Moves);
             startTime = DateTime.Now;
@@ -75,8 +77,10 @@ public class BattleConsole
                 List<Move> monster2Moves = MoveSetRepository.BuildRandomMoveSet(monster2.PokedexNumber, Generation.NINE, 4);
                 monster2.AddMoves(monster2Moves);
                 //monster2.AddNonVolatileStatus(NonVolatileStatus.Burn);
+                BattleTeam team1 = new BattleTeam(monster1);
+                BattleTeam team2 = new BattleTeam(monster2);
 
-                Battle battle = new Battle(monster1, monster2, generationBattleData);
+                Battle battle = new Battle(team1, team2, generationBattleData);
                 battle.CommenceBattle();
 
                 pokeMetrics.AddMetrics(battle);
@@ -139,14 +143,18 @@ public class BattleConsole
 
             // Create a Magikarp Pokemon with level 1 and specified base stats
             Pokemon magikarp1 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon rider1 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
             Pokemon galvantula = PokedexRepository.CreatePokemon("596", NatureRepository.GetNature("adamant"), level: 100);
+            Pokemon rider2 = PokedexRepository.CreatePokemon("129", NatureRepository.GetNature("adamant"), level: 100);
 
             magikarp1.AddMove(MoveRepository.GetMove("acid"));
             galvantula.AddMove(MoveRepository.GetMove("Struggle"));
 
             //galvantula.AddNonVolatileStatus(NonVolatileStatus.Paralysis);
+            BattleTeam team1 = new BattleTeam(magikarp1);
+            BattleTeam team2 = new BattleTeam(galvantula);
 
-            Battle battle = new Battle(magikarp1, galvantula, generationBattleData);
+            Battle battle = new Battle(team1, team2, generationBattleData);
             battle.CommenceBattle();
             foreach (var logEntry in battle.GetBattleLog()) // Updated line
             {
