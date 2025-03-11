@@ -1,8 +1,17 @@
 # Pokemon Battle Simulator
 
 <div align="center">
-![.NET 8.0](https://img.shields.io/badge/Version-.NET%208.0-informational?style=flat&logo=dotnet)
+
+![.NET 6.0](https://img.shields.io/badge/Version-.NET%206.0-informational?style=flat&logo=dotnet)
 &nbsp;
+![Built With Docker](https://img.shields.io/badge/Built_With-Docker-informational?style=flat&logo=docker)
+&nbsp;
+[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6292/badge)](https://bestpractices.coreinfrastructure.org/projects/6292)
+&nbsp;
+[![CI Build](https://github.com/irongut/CodeCoverageSummary/actions/workflows/ci-build.yml/badge.svg)](https://github.com/irongut/CodeCoverageSummary/actions/workflows/ci-build.yml)
+&nbsp;
+[![CodeQL Scan](https://github.com/irongut/CodeCoverageSummary/actions/workflows/codeql-scan.yml/badge.svg)](https://github.com/irongut/CodeCoverageSummary/actions/workflows/codeql-scan.yml)
+
 </div>
 
 ## Profiling
