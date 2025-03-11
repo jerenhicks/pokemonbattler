@@ -52,8 +52,9 @@ public class Pokemon
     public NonVolatileStatus NonVolatileStatus { get; private set; } = NonVolatileStatus.None;
     public Generation Generation { get; private set; }
     public BaseStats BaseStats { get; private set; } = null;
+    public int IntelligenceScore { get; private set; }
 
-    public Pokemon(PokemonTemplate template, Nature nature, Generation generation, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1)
+    public Pokemon(PokemonTemplate template, Nature nature, Generation generation, int ivhp = 0, int ivAtk = 0, int ivDef = 0, int ivSpAtk = 0, int ivSpDef = 0, int ivSpeed = 0, int evHP = 0, int evAtk = 0, int evDef = 0, int evSpAtk = 0, int evSpDef = 0, int evSpeed = 0, int level = 1, int IntelligenceScore = 0)
     {
         Name = template.Name;
         PokedexNumber = template.PokedexNumber;
@@ -102,6 +103,11 @@ public class Pokemon
         if (totalEVs > 510)
         {
             throw new ArgumentException("Total EV stats must not exceed 510.");
+        }
+
+        if (IntelligenceScore < 0 || IntelligenceScore > 100)
+        {
+            throw new ArgumentException("Intelligence Score must be an int value between 0 and 100");
         }
 
         IVHP = ivhp;
