@@ -4,7 +4,7 @@
 
 ![.NET 8.0](https://img.shields.io/badge/Version-.NET%208.0-informational?style=flat&logo=dotnet)
 &nbsp;
-[![CI Build](https://github.com/jerenhicks/pokemonbattler/actions/workflows/mainbranch.yml/badge.svg)](https://github.com/jerenhicks/pokemonbattler/actions/workflows/mainbranch.yml)
+[![CI Build](https://github.com/jerenhicks/pokemonbattler/actions/workflows/branch.yml/badge.svg)](https://github.com/jerenhicks/pokemonbattler/actions/workflows/branch.yml)
 
 </div>
 

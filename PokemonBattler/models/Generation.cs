@@ -1,5 +1,5 @@
 
-public enum Generation
+public eum Generation
 {
     ZERO,
     ONE,
